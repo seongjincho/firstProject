@@ -5,23 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
-
-
-
-
 </head>
 <body>
 
-<%-- header --%>
-<jsp:include page="/WEB-INF/jsp/include/header.jsp" flush="false"/>
-
-
-메인 페이지 입니다   (like_cnt , read_cnt 로  게시물 띄우기 )
-
-
-<%-- header --%>
-<jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
+탈퇴한 회원 입니다
 
 </body>
 </html>

@@ -170,11 +170,14 @@
 
 #info .insert .addr{
 	margin-top: 50px;
+	margin-bottom: 15%;
 }
 
 #info .button_r{
 	bottom: 20px;
 	position: absolute;
+	margin-top: 10%;
+	
 }
 
 #info .button_r button_r:nth-child(1){

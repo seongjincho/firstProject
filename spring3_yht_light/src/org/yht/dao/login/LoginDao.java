@@ -20,7 +20,8 @@ public class LoginDao {
 	
 	 @Resource(name="sqlSession")
 	 SqlSession sqlSession;
-	
+
+	 
 	/**
 	 * 사용자 정보 조회
 	 * @param vo
@@ -28,7 +29,21 @@ public class LoginDao {
 	 * @throws Exception
 	 */
 	public MemberVo getUserInfo(MemberVo vo) throws Exception{
+		
 		return (MemberVo)sqlSession.selectOne("login.getUserInfo", vo);
+		
+	}
+	
+	public boolean regiAf(MemberVo vo) throws Exception{
+		
+		int n = sqlSession.insert("login.regiAf", vo);
+		return n>0?true:false;
+		
+	}
+	
+	public String idcheck(String id) throws Exception{
+		
+		return sqlSession.selectOne("login.idcheck", id);
 	}
 	
 	

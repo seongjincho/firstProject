@@ -55,7 +55,7 @@
 		</property>
 	</bean>  -->
 	
-<!-- 
+<!--  
 	메일 설정
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com"/>
@@ -70,10 +70,10 @@
 				<prop key="mail.debug">true</prop>
 			</props>
 		</property>
-	</bean>
+	</bean> -->
  
- 	ajax 배열 설정
-	<mvc:annotation-driven>
+ 	<!-- ajax 배열 설정 -->
+<!-- 	<mvc:annotation-driven>
 		<mvc:message-converters>
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<property name="supportedMediaTypes">
@@ -93,6 +93,6 @@
 				</property>
 			</bean>
 		</mvc:message-converters>
-	</mvc:annotation-driven> -->
+	</mvc:annotation-driven>  -->
 	
 </beans>

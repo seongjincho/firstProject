@@ -26,5 +26,21 @@ public class LoginServiceImpl implements LoginService {
 		return loginDao.getUserInfo(vo);
 	}
 
+	@Override
+	public boolean regiAf(MemberVo vo) throws Exception {
+		
+		return loginDao.regiAf(vo);
+	}
+
+	@Override
+	public String idcheck(String id) throws Exception {
+		
+		return loginDao.idcheck(id);
+	}
+	
+	
+	
+	
+
 
 }

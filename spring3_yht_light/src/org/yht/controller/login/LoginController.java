@@ -16,7 +16,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.yht.domain.test01.MemberVo;
 import org.yht.service.login.LoginService;
 
@@ -42,7 +42,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value="loginAf.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String loginCheck(MemberVo vo, Model model) throws Exception{
+	public String loginCheck(MemberVo vo, Model model , HttpServletRequest request) throws Exception{
 		
 		String src = null;
 		MemberVo login = loginService.login(vo);
@@ -57,9 +57,13 @@ public class LoginController {
 			} else if(login.getDel() == 1) {  // 탈퇴한 회원 
 				
 				System.out.println("탈퇴 회원");
+				
+				src = "login/leave";
 			}
 			
 			System.out.println("로그인성공");
+			request.getSession().setAttribute("login", login);
+			
 			src = "main/main";
 		} else {
 			
@@ -77,18 +81,58 @@ public class LoginController {
 		
 		HttpSession session = request.getSession(true);
 				
-		// 세션 정보에 사용자 저장
+		
 		session.invalidate();
 		
 		return nextPage;
 	}
 	
-	@RequestMapping(value="/dev/devFirst.do")
-	public String devFirst(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		String nextPage = "com/devFirst";
-		
-//		System.out.println(VarLanguage.getMsg(request, "MSG001"));
-		
-		return nextPage;
+	@RequestMapping(value="main.do")
+	public String main(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String mainPage = "main/main";
+			
+		return mainPage;
 	}
+	
+	@RequestMapping(value="regi.do")
+	public String regi() throws Exception{
+		String regiPage = "login/regi";
+		
+		System.out.println("회원가입 창 ㄱㄱ");
+		
+		return regiPage;
+	}
+	
+	@RequestMapping(value="regiAf.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String regiAf(MemberVo mem, Model model) throws Exception{
+		
+		boolean isS = loginService.regiAf(mem);
+		
+		if(isS) { // 성공
+			  System.out.println("회원 등록 성공");
+		}else{  // 실패
+			  System.out.println("회원 등록 실패");
+		}
+		
+		return "";
+	}
+/*	idcheck.do emailcheck.do  phonecheck.do*/
+	
+	@ResponseBody
+	@RequestMapping(value = "idcheck.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String idcheck(String id) throws Exception {
+		
+		String idCheck = loginService.idcheck(id);
+		String str = "";
+		
+		if(idCheck == null) {
+			str = "OK";
+		} else{
+			str = "NO";
+		}
+		
+		return str;
+	}
+	
+	
 }

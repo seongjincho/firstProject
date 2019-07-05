@@ -5,7 +5,7 @@
 
 	
 	<!-- 로그인 체크 -->
-	<select id="login.getUserInfo" parameterType="org.yht.domain.test01.MemberVo" resultType="org.yht.domain.test01.MemberVo">
+	<select id="getUserInfo" parameterType="org.yht.domain.test01.MemberVo" resultType="org.yht.domain.test01.MemberVo">
 		SELECT ID,
 			   PWD, 
 			   NAME,
@@ -20,6 +20,56 @@
 		  FROM TEST01_MEMBER
 		 WHERE ID = #{id}
 	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="regiAf" parameterType="org.yht.domain.test01.MemberVo">
+	    		INSERT INTO MEMBER(ID, PWD, NAME, EMAIL, ADDRESS1, ADDRESS2,
+  								   AUTH, PHONE, DEL, AUTHKEY, AUTHSTATUS)
+  				VALUES(#{id}, #{pwd}, #{name}, #{email}, #{address1}, #{address2},
+  									1, #{phone}, NULL, 0)
+	</insert>
+	
+	<!-- 아이디 중복 체크 -->
+	<select id="idcheck" parameterType="java.lang.String" resultType="java.lang.String">
+  		SELECT ID
+  		FROM MEMBER
+  		WHERE ID=#{id}
+  	</select>
+  	
+  	<!--  이메일 중복 체크 -->
+  	<select id="emailcheck" parameterType="java.lang.String" resultType="java.lang.String">
+  		SELECT EMAIL
+  		FROM MEMBER
+  		WHERE EMAIL=#{email}
+  	</select>
+  	
+  	<!--핸드폰 번호  중복 체크 -->
+  	<select id="phonecheck" parameterType="java.lang.String" resultType="java.lang.String">
+  		SELECT PHONE
+  		FROM MEMBER
+  		WHERE PHONE=#{phone}
+  	</select>
+  	
+  	<!--  이메일 인증키 등록 -->
+  	<update id="updateAuthKey" parameterType="org.yht.domain.test01.MemberVo">
+  		UPDATE MEMBER SET
+  		AUTHKEY=#{authkey}
+  		WHERE ID=#{id}
+  	</update>
+  	
+  	<!-- 이메일 인증 등록   -->
+  	<update id="userAuth" parameterType="java.lang.String">
+  		UPDATE MEMBER SET
+  		AUTHSTATUS=1
+  		WHERE EMAIL=#{email}
+  	</update>
+  	
+  	<!-- 멤버 삭제  -->
+  	<update id="memberDel" parameterType="java.lang.String">
+  	UPDATE MEMBER SET
+	DEL=1
+	WHERE ID=#{id}
+	</update>
 	
 
 	

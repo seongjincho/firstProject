@@ -6,12 +6,17 @@
 <fmt:requestEncoding value="utf-8"/>
 
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-<!-- <link rel="stylesheet" href="./css/1-front.css"/> -->
-<link rel="stylesheet" href="<c:url value='./css/1-front.css' />"/>
-<link rel="stylesheet" href="<c:url value='./css/_common.css' />"/>
+
+<%-- favicon --%>
+<link rel="icon" href="images/foodicon.png" sizes="48x48">
+
+
+
+<link rel="stylesheet" href="css/v1-front.css"/>
+<link rel="stylesheet" href="css/_common.css"/> 
 <%-- <script type="text/javascript" src="<c:url value='/js/yht_common.js' />"> </script> --%>
 
-<div id="login">
+<div id="login" >
 	<div class="container_c">
 		<div class="head">
 			<p class="noto">로그인</p>
@@ -26,9 +31,9 @@
 						<p></p>
 					</div>
 					<div class="all">
-<!-- 						<p onclick="checkAll(this)" style="position: relative;">
+						<p onclick="checkAll(this)" style="position: relative;">
 							<img src="./images/check.png" style="position: absolute; right: 0px; top: 0px;">
-						</p> -->
+						</p> 
 							<input type="checkbox" id="idSaveCheck" style="display: none;" onclick="checkAll(this)">
 						<p onclick="checkAll(this)">
 							아이디 저장
