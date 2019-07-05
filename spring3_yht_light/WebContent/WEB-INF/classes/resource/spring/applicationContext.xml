@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		                   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		                   http://www.springframework.org/schema/context
+		                   http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		                   http://www.springframework.org/schema/aop 
+		                   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<!-- ========================= GENERAL DEFINITIONS ========================= -->
+	
+	<context:annotation-config />
+	<context:component-scan base-package="org.yht.*, test.sample.*" />
+	
+	<!-- 정의한 패키지 내 모든 메소드 호출 시 실행할 메소드 선언 -->
+	<bean id="publicAop" class="yht.framework.aop.PublicMethodAOP" />
+	<aop:config>
+		<aop:aspect id="publicMethod" ref="publicAop">
+			<aop:pointcut expression="execution(public * org.yht..*(..)) or 
+			                          execution(public * yht.framework..*(..)) or
+			                          execution(public * test.sample..*(..))" id="publicMethodPc"/>
+			<aop:around pointcut-ref="publicMethodPc" method="trace"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<bean id="loginCheckInterceptor" class="yht.framework.interceptor.LoginCheckInterceptor" />
+	
+	<!-- ############### -->
+	<!-- 로그 -->
+	<!-- ############### -->
+	<bean id="log4jInitialization" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
+		<property name="targetMethod" value="initLogging" />
+		<property name="arguments">
+			<list>
+				<value>classpath:resource/spring/log4j.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+
+	
+</beans>

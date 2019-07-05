@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="spring3_yht_light">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_resource"/>
+        <property name="context-root" value="spring3_yht"/>
+        <property name="java-output-path" value="/spring3_yht_light/build/classes"/>
+    </wb-module>
+</project-modules>

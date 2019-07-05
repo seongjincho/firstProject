@@ -1,0 +1,155 @@
+/* 다국어 처리 */
+CREATE TABLE COM_LABEL (
+       LBL_CD VARCHAR2(20)  NOT NULL,
+       LANG_1 VARCHAR2(400) NOT NULL,
+       LANG_2 VARCHAR2(400),
+       LANG_3 VARCHAR2(400),
+       LANG_4 VARCHAR2(400),
+       LANG_5 VARCHAR2(400),
+       REMARK VARCHAR2(200)
+);
+
+ALTER TABLE COM_LABEL ADD CONSTRAINTS PK_COM_LABEL PRIMARY KEY (LBL_CD);
+
+insert into com_label (LBL_CD, LANG_1, LANG_2, LANG_3, LANG_4, LANG_5, REMARK)
+values ('LBL004', '사용자 아이디', 'User ID', null, null, null, null);
+insert into com_label (LBL_CD, LANG_1, LANG_2, LANG_3, LANG_4, LANG_5, REMARK)
+values ('LBL005', '사용자 명', 'User Name', null, null, null, null);
+insert into com_label (LBL_CD, LANG_1, LANG_2, LANG_3, LANG_4, LANG_5, REMARK)
+values ('LBL006', '다국어 코드', 'Code11', null, null, null, null);
+insert into com_label (LBL_CD, LANG_1, LANG_2, LANG_3, LANG_4, LANG_5, REMARK)
+values ('MSG001', '존재하지 않는 사용자 아이디 입니다.', 'There is no ID inform.', null, null, null, null);
+insert into com_label (LBL_CD, LANG_1, LANG_2, LANG_3, LANG_4, LANG_5, REMARK)
+values ('MSG002', '패스워드가 일치하지 않습니다.', 'Password is not matched.', null, null, null, null);
+insert into com_label (LBL_CD, LANG_1, LANG_2, LANG_3, LANG_4, LANG_5, REMARK)
+values ('LBL001', '아이디 기억', 'Remember ID', null, null, null, null);
+insert into com_label (LBL_CD, LANG_1, LANG_2, LANG_3, LANG_4, LANG_5, REMARK)
+values ('LBL002', '한국어', 'Korean', null, null, null, null);
+insert into com_label (LBL_CD, LANG_1, LANG_2, LANG_3, LANG_4, LANG_5, REMARK)
+values ('LBL003', '영어', 'English', null, null, null, null);
+insert into com_label (LBL_CD, LANG_1, LANG_2, LANG_3, LANG_4, LANG_5, REMARK)
+values ('MSG003', '아이디를 입력하세요.', 'Please, Insert ID', null, null, null, null);
+insert into com_label (LBL_CD, LANG_1, LANG_2, LANG_3, LANG_4, LANG_5, REMARK)
+values ('MSG004', '패스워드를 입력하세요.', 'Please, Insert Password', null, null, null, null);
+insert into com_label (LBL_CD, LANG_1, LANG_2, LANG_3, LANG_4, LANG_5, REMARK)
+values ('MSG005', '오류가 발생하였습니다.', 'Error occured.', null, null, null, null);
+insert into com_label (LBL_CD, LANG_1, LANG_2, LANG_3, LANG_4, LANG_5, REMARK)
+values ('MSG008', '실행 하시겠습니까?', 'You want to run the job?', null, null, null, null);
+insert into com_label (LBL_CD, LANG_1, LANG_2, LANG_3, LANG_4, LANG_5, REMARK)
+values ('MSG007', '선택된 건이 없습니다.', 'Choose one or more rows.', null, null, null, null);
+insert into com_label (LBL_CD, LANG_1, LANG_2, LANG_3, LANG_4, LANG_5, REMARK)
+values ('MSG006', '완료 되었습니다.', 'Completed!!', null, null, null, null);
+
+
+/* 사용자 관리 */
+CREATE TABLE COM_USER (
+	USER_ID   VARCHAR2(20) NOT NULL,
+	USER_NAME VARCHAR2(20),
+	PASSWD    VARCHAR2(100),
+	EMAIL     VARCHAR2(50)
+);
+
+ALTER TABLE COM_USER ADD CONSTRAINTS PK_COM_USER PRIMARY KEY (USER_ID);
+
+insert into com_user (USER_ID, USER_NAME, PASSWD, EMAIL)
+values ('master', 'master', 'a4ayc/80/OGda4BO/1o/V0etpOqiLx1JwB5S3beHW0s=', null);
+
+/* 메뉴 관리 */
+CREATE TABLE COM_MENU (
+	MENU_ID   VARCHAR2(30) NOT NULL,
+	UPPER_ID  VARCHAR2(30),
+	LEVEL_NO  NUMBER(1),
+	MENU_NAME VARCHAR2(40),
+	MENU_URL  VARCHAR2(100),
+	REMARK    VARCHAR2(200),
+	ORDER_NO  NUMBER(5),
+	TARGET    VARCHAR2(20)
+);
+
+ALTER TABLE COM_MENU ADD CONSTRAINTS PK_COM_MENU PRIMARY KEY (MENU_ID);
+
+insert into com_menu (MENU_ID, UPPER_ID, LEVEL_NO, MENU_NAME, MENU_URL, REMARK, ORDER_NO, TARGET)
+values ('M001', 'M001', 0, 'ADMIN', null, '관리', 1, null);
+insert into com_menu (MENU_ID, UPPER_ID, LEVEL_NO, MENU_NAME, MENU_URL, REMARK, ORDER_NO, TARGET)
+values ('M004', 'M001', 1, '메뉴 관리', '/program/programList.do', '메뉴 관리', 2, '_self');
+insert into com_menu (MENU_ID, UPPER_ID, LEVEL_NO, MENU_NAME, MENU_URL, REMARK, ORDER_NO, TARGET)
+values ('M005', 'M001', 1, '사용자 관리', '/user/userMng.do', null, 3, '_self');
+insert into com_menu (MENU_ID, UPPER_ID, LEVEL_NO, MENU_NAME, MENU_URL, REMARK, ORDER_NO, TARGET)
+values ('M006', 'M001', 1, '메뉴 그룹 관리', '/group/menuGrMng.do', null, 4, '_self');
+insert into com_menu (MENU_ID, UPPER_ID, LEVEL_NO, MENU_NAME, MENU_URL, REMARK, ORDER_NO, TARGET)
+values ('M008', 'M001', 1, '그룹 별 메뉴관리', '/menu/menuGrProgramMng.do', null, 5, '_self');
+insert into com_menu (MENU_ID, UPPER_ID, LEVEL_NO, MENU_NAME, MENU_URL, REMARK, ORDER_NO, TARGET)
+values ('M009', 'M001', 1, '그룹 별 사용자 관리', '/user/menuGrUserMng.do', null, 6, '_self');
+insert into com_menu (MENU_ID, UPPER_ID, LEVEL_NO, MENU_NAME, MENU_URL, REMARK, ORDER_NO, TARGET)
+values ('M007', 'M001', 1, '다국어 처리', '/multi/multiLingual.do', null, 8, '_self');
+insert into com_menu (MENU_ID, UPPER_ID, LEVEL_NO, MENU_NAME, MENU_URL, REMARK, ORDER_NO, TARGET)
+values ('M010', 'M001', 1, '개인 별 메뉴 관리', '/user/userProgramMng.do', null, 7, '_self');
+
+/* 권한 그룹 */
+CREATE TABLE COM_GROUP (
+	GROUP_ID   VARCHAR2(20) NOT NULL,
+	GROUP_NAME VARCHAR2(50),
+	REMARK     VARCHAR2(200)
+);
+
+ALTER TABLE COM_GROUP ADD CONSTRAINTS PK_COM_GROUP PRIMARY KEY (GROUP_ID);
+
+insert into com_group (GROUP_ID, GROUP_NAME, REMARK)
+values ('GR20121226150913', '관리자', null);
+
+/* 권한 그룹 별 메뉴 */
+CREATE TABLE COM_GROUP_MENU (
+	GROUP_ID  VARCHAR2(20) NOT NULL,
+	MENU_ID   VARCHAR2(30) NOT NULL
+);
+
+ALTER TABLE COM_GROUP_MENU ADD CONSTRAINTS PK_COM_GROUP_MENU PRIMARY KEY (GROUP_ID, MENU_ID);
+
+insert into com_group_menu (GROUP_ID, MENU_ID)
+values ('GR20121226150913', 'M004');
+insert into com_group_menu (GROUP_ID, MENU_ID)
+values ('GR20121226150913', 'M005');
+insert into com_group_menu (GROUP_ID, MENU_ID)
+values ('GR20121226150913', 'M006');
+insert into com_group_menu (GROUP_ID, MENU_ID)
+values ('GR20121226150913', 'M007');
+insert into com_group_menu (GROUP_ID, MENU_ID)
+values ('GR20121226150913', 'M008');
+insert into com_group_menu (GROUP_ID, MENU_ID)
+values ('GR20121226150913', 'M009');
+insert into com_group_menu (GROUP_ID, MENU_ID)
+values ('GR20121226150913', 'M010');
+
+/* 개인 별 그룹 권한 */
+CREATE TABLE COM_GROUP_USER (
+	GROUP_ID  VARCHAR2(20) NOT NULL,
+	USER_ID   VARCHAR2(20) NOT NULL
+);
+
+ALTER TABLE COM_GROUP_USER ADD CONSTRAINTS PK_COM_GROUP_USER PRIMARY KEY (GROUP_ID, USER_ID);
+
+insert into com_group_user (GROUP_ID, USER_ID)
+values ('GR20121226150913', 'master');
+
+
+/* 개인 메뉴 권한 */
+CREATE TABLE COM_USER_MENU (
+	USER_ID   VARCHAR2(20) NOT NULL,
+	MENU_ID   VARCHAR2(30) NOT NULL
+);
+
+ALTER TABLE COM_USER_MENU ADD CONSTRAINTS PK_COM_USER_MENU PRIMARY KEY (USER_ID, MENU_ID);
+
+
+/* 기초코드 관리 */
+CREATE TABLE COM_CODE (
+	PART_CODE    VARCHAR2(20) NOT NULL,
+	CODE         VARCHAR2(20) NOT NULL,
+	CODE_VALUE   VARCHAR2(200),
+	ORDER_NO     NUMBER(5),
+	REMARK_ONE   VARCHAR2(200),
+	REMARK_TWO   VARCHAR2(200),
+	REMARK_THREE VARCHAR2(200)
+);
+
+ALTER TABLE COM_CODE ADD CONSTRAINTS PK_COM_CODE PRIMARY KEY (PART_CODE, CODE);

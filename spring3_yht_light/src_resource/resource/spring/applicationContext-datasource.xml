@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- DataSource -->
+	<!-- Oracle -->
+<!-- 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@203.242.143.143:1521:gone" />
+		<property name="username" value="test01"/>
+		<property name="password" value="1234"/>
+		<property name="validationQuery" value="select 1 from dual" />
+	</bean> -->
+
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> 
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@203.242.143.97:1521:gone" />
+		<property name="username" value="test01"/>
+		<property name="password" value="1234"/>
+	</bean> 
+	
+
+
+
+
+</beans>

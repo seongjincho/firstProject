@@ -1,0 +1,891 @@
+@charset "UTF-8";
+#info{
+	/* min-width: 1500px; */
+	padding-top: 168px;
+	padding-bottom: 100px;
+}
+
+#info .container_c{
+	margin: 0 auto;
+	border: 1px #aaa solid;
+	width: 500px;
+	height: 850px;
+}
+
+#info .container_c .active{
+	height: 750px;
+}
+
+#info .head{
+	border-bottom: 1px solid #EEEEEE;
+	text-align: center;	
+}
+
+#info .head p{
+	font-size: 30px;
+	margin: 0 auto;
+	padding: 40px 0 0 0;
+}
+
+#info .body{
+	margin: 0 40px 0 40px;
+	height: 675px;
+	position: relative;
+}
+
+#info .body .active{
+	height: 750px;
+}
+
+#info .insert{
+	padding-top: 40px;
+} 
+
+#info .insert input{
+	height: 38px;
+	border: 1px solid #aaa;
+	font-size: 14px;
+	padding-left: 15px;
+}
+
+#info .insert input:-ms-input-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#info .insert input::-webkit-input-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#info .insert input::-moz-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#info .insert input::-moz-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#info .insert select{
+	padding-left: 10px;
+	font-size: 14px;
+	height: 40px;
+	width: 100px;
+	background: url('../image/selectDown.png') no-repeat 95% 50%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: 1px solid #aaa;
+}
+
+#info .insert .id{}
+#info .insert .id input{
+	/* width: 131px; */
+	width: 403px;
+}
+
+#info .insert .id p{
+	cursor: pointer;
+	font-size: 14px;
+	color: #c80a1e;
+	border-bottom: 1px solid #c80a1e;
+	padding: 10px 2px 6px 0;
+}
+
+#info .insert .pwd{
+	margin-top: 50px;
+}
+
+#info .insert .pwd div{
+	border: 1px solid #aaa;
+	margin-bottom: 10px;
+}
+
+#info .insert .pwd div:nth-child(2){
+	background-color: rgb(235, 235, 228);
+}
+
+#info .insert .pwd div>p{
+	float: right;
+	padding: 12px 5px 0 0;
+	color: #c80a1e;
+}
+
+#info .insert .pwd input{
+	width: 170px; 
+	margin-bottom: 0px;
+	border: none;
+}
+
+#info .insert .pwd p{
+	font-size: 13px;
+	color: #aaa;
+}
+
+#info .insert .name{
+	margin-top: 50px;
+}
+
+#info .insert .name input{
+	width: 403px;
+	margin-bottom: 10px;
+}
+
+#info .insert .phone{
+	margin-top: 20px;
+}
+
+#info .insert .phone input{
+	width: 403px;
+}
+
+#info .insert .phone p{
+	cursor: pointer;
+	font-size: 14px;
+	color: #c80a1e;
+	border-bottom: 1px solid #c80a1e;
+	padding: 10px 2px 6px 0;
+}
+
+#info .insert .email{
+	margin-top: 50px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+#info .insert .email input{
+	width: 131px;
+}
+
+#info .insert .email p{
+	cursor: pointer;
+	font-size: 14px;
+	color: #c80a1e;
+	border-bottom: 1px solid #c80a1e;
+	padding: 10px 2px 6px 0;
+}
+
+#info .insert .addr{
+	margin-top: 50px;
+}
+
+#info .button_r{
+	bottom: 20px;
+	position: absolute;
+}
+
+#info .button_r button_r:nth-child(1){
+	margin-right: 5px;
+}
+
+#login {
+	/* min-width: 1500px; */
+	padding-top: 168px;
+	padding-bottom: 100px;
+}
+
+#login .container_c {
+	margin: 0 auto;
+	border: 1px #aaa solid;
+	width: 500px;
+	height: 470px;
+}
+
+#login .head p {
+	font-size: 30px;
+	margin: 0 auto;
+	padding: 40px 0 0 0;
+	text-align: center;
+}
+
+#login .head ul{
+	width: 420px;
+	margin: 30px 0 0 40px;
+}
+
+#login .head li{
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	color: #AAAAAA;
+	padding-bottom: 10px;
+}
+
+#login .head li:nth-child(1){
+	color: #c80a1e;
+	border-bottom: solid 1px #c80a1e;
+}
+
+#login .head li:nth-child(-n+3){
+	margin-right: 20px;
+}
+
+#login .body {
+	text-align: center;
+	margin: 0 40px 0 40px;
+}
+
+#login .body .big {
+	font-size: 33px;
+	margin: 80px 0 35px 0;
+}
+
+#login .body .small {
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+
+#login .body .joinButton {
+	margin-top: 10px;
+	margin-bottom: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#login .enter {
+	margin-top: 20px;
+	text-align: left;
+}
+
+#login .enter input {
+	width: 95%;
+	margin-bottom: 10px; 
+	border: none;
+	margin-top: 0px;
+}
+
+#login .enter p {
+	font-size: 13px;
+	color: #aaa;
+}
+
+#login .enter input {
+	height: 38px;
+	border: 1px solid #aaa;
+	font-size: 14px;
+	padding-left: 4.5%;
+}
+
+#login .enter input:-ms-input-placeholder {
+	color: #aaa;
+	font-size: 14px;
+}
+
+#login .enter input::-webkit-input-placeholder {
+	color: #aaa;
+	font-size: 14px;
+}
+
+#login .enter input::-moz-placeholder {
+	color: #aaa;
+	font-size: 14px;
+}
+
+#login .enter input::-moz-placeholder {
+	color: #aaa;
+	font-size: 14px;
+}
+
+#login .all {
+	padding: 15px 0 30px 0;
+	height: 20px;
+}
+
+#login .all p {
+	font-weight: bold;
+	font-size: 13px;
+	height: 20px;
+	overflow: hidden;
+	float: left;
+	color: #aaa;
+	margin-right: 10px;
+}
+
+#login .all p:nth-child(1){
+	position: relative;
+	width: 20px;
+}
+
+#login .all ul{
+	float: right;
+}
+
+#login .all li{
+	display: inline-block;
+	font-size: 13px;
+	color: #AAAAAA;
+}
+
+#login .findId {
+	height: 315px;
+	position: relative;
+}
+
+#login .findId>button{
+	position: absolute;
+	left: 50%;
+	margin: 0 0 0 -120px;
+	bottom: 40px;
+}
+
+#login .findId>div>button:nth-child(1){
+	margin-right: 5px;
+}
+
+#login .findId .buttonDiv1{
+	position: absolute;
+	bottom: 40px;
+	display: none;
+}
+
+#login .findId .buttonDiv2{
+	position: absolute;
+	bottom: 40px;
+	display: none;
+}
+
+#login .findId .buttonDiv3{
+	display: none;
+}
+
+#login .findId .email input{
+	width: 29%
+}
+
+#login .findId select{
+	padding-left: 4.5%;
+	height: 40px;
+	width: 125px;
+}
+
+#login .findId .resultCmt{
+	padding-top: 85px;
+	font-size: 20px;
+	display: none;
+}
+
+#login .findPwd{
+	position: relative;
+	height: 315px;
+	display: none;
+}
+
+#login .findPwd ul{
+	margin-top: 20px;
+}
+
+#login .findPwd li{
+	font-size: 13px;
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+#login .findPwd div:nth-child(1) .enter input:nth-child(n+2){
+	width: 131px;
+}
+
+#login .findPwd .email input{
+	width: 29%
+}
+
+#login .findPwd select{
+	padding-left: 4.5%;
+	height: 40px;
+	width: 125px;
+}
+
+#login .findPwd>div:nth-child(2){
+	display: none;
+}
+
+#login .findPwd button{
+	position: absolute;
+	margin: 0 0 0 -120px;
+	bottom: 40px;
+}
+
+#login .findPwd button>span{
+	color: white;
+	font-size: 13px;
+}
+
+#login .findPwd>div:nth-child(2){
+	display: none;
+}
+
+#updateMyInfo{
+	margin: 100px auto 0px;
+	width: 1200px;
+	overflow: hidden;
+}
+
+#updateMyInfo .title{
+	margin: 0 auto;
+	width: 500px;
+	text-align: center;
+	font-size: 35px;
+	margin-bottom: 40px;
+}
+
+#updateMyInfo .container_c{
+	margin: 0 auto;
+	border: 1px #aaa solid;
+	width: 500px;
+	height: 790px;
+	margin-bottom: 100px;
+}
+
+#updateMyInfo .body{
+	margin: 0 40px 0 40px;
+	height: 675px;
+	position: relative;
+}
+
+#updateMyInfo .insert{
+	padding-top: 40px;
+}
+
+#updateMyInfo .insert input{
+	height: 38px;
+	border: 1px solid #aaa;
+	font-size: 14px;
+	padding-left: 15px;
+}
+
+#updateMyInfo .insert input:-ms-input-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#updateMyInfo .insert input::-webkit-input-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#updateMyInfo .insert input::-moz-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#updateMyInfo .insert input::-moz-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#updateMyInfo .insert .id{}
+#updateMyInfo .insert .id input{
+	width: 131px;
+}
+
+#updateMyInfo .insert .id p{
+	cursor: pointer;
+	font-size: 14px;
+	color: #c80a1e;
+	border-bottom: 1px #c80a1e solid;
+	padding: 10px 2px 6px 0;
+}
+
+#updateMyInfo .insert .email{
+	margin-right: 13px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 403px;
+}
+
+#updateMyInfo .insert .pwd{
+	margin-top: 10px;
+}
+
+#updateMyInfo .insert .pwd div{
+	border: 1px #aaa solid;
+	margin-bottom: 10px;
+}
+
+#updateMyInfo .insert .pwd div:nth-child(2){
+	background-color: rgb(235, 235, 228);
+}
+
+#updateMyInfo .insert .pwd div>p{
+	float: right;
+	padding: 12px 5px 0 0;
+	color: #c80a1e;
+}
+
+#updateMyInfo .insert .pwd input{
+	width: 170px;
+	margin-bottom: 0px;
+	border: none;
+}
+
+#updateMyInfo .insert .name p{
+	font-size: 13px;
+	color: #aaa;
+}
+
+#updateMyInfo .insert .name input{
+	width: 403px;
+	margin-bottom: 10px;
+}
+
+#updateMyInfo .insert .name button{
+	width: 403px;
+	margin-bottom: 10px;
+}
+
+#updateMyInfo .insert .phone{
+	margin-top: 20px;
+}
+
+#updateMyInfo .insert .phone input{
+	width: 403px;
+}
+
+#updateMyInfo .insert .phone p{
+	cursor: pointer;
+	font-size: 14px;
+	color: #c80a1e;
+	border-bottom: 1px #c80a1e solid;
+	padding: 10px 2px 6px 0;
+}
+
+#updateMyInfo .button_r{
+	margin-top: 40px;
+}
+
+#updateMyInfo .button_r button_r:nth-child(1){
+	margin-right: 5px;
+}
+
+#updateMyInfo .layerPopup>div{
+	text-align: left;
+}
+
+#updateMyInfo .layerPopup{
+	display: none;
+	text-align: center;
+	z-index: 151;
+	bottom: 90px;
+	border: 1px #aaa solid;
+	position: absolute;
+	width: 500px;
+	height: 500px;
+	left: 50%;
+	margin: 0 0 0 -251px;
+	background-color: white;
+}
+
+#updateMyInfo .layerPopup>p:nth-child(1){
+	font-size: 30px;
+	padding-top: 40px;
+	text-align: center;
+}
+
+#updateMyInfo .layerPopup>p:nth-child(3){
+	font-size: 14px;
+	color: #63666A;
+}
+
+#updateMyInfo .layerPopup .btn_240{
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 65px;
+}
+
+#updateMyInfo .pwd{
+	margin-top: 50px;
+	width: 405px;
+	/* margin: 0 auto; */
+}
+
+#updateMyInfo .pwd div{
+	border: 1px #aaa solid;
+	margin: 0  0px 10px 0px;
+}
+
+#updateMyInfo .pwd div:nth-child(6){
+	background-color: rgb(235, 235, 228);
+}
+
+#updateMyInfo .pwd div>p{
+	float: right;
+	padding: 12px 5px 0 0;
+	color: #c80a1e;
+	font-size: 12px;
+}
+
+#updateMyInfo .pwd input{
+	width: 140px;
+	margin-bottom: 0px;
+	border: none;
+}
+
+#updateMyInfo .pwd input{
+	height: 38px;
+	font-size: 14px;
+	padding-left: 15px;
+}
+
+#updateMyInfo .pwd>p{
+	font-size: 14px;
+	margin-bottom: 12px;
+}
+
+#updateMyInfo .pwd>p:nth-child(3){
+	font-size: 14px;
+	margin-bottom: 12px;
+	margin-top: 30px;
+}
+
+#updateMyInfo .addr{
+	margin-top: 40px;
+}
+
+#updateMyInfo .point{
+	margin-top: 10px;
+}
+
+#updateMyInfo .grade{
+	margin-top: 10px;
+}
+
+#qna{
+	margin: 100px auto 0px;
+	/* width: 1200px; */
+	overflow: hidden;
+	min-height: 900px;
+}
+
+#qna .title{
+	margin: 0 auto;
+	width: 500px;
+	text-align: center;
+	font-size: 35px;
+	margin-bottom: 40px;
+}
+
+#qna .container_c{
+	margin: 0 auto;
+	width: 730px;
+	margin-bottom: 100px;
+}
+
+#qna .head{
+	border-top: 1px #e0e0e0 solid;
+	border-bottom: 1px #e0e0e0 solid;
+	padding: 40px 0 40px 0;
+}
+
+#qna .head tr{
+	height: 40px
+}
+
+#qna .head td{
+	font-family: 'Noto Sans KR';
+	font-size: 15px;
+	cursor: pointer;
+}
+
+#qna .head .cNum{
+	padding-top: 3px;
+	vertical-align: middle;
+	text-align: center;
+	display: inline-block;
+	top: 0px;
+	right: 0px;
+	width: 23px;
+	height: 20px;
+	background-color: #f0f0f0;
+	color: #aaa;
+	border-radius: 50%;
+}
+
+#qna .neck td{
+	cursor: pointer;
+	width: 25%;
+	padding: 17px 0 17px 0;
+	text-align: center;
+	border: 1px #aaaaaa solid;
+}
+
+#qna .neck .selected{
+	border: 1px #c80a1e solid;
+	color: #c80a1e
+}
+
+#qna .neck .leftOfSelected{
+	border-right: 1px #c80a1e solid;
+}
+
+#qna .neck{
+	padding: 60px 0 35px 0;
+}
+
+#qna .body{
+	position: relative;
+}
+
+#qna .body tbody tr:nth-child(1) td{
+	border-top: 1px #aaa solid;
+	border-bottom: 1px #f0f0f0 solid;
+	height: 25px; 
+	font-size: 13px;
+	color: #aaa;
+	text-align: center;
+}
+
+#qna .body tbody .subject td{
+	border-bottom: 1px #f0f0f0 solid;
+	height: 70px;
+	font-size: 15px;
+	cursor: pointer;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#qna .body tbody .subject td:nth-child(2){
+	text-align: left;
+	padding-left: 40px;
+}
+
+#qna .body tbody .subject:hover td span{
+	color: #c80a1e;
+}
+
+#qna .body tbody .subject td:nth-child(2n+1){
+	text-align: center;
+}
+
+#qna .body tbody .subject td:nth-child(2) span:nth-child(1){
+	display: inline-block;
+}
+
+#qna .body tbody .date{
+	display: inline-block;
+	padding-top: 7px;
+	color: #aaa;
+	font-size: 14px;
+}
+
+#qna .body tbody .subject td:nth-child(5) span{
+	color: #c80a1e;
+}
+
+#qna .body tbody .contents td{
+	display: none;
+	vertical-align: top;
+	padding: 30px 0 30px 0;
+	border-bottom: 1px #f0f0f0 solid;
+}
+
+#qna .body tbody .contents td:nth-child(2){
+	text-align: left;
+	padding-left: 40px;
+}
+
+#qna .body tbody .contents img{
+	max-width: 400px;
+}
+
+#qna .body tbody .contents .cnts{
+	font-size: 14px;
+	margin-bottom: 30px;
+}
+
+#qna .body tbody .contents div span{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#qna .body tbody .cBottom td{
+	border-bottom: 1px #aaaaaa solid;
+}
+
+#qna .bodyy tbody tr:nth-child(1) td{
+	border-top: 1px #aaa solid;
+	border-bottom: 1px #f0f0f0 solid;
+	height: 25px;
+	font-size: 13px;
+	color: #aaa;
+	text-align: center;
+}
+
+#qna .bodyy tbody .subject td{
+	vertical-align: top;
+	border-bottom: 1px #f0f0f0 solid;
+	cursor: pointer;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#qna .bodyy tbody .subject td span{
+	font-size: 16px;
+}
+
+#qna .bodyy tbody .subject td:nth-child(2){
+	text-align: left;
+	padding-left: 40px;
+}
+
+#qna .bodyy tbody .subject:hover td span{
+	color: #c80a1e;
+}
+
+#qna .bodyy tbody .subject td:nth-child(2n+1){
+	text-align: center;
+}
+
+#qna .bodyy tbody .subject td:nth-child(2) span:nth-child(1){
+	display: inline-block;
+}
+
+#qna .bodyy tbody .date{
+	display: inline-block;
+	font-size: 14px;
+}
+
+#qna .bodyy tbody .subject td:nth-child(5) span{
+	color: #c80a1e;
+}
+
+#qna .bodyy tbody .contents td{
+	display: none;
+	vertical-align: top;
+	padding: 30px 0 30px 0;
+	border-bottom: 1px #f0f0f0 solid;
+}
+
+#qna .bodyy tbody .contents td:nth-child(2){
+	text-align: left;
+	padding-left: 40px;
+}
+
+#qna .bodyy tbody .contents img{
+	max-width: 400px;
+}
+
+#qna .bodyy tbody .contents div span{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#qna .bodyy tbody .cBottom td{
+	border-bottom: 1px #aaaaaa solid;
+}
+
+#qna .bodyy tbody .tBottom td{
+	border-bottom: 1px #f0f0f0 solid;
+}
+
+#qna .bodyy .img_td{
+	border-bottom: 1px #aaaaaa solid;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#qna .bodyy .border_td{
+	border-bottom: 1px #aaaaaa solid;
+}
