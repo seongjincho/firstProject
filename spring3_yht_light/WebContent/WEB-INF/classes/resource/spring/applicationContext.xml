@@ -14,7 +14,8 @@
 	<!-- ========================= GENERAL DEFINITIONS ========================= -->
 	
 	<context:annotation-config />
-	<context:component-scan base-package="org.yht.*, test.sample.*" />
+	<context:component-scan base-package="org.yht.controller.*, org.yht.sample.*, org.yht.service.*, org.yht.dao.*" />
+	<!-- <context:component-scan base-package="org.yht.*, test.sample.*" /> -->
 	
 	<!-- 정의한 패키지 내 모든 메소드 호출 시 실행할 메소드 선언 -->
 	<bean id="publicAop" class="yht.framework.aop.PublicMethodAOP" />

@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.ibatis.session.SqlSession;
+
 import org.springframework.stereotype.Repository;
 
 import org.yht.domain.test01.MemberVo;
@@ -20,6 +21,7 @@ public class LoginDao {
 	
 	 @Resource(name="sqlSession")
 	 SqlSession sqlSession;
+	 
 
 	 
 	/**
@@ -34,10 +36,10 @@ public class LoginDao {
 		
 	}
 	
-	public boolean regiAf(MemberVo vo) throws Exception{
+	public void regiAf(MemberVo vo) throws Exception{
 		
-		int n = sqlSession.insert("login.regiAf", vo);
-		return n>0?true:false;
+		sqlSession.insert("login.regiAf", vo);
+		
 		
 	}
 	
@@ -56,5 +58,19 @@ public class LoginDao {
 		return sqlSession.selectOne("login.phonecheck", phone);
 		
 	}
+	
+	public void updateAuthKey(MemberVo vo) throws Exception{
+		
+		sqlSession.update("login.updateAuthKey", vo);
+		
+	}
+	
+	public void userAuth(String email) throws Exception{
+		
+		sqlSession.update("login.userAuth", email);
+		
+	}
+	
+	
 	
 }

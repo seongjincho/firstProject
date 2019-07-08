@@ -16,14 +16,12 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.yht.domain.test01.MemberVo;
 import org.yht.service.login.LoginService;
 
 
-import yht.framework.util.EncryptionUtils;
-import yht.framework.util.Util;
 
 @Controller
 public class LoginController {
@@ -43,8 +41,11 @@ public class LoginController {
 		return loginPage; 
 	}
 
-	@RequestMapping(value="loginAf.do", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="loginAf.do", method = {RequestMethod.POST})
 	public String loginCheck(MemberVo vo, Model model , HttpServletRequest request) throws Exception{
+		
+		
+		System.out.println(vo.toString());
 		
 		String src = null;
 		MemberVo login = loginService.login(vo);
@@ -56,24 +57,29 @@ public class LoginController {
 				return "emailConfirm.tiles";*/
 				System.out.println("이메일 인증 안하셨음");
 				
+				
+				return "login/login";
+				
+				
 			} else if(login.getDel() == 1) {  // 탈퇴한 회원 
 				
 				System.out.println("탈퇴 회원");
 				
-				src = "login/leave";
+				return "login/leave";
 			}
 			
 			System.out.println("로그인성공");
 			request.getSession().setAttribute("login", login);
 			
-			src = "main/main";
+			return "main/main";
 		} else {
 			
 			System.out.println("에러");
+			return "login/error";
 			
 		}
 		
-		return src;
+		//return src;
 
 	}
 	
@@ -108,17 +114,13 @@ public class LoginController {
 	@RequestMapping(value="regiAf.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String regiAf(MemberVo mem, Model model) throws Exception{
 		
+		String loginPage = "login/login";
 		
 		System.out.println("회원가입 시도!");
-		boolean isS = loginService.regiAf(mem);
+				loginService.regiAf(mem);
 		
-		if(isS) { // 성공
-			  System.out.println("회원 등록 성공");
-		}else{  // 실패
-			  System.out.println("회원 등록 실패");
-		}
-		
-		return "";
+
+		return loginPage;
 	}
 /*	idcheck.do emailcheck.do  phonecheck.do*/
 	
