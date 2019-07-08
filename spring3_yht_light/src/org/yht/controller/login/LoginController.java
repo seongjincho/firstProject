@@ -1,6 +1,7 @@
 package org.yht.controller.login;
 
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.yht.domain.test01.MemberVo;
 import org.yht.service.login.LoginService;
+
 
 import yht.framework.util.EncryptionUtils;
 import yht.framework.util.Util;
@@ -106,6 +108,8 @@ public class LoginController {
 	@RequestMapping(value="regiAf.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String regiAf(MemberVo mem, Model model) throws Exception{
 		
+		
+		System.out.println("회원가입 시도!");
 		boolean isS = loginService.regiAf(mem);
 		
 		if(isS) { // 성공
@@ -122,6 +126,8 @@ public class LoginController {
 	@RequestMapping(value = "idcheck.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String idcheck(String id) throws Exception {
 		
+		System.out.println("id:" + id);
+		
 		String idCheck = loginService.idcheck(id);
 		String str = "";
 		
@@ -131,6 +137,44 @@ public class LoginController {
 			str = "NO";
 		}
 		
+		return str;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "emailcheck.do", method = RequestMethod.POST)
+	public String emailcheck(String email) throws Exception {
+		
+		
+		System.out.println("email: " + email);
+		
+		String check = loginService.emailcheck(email);
+		String str = "";
+		
+		System.out.println("check=" + check);
+		
+		if(check == null){
+			str = "OK";
+		} else{
+			str = "NO";
+		}
+		return str;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "phonecheck.do", method = RequestMethod.POST)
+	public String phonecheck(String phone) throws Exception {
+		
+		String str = "";
+		String check = loginService.phonecheck(phone);
+		
+		
+		System.out.println("check=" + check);
+		
+		if(check == null){
+			str = "OK";
+		} else{
+			str = "NO";
+		}
 		return str;
 	}
 	

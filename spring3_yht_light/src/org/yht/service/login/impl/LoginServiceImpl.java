@@ -37,10 +37,18 @@ public class LoginServiceImpl implements LoginService {
 		
 		return loginDao.idcheck(id);
 	}
-	
-	
-	
-	
 
+	@Override
+	public String emailcheck(String email) throws Exception {
+		
+		return loginDao.emailcheck(email);
+	}
+
+	@Override
+	public String phonecheck(String phone) throws Exception {
+		
+		return loginDao.phonecheck(phone);
+	}
+	
 
 }

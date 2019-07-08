@@ -106,11 +106,11 @@ $(document).ready(function() {
     </ul>
     <form class="form-inline my-2 my-lg-0">
     
-      <c:if test="${login.id != null}">
+<%--       <c:if test="${login.id != null}">
       	${login.id }님 &nbsp;&nbsp;
       	point [<b style="color:deepskyblue;">${login.point }</b>]P&nbsp;&nbsp;
       	<input type="button" value="로그아웃" class="loginButton" onclick="">
-	  </c:if>
+	  </c:if> --%>
 	  
 	  <c:if test="${login.id==null}">
       	<input type="button" value="로그인"  class="logoutButton" onclick="location.href='login.do'">

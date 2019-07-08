@@ -59,6 +59,7 @@
 						@ <input type="text" id="_email2" name="email2">
 						<select id="_selemail">
 							<option value="" selected>직접입력</option>
+							<option value="yht.co.kr">yht.co.kr</option>	
 							<option value="gmail.com">gmail.com</option>
 							<option value="naver.com">naver.com</option>
 							<option value="daum.net">daum.net</option>
@@ -177,6 +178,7 @@ $(".second").keyup(function(){
 });
 
 function checkId(){
+	
 	var id = $('#_uid').val();
 	var str_space = /\s/;
 	
@@ -193,52 +195,67 @@ function checkId(){
 		return false;
 	}
 	
-	var id = $("input[name=id]").val()
+	// var id = $("input[name=id]").val();
 	
 	$.ajax({
 		url: "idcheck.do",
 		type: "post",
 		data: {"id" : id },
-		dataType: "json",
-		contentType:"application/json;charset=UTF-8",
 		success:function(data){
-			console.log(data);
+			
+			//alert("아이디체크 ajx 진입!");
 			if($.trim(data) == "OK"){
+				
 				alert("사용 가능한 아이디입니다.");
 				checkIdGb = "Y"
+				
 			} else{
+				
 				alert("이미 등록된 아이디입니다.");
 				$('#_uid').val("");
+				
 			}
 		},
 		error:function(r, s, err){
+			
 			alert("error");
+			
 		}
 	});
 }
 
 // 이메일 확인
 function checkEmail() {
+	
+	alert("이메일 체크!");
+	
 	var email = $('#_email1').val().trim() + "@" + $('#_email2').val().trim();
 	$('#_email').val(email);
 	
 	if(email.trim() == "@" || $("#_email1").val() == "") {
+		
 		alert("이메일을 입력해주세요");
 		$('#_email1').focus();
+		
 	} else {
 		$.ajax({
 			url:"emailcheck.do",
 			type:"post",
 			data: {"email" : email},
-			dataType: "json",
 			success:function(data) {
-				console.log(data);
+				
+				//alert("이메일 체크 ajax 진입!");
+				
 				if($.trim(data) == "OK"){
+					
 					alert("사용 가능한 이메일입니다.");
 					checkEmailGb = "Y"
+					
 				} else{
+					
 					alert("이미 등록된 이메일입니다.");
 					$('#_email1').val("");
+					
 				}
 			},
 			error:function(r, s, err) {
@@ -250,6 +267,9 @@ function checkEmail() {
 
 // 핸드폰 확인
 function checkPhone(){
+	
+	alert("핸드폰 확인");
+	
 	var phoneNo1 = $("#_phone").val();
 	if($.isNumeric(phoneNo1)){
 	} else{
@@ -261,15 +281,20 @@ function checkPhone(){
 		url:"phonecheck.do",
 		type:"post",
 		data: {"phone" : phoneNo1 },
-		dataType: "json",
 		success:function(data) {
-			console.log(data);
+			
+			//alert("핸드폰 체크 ajax 진입!");
+			
 			if($.trim(data) == "OK"){
+				
 				alert("사용 가능한 핸드폰입니다.");
 				checkPhoneGb = "Y"
+				
 			} else{
+				
 				alert("이미 등록된 핸드폰입니다.");
 				$('#_phone').val("");
+				
 			}
 		},
 		error:function(r, s, err) {

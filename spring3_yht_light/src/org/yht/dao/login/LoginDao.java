@@ -46,5 +46,15 @@ public class LoginDao {
 		return sqlSession.selectOne("login.idcheck", id);
 	}
 	
+	public String emailcheck(String email) throws Exception{
+		
+		return sqlSession.selectOne("login.emailcheck", email);
+	}
+	
+	public String phonecheck(String phone) throws Exception{
+		
+		return sqlSession.selectOne("login.phonecheck", phone);
+		
+	}
 	
 }
