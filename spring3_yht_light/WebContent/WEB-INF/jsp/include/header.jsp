@@ -6,7 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
-<title>Insert title here</title>
+<title>Food sharing</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+  
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 <style type="text/css">
 nav{
 	z-index: 5 !important;	
@@ -45,6 +60,13 @@ nav{
   background-color: #ffd426;
   color: white;
 }
+
+.card{
+background-color: #2d2d2d;
+}
+.card-header{
+color: #f4cd30;
+}
 </style>
 
 <script type="text/javascript">
@@ -60,15 +82,15 @@ $(document).ready(function() {
 	
 });
 </script>
+<%-- favicon --%>
+<link rel="icon" href="images/foodicon.png" sizes="48x48">
 </head>
 <body>
 
-<%-- favicon --%>
-<link rel="icon" href="images/foodicon.png" sizes="48x48">
 	
 <!-- 상단바  -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffc107">
-  <a href="#"><img id="newicon" src="images/foodicon.png" width="70px" height="70px"></a>
+  <a href="main.do"><img id="newicon" src="images/foodicon.png" width="70px" height="70px"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -92,7 +114,7 @@ $(document).ready(function() {
           Mypage
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">마이페이지 홈</a>
+          <a class="dropdown-item" href="mypage_main.do">마이페이지 홈</a>
           <c:if test="${login.id != null }">
           <a class="dropdown-item" href="#">비번변경</a>
           <a class="dropdown-item" href="#">정보수정</a>
@@ -106,11 +128,10 @@ $(document).ready(function() {
     </ul>
     <form class="form-inline my-2 my-lg-0">
     
-<%--       <c:if test="${login.id != null}">
+       <c:if test="${login.id != null}">
       	${login.id }님 &nbsp;&nbsp;
-      	point [<b style="color:deepskyblue;">${login.point }</b>]P&nbsp;&nbsp;
-      	<input type="button" value="로그아웃" class="loginButton" onclick="">
-	  </c:if> --%>
+      	<input type="button" value="로그아웃" class="loginButton" onclick="location.href='logout.do'">
+	  </c:if> 
 	  
 	  <c:if test="${login.id==null}">
       	<input type="button" value="로그인"  class="logoutButton" onclick="location.href='login.do'">

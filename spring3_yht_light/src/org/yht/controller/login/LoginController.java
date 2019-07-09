@@ -91,7 +91,7 @@ public class LoginController {
 
 	}
 	
-	@RequestMapping(value="/logout.do")
+	@RequestMapping(value="logout.do")
 	public String logout(HttpServletRequest request, HttpServletResponse response, ModelMap model) throws Exception{
 		String nextPage = "login/login";
 		
@@ -99,7 +99,7 @@ public class LoginController {
 				
 		
 		session.invalidate();
-		
+		System.out.println("로그아웃");
 		return nextPage;
 	}
 	
@@ -139,7 +139,7 @@ public class LoginController {
 				
 		StringBuilder sb = new StringBuilder();
 		
-		
+		sb.append("<p>안녕하세요? "+ mem.getName() +" 님( "+mem.getId()+" )</p>");
 		sb.append("<p>아래 링크를 클릭하시면 이메일 인증이 완료됩니다.</p>");
 		sb.append("<a href='http://localhost:8091/spring3_yht/emailConfirm.do");
 		sb.append("?email=");

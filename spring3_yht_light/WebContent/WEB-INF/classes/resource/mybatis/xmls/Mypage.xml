@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="Mypage">
+
+	<select id="checkPwd" parameterType="org.yht.domain.test01.MemberVo" resultType="org.yht.domain.test01.MemberVo">
+		
+		SELECT *
+		FROM TEST01_MEMBER
+		WHERE ID=#{id} and PWD=#{pwd}
+		
+	</select>
+	
+	 <select id="myPhone" parameterType="org.yht.domain.test01.MemberVo" resultType="org.yht.domain.test01.MemberVo">
+  		SELECT *
+  		FROM TEST01_MEMBER
+  		WHERE ID=#{id} AND PHONE=#{phone}
+  	</select>
+  	
+  	<select id="phoneCheck" parameterType="org.yht.domain.test01.MemberVo" resultType="java.lang.String">
+  		SELECT PHONE
+  		FROM TEST01_MEMBER
+  		WHERE PHONE=#{phone}
+  	</select>
+  	
+  	 <update id="mypage_update" parameterType="org.yht.domain.test01.MemberVo">
+  		UPDATE TEST01_MEMBER SET
+  		PWD=#{pwd}, ADDRESS1=#{address1}, ADDRESS2=#{address2}, PHONE=#{phone}
+  		WHERE ID=#{id}
+  	</update>
+
+</mapper>

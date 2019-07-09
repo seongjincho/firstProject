@@ -11,7 +11,7 @@
 
 
 <%
-response.sendRedirect("login.do");
+response.sendRedirect("main.do");
 %>
 
 

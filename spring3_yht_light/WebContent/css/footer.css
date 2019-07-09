@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+#footer {
+	width: 100%;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	background-color:#f0f0f0;
+	border:none;
+	height: 70px;
+}
+
+#footer_inner {
+	width: 140%;
+	padding: 55px 0px 20px;
+	margin: 0px auto;
+	background-color:#f0f0f0;
+	
+}
+
+#footer_inner li {
+	position: relative;
+}
+
+#footer .footer_inner_box {
+	overflow:hidden;
+}
+
+#footer .footer_inner_box .footer_inner_item {
+	float: left;
+}
+
+#footer .footer_inner_box .footer_inner_item:first-child {
+	width: 160px;
+	margin-left: 60px;
+    margin-right: 110px;
+}
+
+
+#footer .footer_inner_box .footer_inner_item:nth-child(2) {
+	margin-right: 100px;
+}
+
+#footer .footer_inner_box .footer_inner_item:nth-child(3) {
+	margin-right: 80px;
+}
+
+#footer .footer_inner_box .footer_inner_item:nth-child(4) {
+	margin-right: 80px;
+}
+
+#footer .footer_inner_box .footer_inner_item:last-child {
+	margin-right: 0px;
+}
+
+#footer .footer_inner_box .footer_inner_item li {
+	margin-bottom: 14px;
+}
+
+#footer .footer_inner_box .footer_inner_item .item_title {
+	font-size : 13px;
+	font-weight: 700;
+	margin-bottom: 22px;
+	color: #333;
+}
+
+#footer .footer_inner_box .footer_inner_item li:not(.item_title) a:hover {
+	cursor:pointer;
+	color: #ba0e2f;
+}
+
+#footer .footer_inner_box .footer_inner_item .mark_ul {
+	float: right;
+}
+
+#footer .footer_inner_box .footer_inner_item .mark_ul li.mark {
+	float: left;
+	margin-left: 15px;
+}
+
+#footer .footer_inner_box .footer_inner_item .mark_ul::after {
+	clear: both;
+}
+
+#footer .footer_inner_box .footer_inner_item .item_narrow {
+	margin-bottom: 8px;
+}
+
+#footer .footer_inner_box .footer_inner_item .footer_inner_box_sns {
+	margin : 30px 0px 10px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Malgun Gothic', 'Noto Sans KR';
+    letter-spacing : -1.5px;
+    /* color : #333; */
+}
+
+ul, li, dl, dt, dd {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.f12 {
+    font-size: 15px;
+}
+
+.noto {
+    font-family: 'Noto Sans KR';
+    letter-spacing: -1px;
+}
+
+.footer_inner_separator_line {
+    width: 1px;
+    height: 130px;
+    background-color: #e0e0e0;
+    position: absolute;
+    top: -10px;
+    left: 840px;
+}
+
+
+
+
+
+    
+
