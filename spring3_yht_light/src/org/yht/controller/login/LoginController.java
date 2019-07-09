@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -20,6 +21,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.yht.domain.test01.MemberVo;
 import org.yht.service.login.LoginService;
+import org.yht.service.login.MailService;
+
+import yht.framework.util.TempKey;
 
 
 
@@ -31,6 +35,10 @@ public class LoginController {
 	
 	@Resource(name="LoginService")
 	LoginService loginService;
+	
+	//@Resource(name="MailService")	
+	@Autowired
+	MailService mailService;
 	
 	@RequestMapping(value="login.do", method = {RequestMethod.GET, RequestMethod.POST} )
 	public String loginPage(HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -58,7 +66,7 @@ public class LoginController {
 				System.out.println("이메일 인증 안하셨음");
 				
 				
-				return "login/login";
+				return "login/emailConfirm";
 				
 				
 			} else if(login.getDel() == 1) {  // 탈퇴한 회원 
@@ -117,7 +125,34 @@ public class LoginController {
 		String loginPage = "login/login";
 		
 		System.out.println("회원가입 시도!");
-				loginService.regiAf(mem);
+		loginService.regiAf(mem);
+		
+		String authkey = new TempKey().getKey(50, false);
+		
+		System.out.println("authkey:" + authkey);
+		
+		mem.setAuthkey(authkey);
+		
+		loginService.updateAuthKey(mem);
+		
+		System.out.println("----------------" + mem.toString());
+				
+		StringBuilder sb = new StringBuilder();
+		
+		
+		sb.append("<p>아래 링크를 클릭하시면 이메일 인증이 완료됩니다.</p>");
+		sb.append("<a href='http://localhost:8091/spring3_yht/emailConfirm.do");
+		sb.append("?email=");
+		sb.append(mem.getEmail());
+		sb.append("&authkey=");
+		sb.append(authkey);
+		sb.append("' target='_blank'>이메일 인증 확인</a>");
+		
+		
+		System.out.println("------------" + sb.toString());
+		
+		mailService.send("[Food Sharing] 회원가입 이메일 인증", sb.toString(), "testcho0701@gmail.com(Food Sharing 관리자)", 
+						mem.getEmail(), null);		
 		
 
 		return loginPage;
@@ -155,8 +190,11 @@ public class LoginController {
 		System.out.println("check=" + check);
 		
 		if(check == null){
+			
 			str = "OK";
+			
 		} else{
+			
 			str = "NO";
 		}
 		return str;
@@ -178,6 +216,17 @@ public class LoginController {
 			str = "NO";
 		}
 		return str;
+	}
+	
+	@RequestMapping(value = "emailConfirm.do", method = RequestMethod.GET)
+	public String emailConfirm(String email, Model model) throws Exception {
+		logger.info("MemberController emailConfirm " + new Date());
+		
+		loginService.userAuth(email);
+		
+		model.addAttribute("email_check", 1);
+		
+		return "login/emailConfirm";
 	}
 	
 	

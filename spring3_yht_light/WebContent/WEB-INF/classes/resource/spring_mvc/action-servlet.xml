@@ -13,7 +13,21 @@
 	
 	<!-- spring MVC annotation(주석문)을 활성화를 위한 설정 -->
 	<context:annotation-config />
-	<context:component-scan base-package="org.yht.controller.*, org.yht.sample.*, org.yht.service.*, org.yht.dao.*" />
+	
+		 
+	<!-- ajax사용하기위해 -->
+	<!-- 주석문의 사용 허가 -->
+	<mvc:annotation-driven/>
+	
+	<!-- Spring에서 처리할 수 없는 요청은 tomcat에 위임 -->
+	<mvc:default-servlet-handler/>
+	
+	<!-- <context:component-scan base-package="org.yht.controller.*, org.yht.sample.*, org.yht.service.*, org.yht.dao.*" /> -->
+	<!-- component scan (Controller) -->
+ 	<context:component-scan base-package="org.yht" />
+	
+
+
 	
 	<!-- jsp page 위치 지정 -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -28,18 +42,7 @@
 			<ref bean="loginCheckInterceptor" />
 		</property>
 	</bean> 
-	
 
-	 
-	<!-- ajax사용하기위해 -->
-	<!-- 주석문의 사용 허가 -->
-	<mvc:annotation-driven/>
-	
-	<!-- Spring에서 처리할 수 없는 요청은 tomcat에 위임 -->
-	<mvc:default-servlet-handler/>
-	 
-
-	
 <!-- 	file upload 셋팅 
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="104857600"/>	업로드 기본사이즈 1MB
@@ -59,20 +62,24 @@
 	
  
 <!-- 	메일 설정 -->
-	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	<bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com"/>
 		<property name="port" value="587"/>
 		<property name="username" value="testcho0701@gmail.com"/>
 		<property name="password" value="cho123352"/>
 		<property name="javaMailProperties">
 			<props>
-				<prop key="mail.transport.protocol">smtp</prop>
-				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
 				<prop key="mail.smtp.starttls.enable">true</prop>
-				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.auth">true</prop>
 			</props>
 		</property>
+	</bean> 
+	<bean id="mailService"
+		class="org.yht.service.login.impl.MailServiceImpl">
+		<property name="javaMailSender" ref="javaMailSender" />
 	</bean>
+	
  
  	<!-- ajax 배열 설정 -->
 <!-- 	<mvc:annotation-driven>
