@@ -8,5 +8,6 @@ public interface MypageService {
 	public MemberVo myPhone(MemberVo vo);
 	public String phoneCheck(MemberVo vo);
 	public boolean mypage_update(MemberVo vo);
+	public boolean mypage_delete(String id);
 
 }

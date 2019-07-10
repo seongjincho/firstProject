@@ -21,7 +21,7 @@
 메인 페이지 입니다   (like_cnt , read_cnt 로  게시물 띄우기 )
 
 
-<%-- header --%>
+<%-- footer --%>
 <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
 
 </body>

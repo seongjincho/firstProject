@@ -30,4 +30,10 @@ public class MypageDao {
 		
 		return n>0?true:false;
 	}
+	
+	public boolean mypage_delete(String id) {
+		int n = sqlSession.update("Mypage.mypage_delete", id);
+		
+		return n>0?true:false;
+	}
 }

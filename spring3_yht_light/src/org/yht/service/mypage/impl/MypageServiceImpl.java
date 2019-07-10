@@ -36,6 +36,13 @@ public class MypageServiceImpl implements MypageService {
 		
 		return mypageDao.mypage_update(vo);
 	}
+
+	@Override
+	public boolean mypage_delete(String id) {
+		
+		return mypageDao.mypage_delete(id);
+	}
+	
 	
 	
 	

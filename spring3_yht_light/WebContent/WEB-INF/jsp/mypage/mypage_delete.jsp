@@ -1,128 +1,114 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<!-- 개인  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<script type="text/javascript" src="js/custom.js"></script>
-
-<!-- 갤러리 -->
-<script src="https://rawgit.com/jasonenglish/jquery-flex/master/jquery.flex.js"></script>
-<!-- <script src="js/jquery.flex.js"></script> -->
-
-<!-- 아이콘 -->    
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=PT+Sans:700' rel='stylesheet' type='text/css'>
-
-<!-- //jquer -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-
-
-<!-- // 폰트CSS -->
-<link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
-
-<title>회원탈퇴</title>
-
-<!-- Bootstrap core CSS -->
-<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- <!-- Custom styles for this template -->
-<link href="css/business-casual.min.css" rel="stylesheet"> -->
-  
-<!-- 정보수정 CSS -->
-<link href="css/update.css" rel="stylesheet">
-
-<!-- favicon -->
-	<link rel="icon" href="images/foodicon.png" sizes="48x48">
-	
-</head>
-
-<body>
-
-	<c:if test="${login.id == null }">
- 		<script type="text/javascript">
-        alert("로그인 해 주십시오");
-        location.href='login.do';
-        </script> 
-    </c:if>  
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<link rel="icon" type="image/png" href="images/foodicon.png">
+<title>Food Sharing 탈퇴 페이지</title>
+<style>
+	.deltbl{
+		/* position: absolute; */
+		margin-top: 50px;
+		margin-left: 10%;
+	}
+</style>
 
 
 <!-- hearder -->
 <jsp:include page="/WEB-INF/jsp/include/header.jsp" flush="false"/>
 
+<table class="deltbl">
+<tr>
+	<td><h2>탈퇴 안내</h2>
+		회원탈퇴를 신청하기 전에 안내 사항을 꼭 확인해주세요.
+	</td>
+</tr>
+<tr>
+	<th height="25"></th>
+</tr>
 
-<form action="mypage_delete.do" method="post" onsubmit="return checkpwd()" name="deleteform">
-<input type="hidden" name="id" value="${login.id }">
-<br><br>
-	<section class="page-section clearfix">
-    <div class="container">
-      <div class="intro">
-        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="./img/portfolio/regix1.jpg" alt="">
-        <div class="intro-text left-0 text-center bg-faded p-5 rounded" style="background-color: rgba(213,213,213, 0.9); font-family: 'Gugi', cursive;">
-          <h2 class="section-heading mb-4" style="font-family: 'Gugi', cursive;">
-            <span class="section-heading-upper" style="font-family: 'Gugi', cursive; font-size: 25px;"><label style="color: blue;"><ins>[${login.name }]</ins></label> 님 </span>
-            <span class="section-heading-lower" style="font-size: 40px; font-weight: bolder;">정말 탈퇴 하시겠습니까?</span>
-          </h2>
-          <br>
-          <h5 style="font-family: 'Gugi', cursive;">비밀번호를 입력해 주세요</h5>
-          <input type="password" class="form-control" placeholder="Password" name="pwd">
-          <div class="intro-button mx-auto">
-          	<button type="button" class="btn btn-secondary btn-lg" onclick="window.location='mypage_main.do'" style="width: 30%">취소</button>
-            &nbsp;&nbsp;&nbsp;
-           	<button type="submit" class="btn btn-primary btn-lg" style="width: 30%">탈퇴</button>
-          </div>
-        </div>
-      </div>
-    </div>
-	</section>
-<br><br>
-</form>
+<tr>
+	<td><h3><font size="30px">${login.name }</font>님이 사용하고 계신 아이디<font color="Green" size="30px">[ ${login.id } ]</font>는 탈퇴할 경우 재사용 및 복구가 불가능합니다.</h3>
+		<font color="red">탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가</font>하오니 신중하게 선택하시기 바랍니다.
+	</td>
+</tr>
+<tr>
+	<th height="25"></th>
+</tr>
+
+<tr>
+	<td><h3>탈퇴 후 회원정보 및 개인형 서비스 이용기록은 모두 삭제됩니다.</h3>
+	회원정보 및 개인형 서비스 이용기록, 삭제된 데이터는 복구되지 않습니다.<br>
+	삭제되는 내용을 확인하시고 필요한 데이터는 미리 백업을 해주세요.
+	</td>
+</tr>
+<tr>
+	<th height="25"></th>
+</tr>
+
+<tr>
+	<td><h3>탈퇴 후에도 게시판형 서비스에 등록한 게시물은 그대로 남아 있습니다. </h3>
+		게시글 및 댓글은 탈퇴 시 자동 삭제되지 않고 그대로 남아 있습니다. 
+		삭제를 원하는 게시글이 있다면<br>
+		<font color="red">반드시 탈퇴 전 삭제하시기 바랍니다.</font>
+		탈퇴 후에는 회원정보가 삭제되어 본인 여부를 확인할 수 있는<br>
+		방법이 없어, 게시글을 임의로 삭제해드릴 수 없습니다. 
+	</td>
+</tr>
+<tr>
+	<th height="25"></th>
+</tr>
 
 
-<script type="text/javascript">
-// 비밀번호 미 입력시 경고창 
-function checkpwd() {
-	
-	if(!document.deleteform.pwd.value) {
-		alert("비밀번호를 입력하지 않았습니다.");
-		return false;
-	}
-	
-}
+<tr>
+	<td>
+		<b><font color="red">탈퇴 후에는 아이디</font></b><font color="Green">[ ${login.id } ]</font><b><font color="red">로 다시 가입할 수 없으며 아이디와 데이터는 복구할 수 없습니다.<br>
+		게시판형 서비스에 남아 있는 게시글은 탈퇴 후 삭제할 수 없습니다.</font></b><br><br>
 
-</script>
+		<input type="checkbox" id="bye" value="bye"><b><font color="red">안내 사항을 모두 확인하였으며, 이에 동의합니다.</font></b>
+	</td>
+</tr>
+<tr>
+	<th height="30"></th>
+</tr>
 
+<tr>
+	<th>	
+		<button id="userdel" class="btn btn-danger">확인</button>
+		<button id="goback" class="btn btn-primary">메인페이지로</button>
+	</th>
+</tr>
 
-
+</table>
+<br><br><br>
 
 	<!-- footer -->
 	<jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
 
+<script type="text/javascript">
+$(document).ready(function() {
 
-</body>
+	$("#userdel").click(function() {
 
-</html>
+		if ($('#bye').prop("checked") == true){
+			
+			location.href = "mypage_deleteAf.do";
+			alert("회원탈퇴가 완료되었습니다!");
+			
+		}else{
+	     	alert("탈퇴 안내를 확인하고 동의해 주세요.");
+		}
+		
+	});
+	
+	$("#goback").click(function() {
+		location.href= "main.do";
+	});
+	
+});
+</script>

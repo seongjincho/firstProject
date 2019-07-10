@@ -18,6 +18,10 @@
 	location.href = "login.do";
 	</script>
 </c:if>
+
+<!-- hearder -->
+<jsp:include page="/WEB-INF/jsp/include/header.jsp" flush="false"/>
+
 	
 <div id="login">
 	<div class="container_c">
@@ -39,6 +43,9 @@
 		</div>
 	</div>
 </div>
+
+	<!-- footer -->
+	<jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
 
 <script>
 $('#_btn').click(function() {

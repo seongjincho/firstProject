@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Notice">
+
+<select id="getNoticeList" parameterType="org.yht.domain.test01.NoticeParam" resultType="org.yht.domain.test01.NoticeVo">
+	SELECT NOTICE_SEQ, ID, TITLE, CONTENT, 
+		   READCOUNT, RDATE
+	FROM
+		(SELECT ROW_NUMBER() OVER(ORDER BY NOTICE_SEQ DESC)AS RNUM,
+			NOTICE_SEQ, ID, TITLE, CONTENT, 
+			READCOUNT, RDATE
+		 FROM TEST01_NOTICE 
+		 WHERE 1=1 
+		 <if test="n_category != null and n_category != ''
+		 		and n_keyword != null and n_keyword != ''">
+		 	
+		 	<if test="n_category == 'title'">
+		 		AND TITLE LIKE '%'||#{n_keyword}||'%'
+		 	</if>
+		 	<if test="n_category == 'contents'">
+		 		AND CONTENT LIKE '%'||#{n_keyword}||'%'
+		 	</if>
+		 </if>
+		) A
+	WHERE RNUM BETWEEN ${start} AND ${end}
+</select>
+
+<select id="getNoticeCount" parameterType="org.yht.domain.test01.NoticeParam" resultType="java.lang.Integer">
+	SELECT NVL(COUNT(*), 0) AS CNT
+	FROM TEST01_NOTICE
+	WHERE 1=1
+	<if test="n_category != null and n_category != ''
+		 		and n_keyword != null and n_keyword != ''">
+		 	
+	 	<if test="n_category == 'title'">
+	 		AND TITLE LIKE '%'||#{n_keyword}||'%'
+	 	</if>
+	 	<if test="n_category == 'contents'">
+	 		AND CONTENT LIKE '%'||#{n_keyword}||'%'
+	 	</if>
+	 </if>
+</select>
+
+<insert id="writeNotice" parameterType="org.yht.domain.test01.NoticeVo">
+	INSERT INTO TEST01_NOTICE(NOTICE_SEQ, ID, TITLE, CONTENT, READCOUNT, RDATE)
+	VALUES(SEQ_NOTICE.NEXTVAL, #{id}, #{title}, #{content}, 0, SYSDATE)
+</insert>
+
+<select id="getNotice" parameterType="java.lang.Integer" resultType="org.yht.domain.test01.NoticeVo">
+	SELECT * 
+	FROM TEST01_NOTICE 
+	WHERE NOTICE_SEQ=#{notice_seq} 
+</select>
+
+<update id="updateNotice" parameterType="org.yht.domain.test01.NoticeVo">
+	UPDATE TEST01_NOTICE 
+	SET TITLE=#{title}, CONTENT=#{content} 
+	WHERE NOTICE_SEQ=#{notice_seq} 
+</update>
+
+<delete id="deleteNotice" parameterType="java.lang.Integer">
+	DELETE FROM TEST01_NOTICE 
+	WHERE NOTICE_SEQ=#{notice_seq} 
+</delete>
+
+<update id="noticeReadcount" parameterType="java.lang.Integer">
+	UPDATE TEST01_NOTICE 
+	SET READCOUNT=READCOUNT+1
+	WHERE NOTICE_SEQ=#{notice_seq} 
+</update>
+
+<select id="getNoticeReadcount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+	SELECT READCOUNT 
+	FROM TEST01_NOTICE 
+	WHERE NOTICE_SEQ=#{notice_seq} 
+</select>
+
+
+</mapper>

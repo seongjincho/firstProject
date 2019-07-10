@@ -28,5 +28,11 @@
   		PWD=#{pwd}, ADDRESS1=#{address1}, ADDRESS2=#{address2}, PHONE=#{phone}
   		WHERE ID=#{id}
   	</update>
+  	
+  	<update id="mypage_delete" parameterType="java.lang.String">
+  		UPDATE TEST01_MEMBER SET
+  		DEL=1
+  		WHERE ID=#{id}
+  	</update>
 
 </mapper>

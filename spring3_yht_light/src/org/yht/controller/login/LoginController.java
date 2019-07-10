@@ -93,7 +93,7 @@ public class LoginController {
 	
 	@RequestMapping(value="logout.do")
 	public String logout(HttpServletRequest request, HttpServletResponse response, ModelMap model) throws Exception{
-		String nextPage = "login/login";
+		String nextPage = "main/main";
 		
 		HttpSession session = request.getSession(true);
 				

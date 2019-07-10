@@ -109,9 +109,9 @@ public class MypageController {
 	public String mypage_updateAf(MemberVo dto) {
 		System.out.println("정보 업데이트 등록!");
 		
-		MemberVo mem = mypageService.myPhone(dto);
+		//MemberVo mem = mypageService.myPhone(dto);
 		
-		String check = mypageService.phoneCheck(dto);
+		//String check = mypageService.phoneCheck(dto);
 		boolean isS = mypageService.mypage_update(dto);
 		
 /*		if(mem != null) {
@@ -149,12 +149,31 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value = "mypage_deleteAf.do", method = {})
-	public String mypage_deleteAf() {
+	public String mypage_deleteAf(HttpServletRequest req) {
 		
-		System.out.println("삭제시도");
+		System.out.println("탈퇴 시도");
 		
+		String src = "";
 		
-		return "";
+		MemberVo dto = (MemberVo)req.getSession().getAttribute("login");
+		
+		String id = dto.getId();
+		
+		boolean isS = mypageService.mypage_delete(id);
+		
+		if(isS) {
+			
+			System.out.println("탈퇴 성공");
+			src = "redirect:/logout.do";
+			
+		}else {
+			
+			System.out.println("탈퇴 실패");
+			src = "redirect:/mypage_delete.do";
+			
+		}
+		
+		return src;
 	}
 	
 	
