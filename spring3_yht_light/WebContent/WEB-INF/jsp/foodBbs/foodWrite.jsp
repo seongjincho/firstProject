@@ -203,7 +203,7 @@ $(document).ready(function () {
 <div class="container">
 
 <div class="headtitle" align="center"><br><br>
-	<h2>Food Sharing</h2>
+	<h2>Food Sharing1</h2>
 	<br><br>
 </div>
 
