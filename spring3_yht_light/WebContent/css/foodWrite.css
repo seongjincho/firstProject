@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+.container{
+ 	left: 25%;
+   }
+  
+ /* 첨부파일을 드래그할 영역의 스타일 */
+   
+.fileDrop {
+  position: relative;
+  width: 400px; 
+  height: 132.79px;
+  background-color: #eceeef;
+  border : 2px dashed #343a409c;
+  margin: 66.40px 0;
+  box-shadow: 0 0 0px rgba(0,0,0,0.7);
+}
+
+
+/*cover up extra shadows*/
+.fileDrop span {
+  display: block;
+  position: absolute;
+  top:0px;
+  left: 0;
+  width:230px;
+  height:132.7906px;
+  z-index: 2;
+  background: inherit;
+}
+
+.dragment{
+	font-family: 'aritadm' !important;
+	left: 15%;
+	top: 40%;
+	position: absolute;
+}
+/**/
+   
+   
+   #form1{
+   	width: 400px;
+   }
+   
+   
+   /* 각종 input태그 위치조정용 */
+  .a1{
+  	margin-left: 15%;
+  	
+  }
+  .a2{
+  	margin-left: 18.5%;
+  }
+  .a3{
+  	margin-left: 8%;
+  }
+  .a4{
+  	margin-left: 11.5%;
+  }
+  .a5{
+  	margin-left: 11.5%;
+  } 
+
+  .a6{
+  	margin-left: 15%;
+  } 
+  .a7{
+  	margin-left: 67px;
+  } 
+  
+  /* 뮤지컬 */
+  .a8{
+  	margin-left: 22px;
+  } 
+  .a9{
+  	margin-left: 37px;
+  } 
+  .a10{
+  	margin-left: 34px;
+  } 
+  
+  /* 콘서트 */
+  .a11{
+  	margin-left: 12px;
+  } 
+  .a12{
+  	margin-left: 28px;
+  } 
+  
+  /*전시 */
+  .a13{
+  	margin-left: 12px;
+  } 
+  
+  .ui-datepicker-trigger{
+  	font-size: 16px;
+  }
+  
+ #delFiles{
+ 	margin-bottom: 10px;
+ } 
+  

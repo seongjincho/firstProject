@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<fmt:requestEncoding value="utf-8"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,11 +106,11 @@ $(document).ready(function() {
         <a class="nav-link" href="bbs_rec_list.do">Receipe</a>
       </li> -->
       <li class="nav-item">
-        <a class="nav-link" href="#">Food Sharing</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="noticeBbsList.do" tabindex="-1" aria-disabled="true">Notice</a>
       </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="foodBbsList.do">Food Sharing</a>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Mypage

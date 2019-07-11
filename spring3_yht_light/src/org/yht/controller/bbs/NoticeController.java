@@ -44,8 +44,8 @@ public class NoticeController {
 				model.addAttribute("recordCountPerPage", param.getRecordCountPerPage());
 				model.addAttribute("totalRecordCount", totalRecordCount);
 				
-				model.addAttribute("s_category", param.getN_category());
-				model.addAttribute("s_keyword", param.getN_keyword());
+				model.addAttribute("n_category", param.getN_category());
+				model.addAttribute("n_keyword", param.getN_keyword());
 				
 				return "noticeBbs/noticeBbsList";
 	}
@@ -59,7 +59,7 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "writeNoticeAf.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String writeNotice(NoticeVo nv) {
+	public String writeNoticeAf(NoticeVo nv) {
 		
 			
 		

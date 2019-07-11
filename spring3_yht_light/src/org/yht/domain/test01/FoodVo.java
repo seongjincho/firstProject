@@ -28,13 +28,19 @@ MEETINGDAY DATE NOT NULL,
 CONTENT VARCHAR2(4000) NOT NULL,
 WDATE DATE NOT NULL,
 READ_CNT NUMBER(8) NOT NULL,
-LIKE_CNT NUMBER(8) NOT NULL 
+LIKE_CNT NUMBER(8) NOT NULL,
+LOCAL VARCHAR2(50) NOT NULL 
 
 );
 
 ALTER TABLE TEST01_FOOD
 ADD CONSTRAINT FK_FOOD_ID FOREIGN KEY(ID)
 REFERENCES TEST01_MEMBER(ID);
+
+CREATE SEQUENCE SEQ_FOOD
+START WITH 1
+INCREMENT BY 1;
+
 
  */
 public class FoodVo implements Serializable {
@@ -49,13 +55,14 @@ public class FoodVo implements Serializable {
 	private Date wdate;     // 작성일
 	private int read_cnt;  // 조회수
 	private int like_cnt;  // 좋아요 수
+	private String local;  // 지역 지도검색용
 	
 	public FoodVo() {
 		
 	}
 
 	public FoodVo(int food_seq, String id, String title, int total_cnt, int join_cnt, Date meetingDay, String content,
-			Date wdate, int read_cnt, int like_cnt) {
+			Date wdate, int read_cnt, int like_cnt, String local) {
 		super();
 		this.food_seq = food_seq;
 		this.id = id;
@@ -67,6 +74,7 @@ public class FoodVo implements Serializable {
 		this.wdate = wdate;
 		this.read_cnt = read_cnt;
 		this.like_cnt = like_cnt;
+		this.local = local;
 	}
 
 	public int getFood_seq() {
@@ -149,14 +157,21 @@ public class FoodVo implements Serializable {
 		this.like_cnt = like_cnt;
 	}
 
+	public String getLocal() {
+		return local;
+	}
+
+	public void setLocal(String local) {
+		this.local = local;
+	}
+
 	@Override
 	public String toString() {
 		return "FoodVo [food_seq=" + food_seq + ", id=" + id + ", title=" + title + ", total_cnt=" + total_cnt
 				+ ", join_cnt=" + join_cnt + ", meetingDay=" + meetingDay + ", content=" + content + ", wdate=" + wdate
-				+ ", read_cnt=" + read_cnt + ", like_cnt=" + like_cnt + "]";
+				+ ", read_cnt=" + read_cnt + ", like_cnt=" + like_cnt + ", local=" + local + "]";
 	}
-	
-	
+
 	
 	
 	

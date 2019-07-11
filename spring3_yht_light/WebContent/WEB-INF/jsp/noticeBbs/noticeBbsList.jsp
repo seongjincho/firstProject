@@ -43,16 +43,12 @@ $(document).ready(function () {
 <div class="f2_content">
 
 <div class="headtitle" align="center"><br><br>
-	<!-- <p style="color: black;">공지사항</p> -->
+	
 	<h2>Notice</h2>
 	<br>
 </div>
 
 
-<%-- 
-<!-- arrow생성  -->
-<jsp:useBean id="ubbs" class="yht.framework.util.BbsArrow"/>
-	 <jsp:setProperty property="depth" name="ubbs" value="${bbs.depth }"/>  --%>
 	 
 <div align="center">
 <table class="noti">

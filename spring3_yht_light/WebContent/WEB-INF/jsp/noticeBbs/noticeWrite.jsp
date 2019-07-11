@@ -12,9 +12,12 @@
 <%-- header --%>
 <jsp:include page="/WEB-INF/jsp/include/header.jsp" flush="false"/>
 
-<!-- <a href="logout.jsp">로그아웃</a> -->
-
-<!-- <h1>글쓰기</h1> -->
+	<c:if test="${login.id == null }">
+ 		<script type="text/javascript">
+        alert("로그인 해 주십시오");
+        location.href='login.do';
+        </script> 
+    </c:if>  
 
 <div align="center" style="margin-top: 10%;">
 
