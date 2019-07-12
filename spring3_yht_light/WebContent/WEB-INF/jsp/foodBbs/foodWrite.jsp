@@ -49,7 +49,7 @@
             // 첫번째 파일
             var file = files[0];
             // 콘솔에서 파일정보 확인
-           /*  console.log(file); */
+             console.log(file); 
             
             // ajax로 전달할 폼 객체
             var formData = new FormData();
@@ -60,10 +60,8 @@
             
             $.ajax({
                type: "post",
-               url: "uploadAjax.do",
-              
+               url: "uploadAjax.do",        
                data: formData,
-
                dataType: "text",
                // processData : true => get방식, false => post방식
                processData: false,
@@ -99,7 +97,7 @@
          });
          
          $("#goback").on('click',function(){
-            location.href="${path}/foodBbsList.do";         
+            location.href="foodBbsList.do";         
          });
          
          $("#btnSave").click(function() {
@@ -203,12 +201,12 @@ $(document).ready(function () {
 <div class="container">
 
 <div class="headtitle" align="center"><br><br>
-	<h2>Food Sharing1</h2>
+	<h2>Food Sharing</h2>
 	<br><br>
 </div>
 
 
-<form name="form1" id="form1" method="post" action="writeFoodAf.do">
+<form class="noto" name="form1" id="form1" method="post" action="writeFoodAf.do">
          <div>
                              작성자<input class="a1" size="30" style="font-size: 18px;" value="&nbsp;&nbsp;&nbsp;&nbsp;${login.id }" readonly="readonly">
                  <input type="hidden" name="id" id="id" size="30"  value="${login.id }">            
@@ -236,6 +234,8 @@ $(document).ready(function () {
          </div>
 
 	<div>
+	<br>
+	
    <!-- 첨부파일을 드래그할 영역 -->
       첨부파일 등록
       <div class="fileDrop"><i class="dragment">이미지 파일을 여기에 드래그해주세요</i></div>

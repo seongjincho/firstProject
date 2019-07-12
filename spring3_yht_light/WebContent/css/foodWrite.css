@@ -2,13 +2,14 @@
 
 .container{
  	left: 25%;
+ 	
    }
   
  /* 첨부파일을 드래그할 영역의 스타일 */
    
 .fileDrop {
   position: relative;
-  width: 400px; 
+  width: 600px; 
   height: 132.79px;
   background-color: #eceeef;
   border : 2px dashed #343a409c;
@@ -99,4 +100,7 @@
  #delFiles{
  	margin-bottom: 10px;
  } 
+ 
+
+ 
   

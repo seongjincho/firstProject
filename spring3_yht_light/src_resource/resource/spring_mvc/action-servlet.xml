@@ -6,7 +6,7 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
@@ -52,15 +52,12 @@
 		<property name="defaultEncoding" value="utf-8"/>	<!-- 인코딩 방식 utf-8 -->
 		<property name="uploadTempDir" value="upload"/>		<!-- WebContent에 upload폴더가 있어야 한다. -->
 	</bean> 
-<!-- 
-		파일업로드를 위한 디렉토리 설정
-	String uploadPath = new String("업로드 경로")
-	<beans:bean id="uploadPath" class="java.lang.String">
-		파일업로드 디렉토리
-	 	<beans:constructor-arg value="C:\\Users\\Shin\\Desktop\\fpgit\\firstProject\\spring3_yht_light\\WebContent\\upload\\"/> 
-	</beans:bean>
+
+
 	
- -->
+
+	
+
 	
 	
 	
@@ -95,7 +92,7 @@
 	
  
  	<!-- ajax 배열 설정 -->
-	<mvc:annotation-driven>
+<!-- 	<mvc:annotation-driven>
 		<mvc:message-converters>
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<property name="supportedMediaTypes">
@@ -115,6 +112,6 @@
 				</property>
 			</bean>
 		</mvc:message-converters>
-	</mvc:annotation-driven> 
+	</mvc:annotation-driven>  -->
 	
 </beans>
