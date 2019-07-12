@@ -1,6 +1,7 @@
 package org.yht.domain.test01;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 
 /*
@@ -56,10 +57,52 @@ public class FoodVo implements Serializable {
 	private int read_cnt;  // 조회수
 	private int like_cnt;  // 좋아요 수
 	private String local;  // 지역 지도검색용
+	private String[] files;
+	private String fullname;
+	
 	
 	public FoodVo() {
 		
 	}
+
+
+	public FoodVo(int food_seq, String id, String title, int total_cnt, int join_cnt, Date meetingDay, String content,
+			Date wdate, int read_cnt, int like_cnt, String local, String[] files) {
+		super();
+		this.food_seq = food_seq;
+		this.id = id;
+		this.title = title;
+		this.total_cnt = total_cnt;
+		this.join_cnt = join_cnt;
+		this.meetingDay = meetingDay;
+		this.content = content;
+		this.wdate = wdate;
+		this.read_cnt = read_cnt;
+		this.like_cnt = like_cnt;
+		this.local = local;
+		this.files = files;
+	}
+
+	
+	// join해서 detail에 뿌려줄 용도 
+	public FoodVo(int food_seq, String id, String title, int total_cnt, int join_cnt, Date meetingDay, String content,
+				Date wdate, int read_cnt, int like_cnt, String local, String[] files, String fullname) {
+			super();
+			this.food_seq = food_seq;
+			this.id = id;
+			this.title = title;
+			this.total_cnt = total_cnt;
+			this.join_cnt = join_cnt;
+			this.meetingDay = meetingDay;
+			this.content = content;
+			this.wdate = wdate;
+			this.read_cnt = read_cnt;
+			this.like_cnt = like_cnt;
+			this.local = local;
+			this.files = files;
+			this.fullname = fullname;
+		}
+
 
 	public FoodVo(int food_seq, String id, String title, int total_cnt, int join_cnt, Date meetingDay, String content,
 			Date wdate, int read_cnt, int like_cnt, String local) {
@@ -77,103 +120,146 @@ public class FoodVo implements Serializable {
 		this.local = local;
 	}
 
+
 	public int getFood_seq() {
 		return food_seq;
 	}
+
 
 	public void setFood_seq(int food_seq) {
 		this.food_seq = food_seq;
 	}
 
+
 	public String getId() {
 		return id;
 	}
+
 
 	public void setId(String id) {
 		this.id = id;
 	}
 
+
 	public String getTitle() {
 		return title;
 	}
+
 
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
+
 	public int getTotal_cnt() {
 		return total_cnt;
 	}
+
 
 	public void setTotal_cnt(int total_cnt) {
 		this.total_cnt = total_cnt;
 	}
 
+
 	public int getJoin_cnt() {
 		return join_cnt;
 	}
+
 
 	public void setJoin_cnt(int join_cnt) {
 		this.join_cnt = join_cnt;
 	}
 
+
 	public Date getMeetingDay() {
 		return meetingDay;
 	}
+
 
 	public void setMeetingDay(Date meetingDay) {
 		this.meetingDay = meetingDay;
 	}
 
+
 	public String getContent() {
 		return content;
 	}
+
 
 	public void setContent(String content) {
 		this.content = content;
 	}
 
+
 	public Date getWdate() {
 		return wdate;
 	}
+
 
 	public void setWdate(Date wdate) {
 		this.wdate = wdate;
 	}
 
+
 	public int getRead_cnt() {
 		return read_cnt;
 	}
+
 
 	public void setRead_cnt(int read_cnt) {
 		this.read_cnt = read_cnt;
 	}
 
+
 	public int getLike_cnt() {
 		return like_cnt;
 	}
+
 
 	public void setLike_cnt(int like_cnt) {
 		this.like_cnt = like_cnt;
 	}
 
+
 	public String getLocal() {
 		return local;
 	}
+
 
 	public void setLocal(String local) {
 		this.local = local;
 	}
 
+
+	public String[] getFiles() {
+		return files;
+	}
+
+
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
+	
+	public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+
 	@Override
 	public String toString() {
 		return "FoodVo [food_seq=" + food_seq + ", id=" + id + ", title=" + title + ", total_cnt=" + total_cnt
 				+ ", join_cnt=" + join_cnt + ", meetingDay=" + meetingDay + ", content=" + content + ", wdate=" + wdate
-				+ ", read_cnt=" + read_cnt + ", like_cnt=" + like_cnt + ", local=" + local + "]";
+				+ ", read_cnt=" + read_cnt + ", like_cnt=" + like_cnt + ", local=" + local + ", files="
+				+ Arrays.toString(files) + ", fullname=" + fullname + "]";
 	}
 
 	
 	
+
 	
 	
 }

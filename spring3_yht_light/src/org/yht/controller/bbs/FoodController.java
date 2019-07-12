@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.yht.domain.test01.FoodParam;
@@ -62,24 +63,16 @@ public class FoodController {
 	}
 	
 	@RequestMapping(value = "writeFoodAf.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String writeFoodAf(FoodVo fv) {
+	public String writeFoodAf(@ModelAttribute FoodVo fv) throws Exception {
 		
 			
 		
 			System.out.println("food 글쓰기 등록 --" + fv.toString());
-			String src = "";
-/*			boolean isS = foodService.writeFood(nv);
-			
-			if(isS) {
-				System.out.println("notice 글쓰기 완료!");
-				src = "redirect:/noticeBbsList.do";
-				
-			}else {
-				System.out.println("notice 글쓰기 실패!");
-				src = "redirect:/writeNotice.do";
-			}*/
+			System.out.println("--------------------------------");
+			System.out.println("파일이름들: " + fv.getFiles());
+			foodService.writeFood(fv);
 		
-			return src;
+			return "redirect:/foodBbsList.do";
 	}
 	
 

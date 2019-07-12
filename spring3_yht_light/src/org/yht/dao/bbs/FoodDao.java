@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+import org.yht.domain.test01.AttachVo;
 import org.yht.domain.test01.FoodParam;
 import org.yht.domain.test01.FoodVo;
 
@@ -26,4 +27,26 @@ public class FoodDao {
 		return sqlSession.selectOne("Food.getFoodCount", param);
 		
 	}
+	
+	public void writeFood(FoodVo fv) throws Exception  {
+		
+		sqlSession.insert("Food.writeFood", fv);
+		
+		
+	}
+	
+	
+	//파일 업로드
+	public List<String> getAttach(int food_seq){
+		
+		return sqlSession.selectList("Food.getAttach", food_seq);
+		
+	}
+	
+	public void addAttach(String fullname) {
+		
+		 sqlSession.insert("Food.addAttach", fullname);
+		
+	}
+	
 }

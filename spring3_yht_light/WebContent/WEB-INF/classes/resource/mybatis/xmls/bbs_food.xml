@@ -48,6 +48,27 @@
 	 </if>
 </select>
 
+<insert id="writeFood" parameterType="org.yht.domain.test01.FoodVo">
+	INSERT INTO TEST01_FOOD(FOOD_SEQ, ID, TITLE, TOTAL_CNT, JOIN_CNT, MEETINGDAY, CONTENT, WDATE, READ_CNT, LIKE_CNT, LOCAL)
+	VALUES(SEQ_FOOD.NEXTVAL, #{id}, #{title}, #{total_cnt}, 1, #{meetingDay}, #{content}, SYSDATE, 0, 0, #{local})
+</insert>
+
+
+<!--  ////파일업로드 관련////  -->
+
+<!-- 첨부파일 목록 가져오기 -->
+<select id="getAttach" parameterType="java.lang.Integer" resultType="java.lang.String">
+      SELECT FULLNAME 
+      FROM TEST01_ATTACH 
+      WHERE FOOD_SEQ=#{food_seq} ORDER BY RDATE
+</select>
+	 
+<!-- 첨부파일 등록 -->	
+<insert id="addAttach" parameterType="org.yht.domain.test01.AttachVo">
+       INSERT INTO TEST01_ATTACH(FULLNAME, FOOD_SEQ, RDATE) 
+       VALUES (#{fullname}, SEQ_FOOD.CURRVAL, SYSDATE)
+</insert>
+
 
 
 </mapper>
