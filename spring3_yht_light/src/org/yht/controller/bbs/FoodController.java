@@ -75,5 +75,16 @@ public class FoodController {
 			return "redirect:/foodBbsList.do";
 	}
 	
+	@RequestMapping(value = "detailFood.do", method = {})
+	public String detailFood(int food_seq, Model model) {
+		
+			List<FoodVo> foodList = foodService.detailFood(food_seq);
+			
+			System.out.println(foodList.toString());
+		
+		
+		return "foodBbs/foodDetail";
+	}
+	
 
 }

@@ -35,6 +35,11 @@ public class FoodDao {
 		
 	}
 	
+	public List<FoodVo> detailFood(int food_seq) {
+		
+		return sqlSession.selectList("Food.detailFood", food_seq);
+	}
+	
 	
 	//파일 업로드
 	public List<String> getAttach(int food_seq){

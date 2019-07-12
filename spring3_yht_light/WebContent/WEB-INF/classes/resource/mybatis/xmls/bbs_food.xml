@@ -53,6 +53,14 @@
 	VALUES(SEQ_FOOD.NEXTVAL, #{id}, #{title}, #{total_cnt}, 1, #{meetingDay}, #{content}, SYSDATE, 0, 0, #{local})
 </insert>
 
+<select id="detailFood" parameterType="java.lang.Integer" resultType="org.yht.domain.test01.FoodVo">
+      SELECT F.FOOD_SEQ, F.ID, F.TITLE, F.TOTAL_CNT, F.JOIN_CNT, F.MEETINGDAY, 
+      		 F.CONTENT, F.WDATE, F.READ_CNT, F.LIKE_CNT, F.LOCAL , A.FULLNAME
+      FROM TEST01_FOOD F, TEST01_ATTACH A
+      WHERE F.FOOD_SEQ=A.FOOD_SEQ AND F.FOOD_SEQ=#{food_seq}
+      ORDER BY F.FOOD_SEQ
+</select>
+
 
 <!--  ////파일업로드 관련////  -->
 

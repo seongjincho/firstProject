@@ -41,7 +41,8 @@ $(document).ready(function () {
 
 <div class="headtitle" align="center"><br><br>
 	<h2>Food Sharing</h2>
-	<br>
+	<br>	
+
 </div>
 
 
@@ -77,7 +78,7 @@ $(document).ready(function () {
 	<tr class="_hover_tr">
 		<td>${vs.count }</td> 
 		<td style="text-align: left; padding-left: 15px;">	
-			<a href="#none" onclick="titleclick(${vs.index })">
+			<a href="#none" onclick="titleclick(${bbs.food_seq })">
 				${bbs.title } 
 			</a>
 		</td>
@@ -203,5 +204,9 @@ $("#_btnSearch").click(function(){
 	$("#_frmFormSearch").attr("action","foodBbsList.do").submit();
 });
 
+function titleclick(food_seq) {
+	alert("food_seq:" + food_seq);
+	location.href = "detailFood.do?food_seq=" + food_seq;
+}
 
 </script>

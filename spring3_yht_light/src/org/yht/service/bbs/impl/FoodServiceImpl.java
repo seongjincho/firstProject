@@ -50,9 +50,14 @@ public class FoodServiceImpl implements FoodService {
 			System.out.println("name : " + name);
 		}
 	}
+	
 
-	
-	
+	@Override
+	public List<FoodVo> detailFood(int food_seq) {
+		
+		return foodDao.detailFood(food_seq);
+	}
+
 	@Override
 	public List<String> getAttach(int food_seq) {
 		
