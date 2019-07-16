@@ -46,13 +46,13 @@ public class UploadFileUtils {
 		// File.seperator : 디렉토리 구분자(\\)
 		// 연도, ex) \\2019
 		String yearPath = File.separator + cal.get(Calendar.YEAR);
-		/*System.out.println(yearPath);*/
+		System.out.println(yearPath);
 		// 월, ex) \\2019\\01
 		String monthPath = yearPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.MONTH)+1);
-		/*System.out.println(monthPath);*/
+		System.out.println(monthPath);
 		// 날짜, ex) \\2019\\01\\04
 		String dataPath = monthPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.DATE));
-		/*System.out.println(dataPath);*/
+		System.out.println(dataPath);
 		// 디렉토리 생성 메서드 호출
 		makeDir(uploadPath, yearPath, monthPath, dataPath);
 		return dataPath;
@@ -80,7 +80,7 @@ public class UploadFileUtils {
 		// 이미지를 읽기 위한 버퍼
 		BufferedImage sourceImg = ImageIO.read(new File(uploadPath + path, fileName));
 		// 300픽셀 단위의 썸네일 생성
-		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 250);
+		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 350);
 		// 썸네일의 이름을 생성(원본파일명에 's_'를 붙임)
 		String thumbnailName = uploadPath + path + File.separator + "s_" + fileName;
 		File newFile = new File(thumbnailName);

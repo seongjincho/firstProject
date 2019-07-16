@@ -84,7 +84,7 @@ public class FoodVo implements Serializable {
 	}
 
 	
-	// join해서 detail에 뿌려줄 용도 
+
 	public FoodVo(int food_seq, String id, String title, int total_cnt, int join_cnt, Date meetingDay, String content,
 				Date wdate, int read_cnt, int like_cnt, String local, String[] files, String fullname) {
 			super();

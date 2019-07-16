@@ -1,0 +1,264 @@
+@charset "UTF-8";
+
+/* #mainImgConatiner img{
+	 width: 300; 
+	 height: 300;
+	
+}
+
+
+#imageThumb_0 img{
+	 width: 150; 
+	 height: 150;
+	
+}
+
+#imageThumb_1 img{
+	 width: 150; 
+	 height: 150;
+	
+}
+
+#imageThumb_2 img{
+	 width: 150; 
+	 height: 150;
+	
+}
+
+#imageThumb_3 img{
+	 width: 150; 
+	 height: 150;
+	
+}
+#imageThumb_4 img{
+	 width: 150; 
+	 height: 150;
+	
+} */
+
+.quantity {
+	display: inline-block;
+	position: relative;
+	width: 50px;
+	vertical-align: top;
+}
+
+.quantity input {
+	width: 30px;
+	height: 25px;
+	padding: 0 2px 0 3px;
+	line-height: 25px;
+	border: 1px solid #d4d8d9;
+	border-radius: 3px 0 0 3px;
+}
+
+.quantity .up {
+	position: absolute;
+	left: 28px;
+	top: 0;
+}
+
+.quantity .down {
+	position: absolute;
+	left: 28px;
+	top: 12px;
+}
+
+#main_container {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+#main {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+#tabContainer hr {
+	position: relative;
+	padding: 0 20px;
+	font-size: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+#tabContainer ul {
+	list-style: none;
+	padding: 0 0 10;
+	margin: 0;
+	z-index: 3;
+}
+
+#tabContainer ul li {
+	display: inline; /* 세로나열을 가로나열로 변경 */
+	border: 1px solid #999; /* 각 메뉴의 왼쪽에 "|" 표시(분류 표시) */
+	font: bold 12px Dotum; /* 폰트 설정 - 12px의 돋움체 굵은 글씨로 표시 */
+	padding: 10 20 10 20px; /* 각 메뉴 간격 */
+	/* margin: 10 10 0 10; */
+	border-bottom: none;
+}
+
+.tabContainer1 {
+	position: relative;
+	padding: 0 20px;
+	font-size: 0;
+	box-sizing: border-box;
+	width: 100%;
+	border-bottom: 1px solid #000 !important;
+}
+
+#tabContainer ul li:first-child {
+	/* border-left:none; */ /* 메뉴 분류중 제일 왼쪽의 "|"는 삭제 */
+	
+}
+
+#tabContainer .tabFillSpace {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 0;
+	padding: 0;
+	border-color: #000;
+	z-index: 3;
+}
+
+.cloneTabsContainer .tabItem.active, .cloneTabsContainer .tabItem {
+	position: relative;
+	margin: 0;
+	margin-left: -1px;
+	padding: 0 10px;
+	/* width: 168px; */
+	height: 50px;
+	line-height: 50px;
+	font-size: 12px;
+	color: #999;
+	border-color: #D1D1D1;
+	box-sizing: border-box;
+	border-radius: 0;
+	background: #fff;
+	transition: background-color .2s, border-bottom-color .2s;
+	text-overflow: ellipsis;
+}
+
+.cloneTabsContainer .tabItem:first-child {
+	margin-left: 0;
+}
+
+.cloneTabsContainer .tabItem.active {
+	border-color: #000;
+	color: #000;
+	z-index: 5;
+	overflow: unset;
+	white-space: unset;
+	border-bottom: none;
+}
+#leftNavBottom{
+	border-bottom: 1px solid #000 !important;
+}
+
+.productInfoContainer {
+	padding-bottom: 1.04em;
+	overflow: hidden;
+	box-sizing: border-box;
+	padding: 20px 15px;
+	width: 1060px;
+}
+
+/*위시리스트*/
+.exist img {
+	margin-top: -14px !important;
+}
+
+.empty img {
+	margin-top: 2px !important;
+}
+
+.icon {
+	float: right;
+	overflow: hidden;
+	height: 16px;
+	margin-top: 14px;
+	cursor: pointer;
+}
+
+/*버튼*/
+.btn_s_gray { /*장바구니*/
+	border: none;
+	background-color: #a9a9a9;
+	color: #FFF;
+}
+
+.btn_s_gray:hover {
+	background-color: #6c757d;
+}
+
+.btn_205 {
+	width: 230px;
+	height: 50px;
+	font-size: 16px;
+}
+
+.btn_s_red {
+	border: none;
+	background-color: #007bff;
+	color: #FFF;
+}
+
+.btn_s_red:hover {
+	background-color: #0051ba
+}
+
+.grayBtn {
+	display: inline-block;
+	margin-top: 6px;
+	width: 108px;
+	height: 33px;
+	border: 1px solid #63666a;
+	color: #333;
+	background-color: #fff;
+}
+
+.grayBtn:hover {
+	color: #fff;
+	background-color: #63666a;
+	cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal3 {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 9; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content3 {
+	background-color: #fefefe;
+	margin: 100px auto 0px; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 450px; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close3 {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+.close3:hover, .close3:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+

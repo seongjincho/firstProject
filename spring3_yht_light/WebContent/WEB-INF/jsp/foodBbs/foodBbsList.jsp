@@ -172,13 +172,12 @@ $(document).ready(function () {
 <br><br><br><br><br><br><br>
 </div>
 
-
-
+<br><br><br>
 
 
 
 <%-- footer --%>
-<jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
+ <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
 
 <script type="text/javascript">
 
@@ -205,7 +204,7 @@ $("#_btnSearch").click(function(){
 });
 
 function titleclick(food_seq) {
-	alert("food_seq:" + food_seq);
+	//alert("food_seq:" + food_seq);
 	location.href = "detailFood.do?food_seq=" + food_seq;
 }
 

@@ -59,7 +59,7 @@ public class FoodServiceImpl implements FoodService {
 	}
 
 	@Override
-	public List<String> getAttach(int food_seq) {
+	public List<AttachVo> getAttach(int food_seq) {
 		
 		return foodDao.getAttach(food_seq);
 	}

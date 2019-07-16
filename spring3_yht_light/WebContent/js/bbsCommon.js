@@ -47,15 +47,15 @@ function getFileInfo(fullName) {
 function getImageLink(fileName) {
    // 이미지파일이 아니면
    if (!checkImageType(fileName)) {
-     /*  console.log(fileName); */
+       console.log(fileName); 
       return; //함수종료
-   }
+   }    
    // 이미지 파일이면(썸네일이 아닌 원본 이미지를 가져오기 위해)
    // 썸네일 이미지 파일명 - 파일경로+파일명   /2019/01/04/s_7bad4768-5e7d-4adc-9044-eaf6c9f8ba2f_photo-1503198127388-eff24dabbbea.jpg
    var front = fileName.substr(0, 12); // 년월일 경로 추출
    var end = fileName.substring(14); // 년월일 경로와 s_를 제거한 원본 파일명을 추출
-  /*  console.log(front); */ // /2019/01/04/
-   /* console.log(end); */   // 7bad4768-5e7d-4adc-9044-eaf6c9f8ba2f_photo-1503198127388-eff24dabbbea.jpg
+    console.log(front);  // /2019/01/04/
+    console.log(end);   // 7bad4768-5e7d-4adc-9044-eaf6c9f8ba2f_photo-1503198127388-eff24dabbbea.jpg
    // 원본 파일명 - /2019/01/04/7bad4768-5e7d-4adc-9044-eaf6c9f8ba2f_photo-1503198127388-eff24dabbbea.jpg
    return front+end;   // 디렉토리를 포함한 원본파일명을 리턴
 }

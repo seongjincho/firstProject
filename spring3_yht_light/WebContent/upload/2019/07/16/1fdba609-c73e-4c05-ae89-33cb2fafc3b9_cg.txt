@@ -1,0 +1,71 @@
+https://cofs.tistory.com/181
+
+https://freemoa-blog.com/639
+
+
+https://thiago6.tistory.com/38 메일인증
+
+
+
+
+https://thiago6.tistory.com/54?category=827160
+1. 좋아요 버튼은 로그인시 활성화
+2. 버튼 클릭시 Ajax로 uid, bno를 가진 데이터가 존재하는지 검사
+3. 2.결과를 이용해 [좋아요] <--> [좋아요 취소] 로직처리
+3.1 데이터가 존재하지 않는다면: 데이터 추가
+3.2 데이터가 이미 존재한다면: 데이터 삭제
+
+
+
+
+
+
+
+https://handcoding.tistory.com/18
+
+
+파일업로드 컬럼만 추가하면 됨 
+
+
+https://doublesprogramming.tistory.com/130
+
+
+https://doublesprogramming.tistory.com/132
+
+
+https://stargatex.wordpress.com/2014/11/19/erd-tool-eclipse-ermaster-plug-in-%EC%84%A4%EC%B9%98/ 
+erm마스터 
+
+
+http://ko.exerd.com/down.jsp#none
+exerd
+
+
+
+
+
+
+
+<!-- 		파일업로드를 위한 디렉토리 설정
+	String uploadPath = new String("업로드 경로") -->
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<!-- 파일업로드 디렉토리 -->
+	 	<beans:constructor-arg value="C:\\Users\\Shin\\Desktop\\fpgit\\firstProject\\spring3_yht_light\\WebContent\\upload\\"/> 
+	</beans:bean>
+
+
+
+
+
+
+
+
+https://github.com/arguiot/DisplayJS/releases
+
+
+
+
+
+
+
+

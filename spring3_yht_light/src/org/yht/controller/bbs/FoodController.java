@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.yht.domain.test01.AttachVo;
 import org.yht.domain.test01.FoodParam;
 import org.yht.domain.test01.FoodVo;
 
@@ -78,10 +79,24 @@ public class FoodController {
 	@RequestMapping(value = "detailFood.do", method = {})
 	public String detailFood(int food_seq, Model model) {
 		
-			List<FoodVo> foodList = foodService.detailFood(food_seq);
+			List<FoodVo> allFoodDetail = foodService.detailFood(food_seq);
 			
-			System.out.println(foodList.toString());
-		
+			System.out.println(allFoodDetail.toString());
+			
+			for(int i = 0; i < allFoodDetail.size(); i++) {
+				System.out.println("allFoodDetail.get("+i+") : " + allFoodDetail.get(i).getFullname());
+			}
+			
+			FoodVo foodList = allFoodDetail.get(0);  // 첫번째 사진을 포함한 디테일 글 
+			
+			
+			List<AttachVo> attachList = foodService.getAttach(food_seq); // 사진 목록 
+			
+			System.out.println(attachList.toString());
+			
+			//model.addAttribute("allFoodDetail", allFoodDetail);  // 글 전체  
+			model.addAttribute("foodList", foodList); // 첫번째 사진을 포함한 디테일 글 
+			model.addAttribute("attachList", attachList); // 전체사진
 		
 		return "foodBbs/foodDetail";
 	}

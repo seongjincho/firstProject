@@ -13,6 +13,6 @@ public interface FoodService {
 	public void writeFood(FoodVo fv) throws Exception;
 	public List<FoodVo> detailFood(int food_seq);
 	
-	public List<String> getAttach(int food_seq);
+	public List<AttachVo> getAttach(int food_seq);
 	
 }

@@ -9,7 +9,7 @@ public class FoodParam implements Serializable {
 	private String f_keyword;  // 검색어 
 	
 	// paging
-	private int recordCountPerPage = 30; // 표현할 한 페이지의 글수 10개씩 표현한다   
+	private int recordCountPerPage = 10; // 표현할 한 페이지의 글수 10개씩 표현한다   
 	private int pageNumber = 0;  		 // 페이지 번호  현재페이지 넘버 ?
 	
 	

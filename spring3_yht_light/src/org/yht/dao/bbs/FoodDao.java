@@ -42,7 +42,7 @@ public class FoodDao {
 	
 	
 	//파일 업로드
-	public List<String> getAttach(int food_seq){
+	public List<AttachVo> getAttach(int food_seq){
 		
 		return sqlSession.selectList("Food.getAttach", food_seq);
 		

@@ -70,23 +70,26 @@
                contentType: false,
                success: function (data) {
             	   
-            	   alert("업로드 성공?");
+            	  // alert("업로드 성공?");
                   var str ="";
                   
+
                   console.log(data);
+
                   // 첨부 파일의 정보
                   var fileInfo = getFileInfo(data);
-/*                 
-                  // 하이퍼링크
-                  str = "<a href='"+fileInfo.getLink+"'>"+fileInfo.fileName+"</a><br>";
-                  // hidden 태그 추가
-                  str += "<input type='hidden' name='files' value='"+fileInfo.fullName+"'>"; */
-                   
+                  
+                  
+
+          
                   // 이미지 파일이면 썸네일 이미지 출력
                   if (checkImageType(data)) {
+                	 
+/*                   	 str = "<div><a href='displayFile.do?fileName="+data+"'>";        
+                  	str += "<img src='displayFile.do?fileName="+data+"'></a>";   */
+                  	//str = "<div><a href='displayFile.do?fileName="+getImageLink(data)+"' target='_blank'>"; 
+                     str += "<div><img src='displayFile.do?fileName="+data+"'>";  
                      
-                      str = "<div><a href='displayFile.do?fileName="+getImageLink(data)+"'>"; 
-                     str += "<img src='displayFile.do?fileName="+data+"'></a>"; 
                      // hidden 태그 추가
                      str += "<input type='hidden' name='files' value='"+fileInfo.fullName+"'>";
                 	
@@ -97,7 +100,7 @@
                      str += "<input type='hidden' name='files' value='"+fileInfo.fullName+"'>";
                   }
                   // 삭제 버튼
-                  // str += "<span data-src="+data+">[삭제]</span></div>";
+                   //str += "<span data-src="+data+">[삭제]</span></div>";
                   
                   $("#uploadedList").append(str);
                }
@@ -138,10 +141,10 @@
                document.form1.meetingDate.focus();
                return;
             }
-   /*          if (file.length == 0){
+          if (file.length == 0){
             	alert("최소 1장의 이미지파일을 업로드 해주세요");
             	return;
-            } */
+            } 
            
             // 첨부파일 이름을 form에 추가
             var that = $("#form1");

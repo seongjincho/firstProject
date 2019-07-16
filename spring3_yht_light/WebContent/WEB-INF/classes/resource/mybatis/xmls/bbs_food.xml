@@ -58,17 +58,16 @@
       		 F.CONTENT, F.WDATE, F.READ_CNT, F.LIKE_CNT, F.LOCAL , A.FULLNAME
       FROM TEST01_FOOD F, TEST01_ATTACH A
       WHERE F.FOOD_SEQ=A.FOOD_SEQ AND F.FOOD_SEQ=#{food_seq}
-      ORDER BY F.FOOD_SEQ
 </select>
 
 
 <!--  ////파일업로드 관련////  -->
 
 <!-- 첨부파일 목록 가져오기 -->
-<select id="getAttach" parameterType="java.lang.Integer" resultType="java.lang.String">
-      SELECT FULLNAME 
+<select id="getAttach" parameterType="java.lang.Integer" resultType="org.yht.domain.test01.AttachVo">
+      SELECT FULLNAME, FOOD_SEQ, RDATE
       FROM TEST01_ATTACH 
-      WHERE FOOD_SEQ=#{food_seq} ORDER BY RDATE
+      WHERE FOOD_SEQ=#{food_seq}
 </select>
 	 
 <!-- 첨부파일 등록 -->	
