@@ -14,5 +14,6 @@ public interface FoodService {
 	public List<FoodVo> detailFood(int food_seq);
 	
 	public List<AttachVo> getAttach(int food_seq);
+	public boolean read_cnt(int food_seq); 
 	
 }

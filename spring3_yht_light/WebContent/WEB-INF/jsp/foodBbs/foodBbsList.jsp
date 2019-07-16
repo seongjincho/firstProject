@@ -52,7 +52,7 @@ $(document).ready(function () {
 <jsp:setProperty property="depth" name="ubbs" value="${bbs.depth }"/>   --%>
 	 
 <div align="center">
-<table class="noti" border="1">
+<table class="noti">
 <thead style="font-size: 16px;">
 	<tr class="noto">
 		<th width="5%">순서</th>
@@ -77,13 +77,13 @@ $(document).ready(function () {
 	
 	<tr class="_hover_tr">
 		<td>${vs.count }</td> 
-		<td style="text-align: left; padding-left: 15px;">	
+		<td style="text-align: left; padding-left: 15px;" class="title_">			
 			<a href="#none" onclick="titleclick(${bbs.food_seq })">
 				${bbs.title } 
 			</a>
 		</td>
 		<td>${bbs.id }</td>
-		<td>${bbs.join_cnt }<b>/</b>${bbs.total_cnt }</td>
+		<td><font style="color: deepskyblue;">${bbs.join_cnt }</font><b>/</b>${bbs.total_cnt }</td>
 		<td>
 			<fmt:formatDate value="${bbs.meetingDay }" pattern="yyyy/MM/dd"/>
 		</td>

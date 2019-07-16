@@ -78,6 +78,14 @@ public class FoodController {
 	
 	@RequestMapping(value = "detailFood.do", method = {})
 	public String detailFood(int food_seq, Model model) {
+			
+			boolean isS = foodService.read_cnt(food_seq);
+			if(isS) {
+				System.out.println("조회수 up");
+			}else {
+				System.out.println("조회수 down");
+			}
+		
 		
 			List<FoodVo> allFoodDetail = foodService.detailFood(food_seq);
 			
@@ -93,6 +101,8 @@ public class FoodController {
 			List<AttachVo> attachList = foodService.getAttach(food_seq); // 사진 목록 
 			
 			System.out.println(attachList.toString());
+			
+		
 			
 			//model.addAttribute("allFoodDetail", allFoodDetail);  // 글 전체  
 			model.addAttribute("foodList", foodList); // 첫번째 사진을 포함한 디테일 글 

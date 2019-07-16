@@ -64,6 +64,12 @@ public class FoodServiceImpl implements FoodService {
 		return foodDao.getAttach(food_seq);
 	}
 
+	@Override
+	public boolean read_cnt(int food_seq) {
+		
+		return foodDao.read_cnt(food_seq);
+	}
+
 
 	
 	

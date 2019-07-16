@@ -54,4 +54,12 @@ public class FoodDao {
 		
 	}
 	
+	public boolean read_cnt(int food_seq) {
+	
+		int n = sqlSession.update("Food.read_cnt", food_seq);
+		
+		return n>0?true:false;
+		
+	}
+	
 }
