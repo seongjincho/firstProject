@@ -42,6 +42,14 @@ public class LikeVo implements Serializable {
 	public LikeVo() {
 		
 	}
+	
+	
+	public LikeVo(int food_seq, String id) {
+		super();
+		this.food_seq = food_seq;
+		this.id = id;
+	}
+
 
 	public LikeVo(int like_seq, int food_seq, String id) {
 		super();

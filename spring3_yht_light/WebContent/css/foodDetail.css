@@ -171,10 +171,12 @@
 /*위시리스트*/
 .exist img {
 	margin-top: -14px !important;
+
 }
 
 .empty img {
 	margin-top: 2px !important;
+
 }
 
 .icon {

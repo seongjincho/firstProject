@@ -62,7 +62,7 @@ $(document).ready(function () {
 		<th width="10%">모임날짜</th>
 		<th width="10%">작성일</th>
 		<th width="5%">조회수</th>
-		<th width="5%">좋아요 수</th>
+		<th width="5%"><img width="40px" height="40px" src="images/likeicon.png"></th>
 	</tr>
 </thead>
  <tbody>
@@ -77,8 +77,9 @@ $(document).ready(function () {
 	
 	<tr class="_hover_tr">
 		<td>${vs.count }</td> 
-		<td style="text-align: left; padding-left: 15px;" class="title_">			
-			<a href="#none" onclick="titleclick(${bbs.food_seq })">
+		<td style="text-align: left; padding-left: 15px;" class="title_">		
+			<input type="hidden" id="id" name="id" value="${login.id }">	
+			<a href="#none" onclick="titleclick(${bbs.food_seq})">
 				${bbs.title } 
 			</a>
 		</td>
@@ -203,9 +204,10 @@ $("#_btnSearch").click(function(){
 	$("#_frmFormSearch").attr("action","foodBbsList.do").submit();
 });
 
-function titleclick(food_seq) {
-	//alert("food_seq:" + food_seq);
-	location.href = "detailFood.do?food_seq=" + food_seq;
+function titleclick( food_seq) {
+	var id = $("#id").val();
+	// alert("food_seq:" + food_seq + " id: " + id);
+	location.href = "detailFood.do?food_seq=" + food_seq + "&id=" + id;
 }
 
 </script>

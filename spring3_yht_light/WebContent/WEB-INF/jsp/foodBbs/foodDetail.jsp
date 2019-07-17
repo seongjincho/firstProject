@@ -18,9 +18,12 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e95843617e74d0c3683cc8d8a73f71af&libraries=services,clusterer,drawing"></script>
 <br><br><br><br><br><br>   
 
-<div align="center">
+<div>
 <h1 align="center">제목:${foodList.title }</h1>
-
+</div>
+<div align="left" id="headLine" style="margin-right: 50%;">
+	
+	<input type="hidden" id="id" name="id" value="${login.id }">	
       <c:if test="${empty likeList }">
        <p class="icon wish_icon empty" >
           <img src="images/icon_wish.svg">
@@ -32,8 +35,9 @@
           <img src="images/icon_wish.svg">      
        </p>
         </c:if>
-<br><br>
+
 </div>
+<br><br>
 				
 <div style="margin-left: 10%" align="center" id="mainImgConatiner">
 ${foodList.fullname }
@@ -70,7 +74,8 @@ ${foodList.fullname }
 		</tr> --%>
 		
 		<tr>	
-			<td>글번호</td> <td colspan="2" align="left">${foodList.food_seq }</td>
+			<td>글번호</td> <td colspan="2" align="left">${foodList.food_seq } 
+			<input type="hidden" id="food_seq" name="food_seq" value="${foodList.food_seq } "> </td>
 		</tr>
 		
 		
@@ -115,8 +120,8 @@ ${foodList.fullname }
 			        <div class="option">
 			            <div>
 			                <form onsubmit="searchPlaces(); return false;">
-			                    키워드 : <input type="text" value="${foodList.local }" id="keyword" size="15" readonly="readonly"> 
-			                    <a href="https://map.kakao.com/link/search/${foodList.local }" target="_blank"><button>모임장소 길찾기</button></a> 
+			                    키워드 : <input type="text" value="${foodList.local }" id="keyword" size="15" readonly="readonly"> 			                
+			            <button onclick="window.open('https://map.kakao.com/link/search/${foodList.local }', '', 'width=1300,height=600'); return false;">모임장소 길찾기</button>			                 
 			                </form>                           
 			            </div>
 			        </div>
@@ -154,7 +159,15 @@ ${foodList.fullname }
 </td>
 </tr>
 </table>
-<input type="button" value="참가" onclick="joinSharing()"> 
+<!-- <input type="button" value="참가" onclick="joinSharing()">  -->
+
+<hr>
+<c:if test="${empty joinList }">
+	<button type="button" value="false" id="joinBtn" class="joinButton btn_s_gray btn_205" onclick="joinSharing()">참여</button>	
+</c:if>
+<c:if test="${not empty joinList }">
+	<button type="button" value="false"  class="joinButton btn_s_gray btn_205" onclick="joinSharing()">참여중/참여취소</button>	
+</c:if>
 
 
 							
@@ -163,29 +176,256 @@ ${foodList.fullname }
 </div>
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br>
-<%-- reply --%>
-<%-- <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>		 --%>		
-		
+<br><br><br>
+<hr>
+		 
+ <div>
+ <jsp:include page="/WEB-INF/jsp/foodBbs/foodReply.jsp" flush="false"/>	
+ </div>
+ 
+ <br><br>
+
 <%-- footer --%>
-<div id="footerTest" style="display: block;">
+<div>
  <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
 <%-- <%@include file="/WEB-INF/jsp/include/footer.jsp" %> --%>
 </div>
 
 
+
+
+
 <script>
 
 function joinSharing() {
+	
 	alert("참가");
+	var id = $("#id").val();
+	var food_seq = $("#food_seq").val();
+	var joinBtn = $("#joinBtn").val();
+	
+	if(id == ""){
+		
+	
+	if(confirm("로그인 후 이용해주세요 로그인 하시겠습니까 ?") == true){
+		
+		location.href="login.do";
+		
+	}else {
+		
+		return;
+		
+	}
+	
+	}else{
+		
+		alert("join ajax 진입");
+		
+		$.ajax({
+			url:"getJoin.do",
+			type:"post",
+			data:{ food_seq:food_seq, id:id },
+			success:function(data){  // 먼저 참여중인지 체크 
+				
+				if(data.trim() == "OK"){ // 참여 가능 ! 
+					
+					
+					if(confirm("모임에 참여 하시겠습니까 ?") == true){
+						
+			 			$.ajax({
+							url:"joinInsert.do",
+							type:"post",
+							data:{ id:id, food_seq:food_seq },
+							success:function(data){  
+								
+								if(data.trim() == "OK"){
+							 
+									alert("참여완료!");
+									location.reload();
+									
+								}else {
+									
+									alert("참여 에러");
+									
+								}
+							
+							},
+							error:function(r, s, err){
+								
+								alert("error");
+								
+							}
+							
+						}); 
+						
+						
+						
+						
+					}else {
+						
+						return;
+						
+					}
+						
+							
+	
+															
+				}else { // 이미 참여중  참여 취소 부분  
+					
+				if(confirm("모임 참여를 취소 하시겠습니까 ?") == true){
+					
+					 			$.ajax({
+									url:"joinDel.do",
+									type:"post",
+									data:{ id:id, food_seq:food_seq },
+									success:function(data){  
+										
+										if(data.trim() == "OK"){
+											
+									 		alert("참여 취소 완료!");
+									 		location.reload();
+										}else {
+											
+											alert("참여 취소 실패");
+											
+										}
+									
+									},
+									error:function(r, s, err){
+										
+										alert("error");
+										
+									}
+									
+								}); 
+															
+						}else {
+							
+							return;
+							
+						}
+				}
+			
+			},
+			error:function(r, s, err){
+				
+				alert("error");
+				
+			}
+			
+		});
+		
+	}
+	
 	
 }
 
-function likeUp() {
-	alert("like_cnt");
+$("#headLine .wish_icon").on("click", function(event) {
 	
+	//alert("좋아요!");
+	
+	var id = $("#id").val();
+	var food_seq = $("#food_seq").val();
+	
+	
+	//alert(id);
+	//alert("글번호:" + food_seq);
+	
+	if(id == ""){
+		//alert("로그인 후 이용해주세요 로그인 하시겠습니까 ?");
+		
+		if(confirm("로그인 후 이용해주세요 로그인 하시겠습니까 ?") == true){
+			
+			location.href="login.do";
+			
+			
+		}else {
+			
+			return;
+			
+		}
+		
+		
+	}else {
+	
+			$.ajax({
+				url:"getLike.do",
+				type:"post",
+				data:{ id:id, food_seq:food_seq },
+				success:function(data){  // 1차로  좋아요 유무 확인 필요 
+					
+					//alert("success");
+					//alert("data:" + data);
+					
+					if(data.trim() == "OK"){ //좋아요 등록 가능 
+						
+						$.ajax({
+							url:"likeInsert.do",
+							type:"post",
+							data:{ id:id, food_seq:food_seq },
+							success:function(data){  // 1차로  좋아요 유무 확인 필요 
+								
+								if(data.trim() == "OK"){
+								alert("좋아요!");
+						               $(event.target).parent().addClass('exist');
+						               $(event.target).parent().removeClass('empty');   
+								}else {
+									//alert("좋아요등록 ajax 실패");
+								}
+							
+							},
+							error:function(r, s, err){
+								
+								alert("error");
+								
+							}
+							
+						});
+					
+					}else { //좋아요 등록 삭제  
+						
+						$.ajax({
+							url:"likeDel.do",
+							type:"post",
+							data:{ id:id, food_seq:food_seq },
+							success:function(data){  // 1차로  좋아요 유무 확인 필요 
+								
+								if(data.trim() == "OK"){
+									
+									alert("좋아요 취소!");
+						               $(event.target).parent().addClass('empty');
+						               $(event.target).parent().removeClass('exist');
+								}else{
+									
+								//	alert("좋아요삭제 ajax 실패");
+						
+									
+								}
+							},
+							error:function(r, s, err){
+								
+								alert("error");
+								
+							}
+							
+						});
+						
+					}
+					
+					
+				},
+				error:function(r, s, err){
+					
+					alert("error");
+					
+				}
+				
+			});
+			
+	}
+	
+});
 
-}
 
 
 // 마커를 담을 배열입니다
@@ -416,5 +656,5 @@ function setZoomable(zoomable) {
 }
 
 map.setZoomable(false);
-map.setDraggable(false);
+//map.setDraggable(false);
  </script>

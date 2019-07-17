@@ -10,6 +10,8 @@ import org.yht.dao.bbs.FoodDao;
 import org.yht.domain.test01.AttachVo;
 import org.yht.domain.test01.FoodParam;
 import org.yht.domain.test01.FoodVo;
+import org.yht.domain.test01.JoinVo;
+import org.yht.domain.test01.LikeVo;
 import org.yht.service.bbs.FoodService;
 
 
@@ -70,7 +72,22 @@ public class FoodServiceImpl implements FoodService {
 		return foodDao.read_cnt(food_seq);
 	}
 
+	@Override
+	public LikeVo checkLikeId(LikeVo vo) {
+		
+		return foodDao.checkLikeId(vo);
+	}
 
+	@Override
+	public JoinVo checkJoinId(JoinVo vo) {
+		
+		return foodDao.checkJoinId(vo);
+	}
+
+	
+
+	
+	
 	
 	
 	

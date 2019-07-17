@@ -88,14 +88,14 @@ public class UploadController {
 		// 서버의 파일을 다운로드하기 위한 스트림
 		InputStream in = null; // java.io
 		ResponseEntity<byte[]> entity = null;
-		System.out.println("display.do 파일네임=" + fileName);
+		//System.out.println("display.do 파일네임=" + fileName);
 		try {
 			// 확장자를 추출하여 formatName에 저장
 			String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
-			System.out.println("확장자명="+ formatName);
+			//System.out.println("확장자명="+ formatName);
 			// 추출한 확장자를 MediaUtils클래스에서 이미지파일여부를 검사하고 리턴받아 mType에 저장
 			MediaType mType = MediaUtils.getMediaType(formatName);
-			System.out.println("엠타입="+mType);
+		//System.out.println("엠타입="+mType);
 			// 헤더 구성 객체(외부에서 데이터를 주고받을 때에는 header와 body를 구성해야하기 떄문에)
 			HttpHeaders headers = new HttpHeaders();
 			// InputStream 생성
@@ -108,7 +108,7 @@ public class UploadController {
 				fileName = fileName.substring(fileName.indexOf("_")+1); 
 				/*URLEncoder.encode(, "UTF-8")*/
 				
-				System.out.println("파일네임1=" + fileName);
+				//System.out.println("파일네임1=" + fileName);
 				// 다운로드용 컨텐트 타입
 				headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
 				//

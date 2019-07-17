@@ -72,8 +72,8 @@
 	 
 <!-- 첨부파일 등록 -->	
 <insert id="addAttach" parameterType="org.yht.domain.test01.AttachVo">
-       INSERT INTO TEST01_ATTACH(FULLNAME, FOOD_SEQ, RDATE) 
-       VALUES (#{fullname}, SEQ_FOOD.CURRVAL, SYSDATE)
+    INSERT INTO TEST01_ATTACH(FULLNAME, FOOD_SEQ, RDATE) 
+    VALUES (#{fullname}, SEQ_FOOD.CURRVAL, SYSDATE)
 </insert>
 
 
@@ -82,6 +82,19 @@
 	SET READ_CNT = READ_CNT + 1
 	WHERE FOOD_SEQ=#{food_seq}
 </update>
+
+<select id="checkLikeId" parameterType="org.yht.domain.test01.LikeVo" resultType="org.yht.domain.test01.LikeVo">
+	SELECT LIKE_SEQ,FOOD_SEQ, ID
+	FROM TEST01_LIKE
+	WHERE FOOD_SEQ = #{food_seq} AND ID=#{id}
+</select>
+
+<select id="checkJoinId" parameterType="org.yht.domain.test01.JoinVo" resultType="org.yht.domain.test01.JoinVo">
+	SELECT JOIN_SEQ, ID, FOOD_SEQ
+	FROM TEST01_JOIN
+	WHERE FOOD_SEQ = #{food_seq} AND ID=#{id}
+</select>
+
 
 
 

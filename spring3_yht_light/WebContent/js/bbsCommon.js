@@ -10,7 +10,7 @@ function getFileInfo(fullName) {
 	// 이미지 파일일 경우
 	if (checkImageType(fullName)) {
 		// 이미지 파일 경로(썸네일)
-		// imgsrc = "/smoonine/displayFile.do?fileName="+fullName;
+		// imgsrc = "/displayFile.do?fileName="+fullName;
 		imgsrc = fullName;
 		/*console.log("imgsrc= "+imgsrc);*/
 		// 업로드 파일명
@@ -23,7 +23,7 @@ function getFileInfo(fullName) {
 		var end = fullName.substr(14);
 		/*console.log("end= "+end);*/
 		// 원본이미지 파일 디렉토리
-		// getLink = "/smoonine/displayFile.do?fileName="+front+end;
+		// getLink = "/displayFile.do?fileName="+front+end;
 		getLink = front+end;
 		/*console.log("getLink= "+getLink);*/
 	// 이미지 파일이 아닐경우
@@ -32,7 +32,7 @@ function getFileInfo(fullName) {
 		fileLink = fullName.substr(12);
 		/*console.log("fileLink= " + fileLink);*/
 		// 일반파일디렉토리
-		// getLink = "/smoonine/displayFile.do?fileName="+fullName;
+		// getLink = "/displayFile.do?fileName="+fullName;
 		getLink = fullName;
 		/*console.log("getLink= " + getLink);*/
 	}

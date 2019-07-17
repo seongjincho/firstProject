@@ -3,16 +3,20 @@ package org.yht.controller.bbs;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.yht.domain.test01.AttachVo;
 import org.yht.domain.test01.FoodParam;
 import org.yht.domain.test01.FoodVo;
-
+import org.yht.domain.test01.JoinVo;
+import org.yht.domain.test01.LikeVo;
+import org.yht.domain.test01.MemberVo;
 import org.yht.service.bbs.FoodService;
 
 @Controller
@@ -76,9 +80,12 @@ public class FoodController {
 			return "redirect:/foodBbsList.do";
 	}
 	
-	@RequestMapping(value = "detailFood.do", method = {})
-	public String detailFood(int food_seq, Model model) {
+	@RequestMapping(value = "detailFood.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String detailFood(LikeVo vo, Model model, HttpServletRequest req ) {
 			
+		int food_seq = vo.getFood_seq();
+		
+		// 조회수
 			boolean isS = foodService.read_cnt(food_seq);
 			if(isS) {
 				System.out.println("조회수 up");
@@ -86,7 +93,7 @@ public class FoodController {
 				System.out.println("조회수 down");
 			}
 		
-		
+		// 디테일 데이터 
 			List<FoodVo> allFoodDetail = foodService.detailFood(food_seq);
 			
 			System.out.println(allFoodDetail.toString());
@@ -101,15 +108,30 @@ public class FoodController {
 			List<AttachVo> attachList = foodService.getAttach(food_seq); // 사진 목록 
 			
 			System.out.println(attachList.toString());
+		// likeList 생성 !!! 
 			
+			if(vo.getId() != null) {
+			
+				LikeVo likeList = foodService.checkLikeId(vo);
+				model.addAttribute("likeList", likeList);
+			}
+		//	joinList 생성 !! 
+			if(vo.getId() != null) {
+			
+			JoinVo jv = new JoinVo(vo.getId(), food_seq);
+			JoinVo joinList = foodService.checkJoinId(jv);
+				model.addAttribute("joinList", joinList);
+			}
 		
 			
 			//model.addAttribute("allFoodDetail", allFoodDetail);  // 글 전체  
 			model.addAttribute("foodList", foodList); // 첫번째 사진을 포함한 디테일 글 
 			model.addAttribute("attachList", attachList); // 전체사진
 		
+		
 		return "foodBbs/foodDetail";
 	}
+
 	
 
 }

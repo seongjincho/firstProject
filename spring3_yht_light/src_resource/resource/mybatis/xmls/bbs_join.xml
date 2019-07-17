@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Join">
+
+<insert id="joinInsert" parameterType="org.yht.domain.test01.JoinVo">
+    INSERT INTO TEST01_JOIN(JOIN_SEQ, ID, FOOD_SEQ) 
+    VALUES (SEQ_JOIN.NEXTVAL, #{id}, #{food_seq})
+</insert>
+
+<select id="getJoin" parameterType="org.yht.domain.test01.JoinVo" resultType="org.yht.domain.test01.JoinVo">
+	SELECT JOIN_SEQ, ID, FOOD_SEQ
+	FROM TEST01_JOIN
+	WHERE FOOD_SEQ = #{food_seq} AND ID=#{id}
+</select>
+
+<delete id="joinDel" parameterType="org.yht.domain.test01.JoinVo">
+	DELETE 
+	FROM TEST01_JOIN
+	WHERE FOOD_SEQ=#{food_seq} AND ID=#{id}
+</delete>
+
+<update id="join_cnt" parameterType="org.yht.domain.test01.JoinVo">
+	UPDATE TEST01_FOOD
+	SET JOIN_CNT = 
+       (SELECT NVL(COUNT(*), 0) AS JOIN_CNT 
+         FROM TEST01_JOIN
+         WHERE FOOD_SEQ=#{food_seq})
+	WHERE FOOD_SEQ=#{food_seq}
+</update>
+
+</mapper>

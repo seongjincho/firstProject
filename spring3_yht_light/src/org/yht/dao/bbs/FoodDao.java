@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import org.yht.domain.test01.AttachVo;
 import org.yht.domain.test01.FoodParam;
 import org.yht.domain.test01.FoodVo;
+import org.yht.domain.test01.JoinVo;
+import org.yht.domain.test01.LikeVo;
 
 @Repository("FoodDao")
 public class FoodDao {
@@ -62,4 +64,16 @@ public class FoodDao {
 		
 	}
 	
+	public LikeVo checkLikeId(LikeVo vo) {
+		
+		return sqlSession.selectOne("Food.checkLikeId", vo);
+		
+	} 
+	
+	public JoinVo checkJoinId(JoinVo vo) {
+		
+		return sqlSession.selectOne("Food.checkJoinId", vo);
+		
+	} 
+
 }
