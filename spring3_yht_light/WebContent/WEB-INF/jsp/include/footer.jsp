@@ -82,7 +82,7 @@
 						<li class="f12 noto" style="color: gray;">서울특별시 강남구 테헤란로14길 6 남도빌딩 2F (주)Food Sharing</li>
 						<li class="f12 noto" style="color: gray;">개인정보보호 책임자 : 조성진</li>
 						<li class="f12 noto" style="color: gray;">사업자등록번호 : 215-86-12345·통신판매업신고 : 2019-서울역삼-0069호·부가통신사업신고필증 : 021129</li>
-						<li class="f12 arial" style="color: gray;"><a href="mailto:testcho0701@gmail.com" class="mail">&nbsp;&nbsp;&nbsp; testcho0701@gmail.com</a>·Copyright (c) 2019 Food Sharing lnc. All rights reserved</li>
+						<li class="f12 arial" style="color: gray;"><a href="mailto:testcho0701@gmail.com" class="mail">testcho0701@gmail.com</a>&nbsp;&nbsp; ·Copyright (c) 2019 Food Sharing lnc. All rights reserved</li>
 					</ul>
 				</li>
 			</ul>

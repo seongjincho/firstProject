@@ -162,9 +162,10 @@ ${foodList.fullname }
 		
 		<tr>
 		<td colspan="3">
-		<div>
+		<div align="center">
 		<hr>
-		<font size="30"><b>${foodList.content }</b></font>
+		<textarea rows="20" cols="70" readonly="readonly">${foodList.content }</textarea>
+		
 		<hr>
 		</div>
 		</td>

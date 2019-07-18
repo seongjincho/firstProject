@@ -98,7 +98,7 @@
       
        <!--  2. 위시리스트 -->
         <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" href="wishList.do">
+          <a class="portfolio-link" href="mypage_like.do">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -107,8 +107,8 @@
             <img class="img-fluid" src="images/06-full.jpg" alt="" style="height: 210px; width: 400px;">
           </a>
           <div class="portfolio-caption">
-            <h4><b>위시리스트</b></h4>
-            <p class="text-muted" style="font-size: 12px">Wish List</p>
+            <h4><b>좋아요</b></h4>
+            <p class="text-muted" style="font-size: 12px">Like List</p>
           </div>
         </div> 
              
@@ -116,7 +116,7 @@
         
        <!--  3. 내가쓴글 -->
         <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" href="./calendar.jsp">
+          <a class="portfolio-link" href="#">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -192,7 +192,7 @@
 		<!--  // 관리자 : 7.회원리스트 -->
         <div class="col-md-4 col-sm-6 portfolio-item">
         <!-- // 관리자 form -->
-          <form action="custuserlist_controller.do" method="post" name="formname">
+          <form action="#" method="post" name="formname">
           <a class="portfolio-link" href="javascript:formname.submit();" >
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
