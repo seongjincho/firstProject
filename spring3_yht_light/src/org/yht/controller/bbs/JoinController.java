@@ -1,8 +1,11 @@
 package org.yht.controller.bbs;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -83,6 +86,8 @@ public class JoinController {
 	@RequestMapping(value="joinDel.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public String joinDel(JoinVo vo) {
 		
+		
+		
 		System.out.println("joinDel ---------");
 		boolean isS = joinService.joinDel(vo);
 		String msg = "";
@@ -114,6 +119,16 @@ public class JoinController {
 		
 		
 		return msg;   
+	}
+	
+	@RequestMapping(value="food_joinlist.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public String food_joinlist(int food_seq, Model model) {
+		
+		
+		List<JoinVo> food_joinlist = joinService.food_joinlist(food_seq);
+		model.addAttribute("food_joinlist", food_joinlist); //  참여자 목록
+		
+		return "foodBbs/foodJoin";
 	}
 	
 }

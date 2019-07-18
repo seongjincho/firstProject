@@ -71,11 +71,20 @@ public class FoodController {
 	public String writeFoodAf(@ModelAttribute FoodVo fv) throws Exception {
 		
 			
-		
+			
 			System.out.println("food 글쓰기 등록 --" + fv.toString());
 			System.out.println("--------------------------------");
 			System.out.println("파일이름들: " + fv.getFiles());
 			foodService.writeFood(fv);
+			
+			boolean isS = foodService.writeFoodJoin(fv);
+			
+			if(isS) {  
+				System.out.println("작성자 join 완료");
+			}else {
+				System.out.println("작성자 join 실패");
+			}
+			
 		
 			return "redirect:/foodBbsList.do";
 	}
@@ -83,6 +92,8 @@ public class FoodController {
 	@RequestMapping(value = "detailFood.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String detailFood(LikeVo vo, Model model, HttpServletRequest req ) {
 			
+		
+		
 		int food_seq = vo.getFood_seq();
 		
 		// 조회수
@@ -122,11 +133,13 @@ public class FoodController {
 			JoinVo joinList = foodService.checkJoinId(jv);
 				model.addAttribute("joinList", joinList);
 			}
-		
+			
+
 			
 			//model.addAttribute("allFoodDetail", allFoodDetail);  // 글 전체  
 			model.addAttribute("foodList", foodList); // 첫번째 사진을 포함한 디테일 글 
 			model.addAttribute("attachList", attachList); // 전체사진
+	
 		
 		
 		return "foodBbs/foodDetail";

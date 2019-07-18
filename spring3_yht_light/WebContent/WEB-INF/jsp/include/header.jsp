@@ -118,9 +118,9 @@ $(document).ready(function() {
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="mypage_main.do">마이페이지 홈</a>
           <c:if test="${login.id != null }">
-          <a class="dropdown-item" href="#">비번변경</a>
           <a class="dropdown-item" href="goUpdate.do">정보수정</a>
-        <!--   <a class="dropdown-item" href="My_write_controller.do">내가쓴글</a> -->
+          <a class="dropdown-item" href="mypage_like.do">좋아요</a>
+        <a class="dropdown-item" href="#">내가 쓴 글</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="mypage_delete.do">회원탈퇴</a>
           </c:if>

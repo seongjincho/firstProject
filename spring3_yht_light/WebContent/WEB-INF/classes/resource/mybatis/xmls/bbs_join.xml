@@ -29,4 +29,11 @@
 	WHERE FOOD_SEQ=#{food_seq}
 </update>
 
+
+<select id="food_joinlist" parameterType="java.lang.Integer" resultType="org.yht.domain.test01.JoinVo">
+	 SELECT F.FOOD_SEQ,J.ID
+	 FROM TEST01_FOOD F, TEST01_JOIN J
+	 WHERE F.FOOD_SEQ=J.FOOD_SEQ AND F.FOOD_SEQ=#{food_seq}
+</select>
+
 </mapper>

@@ -75,5 +75,14 @@ public class FoodDao {
 		return sqlSession.selectOne("Food.checkJoinId", vo);
 		
 	} 
+	
+	public boolean writeFoodJoin(FoodVo fv) {
+		
+		int n = sqlSession.insert("Food.writeFoodJoin", fv);
+		
+		return n>0?true:false;
+	}
+	
+
 
 }

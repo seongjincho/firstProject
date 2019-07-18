@@ -8,35 +8,7 @@
 	
 }
 
-/*
-#imageThumb_0 img{
-	 width: 150; 
-	 height: 150;
-	
-}
 
-#imageThumb_1 img{
-	 width: 150; 
-	 height: 150;
-	
-}
-
-#imageThumb_2 img{
-	 width: 150; 
-	 height: 150;
-	
-}
-
-#imageThumb_3 img{
-	 width: 150; 
-	 height: 150;
-	
-}
-#imageThumb_4 img{
-	 width: 150; 
-	 height: 150;
-	
-} */
 
 .quantity {
 	display: inline-block;
@@ -187,47 +159,37 @@
 	cursor: pointer;
 }
 
-/*버튼*/
-.btn_s_gray { /*장바구니*/
+/* Button */
+
+.btn_s_blue{
 	border: none;
-	background-color: #a9a9a9;
+	background-color: #0051ba;
+	color: #FFF;
+}
+.btn_s_blue:hover{
+	background-color: #0a3670
+}
+
+.btn_s_gray{
+	border: none;
+	background: #63666A;
 	color: #FFF;
 }
 
-.btn_s_gray:hover {
-	background-color: #6c757d;
+.btn_s_gray:hover{
+	background-color: #4F5256;
 }
 
-.btn_205 {
-	width: 230px;
+.btn_240{
+	width: 240px; 
 	height: 50px;
 	font-size: 16px;
 }
 
-.btn_s_red {
-	border: none;
-	background-color: #007bff;
-	color: #FFF;
-}
-
-.btn_s_red:hover {
-	background-color: #0051ba
-}
-
-.grayBtn {
-	display: inline-block;
-	margin-top: 6px;
-	width: 108px;
-	height: 33px;
-	border: 1px solid #63666a;
-	color: #333;
-	background-color: #fff;
-}
-
-.grayBtn:hover {
-	color: #fff;
-	background-color: #63666a;
-	cursor: pointer;
+.btn_205{
+	width: 205px;
+	height: 50px;
+	font-size: 16px;
 }
 
 /* The Modal (background) */

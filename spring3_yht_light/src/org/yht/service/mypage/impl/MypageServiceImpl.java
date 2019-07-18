@@ -1,9 +1,12 @@
 package org.yht.service.mypage.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 import org.yht.dao.mypage.MypageDao;
+import org.yht.domain.test01.FoodVo;
 import org.yht.domain.test01.MemberVo;
 import org.yht.service.mypage.MypageService;
 
@@ -41,6 +44,12 @@ public class MypageServiceImpl implements MypageService {
 	public boolean mypage_delete(String id) {
 		
 		return mypageDao.mypage_delete(id);
+	}
+
+	@Override
+	public List<FoodVo> mypage_like(String id) {
+		
+		return mypageDao.mypage_like(id);
 	}
 	
 	

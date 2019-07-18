@@ -19,5 +19,7 @@ public interface FoodService {
 	public boolean read_cnt(int food_seq); 
 	public LikeVo checkLikeId(LikeVo vo);
 	public JoinVo checkJoinId(JoinVo vo);
+	public boolean writeFoodJoin(FoodVo fv);
+
 	
 }

@@ -19,8 +19,14 @@
 <br><br><br><br><br><br>   
 
 <div>
-<h1 align="center">제목:${foodList.title }</h1>
+<h1 align="center">제목:${foodList.title }</h1> 
 </div>
+<c:if test="${login.id == foodList.id }">
+<div align="right" style="margin-right: 9%;">
+<button class="btn_s_blue btn_100">수정</button>
+<button class="btn_s_gray btn_100">삭제</button>
+</div>
+</c:if>
 <div align="left" id="headLine" style="margin-right: 50%;">
 	
 	<input type="hidden" id="id" name="id" value="${login.id }">	
@@ -58,7 +64,7 @@ ${foodList.fullname }
 	<col width="50%"/><col width="50%"/>
 </colgroup>
 <tr>
-	<td valign="top">	
+	<td valign="top" align="center">	
 		<div id="left_container" style="margin-right: 20px;">	
 		<table>
 		<colgroup>
@@ -74,45 +80,47 @@ ${foodList.fullname }
 		</tr> --%>
 		
 		<tr>	
-			<td>글번호</td> <td colspan="2" align="left">${foodList.food_seq } 
-			<input type="hidden" id="food_seq" name="food_seq" value="${foodList.food_seq } "> </td>
+			<th>글번호<hr><br></th> <td colspan="2" align="left">${foodList.food_seq } 
+			<input type="hidden" id="food_seq" name="food_seq" value="${foodList.food_seq } "><hr><br> </td>
 		</tr>
 		
 		
 		<tr>	
-			<td>작성자</td> <td colspan="2">${foodList.id }</td>
+			<th>작성자<hr><br></th> <td colspan="2">${foodList.id }<hr><br></td>
 		</tr>
 			
 		<tr>	
-			<td>참가인원</td> <td colspan="2">${foodList.join_cnt }/${foodList.total_cnt }명</td>
+			<th>참가인원<hr><br></th> <td colspan="2">
+			<c:if test="${foodList.join_cnt < foodList.total_cnt}">
+				<font style="color: deepskyblue;">${foodList.join_cnt }</font><b>/</b>${foodList.total_cnt }명
+			</c:if>
+			<c:if test="${foodList.join_cnt == foodList.total_cnt}">
+				<font style="color: red;">${foodList.join_cnt }</font><b>/</b>${foodList.total_cnt }명
+			</c:if>
+			<input type="hidden" id="join_cnt" name="join_cnt" value="${foodList.join_cnt } ">
+			<input type="hidden" id="total_cnt" name="total_cnt" value="${foodList.total_cnt } ">
+			<hr><br>
+			</td>
 		</tr>	
 		
 		<tr>	
-			<td>모임날짜</td> <td colspan="2"><fmt:formatDate value="${foodList.meetingDay }" pattern="yyyy/MM/dd"/></td>
+			<th>모임날짜<hr><br></th> <td colspan="2"><fmt:formatDate value="${foodList.meetingDay }" pattern="yyyy/MM/dd"/><hr><br></td>
 		</tr>
 		<tr>	
-			<td>작성일</td> <td colspan="2"><fmt:formatDate value="${foodList.wdate }" pattern="yyyy/MM/dd"/></td>
+			<th>작성일<hr><br></th> <td colspan="2"><fmt:formatDate value="${foodList.wdate }" pattern="yyyy/MM/dd"/><hr><br></td>
 		</tr>	
 		<tr>	
-			<td>좋아요 수</td> <td colspan="2">${foodList.like_cnt }개</td>
+			<th>좋아요 수<hr><br></th> <td colspan="2">${foodList.like_cnt }개<hr><br></td>
 		</tr>
 		<tr>	
-			<td>조회수</td> <td colspan="2">${foodList.read_cnt }회</td>
+			<th>조회수<hr><br></th> <td colspan="2">${foodList.read_cnt }회<hr><br></td>
 		</tr>	
-<%-- 				작성자:${foodList.id }<br>
-				제목:${foodList.title }<br>
-				참가인원:${foodList.join_cnt }/${foodList.total_cnt }명<br>
-				모임날짜:<fmt:formatDate value="${foodList.meetingDay }" pattern="yyyy/MM/dd"/><br>
-				내용:${food.content }<br>
-				작성일:<fmt:formatDate value="${foodList.wdate }" pattern="yyyy/MM/dd"/><br>
-				조회수:${foodList.read_cnt }<br>
-				좋아요수:${foodList.like_cnt }<br>
-				지역:${foodList.local }<br> --%>
+
 		<tr>	
-			<td>모임장소</td> <td colspan="2">${foodList.local } <br><br></td>
+			<th>모임장소<hr><br></th> <td colspan="2">${foodList.local }<hr><br></td>
 		</tr>		
 		<tr>		
-			<td colspan="3">
+			<td colspan="3" align="center">
 			<div class="map_wrap">
 			    <div id="map" style="width:90%;height:100%;position:relative;overflow:hidden;"></div>
 			
@@ -130,27 +138,34 @@ ${foodList.fullname }
 			        <div id="pagination"></div>			        
 			    </div>    
 			</div>
+			<hr><br>
 			</td>
         </tr>      
 	
 		<tr style="margin-top: 15%;">
-			<c:if test="${not empty attachList }">
-			<c:forEach items="${attachList }" var="att" varStatus="vs">
+		 <c:if test="${not empty attachList }">
+		  <c:forEach items="${attachList }" var="att" varStatus="vs">	
+			<c:if test="${vs.index%2==0 }">
+			</tr>
+			<tr>
+			</c:if>	
 			
 			<td width="33%">
-				<div style="margin: 10 10 10 10;" id="imageThumb_${vs.index }"> <%--0부터 시작 ~  --%>
+				<div style="margin: 10 10 10 10;" id="imageThumb_${vs.index }" class="imageThumb_"> <%--0부터 시작 ~  --%>
 						${att.fullname }
 				</div>
 			</td>
 			
-			</c:forEach>
-			</c:if>
+		  </c:forEach>
+		 </c:if>
 		</tr>
 		
 		<tr>
 		<td colspan="3">
 		<div>
+		<hr>
 		<font size="30"><b>${foodList.content }</b></font>
+		<hr>
 		</div>
 		</td>
 		</tr>
@@ -166,7 +181,10 @@ ${foodList.fullname }
 	<button type="button" value="false" id="joinBtn" class="joinButton btn_s_gray btn_205" onclick="joinSharing()">참여</button>	
 </c:if>
 <c:if test="${not empty joinList }">
-	<button type="button" value="false"  class="joinButton btn_s_gray btn_205" onclick="joinSharing()">참여중/참여취소</button>	
+	<button type="button" value="false"  class="joinButton btn_s_blue btn_205" onclick="joinSharing()">참여중/참여취소</button>	
+	&nbsp;&nbsp;&nbsp;
+	<button type="button" class="joinButton btn_s_gray btn_205" onclick="joinList()">참여자 보기</button>
+	<!-- food_likelist -->
 </c:if>
 
 
@@ -203,6 +221,10 @@ function joinSharing() {
 	var id = $("#id").val();
 	var food_seq = $("#food_seq").val();
 	var joinBtn = $("#joinBtn").val();
+	var join_cnt = $("#join_cnt").val();
+	var total_cnt = $("#total_cnt").val();
+	//alert(join_cnt + "     " + total_cnt);
+	
 	
 	if(id == ""){
 		
@@ -211,13 +233,17 @@ function joinSharing() {
 		
 		location.href="login.do";
 		
-	}else {
+		}else {
+			
+			return;
+			
+		}
 		
-		return;
-		
-	}
-	
 	}else{
+		
+		
+			
+		
 		
 		alert("join ajax 진입");
 		
@@ -229,6 +255,7 @@ function joinSharing() {
 				
 				if(data.trim() == "OK"){ // 참여 가능 ! 
 					
+					if(join_cnt < total_cnt){ // 이때만 가능 
 					
 					if(confirm("모임에 참여 하시겠습니까 ?") == true){
 						
@@ -266,8 +293,11 @@ function joinSharing() {
 						return;
 						
 					}
+				
+				}else {  // 인원수 초과 
+					alert("인원수가 초과 되었습니다.  참가인원:" + join_cnt +"   총인원:" + total_cnt);
+				}  
 						
-							
 	
 															
 				}else { // 이미 참여중  참여 취소 부분  
@@ -313,8 +343,9 @@ function joinSharing() {
 				
 			}
 			
-		});
+			});
 		
+
 	}
 	
 	
@@ -367,8 +398,9 @@ $("#headLine .wish_icon").on("click", function(event) {
 								
 								if(data.trim() == "OK"){
 								alert("좋아요!");
-						               $(event.target).parent().addClass('exist');
-						               $(event.target).parent().removeClass('empty');   
+					               $(event.target).parent().addClass('exist');
+						           $(event.target).parent().removeClass('empty'); 
+									location.reload();
 								}else {
 									//alert("좋아요등록 ajax 실패");
 								}
@@ -393,8 +425,10 @@ $("#headLine .wish_icon").on("click", function(event) {
 								if(data.trim() == "OK"){
 									
 									alert("좋아요 취소!");
-						               $(event.target).parent().addClass('empty');
-						               $(event.target).parent().removeClass('exist');
+			               		   $(event.target).parent().addClass('empty');
+					               $(event.target).parent().removeClass('exist');
+									location.reload();
+									
 								}else{
 									
 								//	alert("좋아요삭제 ajax 실패");
@@ -426,6 +460,19 @@ $("#headLine .wish_icon").on("click", function(event) {
 	
 });
 
+
+function joinList() {
+	alert("참여자 목록 보기");
+	var food_seq = $("#food_seq").val();
+
+
+
+	window.open('food_joinlist.do?food_seq=' + food_seq, 'width=600,height=600', 'scrollbars=yes');
+}
+
+function goReply() {
+	alert("댓글");
+}
 
 
 // 마커를 담을 배열입니다

@@ -80,23 +80,7 @@
       
       <div class="row">
       
-       <!--  1. 비번변경 -->
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" href="./my_pwdup.jsp">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="images/01-pwd.jpg" alt="" style="height: 210px; width: 400px;">
-          </a>
-          <div class="portfolio-caption">
-            <h4><b>비번변경</b></h4>
-            <p class="text-muted" style="font-size: 12px">Change PWD</p>
-          </div>
-        </div> 
-             
-         <!--  // 2. 정보수정 -->
+        <!--  // 1. 정보수정 -->
         <div class="col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link" href="goUpdate.do">
             <div class="portfolio-hover">
@@ -110,7 +94,25 @@
             <h4><b>정보수정</b></h4>
             <p class="text-muted" style="font-size: 12px">Modify Information</p>
           </div>
-        </div>     
+        </div>    
+      
+       <!--  2. 위시리스트 -->
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" href="wishList.do">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="images/06-full.jpg" alt="" style="height: 210px; width: 400px;">
+          </a>
+          <div class="portfolio-caption">
+            <h4><b>위시리스트</b></h4>
+            <p class="text-muted" style="font-size: 12px">Wish List</p>
+          </div>
+        </div> 
+             
+ 
         
        <!--  3. 내가쓴글 -->
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -124,7 +126,7 @@
           </a>
           <div class="portfolio-caption">
             <h4><b>내가 쓴 글</b></h4>
-            <p class="text-muted" style="font-size: 12px">Wring List</p>
+            <p class="text-muted" style="font-size: 12px">My Post List</p>
           </div>
         </div> 
         
@@ -145,7 +147,8 @@
         </div>
                
  		
-		<!-- 5.구매내역 -->
+<!--  		
+		5.구매내역
         <div class="col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link" href="">
             <div class="portfolio-hover">
@@ -159,10 +162,10 @@
             <h4><b>구매내역</b></h4>
             <p class="text-muted" style="font-size: 12px">Purchase List</p>
           </div>
-        </div>   
+        </div>    -->
         
 <%--                  
-      <!--  // 5.내가 쓴 글 -->
+      <!--  //  -->
         <div class="col-md-4 col-sm-6 portfolio-item"> 
         <form action="My_write_controller.do" method="post" id="frm">  
         <input type="hidden" value="<%=userid %>" name="id">   

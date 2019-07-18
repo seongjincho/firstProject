@@ -84,6 +84,14 @@ public class FoodServiceImpl implements FoodService {
 		return foodDao.checkJoinId(vo);
 	}
 
+	@Override
+	public boolean writeFoodJoin(FoodVo fv) {
+		
+		return foodDao.writeFoodJoin(fv);
+	}
+
+
+	
 	
 
 	

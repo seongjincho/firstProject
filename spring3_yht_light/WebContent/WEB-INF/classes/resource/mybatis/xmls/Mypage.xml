@@ -34,5 +34,12 @@
   		DEL=1
   		WHERE ID=#{id}
   	</update>
+  	
+  	<select id="mypage_like" parameterType="java.lang.String" resultType="org.yht.domain.test01.FoodVo">
+  		SELECT F.FOOD_SEQ, F.ID, F.TITLE, F.TOTAL_CNT, F.JOIN_CNT,
+               F.MEETINGDAY, F.CONTENT, F.WDATE, F.READ_CNT, F.LIKE_CNT, F.LOCAL
+        FROM   TEST01_FOOD F, TEST01_LIKE L
+        WHERE  F.FOOD_SEQ=L.FOOD_SEQ AND L.ID=#{id}	
+  	</select>
 
 </mapper>

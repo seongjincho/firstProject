@@ -84,7 +84,16 @@ $(document).ready(function () {
 			</a>
 		</td>
 		<td>${bbs.id }</td>
-		<td><font style="color: deepskyblue;">${bbs.join_cnt }</font><b>/</b>${bbs.total_cnt }</td>
+		<td>
+	
+			<c:if test="${bbs.join_cnt < bbs.total_cnt}">
+				<font style="color: deepskyblue;">${bbs.join_cnt }</font><b>/</b>${bbs.total_cnt } 명
+			</c:if>
+			<c:if test="${bbs.join_cnt == bbs.total_cnt}">
+				<font style="color: red;">${bbs.join_cnt }</font><b>/</b>${bbs.total_cnt } 명
+			</c:if>
+
+		</td>
 		<td>
 			<fmt:formatDate value="${bbs.meetingDay }" pattern="yyyy/MM/dd"/>
 		</td>

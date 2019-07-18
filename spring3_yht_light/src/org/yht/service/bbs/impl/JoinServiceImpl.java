@@ -1,5 +1,7 @@
 package org.yht.service.bbs.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Repository;
@@ -40,6 +42,14 @@ public class JoinServiceImpl implements JoinService {
 		
 		return joinDao.join_cnt(vo);
 	}
+
+
+	@Override
+	public List<JoinVo> food_joinlist(int food_seq) {
+		
+		return joinDao.food_joinlist(food_seq);
+	}
+	
 	
 	
 }

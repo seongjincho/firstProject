@@ -1,5 +1,7 @@
 package org.yht.dao.bbs;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
@@ -38,6 +40,10 @@ public class JoinDao {
 		int n = sqlSession.update("Join.join_cnt", vo);
 		
 		return n>0?true:false;
+	}
+	
+	public List<JoinVo> food_joinlist(int food_seq){
+		return sqlSession.selectList("Join.food_joinlist", food_seq);
 	}
 	
 }

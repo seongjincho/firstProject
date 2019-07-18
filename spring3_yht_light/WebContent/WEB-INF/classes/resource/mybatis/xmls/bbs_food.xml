@@ -95,6 +95,12 @@
 	WHERE FOOD_SEQ = #{food_seq} AND ID=#{id}
 </select>
 
+<insert id="writeFoodJoin" parameterType="org.yht.domain.test01.FoodVo">
+    INSERT INTO TEST01_JOIN(JOIN_SEQ, ID, FOOD_SEQ) 
+    VALUES (SEQ_JOIN.NEXTVAL, #{id}, SEQ_FOOD.CURRVAL)
+</insert>
+
+
 
 
 
