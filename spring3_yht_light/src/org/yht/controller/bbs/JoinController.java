@@ -1,16 +1,19 @@
 package org.yht.controller.bbs;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.yht.domain.test01.JoinVo;
-
+import org.yht.domain.test01.MemberVo;
 import org.yht.service.bbs.JoinService;
 
 @Controller
@@ -131,4 +134,18 @@ public class JoinController {
 		return "foodBbs/foodJoin";
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="showMemberInfo.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public Map<String, Object> showMemberInfo(String id, Model model) {
+		
+		String msg = "";
+		MemberVo vo = null;
+		vo = joinService.showMemberInfo(id);
+		System.out.println("참여자 정보 ---------" + vo.toString());
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", vo);
+		
+		return map;
+	}
 }

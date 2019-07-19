@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import org.yht.domain.test01.JoinVo;
 import org.yht.domain.test01.LikeVo;
+import org.yht.domain.test01.MemberVo;
 
 @Repository("JoinDao")
 public class JoinDao {
@@ -44,6 +45,10 @@ public class JoinDao {
 	
 	public List<JoinVo> food_joinlist(int food_seq){
 		return sqlSession.selectList("Join.food_joinlist", food_seq);
+	}
+	
+	public MemberVo showMemberInfo(String id) {
+		return sqlSession.selectOne("Join.showMemberInfo", id);
 	}
 	
 }

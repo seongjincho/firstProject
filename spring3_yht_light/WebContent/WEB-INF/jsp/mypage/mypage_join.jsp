@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -5,7 +6,7 @@
 <fmt:requestEncoding value="utf-8"/>   
 
 <!-- noticeBbs.css -->
-<link rel="stylesheet" type="text/css" href="css/mypage_like.css">
+<link rel="stylesheet" type="text/css" href="css/mypage_join.css">
 
 <title>Food sharing</title>
 
@@ -27,13 +28,15 @@
 
 
 
+
+
 	
 <div class="f_content">
 <div class="f2_content">
 
 <div class="headtitle" align="center"><br><br>
 	
-	<h2>Like List</h2>
+	<h2>Join List</h2>
 	<br><br>
 </div>
 
@@ -44,21 +47,22 @@
 <thead style="font-size: 16px;">
 	<tr class="noto">
 		<th width="5%">순서</th>
-		<th width="50%">제목</th>
+		<th width="40%">제목</th>
 		<th width="10%">작성자</th>
 		<th width="15%">모임장소</th>
 		<th width="10%">모임날짜</th>
-		<th width="10%">삭제</th>
+		<th width="10%">참여인원/모집인원</th>
+		<!-- <th width="10%">상태</th> -->
 	</tr>
 </thead>
 <tbody>
-	<c:if test="${empty myLikeList }">
+	<c:if test="${empty myJoinList }">
 		<tr>
-			<td colspan="5">좋아요 리스트가 없습니다.</td>
+			<td colspan="5">참여한 모임이 없습니다.</td>
 		</tr>
 	</c:if>
 	
-	<c:forEach items="${myLikeList }" var="bbs" varStatus="vs">
+	<c:forEach items="${myJoinList }" var="bbs" varStatus="vs">
 
 	
 	<tr class="_hover_tr">
@@ -67,17 +71,23 @@
 			<a href="#none" onclick="titleclick(${bbs.food_seq})">
 				${bbs.title }<input type="hidden" id="id" name="id" value="${login.id }">
 			</a>
-		
 		</td>
 		<td>${bbs.id }</td>
 		<td>${bbs.local }</td>
-		<td><fmt:formatDate value="${bbs.meetingDay }" 
-     			 pattern="yyyy/MM/dd"/>
+		<td>
+			<fmt:formatDate value="${bbs.meetingDay }" pattern="yyyy/MM/dd"/>
       	</td>
       	<td>
-      		<input type="button" id="wish_del" class="btnDel" value="삭제" onclick="goDel(${bbs.food_seq })">
+      		<c:if test="${bbs.join_cnt < bbs.total_cnt}">
+				<font style="color: deepskyblue;">${bbs.join_cnt }</font><b>/</b>${bbs.total_cnt } 명
+			</c:if>
+			<c:if test="${bbs.join_cnt == bbs.total_cnt}">
+				<font style="color: red;">${bbs.join_cnt }</font><b>/</b>${bbs.total_cnt } 명
+			</c:if>
    
       	</td>
+      	
+
 	</tr>
 	
 	</c:forEach>

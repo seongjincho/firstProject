@@ -50,6 +50,18 @@ public class MemberVo implements Serializable {
 		
 	}
 
+	
+	
+	public MemberVo(String id, String name, String email, String phone) {   // 참여자 정보 가져오기 foodJoin에서 사용될 
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+	}
+
+
+
 	public MemberVo(String id, String pwd, String name, String email, String address1, String address2, int auth,
 			String phone, int del, String authkey, int authstatus) {
 		super();

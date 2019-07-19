@@ -51,6 +51,12 @@ public class MypageServiceImpl implements MypageService {
 		
 		return mypageDao.mypage_like(id);
 	}
+
+	@Override
+	public List<FoodVo> mypage_join(String id) {
+		
+		return mypageDao.mypage_join(id);
+	}
 	
 	
 	

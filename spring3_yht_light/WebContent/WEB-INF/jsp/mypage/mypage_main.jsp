@@ -88,7 +88,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="images/02-update.jpg" alt="" style="height: 210px; width: 400px;">
+            <img class="img-fluid" src="images/01-update.jpg" alt="" style="height: 210px; width: 400px;">
           </a>
           <div class="portfolio-caption">
             <h4><b>정보수정</b></h4>
@@ -96,7 +96,7 @@
           </div>
         </div>    
       
-       <!--  2. 위시리스트 -->
+       <!--  2. 좋아요 -->
         <div class="col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link" href="mypage_like.do">
             <div class="portfolio-hover">
@@ -104,7 +104,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="images/06-full.jpg" alt="" style="height: 210px; width: 400px;">
+            <img class="img-fluid" src="images/02-likeList.gif" alt="" style="height: 210px; width: 400px;">
           </a>
           <div class="portfolio-caption">
             <h4><b>좋아요</b></h4>
@@ -112,9 +112,24 @@
           </div>
         </div> 
              
+        <!--3.내가 참여한 모임   -->
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" href="mypage_join.do">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="images/03-togather.png" alt="" style="height: 210px; width: 400px;">
+          </a>
+          <div class="portfolio-caption">
+            <h4><b>참여중인 모임</b></h4>
+            <p class="text-muted" style="font-size: 12px">Party List</p>
+          </div>
+        </div>    
  
         
-       <!--  3. 내가쓴글 -->
+       <!--  4. 내가쓴글 -->
         <div class="col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link" href="#">
             <div class="portfolio-hover">
@@ -122,13 +137,15 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="images/03-dfdf.jpg" alt="" style="height: 210px; width: 400px;">
+            <img class="img-fluid" src="images/04-dfdf.jpg" alt="" style="height: 210px; width: 400px;">
           </a>
           <div class="portfolio-caption">
             <h4><b>내가 쓴 글</b></h4>
             <p class="text-muted" style="font-size: 12px">My Post List</p>
           </div>
-        </div> 
+        </div> <!-- 04-togather.png -->
+        
+        
         
         <!-- // 4. 회원탈퇴 -->
         <div class="col-md-4 col-sm-6 portfolio-item">
@@ -138,7 +155,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="images/02-thumbnail.jpg" alt="" style="height: 210px; width: 400px;">
+            <img class="img-fluid" src="images/07-fire.gif" alt="" style="height: 210px; width: 400px;">
           </a>
           <div class="portfolio-caption">
             <h4><b>회원탈퇴</b></h4>
@@ -147,22 +164,8 @@
         </div>
                
  		
-<!--  		
-		5.구매내역
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" href="">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="images/01-update.jpg" alt="" style="height: 210px; width: 400px;">
-          </a>
-          <div class="portfolio-caption">
-            <h4><b>구매내역</b></h4>
-            <p class="text-muted" style="font-size: 12px">Purchase List</p>
-          </div>
-        </div>    -->
+ 		
+
         
 <%--                  
       <!--  //  -->
@@ -199,7 +202,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-           	<img class="img-fluid" src="images/07-fire.gif" alt="" style="height: 210px; width: 400px;">
+           	<img class="img-fluid" src="images/02-thumbnail.jpg" alt="" style="height: 210px; width: 400px;">
          	
           </a>
           <div class="portfolio-caption">

@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Repository;
 import org.yht.dao.bbs.JoinDao;
 import org.yht.domain.test01.JoinVo;
+import org.yht.domain.test01.MemberVo;
 import org.yht.service.bbs.JoinService;
 
 @Repository("JoinService")
@@ -48,6 +49,13 @@ public class JoinServiceImpl implements JoinService {
 	public List<JoinVo> food_joinlist(int food_seq) {
 		
 		return joinDao.food_joinlist(food_seq);
+	}
+
+
+	@Override
+	public MemberVo showMemberInfo(String id) {
+		
+		return joinDao.showMemberInfo(id);
 	}
 	
 	

@@ -4,8 +4,15 @@
  
 	 width: 80%; 
 	 height: 400px;
-	 
+	 margin-right: 10%;
 	
+}
+
+.imageThumb_ img{
+	
+	 width: 600px; 
+	 height: 350px;
+	 
 }
 
 

@@ -43,4 +43,8 @@ public class MypageDao {
 	public List<FoodVo> mypage_like(String id) {
 		return sqlSession.selectList("Mypage.mypage_like", id);	
 	}
+	
+	public List<FoodVo> mypage_join(String id) {
+		return sqlSession.selectList("Mypage.mypage_join", id);
+	}
 }

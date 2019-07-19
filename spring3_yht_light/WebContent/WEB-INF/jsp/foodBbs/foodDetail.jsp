@@ -466,9 +466,7 @@ function joinList() {
 	alert("참여자 목록 보기");
 	var food_seq = $("#food_seq").val();
 
-
-
-	window.open('food_joinlist.do?food_seq=' + food_seq, 'width=600,height=600', 'scrollbars=yes');
+	 window.open('food_joinlist.do?food_seq=' + food_seq, 'width=600,height=600', 'scrollbars=yes');
 }
 
 function goReply() {

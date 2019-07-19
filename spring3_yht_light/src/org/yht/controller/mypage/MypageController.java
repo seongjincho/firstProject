@@ -190,6 +190,15 @@ public class MypageController {
 		return "mypage/mypage_like";
 	}
 	
-	
+	@RequestMapping(value="mypage_join.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public String mypage_join(Model model, HttpServletRequest req) {
+		
+		MemberVo mem = (MemberVo)req.getSession().getAttribute("login");
+		String id = mem.getId();
+		List<FoodVo> myJoinList = mypageService.mypage_join(id);
+		model.addAttribute("myJoinList", myJoinList);
+		
+		return "mypage/mypage_join";
+	}
 
 }
