@@ -100,6 +100,12 @@
     VALUES (SEQ_JOIN.NEXTVAL, #{id}, SEQ_FOOD.CURRVAL)
 </insert>
 
+<select id="replyList" parameterType="java.lang.Integer" resultType="org.yht.domain.test01.ReplyVo">
+	SELECT REPLY_SEQ, ID, CONTENT, REF, STEP, DEPTH, WDATE, DEL, FOOD_SEQ
+	FROM TEST01_REPLY
+	WHERE FOOD_SEQ=#{food_seq}
+	ORDER BY REF DESC, STEP ASC	
+</select>
 
 
 

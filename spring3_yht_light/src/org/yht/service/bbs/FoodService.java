@@ -7,6 +7,7 @@ import org.yht.domain.test01.FoodParam;
 import org.yht.domain.test01.FoodVo;
 import org.yht.domain.test01.JoinVo;
 import org.yht.domain.test01.LikeVo;
+import org.yht.domain.test01.ReplyVo;
 
 public interface FoodService {
 
@@ -20,6 +21,7 @@ public interface FoodService {
 	public LikeVo checkLikeId(LikeVo vo);
 	public JoinVo checkJoinId(JoinVo vo);
 	public boolean writeFoodJoin(FoodVo fv);
+	public List<ReplyVo> replyList(int food_seq);
 
 	
 }

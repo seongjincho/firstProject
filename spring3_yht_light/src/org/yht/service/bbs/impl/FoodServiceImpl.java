@@ -12,6 +12,7 @@ import org.yht.domain.test01.FoodParam;
 import org.yht.domain.test01.FoodVo;
 import org.yht.domain.test01.JoinVo;
 import org.yht.domain.test01.LikeVo;
+import org.yht.domain.test01.ReplyVo;
 import org.yht.service.bbs.FoodService;
 
 
@@ -88,6 +89,12 @@ public class FoodServiceImpl implements FoodService {
 	public boolean writeFoodJoin(FoodVo fv) {
 		
 		return foodDao.writeFoodJoin(fv);
+	}
+
+	@Override
+	public List<ReplyVo> replyList(int food_seq) {
+		
+		return foodDao.replyList(food_seq);
 	}
 
 

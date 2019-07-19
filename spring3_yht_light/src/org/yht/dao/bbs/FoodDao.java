@@ -11,6 +11,7 @@ import org.yht.domain.test01.FoodParam;
 import org.yht.domain.test01.FoodVo;
 import org.yht.domain.test01.JoinVo;
 import org.yht.domain.test01.LikeVo;
+import org.yht.domain.test01.ReplyVo;
 
 @Repository("FoodDao")
 public class FoodDao {
@@ -81,6 +82,10 @@ public class FoodDao {
 		int n = sqlSession.insert("Food.writeFoodJoin", fv);
 		
 		return n>0?true:false;
+	}
+	
+	public List<ReplyVo> replyList(int food_seq){
+		return sqlSession.selectList("Food.replyList", food_seq);
 	}
 	
 

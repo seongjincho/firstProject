@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Reply">
+
+<insert id="replyInsert" parameterType="org.yht.domain.test01.ReplyVo">
+	INSERT INTO TEST01_REPLY(REPLY_SEQ, ID, CONTENT, REF, STEP, DEPTH, WDATE, DEL, FOOD_SEQ )
+	VALUES(SEQ_REPLY.NEXTVAL, #{id}, #{content}, (SELECT NVL(MAX(REF), 0)+1 FROM TEST01_REPLY), 0, 0, SYSDATE, 0, #{food_seq} )
+</insert>
+
+<update id="replyDelete" parameterType="org.yht.domain.test01.ReplyVo">
+	UPDATE  TEST01_REPLY
+	SET DEL = 1;
+	WHERE FOOD_SEQ=#{food_seq} AND ID=#{id} AND REPLY_SEQ=#{reply_seq }
+</update>
+
+<update id="replyUpdate" parameterType="org.yht.domain.test01.ReplyVo">
+	UPDATE  TEST01_REPLY
+	SET CONTENT = #{content} AND WDATE=SYSDATE
+	WHERE FOOD_SEQ=#{food_seq} AND ID=#{id} AND REPLY_SEQ=#{reply_seq} AND DEPTH=#{depth} AND STEP=#{STEP}
+</update>
+
+<insert id="reReply" parameterType="org.yht.domain.test01.ReplyVo">
+	INSERT INTO TEST01_REPLY(REPLY_SEQ, ID, CONTENT, REF, STEP, DEPTH, WDATE, DEL, FOOD_SEQ )
+	VALUES(SEQ_REPLY.NEXTVAL,
+			 #{id},
+			 #{content}, 
+			 (SELECT REF FROM TEST01_REPLY WHERE REPLY_SEQ=#{reply_seq}),
+			 (SELECT STEP FROM TEST01_REPLY WHERE REPLY_SEQ=#{reply_seq}) + 1,
+			 (SELECT DEPTH FROM TEST01_REPLY WHERE REPLY_SEQ=#{reply_seq}) + 1, 
+			 SYSDATE, 
+			 0, 
+			 #{food_seq} )
+</insert>
+
+
+
+</mapper>

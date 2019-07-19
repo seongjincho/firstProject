@@ -17,6 +17,7 @@ import org.yht.domain.test01.FoodVo;
 import org.yht.domain.test01.JoinVo;
 import org.yht.domain.test01.LikeVo;
 import org.yht.domain.test01.MemberVo;
+import org.yht.domain.test01.ReplyVo;
 import org.yht.service.bbs.FoodService;
 
 @Controller
@@ -133,12 +134,14 @@ public class FoodController {
 			JoinVo joinList = foodService.checkJoinId(jv);
 				model.addAttribute("joinList", joinList);
 			}
+		//댓글 리스트 불러오기 	
+			List<ReplyVo> replyList = foodService.replyList(food_seq);
 			
-
 			
 			//model.addAttribute("allFoodDetail", allFoodDetail);  // 글 전체  
 			model.addAttribute("foodList", foodList); // 첫번째 사진을 포함한 디테일 글 
 			model.addAttribute("attachList", attachList); // 전체사진
+			model.addAttribute("replyList", replyList);
 	
 		
 		
