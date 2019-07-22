@@ -702,5 +702,5 @@ function setZoomable(zoomable) {
 }
 
 map.setZoomable(false);
-//map.setDraggable(false);
+map.setDraggable(false);
  </script>

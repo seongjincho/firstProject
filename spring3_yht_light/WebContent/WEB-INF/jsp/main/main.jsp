@@ -10,12 +10,61 @@
 <%-- favicon --%>
 <link rel="icon" href="images/foodicon.png" sizes="48x48">
 
+<%-- header --%>
+<jsp:include page="/WEB-INF/jsp/include/header.jsp" flush="false"/>
+
 
 </head>
 <body>
 
-<%-- header --%>
-<jsp:include page="/WEB-INF/jsp/include/header.jsp" flush="false"/>
+      <!-- carousel -->
+   <div class="bd-example" style="width: 100%; height:1%; margin-bottom: 10%;" align="center">
+      <div id="carouselExampleCaptions" class="carousel slide"
+         data-ride="carousel" data-interval="3000">
+         <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0"
+               class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+         </ol>
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <img src="images/bgi1.jpg" class="d-block w-100" alt="...">
+               <div class="carousel-caption d-none d-md-block">
+                  <h5 class="h5main" align="left">1</h5>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img src="images/bgi2.png" class="d-block w-100" alt="...">
+               <div class="carousel-caption d-none d-md-block">
+                  <h5  class="h5main" align="left">2</h5>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img src="images/bgi3.jpg" class="d-block w-100" alt="...">
+               <div class="carousel-caption d-none d-md-block">
+                  <h5 class="h5main" align="left">3</h5>
+               </div>
+            </div>
+         </div>
+         <a class="carousel-control-prev" href="#carouselExampleCaptions"
+            role="button" data-slide="prev"> <span
+            class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+            class="sr-only">Previous</span>
+         </a> <a class="carousel-control-next" href="#carouselExampleCaptions"
+            role="button" data-slide="next"> <span
+            class="carousel-control-next-icon" aria-hidden="true"></span> <span
+            class="sr-only">Next</span>
+         </a>
+      </div>
+   </div>
+
+
+<div class="clear"></div>
+<div class="space"></div>
+
+
+
 
 
 
