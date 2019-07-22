@@ -21,7 +21,7 @@
 <div>
 <h1 align="center">제목:${foodList.title }</h1> 
 </div>
-<c:if test="${login.id == foodList.id }">
+<c:if test="${login.id == foodList.id || login.auth == 3 }">
 <div align="right" style="margin-right: 9%;">
 <button class="btn_s_blue btn_100">수정</button>
 <button class="btn_s_gray btn_100">삭제</button>

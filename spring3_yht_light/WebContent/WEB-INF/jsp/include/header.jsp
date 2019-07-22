@@ -121,7 +121,7 @@ $(document).ready(function() {
           <a class="dropdown-item" href="goUpdate.do">정보수정</a>
           <a class="dropdown-item" href="mypage_like.do">좋아요</a>
           <a class="dropdown-item" href="mypage_join.do">참여중인 모임</a>
-          <a class="dropdown-item" href="#">내가 쓴 글</a>
+        <!--   <a class="dropdown-item" href="#">내가 쓴 글</a> -->
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="mypage_delete.do">회원탈퇴</a>
           </c:if>

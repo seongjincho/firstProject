@@ -49,7 +49,7 @@ public class ReplyVo implements Serializable {
 	private String content; // 내용 
 	private int ref;        //  ex) 1-0-0
 	private int step;       // 글  아래위 이동 
-	private int depth;      // 옆으로 밀기 
+	private int depth;      // 옆으로 밀기를 하려고 했으나  댓글임을 표시하는 걸로  댓글은 DEPTH:1 , 원래 댓글은 DEPTH:0
 	private Date wdate;     // 작성일 
 	private int del;        // 삭제 유무 0 ,1
 	private int food_seq;   // food 게시판 seq넘버

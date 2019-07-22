@@ -130,7 +130,7 @@
  
         
        <!--  4. 내가쓴글 -->
-        <div class="col-md-4 col-sm-6 portfolio-item">
+<!--         <div class="col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link" href="#">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
@@ -143,7 +143,8 @@
             <h4><b>내가 쓴 글</b></h4>
             <p class="text-muted" style="font-size: 12px">My Post List</p>
           </div>
-        </div> <!-- 04-togather.png -->
+        </div>  -->
+        <!-- 04-togather.png -->
         
         
         
