@@ -22,7 +22,8 @@ public interface FoodService {
 	public JoinVo checkJoinId(JoinVo vo);
 	public boolean writeFoodJoin(FoodVo fv);
 	public List<ReplyVo> replyList(int food_seq);
-
+	public boolean updateFood(FoodVo vo);
+	public boolean deleteFood(int food_seq);
 
 	
 }

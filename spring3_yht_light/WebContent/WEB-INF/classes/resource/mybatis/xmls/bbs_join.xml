@@ -3,23 +3,27 @@
 
 <mapper namespace="Join">
 
+<!-- 모임 참여 -->
 <insert id="joinInsert" parameterType="org.yht.domain.test01.JoinVo">
     INSERT INTO TEST01_JOIN(JOIN_SEQ, ID, FOOD_SEQ) 
     VALUES (SEQ_JOIN.NEXTVAL, #{id}, #{food_seq})
 </insert>
 
+<!-- 이미 모임에 참여했는지 확인 후  참여 또는 참여취소 -->
 <select id="getJoin" parameterType="org.yht.domain.test01.JoinVo" resultType="org.yht.domain.test01.JoinVo">
 	SELECT JOIN_SEQ, ID, FOOD_SEQ
 	FROM TEST01_JOIN
 	WHERE FOOD_SEQ = #{food_seq} AND ID=#{id}
 </select>
 
+<!-- 모임 참여 취소 -->
 <delete id="joinDel" parameterType="org.yht.domain.test01.JoinVo">
 	DELETE 
 	FROM TEST01_JOIN
 	WHERE FOOD_SEQ=#{food_seq} AND ID=#{id}
 </delete>
 
+<!-- 모임 참여인원수 -->
 <update id="join_cnt" parameterType="org.yht.domain.test01.JoinVo">
 	UPDATE TEST01_FOOD
 	SET JOIN_CNT = 
@@ -29,7 +33,7 @@
 	WHERE FOOD_SEQ=#{food_seq}
 </update>
 
-
+<!--  참여자  아이디 목록 -->
 <select id="food_joinlist" parameterType="java.lang.Integer" resultType="org.yht.domain.test01.JoinVo">
 	 SELECT F.FOOD_SEQ,J.ID
 	 FROM TEST01_FOOD F, TEST01_JOIN J

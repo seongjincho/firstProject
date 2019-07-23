@@ -100,7 +100,7 @@
                      str += "<input type='hidden' name='files' value='"+fileInfo.fullName+"'>";
                   }
                   // 삭제 버튼
-                   str += "<span data-src="+data+">[삭제]</span></div>";
+                   //str += "<span data-src="+data+">[삭제]</span></div>";
                   
                   $("#uploadedList").append(str);
                }

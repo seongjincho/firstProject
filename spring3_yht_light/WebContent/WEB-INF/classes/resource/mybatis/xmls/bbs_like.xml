@@ -3,31 +3,35 @@
 
 <mapper namespace="Like">
 
-	<insert id="likeInsert" parameterType="org.yht.domain.test01.LikeVo">
-		INSERT INTO TEST01_LIKE(LIKE_SEQ,FOOD_SEQ, ID)
-		VALUES(SEQ_LIKE.NEXTVAL, #{food_seq}, #{id})
-	</insert>
+<!-- 좋아요 등록 -->
+<insert id="likeInsert" parameterType="org.yht.domain.test01.LikeVo">
+	INSERT INTO TEST01_LIKE(LIKE_SEQ,FOOD_SEQ, ID)
+	VALUES(SEQ_LIKE.NEXTVAL, #{food_seq}, #{id})
+</insert>
 
-	<select id="getLike" parameterType="org.yht.domain.test01.LikeVo" resultType="org.yht.domain.test01.LikeVo">
-		SELECT LIKE_SEQ,FOOD_SEQ, ID
-		FROM TEST01_LIKE
-		WHERE FOOD_SEQ = #{food_seq} AND ID=#{id}
-	</select>
-	
-	<delete id="likeDel" parameterType="org.yht.domain.test01.LikeVo" >
-		DELETE 
-		FROM TEST01_LIKE
-		WHERE FOOD_SEQ=#{food_seq} AND ID=#{id}
-	</delete>
-	
-	<update id="like_cnt" parameterType="org.yht.domain.test01.LikeVo" >
-		UPDATE TEST01_FOOD
-		SET LIKE_CNT = 
-        (SELECT NVL(COUNT(*), 0) AS LIKE_CNT 
-          FROM TEST01_LIKE
-          WHERE FOOD_SEQ=#{food_seq})
-		WHERE FOOD_SEQ=#{food_seq}
-	</update>
+<!-- 좋아요 등록 확인용   등록/취소  -->
+<select id="getLike" parameterType="org.yht.domain.test01.LikeVo" resultType="org.yht.domain.test01.LikeVo">
+	SELECT LIKE_SEQ,FOOD_SEQ, ID
+	FROM TEST01_LIKE
+	WHERE FOOD_SEQ = #{food_seq} AND ID=#{id}
+</select>
+
+<!-- 좋아요 취소  -->
+<delete id="likeDel" parameterType="org.yht.domain.test01.LikeVo" >
+	DELETE 
+	FROM TEST01_LIKE
+	WHERE FOOD_SEQ=#{food_seq} AND ID=#{id}
+</delete>
+
+<!--  좋아요 카운트 -->
+<update id="like_cnt" parameterType="org.yht.domain.test01.LikeVo" >
+	UPDATE TEST01_FOOD
+	SET LIKE_CNT = 
+       (SELECT NVL(COUNT(*), 0) AS LIKE_CNT 
+         FROM TEST01_LIKE
+         WHERE FOOD_SEQ=#{food_seq})
+	WHERE FOOD_SEQ=#{food_seq}
+</update>
 	
 
 

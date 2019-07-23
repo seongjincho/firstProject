@@ -5,12 +5,12 @@
 
 <select id="getFoodList" parameterType="org.yht.domain.test01.FoodParam" resultType="org.yht.domain.test01.FoodVo">
 	SELECT FOOD_SEQ, ID, TITLE, TOTAL_CNT, JOIN_CNT,
-		   MEETINGDAY, CONTENT, WDATE, READ_CNT, LIKE_CNT, LOCAL,
+		   MEETINGDAY, CONTENT, WDATE, READ_CNT, LIKE_CNT, LOCAL, DEL,
 		   (SELECT COUNT(*) FROM TEST01_REPLY WHERE FOOD_SEQ=A.FOOD_SEQ) AS REPLY_CNT
 	FROM
 		(SELECT ROW_NUMBER() OVER(ORDER BY FOOD_SEQ DESC)AS RNUM,
 			FOOD_SEQ, ID, TITLE, TOTAL_CNT, JOIN_CNT,
-		   	MEETINGDAY, CONTENT, WDATE, READ_CNT, LIKE_CNT, LOCAL
+		   	MEETINGDAY, CONTENT, WDATE, READ_CNT, LIKE_CNT, LOCAL, DEL
 		 FROM TEST01_FOOD 
 		 WHERE 1=1 
 		 <if test="f_category != null and f_category != ''
@@ -50,17 +50,28 @@
 </select>
 
 <insert id="writeFood" parameterType="org.yht.domain.test01.FoodVo">
-	INSERT INTO TEST01_FOOD(FOOD_SEQ, ID, TITLE, TOTAL_CNT, JOIN_CNT, MEETINGDAY, CONTENT, WDATE, READ_CNT, LIKE_CNT, LOCAL)
-	VALUES(SEQ_FOOD.NEXTVAL, #{id}, #{title}, #{total_cnt}, 1, #{meetingDay}, #{content}, SYSDATE, 0, 0, #{local})
+	INSERT INTO TEST01_FOOD(FOOD_SEQ, ID, TITLE, TOTAL_CNT, JOIN_CNT, MEETINGDAY, CONTENT, WDATE, READ_CNT, LIKE_CNT, LOCAL, DEL)
+	VALUES(SEQ_FOOD.NEXTVAL, #{id}, #{title}, #{total_cnt}, 1, #{meetingDay}, #{content}, SYSDATE, 0, 0, #{local}, 0)
 </insert>
 
 <select id="detailFood" parameterType="java.lang.Integer" resultType="org.yht.domain.test01.FoodVo">
-      SELECT F.FOOD_SEQ, F.ID, F.TITLE, F.TOTAL_CNT, F.JOIN_CNT, F.MEETINGDAY, 
-      		 F.CONTENT, F.WDATE, F.READ_CNT, F.LIKE_CNT, F.LOCAL , A.FULLNAME
-      FROM TEST01_FOOD F, TEST01_ATTACH A
-      WHERE F.FOOD_SEQ=A.FOOD_SEQ AND F.FOOD_SEQ=#{food_seq}
+    SELECT F.FOOD_SEQ, F.ID, F.TITLE, F.TOTAL_CNT, F.JOIN_CNT, F.MEETINGDAY, 
+    		 F.CONTENT, F.WDATE, F.READ_CNT, F.LIKE_CNT, F.LOCAL, F.DEL, A.FULLNAME
+    FROM TEST01_FOOD F, TEST01_ATTACH A
+    WHERE F.FOOD_SEQ=A.FOOD_SEQ AND F.FOOD_SEQ=#{food_seq}
 </select>
 
+<update id="updateFood" parameterType="org.yht.domain.test01.FoodVo">
+	UPDATE TEST01_FOOD
+	SET TITLE=#{title}, TOTAL_CNT=#{total_cnt}, MEETINGDAY=#{meetingday}, CONTENT=#{content}, LOCAL=#{local}
+	WHERE FOOD_SEQ=#{food_seq}
+</update>
+
+<update id="deleteFood" parameterType="java.lang.Integer">
+	UPDATE TEST01_FOOD
+	SET DEL=1
+	WHERE FOOD_SEQ=#{food_seq}
+</update>
 
 <!--  ////파일업로드 관련////  -->
 
@@ -77,30 +88,34 @@
     VALUES (#{fullname}, SEQ_FOOD.CURRVAL, SYSDATE)
 </insert>
 
-
+<!-- 조회수 -->
 <update id="read_cnt" parameterType="java.lang.Integer">
 	UPDATE TEST01_FOOD
 	SET READ_CNT = READ_CNT + 1
 	WHERE FOOD_SEQ=#{food_seq}
 </update>
 
+<!-- 좋아요 누른 유저인지 확인 좋아요 표시 true / false -->
 <select id="checkLikeId" parameterType="org.yht.domain.test01.LikeVo" resultType="org.yht.domain.test01.LikeVo">
 	SELECT LIKE_SEQ,FOOD_SEQ, ID
 	FROM TEST01_LIKE
 	WHERE FOOD_SEQ = #{food_seq} AND ID=#{id}
 </select>
 
+<!-- 모임 참여자인지 확인 댓글 활성/비활성용-->
 <select id="checkJoinId" parameterType="org.yht.domain.test01.JoinVo" resultType="org.yht.domain.test01.JoinVo">
 	SELECT JOIN_SEQ, ID, FOOD_SEQ
 	FROM TEST01_JOIN
 	WHERE FOOD_SEQ = #{food_seq} AND ID=#{id}
 </select>
 
+<!--글 작성자가  바로 참여되도록  -->
 <insert id="writeFoodJoin" parameterType="org.yht.domain.test01.FoodVo">
     INSERT INTO TEST01_JOIN(JOIN_SEQ, ID, FOOD_SEQ) 
     VALUES (SEQ_JOIN.NEXTVAL, #{id}, SEQ_FOOD.CURRVAL)
 </insert>
 
+<!-- 댓글 리스트 -->
 <select id="replyList" parameterType="java.lang.Integer" resultType="org.yht.domain.test01.ReplyVo">
 	SELECT REPLY_SEQ, ID, CONTENT, REF, STEP, DEPTH, WDATE, DEL, FOOD_SEQ
 	FROM TEST01_REPLY

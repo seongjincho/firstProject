@@ -95,6 +95,62 @@ public class FoodController {
 			return "redirect:/foodBbsList.do";
 	}
 	
+	@RequestMapping(value = "updateFood.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String updateFood(FoodVo vo, Model model) {
+		System.out.println("업데이트 뷰로 이동");
+		
+		int food_seq = vo.getFood_seq();
+		List<FoodVo> allFoodDetail = foodService.detailFood(food_seq);
+		
+		System.out.println(allFoodDetail.toString());
+		
+		for(int i = 0; i < allFoodDetail.size(); i++) {
+			System.out.println("allFoodDetail.get("+i+") : " + allFoodDetail.get(i).getFullname());
+		}
+		
+		FoodVo foodList = allFoodDetail.get(0);  // 첫번째 사진을 포함한 디테일 글 
+		
+		
+		List<AttachVo> attachList = foodService.getAttach(food_seq); // 사진 목록 
+		model.addAttribute("foodList", foodList); // 첫번째 사진을 포함한 디테일 글 
+		model.addAttribute("attachList", attachList); // 전체사진
+		
+		
+		return "foodBbs/foodUpdate";
+	}
+	
+	
+	@RequestMapping(value = "updateFood.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String updateFoodAf(FoodVo vo) {
+		
+
+		
+		return "";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "deleteFood.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String deleteFood(int food_seq) {
+		System.out.println("foodBbs 삭제  시도");
+		
+		String src = "";
+			
+		boolean isS = foodService.deleteFood(food_seq);
+		
+		if(isS) {
+			
+			System.out.println("삭제 성공");
+			src = "OK";
+			
+		}else {
+			
+			System.out.println("삭제 실패");
+			src = "NO";
+		}
+		
+		return src;
+	}
+	
 	@RequestMapping(value = "detailFood.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String detailFood(LikeVo vo, Model model, HttpServletRequest req ) {
 			

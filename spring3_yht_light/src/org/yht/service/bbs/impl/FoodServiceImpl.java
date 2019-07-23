@@ -97,6 +97,19 @@ public class FoodServiceImpl implements FoodService {
 		return foodDao.replyList(food_seq);
 	}
 
+	@Override
+	public boolean updateFood(FoodVo vo) {
+		
+		return foodDao.updateFood(vo);
+	}
+	
+	@Override
+	public boolean deleteFood(int food_seq) {
+		
+		return foodDao.deleteFood(food_seq);
+	}
+
+	
 	
 
 	

@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <fmt:requestEncoding value="utf-8"/>   
 
 <!-- noticeBbs.css -->
@@ -66,11 +67,19 @@
 
 	
 	<tr class="_hover_tr">
-		<td>${vs.count }</td>
+		<td><%-- ${vs.count } --%>${fn:length(myJoinList)-vs.index} </td>
 		<td style="text-align: left; padding-left: 15px;" class="title_">	
+			
+			<c:if test="${bbs.del == 0 }">
 			<a href="#none" onclick="titleclick(${bbs.food_seq})">
 				${bbs.title }<input type="hidden" id="id" name="id" value="${login.id }">
 			</a>
+			</c:if>
+			
+			<c:if test="${bbs.del == 1 }">
+			  	<del>삭제된 글 입니다</del>
+			</c:if>
+			
 		</td>
 		<td>${bbs.id }</td>
 		<td>${bbs.local }</td>
@@ -122,7 +131,8 @@
 <script type="text/javascript">
 function titleclick( food_seq ) {
 	var id = $("#id").val();
-	window.open('detailFood.do?food_seq=' + food_seq + '&id=' + id,'Food Sharing','width=1300,height=600', 'scrollbars=yes');
+	//window.open('detailFood.do?food_seq=' + food_seq + '&id=' + id,'Food Sharing','width=1300,height=600', 'scrollbars=yes');
+	location.href = 'detailFood.do?food_seq=' + food_seq + '&id=' + id;
 }
 
 

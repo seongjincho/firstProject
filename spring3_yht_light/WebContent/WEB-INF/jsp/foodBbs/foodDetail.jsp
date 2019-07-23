@@ -23,8 +23,8 @@
 </div>
 <c:if test="${login.id == foodList.id || login.auth == 3 }">
 <div align="right" style="margin-right: 9%;">
-<button class="btn_s_blue btn_100">수정</button>
-<button class="btn_s_gray btn_100">삭제</button>
+<button class="btn_s_blue btn_100" onclick="goUpdate()">수정</button>
+<button class="btn_s_gray btn_100" onclick="goDelete()">삭제</button>
 </div>
 </c:if>
 <div align="left" id="headLine" style="margin-right: 50%;">
@@ -460,7 +460,47 @@ function joinList() {
 	 window.open('food_joinlist.do?food_seq=' + food_seq, 'width=600,height=600', 'scrollbars=yes');
 }
 
+	
+function goUpdate() {
+	
+	alert("수정!");
+	
+}	
 
+function goDelete() {
+	
+	//alert("삭제");
+	var food_seq = $("#food_seq").val();
+	
+	$.ajax({
+		
+		url:"deleteFood.do",
+		type:"post",
+		data:{ food_seq:food_seq },
+		success:function(data){
+			//alert("성공");
+			
+			if(data.trim() == "OK"){
+				
+				alert("게시물 삭제 성공!");
+				location.href = "foodBbsList.do";
+				
+			}else {
+				
+				alert("게시물 삭제 실패!");
+				
+			}
+			
+		},
+		error:function(r, s, err){
+			
+			alert("error");
+			
+		}
+	
+	});
+	
+}
 
 
 
@@ -694,6 +734,6 @@ function setZoomable(zoomable) {
     map.setZoomable(zoomable);    
 }
 
-map.setZoomable(false);
-map.setDraggable(false);
+/* map.setZoomable(false);
+map.setDraggable(false); */
  </script>

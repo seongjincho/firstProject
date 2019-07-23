@@ -43,6 +43,21 @@ public class FoodDao {
 		return sqlSession.selectList("Food.detailFood", food_seq);
 	}
 	
+	public boolean updateFood(FoodVo vo) {
+		
+		int n = sqlSession.update("Food.updateFood", vo);
+		
+		return n>0?true:false;
+	}
+	
+	public boolean deleteFood(int food_seq) {
+		
+		int n = sqlSession.update("Food.deleteFood", food_seq);
+		
+		return n>0?true:false;
+		
+	}
+	
 	
 	//파일 업로드
 	public List<AttachVo> getAttach(int food_seq){

@@ -30,7 +30,8 @@ CONTENT VARCHAR2(4000) NOT NULL,
 WDATE DATE NOT NULL,
 READ_CNT NUMBER(8) NOT NULL,
 LIKE_CNT NUMBER(8) NOT NULL,
-LOCAL VARCHAR2(50) NOT NULL 
+LOCAL VARCHAR2(50) NOT NULL,
+DEL NUMBER(1) NOT NULL 
 
 );
 
@@ -60,14 +61,14 @@ public class FoodVo implements Serializable {
 	private String[] files;
 	private String fullname;
 	private int reply_cnt; // 댓글 갯수용
+	private int del;  // 삭제 유무용 
 	
 	public FoodVo() {
 		
 	}
 
-
 	public FoodVo(int food_seq, String id, String title, int total_cnt, int join_cnt, Date meetingDay, String content,
-			Date wdate, int read_cnt, int like_cnt, String local, String[] files) {
+			Date wdate, int read_cnt, int like_cnt, String local, String[] files, int reply_cnt, int del) {
 		super();
 		this.food_seq = food_seq;
 		this.id = id;
@@ -81,33 +82,13 @@ public class FoodVo implements Serializable {
 		this.like_cnt = like_cnt;
 		this.local = local;
 		this.files = files;
+		this.reply_cnt = reply_cnt;
+		this.del = del;
 	}
-
 	
-
 	public FoodVo(int food_seq, String id, String title, int total_cnt, int join_cnt, Date meetingDay, String content,
-				Date wdate, int read_cnt, int like_cnt, String local, String[] files, String fullname) {
-			super();
-			this.food_seq = food_seq;
-			this.id = id;
-			this.title = title;
-			this.total_cnt = total_cnt;
-			this.join_cnt = join_cnt;
-			this.meetingDay = meetingDay;
-			this.content = content;
-			this.wdate = wdate;
-			this.read_cnt = read_cnt;
-			this.like_cnt = like_cnt;
-			this.local = local;
-			this.files = files;
-			this.fullname = fullname;
-		}
-	
-	
-
-
-	public FoodVo(int food_seq, String id, String title, int total_cnt, int join_cnt, Date meetingDay, String content,
-			Date wdate, int read_cnt, int like_cnt, String local, String[] files, String fullname, int reply_cnt) {
+			Date wdate, int read_cnt, int like_cnt, String local, String[] files, String fullname, int reply_cnt,
+			int del) {
 		super();
 		this.food_seq = food_seq;
 		this.id = id;
@@ -123,11 +104,11 @@ public class FoodVo implements Serializable {
 		this.files = files;
 		this.fullname = fullname;
 		this.reply_cnt = reply_cnt;
+		this.del = del;
 	}
 
-
 	public FoodVo(int food_seq, String id, String title, int total_cnt, int join_cnt, Date meetingDay, String content,
-			Date wdate, int read_cnt, int like_cnt, String local) {
+			Date wdate, int read_cnt, int like_cnt, String local, int reply_cnt, int del) {
 		super();
 		this.food_seq = food_seq;
 		this.id = id;
@@ -140,8 +121,9 @@ public class FoodVo implements Serializable {
 		this.read_cnt = read_cnt;
 		this.like_cnt = like_cnt;
 		this.local = local;
+		this.reply_cnt = reply_cnt;
+		this.del = del;
 	}
-
 
 	public int getFood_seq() {
 		return food_seq;
@@ -282,14 +264,28 @@ public class FoodVo implements Serializable {
 		this.reply_cnt = reply_cnt;
 	}
 
+	
+
+	public int getDel() {
+		return del;
+	}
+
+
+	public void setDel(int del) {
+		this.del = del;
+	}
+
 
 	@Override
 	public String toString() {
 		return "FoodVo [food_seq=" + food_seq + ", id=" + id + ", title=" + title + ", total_cnt=" + total_cnt
 				+ ", join_cnt=" + join_cnt + ", meetingDay=" + meetingDay + ", content=" + content + ", wdate=" + wdate
 				+ ", read_cnt=" + read_cnt + ", like_cnt=" + like_cnt + ", local=" + local + ", files="
-				+ Arrays.toString(files) + ", fullname=" + fullname + ", reply_cnt=" + reply_cnt + "]";
+				+ Arrays.toString(files) + ", fullname=" + fullname + ", reply_cnt=" + reply_cnt + ", del=" + del + "]";
 	}
+
+
+
 
 
 

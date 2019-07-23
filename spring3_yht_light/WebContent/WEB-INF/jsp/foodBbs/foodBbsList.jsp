@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <fmt:requestEncoding value="utf-8"/>    
 <title>Food sharing</title>
 
@@ -76,12 +77,17 @@ $(document).ready(function () {
 
 	
 	<tr class="_hover_tr">
-		<td>${vs.count }</td> 
+		<td><%-- ${vs.count } --%>${fn:length(foodBbsList)-vs.index} </td> 
 		<td style="text-align: left; padding-left: 15px;" class="title_">		
 			<input type="hidden" id="id" name="id" value="${login.id }">	
+			<c:if test="${bbs.del == 0 }">
 			<a href="#none" onclick="titleclick(${bbs.food_seq})">
 				${bbs.title }  
 			</a>&nbsp;&nbsp;<font color="deepskyblue">(${bbs.reply_cnt })</font>
+			</c:if>
+			<c:if test="${bbs.del == 1 }">
+			  	<del>삭제된 글 입니다</del>
+			</c:if>
 		</td>
 		<td>${bbs.id }</td>
 		<td>

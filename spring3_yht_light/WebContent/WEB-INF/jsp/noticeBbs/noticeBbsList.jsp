@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <fmt:requestEncoding value="utf-8"/>
 
 <!-- noticeBbs.css -->
@@ -72,7 +73,7 @@ $(document).ready(function () {
 
 	
 	<tr class="_hover_tr">
-		<td>${vs.count }</td>
+		<td><%-- ${vs.count }  --%> ${fn:length(noticeBbsList)-vs.index}</td>
 		<td style="text-align: left; padding-left: 15px;">	
 			<a href="#none" onclick="titleclick(${vs.index })">
 				${bbs.title }
