@@ -92,7 +92,7 @@ $(document).ready(function() {
 	
 <!-- 상단바  -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffc107">
-  <a href="main.do"><img id="newicon" src="images/foodicon.png" width="70px" height="70px"></a>
+  <a href="#"><img id="newicon" src="images/foodicon.png" width="70px" height="70px"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

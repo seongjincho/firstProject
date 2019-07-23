@@ -5,6 +5,8 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -44,6 +46,8 @@ public class FoodController {
 		int totalRecordCount = foodService.getFoodCount(param);
 		
 		System.out.println("foodBbsList:" + foodBbsList.size());
+		//System.out.println(foodBbsList.toString());
+		// + 댓글 갯수
 		
 		model.addAttribute("foodBbsList", foodBbsList);
 		
@@ -57,6 +61,7 @@ public class FoodController {
 		
 		return "foodBbs/foodBbsList";
 		
+
 		
 	}
 	
@@ -134,20 +139,23 @@ public class FoodController {
 			JoinVo joinList = foodService.checkJoinId(jv);
 				model.addAttribute("joinList", joinList);
 			}
-		//댓글 리스트 불러오기 	
+		//댓글 리스트	
 			List<ReplyVo> replyList = foodService.replyList(food_seq);
-			
-			
+		
 			//model.addAttribute("allFoodDetail", allFoodDetail);  // 글 전체  
 			model.addAttribute("foodList", foodList); // 첫번째 사진을 포함한 디테일 글 
 			model.addAttribute("attachList", attachList); // 전체사진
-			model.addAttribute("replyList", replyList);
+			model.addAttribute("replyList", replyList); // 댓글 리스트
+			
+	
 	
 		
 		
 		return "foodBbs/foodDetail";
 	}
 
+
 	
+
 
 }

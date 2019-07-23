@@ -59,7 +59,7 @@ public class FoodVo implements Serializable {
 	private String local;  // 지역 지도검색용
 	private String[] files;
 	private String fullname;
-	
+	private int reply_cnt; // 댓글 갯수용
 	
 	public FoodVo() {
 		
@@ -102,6 +102,28 @@ public class FoodVo implements Serializable {
 			this.files = files;
 			this.fullname = fullname;
 		}
+	
+	
+
+
+	public FoodVo(int food_seq, String id, String title, int total_cnt, int join_cnt, Date meetingDay, String content,
+			Date wdate, int read_cnt, int like_cnt, String local, String[] files, String fullname, int reply_cnt) {
+		super();
+		this.food_seq = food_seq;
+		this.id = id;
+		this.title = title;
+		this.total_cnt = total_cnt;
+		this.join_cnt = join_cnt;
+		this.meetingDay = meetingDay;
+		this.content = content;
+		this.wdate = wdate;
+		this.read_cnt = read_cnt;
+		this.like_cnt = like_cnt;
+		this.local = local;
+		this.files = files;
+		this.fullname = fullname;
+		this.reply_cnt = reply_cnt;
+	}
 
 
 	public FoodVo(int food_seq, String id, String title, int total_cnt, int join_cnt, Date meetingDay, String content,
@@ -248,14 +270,30 @@ public class FoodVo implements Serializable {
 		this.fullname = fullname;
 	}
 
+	
+	
+
+	public int getReply_cnt() {
+		return reply_cnt;
+	}
+
+
+	public void setReply_cnt(int reply_cnt) {
+		this.reply_cnt = reply_cnt;
+	}
+
 
 	@Override
 	public String toString() {
 		return "FoodVo [food_seq=" + food_seq + ", id=" + id + ", title=" + title + ", total_cnt=" + total_cnt
 				+ ", join_cnt=" + join_cnt + ", meetingDay=" + meetingDay + ", content=" + content + ", wdate=" + wdate
 				+ ", read_cnt=" + read_cnt + ", like_cnt=" + like_cnt + ", local=" + local + ", files="
-				+ Arrays.toString(files) + ", fullname=" + fullname + "]";
+				+ Arrays.toString(files) + ", fullname=" + fullname + ", reply_cnt=" + reply_cnt + "]";
 	}
+
+
+
+
 
 	
 	

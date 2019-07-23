@@ -5,7 +5,7 @@
 <fmt:requestEncoding value="utf-8"/>   
 <title>Food sharing</title>
 
-<!-- noticeBbs.css -->
+<!-- foodDetail.css -->
 <link rel="stylesheet" type="text/css" href="css/foodDetail.css">
 
 <%-- favicon --%>
@@ -70,15 +70,7 @@ ${foodList.fullname }
 		<colgroup>
 			<col width="30%"/> <col width="30%"/><col width="30%"/>
 		</colgroup>
-		
-<%-- 		<tr>
-			<td colspan="3">
-				<div style="margin: 10 10 10 10;" align="center" id="mainImgConatiner">
-				 ${foodList.fullname }
-				</div>
-			</td>
-		</tr> --%>
-		
+
 		<tr>	
 			<th>글번호<hr><br></th> <td colspan="2" align="left">${foodList.food_seq } 
 			<input type="hidden" id="food_seq" name="food_seq" value="${foodList.food_seq } "><hr><br> </td>
@@ -164,7 +156,7 @@ ${foodList.fullname }
 		<td colspan="3">
 		<div align="center">
 		<hr>
-		<textarea rows="20" cols="70" readonly="readonly">${foodList.content }</textarea>
+		<textarea rows="20" cols="150" readonly="readonly">${foodList.content }</textarea>
 		
 		<hr>
 		</div>
@@ -175,7 +167,7 @@ ${foodList.fullname }
 </td>
 </tr>
 </table>
-<!-- <input type="button" value="참가" onclick="joinSharing()">  -->
+
 
 <hr>
 <c:if test="${empty joinList }">
@@ -185,7 +177,6 @@ ${foodList.fullname }
 	<button type="button" value="false"  class="joinButton btn_s_blue btn_205" onclick="joinSharing()">참여중/참여취소</button>	
 	&nbsp;&nbsp;&nbsp;
 	<button type="button" class="joinButton btn_s_gray btn_205" onclick="joinList()">참여자 보기</button>
-	<!-- food_likelist -->
 </c:if>
 
 
@@ -469,10 +460,12 @@ function joinList() {
 	 window.open('food_joinlist.do?food_seq=' + food_seq, 'width=600,height=600', 'scrollbars=yes');
 }
 
-function goReply() {
-	alert("댓글");
-}
 
+
+
+
+
+//지도js
 
 // 마커를 담을 배열입니다
 var markers = [];

@@ -248,7 +248,7 @@ $(document).ready(function () {
          </div>
          
          <div>
-            	내용<textarea class="a6" rows="20" cols="72" id="content" name="content" placeholder="&nbsp;&nbsp;모임 내용을 작성해주세요"></textarea> 
+            	내용<textarea class="a6" rows="20" cols="150" id="content" name="content" placeholder="&nbsp;&nbsp;모임 내용을 작성해주세요"></textarea> 
          </div>
 
 	<div>

@@ -23,5 +23,6 @@ public interface FoodService {
 	public boolean writeFoodJoin(FoodVo fv);
 	public List<ReplyVo> replyList(int food_seq);
 
+
 	
 }

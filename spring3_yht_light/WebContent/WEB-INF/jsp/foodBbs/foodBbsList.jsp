@@ -80,8 +80,8 @@ $(document).ready(function () {
 		<td style="text-align: left; padding-left: 15px;" class="title_">		
 			<input type="hidden" id="id" name="id" value="${login.id }">	
 			<a href="#none" onclick="titleclick(${bbs.food_seq})">
-				${bbs.title } 
-			</a>
+				${bbs.title }  
+			</a>&nbsp;&nbsp;<font color="deepskyblue">(${bbs.reply_cnt })</font>
 		</td>
 		<td>${bbs.id }</td>
 		<td>
