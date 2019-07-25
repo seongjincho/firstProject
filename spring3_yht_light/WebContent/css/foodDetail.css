@@ -2,9 +2,11 @@
 
  #mainImgConatiner img{
  
-	 width: 80%; 
-	 height: 400px;
+	 width: 50%; 
+	 height: 410px;
 	 margin-right: 10%;
+	 margin-top: 5%;
+	 
 	
 }
 
@@ -53,6 +55,8 @@
 #main {
 	margin-bottom: 0;
 	padding-bottom: 0;
+	
+	margin-right: 3%;
 }
 
 #tabContainer hr {

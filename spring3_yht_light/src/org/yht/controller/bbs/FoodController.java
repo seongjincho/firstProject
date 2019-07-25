@@ -68,7 +68,7 @@ public class FoodController {
 	@RequestMapping(value = "writeFood.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String writeFood() {
 		
-			System.out.println("notice 글쓰기로 이동");
+			System.out.println("writeFood 글쓰기로 이동");
 		
 		return "foodBbs/foodWrite";
 	}
@@ -120,12 +120,18 @@ public class FoodController {
 	}
 	
 	
-	@RequestMapping(value = "updateFood.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String updateFoodAf(FoodVo vo) {
+	@RequestMapping(value = "updateFoodAf.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String updateFoodAf(FoodVo vo) throws Exception {
+		System.out.println("updateFoodAf 진입 " +  vo.toString());
+		String src = "";
+		
+		 foodService.updateFood(vo);
 		
 
+			src = "redirect:/foodBbsList.do";
+	
 		
-		return "";
+		return src;
 	}
 	
 	@ResponseBody

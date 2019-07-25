@@ -85,22 +85,23 @@
                   // 이미지 파일이면 썸네일 이미지 출력
                   if (checkImageType(data)) {
                 	 
-/*                   	 str = "<div><a href='displayFile.do?fileName="+data+"'>";        
-                  	str += "<img src='displayFile.do?fileName="+data+"'></a>";   */
+                  //	 str = "<div><a href='displayFile.do?fileName="+getImageLink(data)+"'>";        
+                  //	str += "<img src='displayFile.do?fileName="+data+"'></a>";  
                   	//str = "<div><a href='displayFile.do?fileName="+getImageLink(data)+"' target='_blank'>"; 
-                     str += "<div><img src='displayFile.do?fileName="+data+"'>";  
+                  	str = "<div><img src='displayFile.do?fileName="+data+"'>  <br>";  
+                   // str += "<div><img src='displayFile.do?fileName="+data+"'>";  
                      
                      // hidden 태그 추가
-                     str += "<input type='hidden' name='files' value='"+fileInfo.fullName+"'>";
+                //     str += "<input type='hidden' name='files' value='"+fileInfo.fullName+"'>";
                 	
                      
                   // 일반파일이면 다운로드링크
                   }else {
-                     str = "<div><a href='displayFile.do?fileName="+data+"'>"+getOriginalName(data)+"</a>";
-                     str += "<input type='hidden' name='files' value='"+fileInfo.fullName+"'>";
+                     str = "<div><a href='displayFile.do?fileName="+data+"'>"+getOriginalName(data)+"</a> <br>";
+                //     str += "<input type='hidden' name='files' value='"+fileInfo.fullName+"'>";
                   }
                   // 삭제 버튼
-                   str += "<span data-src="+data+">[삭제]</span></div>";
+                  // str += "<span data-src="+data+">[삭제]</span></div>";
                   
                   $("#uploadedList").append(str);
                }
@@ -123,7 +124,7 @@
           
             var title = $("#title").val();
             var location = $("#local").val();
-            var meetingDate = $("#meetingDate").val();
+            var meetingDay = $("#meetingDay").val();
             var file = $("#uploadedList").find('div');
             
             if (title =="") {
@@ -136,9 +137,9 @@
                document.form1.local.focus();
                return;
             }
-            if (meetingDate =="") {
+            if (meetingDay =="") {
                alert("모임날짜를 입력하세요");
-               document.form1.meetingDate.focus();
+               document.form1.meetingDay.focus();
                return;
             }
           if (file.length == 0){
@@ -153,7 +154,8 @@
             // id가 uploadedList인 태그 내부에 있는 hidden태그들
             
              $("#uploadedList").find('div').each(function(i){
-               str += "<input type='hidden' name='files["+i+"]' value='"+$(this).html()+"'>";                               
+              // str += "<input type='hidden' name='files["+i+"]' value='"+$(this).html()+"'>";     
+               str += "<input type='hidden' name='files' value='"+$(this).html()+"'>";     
             });
                
             
@@ -259,10 +261,10 @@ $(document).ready(function () {
       <div class="fileDrop"><i class="dragment">이미지 파일을 여기에 드래그해주세요</i></div>
       <input type="button" id="delFiles" value="모든파일삭제" class="btn btn-secondary">   
    <!-- 첨부파일 목록 -->
-      <div id="uploadedList"></div>
+      <div id="uploadedList" style="margin-bottom: 10%;"></div>
    </div>
    
-   <div style="width: 650px; text-align: center; margin-bottom: 20px;">
+   <div style="width: 650px; text-align: center; margin-bottom: 20px; margin-top: 5%;">
       <button type="button" id="btnSave" class="btn btn-secondary">확인</button>
       <button type="reset" class="btn btn-secondary">취소</button>
       <input type="button" id="goback" value="목록" class="btn btn-secondary">

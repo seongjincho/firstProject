@@ -91,13 +91,13 @@ $(document).ready(function() {
 
 	
 <!-- 상단바  -->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffc107">
-  <a href="#"><img id="newicon" src="images/foodicon.png" width="70px" height="70px"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffc107; width: 100%;" >
+  <!-- <a href="#"><img id="newicon" src="images/foodicon.png" width="70px" height="70px"></a> -->
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  </button> 
+	
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 5%;">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="main.do">Home <span class="sr-only">(current)</span></a>
@@ -126,6 +126,15 @@ $(document).ready(function() {
           <a class="dropdown-item" href="mypage_delete.do">회원탈퇴</a>
           </c:if>
         </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Company
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="brandStory.do" onclick="window.open(this.href, '', 'width=1300,height=600'); return false;">회사 소개</a>
+          <a class="dropdown-item" href="customerService.do" onclick="window.open(this.href, '', 'width=1300,height=600'); return false;">고객 센터</a>                        
+        </div> 
       </li>
      
     </ul>

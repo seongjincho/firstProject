@@ -66,6 +66,35 @@ public class FoodServiceImpl implements FoodService {
 		
 		return foodDao.getAttach(food_seq);
 	}
+	
+	@Transactional
+	@Override
+	public void updateFood(FoodVo vo) throws Exception {
+		
+		System.out.println("updateFood 서비스!!! " + vo.toString());
+		
+		foodDao.udpateAttach2(vo.getFood_seq());
+		foodDao.updateFood(vo);
+	// 첨부파일 정보 등록
+		String[] files = vo.getFiles(); // 첨부파일 배열
+		// 첨부파일이 없으면 종료
+		if (files == null) {
+			
+			return;
+		}
+		// 첨부파일들의 정보를 tbl_attach 테이블에 insert
+		for (String name : files) {
+			foodDao.updateAttach(name, vo.getFood_seq());
+		}
+	}
+
+	
+	
+	@Override
+	public void deleteAttach(String fullname) {
+		
+		foodDao.deleteAttach(fullname);
+	}
 
 	@Override
 	public boolean read_cnt(int food_seq) {
@@ -95,12 +124,6 @@ public class FoodServiceImpl implements FoodService {
 	public List<ReplyVo> replyList(int food_seq) {
 		
 		return foodDao.replyList(food_seq);
-	}
-
-	@Override
-	public boolean updateFood(FoodVo vo) {
-		
-		return foodDao.updateFood(vo);
 	}
 	
 	@Override

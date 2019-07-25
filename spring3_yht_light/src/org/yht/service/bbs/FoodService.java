@@ -17,12 +17,14 @@ public interface FoodService {
 	public List<FoodVo> detailFood(int food_seq);
 	
 	public List<AttachVo> getAttach(int food_seq);
+
+	public void deleteAttach(String fullname);
 	public boolean read_cnt(int food_seq); 
 	public LikeVo checkLikeId(LikeVo vo);
 	public JoinVo checkJoinId(JoinVo vo);
 	public boolean writeFoodJoin(FoodVo fv);
 	public List<ReplyVo> replyList(int food_seq);
-	public boolean updateFood(FoodVo vo);
+	public void updateFood(FoodVo vo) throws Exception;
 	public boolean deleteFood(int food_seq);
 
 	

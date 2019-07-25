@@ -63,7 +63,7 @@
 
 <update id="updateFood" parameterType="org.yht.domain.test01.FoodVo">
 	UPDATE TEST01_FOOD
-	SET TITLE=#{title}, TOTAL_CNT=#{total_cnt}, MEETINGDAY=#{meetingday}, CONTENT=#{content}, LOCAL=#{local}
+	SET TITLE=#{title}, TOTAL_CNT=#{total_cnt}, MEETINGDAY=#{meetingDay}, CONTENT=#{content}, LOCAL=#{local}
 	WHERE FOOD_SEQ=#{food_seq}
 </update>
 
@@ -87,6 +87,27 @@
     INSERT INTO TEST01_ATTACH(FULLNAME, FOOD_SEQ, RDATE) 
     VALUES (#{fullname}, SEQ_FOOD.CURRVAL, SYSDATE)
 </insert>
+
+<!-- 사실상 첨부파일을 추가하는것  -->
+<insert id="updateAttach"  parameterType="org.yht.domain.test01.AttachVo">
+	INSERT INTO TEST01_ATTACH(
+		FULLNAME, FOOD_SEQ, RDATE
+	) VALUES (
+		#{fullname}, #{food_seq},  SYSDATE
+	)
+</insert>
+ 	<!-- db에서 한번 지워주고 등록   -->
+ <delete id="updateAttach2" parameterType="java.lang.Integer">
+ DELETE FROM TEST01_ATTACH
+ WHERE FOOD_SEQ = #{food_seq}
+</delete> 
+
+<!-- 게시글의 첨부파일 삭제처리 -->
+<delete id="deleteAttach" parameterType="java.lang.String">
+	DELETE FROM TEST01_ATTACH 
+	WHERE FULLNAME = #{fullname}
+</delete>
+
 
 <!-- 조회수 -->
 <update id="read_cnt" parameterType="java.lang.Integer">

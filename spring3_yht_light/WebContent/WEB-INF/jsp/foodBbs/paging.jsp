@@ -76,7 +76,7 @@
 %>	
 
 <%-- 페이지가 나오는 부분 --%>
-<div style="float: left; width: 96%; text-align: center;">
+<div style="float: left; width: 96%; text-align: center; ">
 
 	<%-- << --%>
 	<a href="#none" title="처음페이지" onclick="goPage('0')">
@@ -100,7 +100,7 @@
 	for(int i = screenStartPageIndex; i < screenEndPageIndex; i++){
 		if(i == pageNumber){  // 현재 페이지   괄호없는 숫자
  			%>
- 			<span style="font-size: 9pt; color: #000000; font-weight: bold;">
+ 			<span style="font-size: 20pt; color: #000000; font-weight: bold;">
  				<%=i+1 %>
  			</span>&nbsp;
 			
@@ -108,7 +108,7 @@
 		}else {  // 그외 페이지  [숫자]
 			%>
 			<a href="#none" title="<%=i+1 %>페이지" onclick="goPage(<%=i %>)" 
-			style="font-size: 7.5pt; color: #000000; font-weight: normal;">
+			style="font-size: 15pt; color: #000000; font-weight: normal;">
 				[<%=i+1 %>]
 			</a>&nbsp;
 			

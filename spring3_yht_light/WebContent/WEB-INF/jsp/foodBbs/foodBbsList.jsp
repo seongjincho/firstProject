@@ -52,7 +52,7 @@ $(document).ready(function () {
 <jsp:useBean id="ubbs" class="yht.framework.util.BbsArrow"/>
 <jsp:setProperty property="depth" name="ubbs" value="${bbs.depth }"/>   --%>
 	 
-<div align="center">
+<div align="center" >
 <table class="noti">
 <thead style="font-size: 16px;">
 	<tr class="noto">
@@ -125,7 +125,6 @@ $(document).ready(function () {
 </tbody>
 </table>
 
-<br>
 
 
 <!-- 페이징 처리 -->
@@ -141,13 +140,11 @@ $(document).ready(function () {
 
 <div align="center" style="width: 100%;">
 
-<div align="center" style="margin-top: 20px; margin-bottom: 10px;
-	margin-left: 400px;">
+<div style="margin-top: 20px; margin-bottom: 10px; margin-left: 40%;">
 
 <form action="" name="frmForm1" id="_frmFormSearch" method="post">
 
-<table style="margin-left: auto; margin-right: auto;
-		margin-top:	3px; margin-bottom: 3px; float: left;">
+<table style="margin-left: auto; margin-right: auto; margin-top:	3px; margin-bottom: 3px; float: left;">
 	
 	<tr>
 		<td>검색:&nbsp;&nbsp;</td>

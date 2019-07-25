@@ -1,6 +1,8 @@
 package org.yht.dao.bbs;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -43,7 +45,7 @@ public class FoodDao {
 		return sqlSession.selectList("Food.detailFood", food_seq);
 	}
 	
-	public boolean updateFood(FoodVo vo) {
+	public boolean updateFood(FoodVo vo)  throws Exception {
 		
 		int n = sqlSession.update("Food.updateFood", vo);
 		
@@ -70,6 +72,20 @@ public class FoodDao {
 		
 		 sqlSession.insert("Food.addAttach", fullname);
 		
+	}
+	
+	public void updateAttach(String fullname, int food_seq) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("fullname", fullname);
+		map.put("food_seq", food_seq);
+		sqlSession.insert("Food.updateAttach", map);
+	}
+
+	public void udpateAttach2(int food_seq) {
+		sqlSession.delete("Food.updateAttach2", food_seq);
+	}
+	public void deleteAttach(String fullname) {
+		sqlSession.delete("Food.deleteAttach", fullname);
 	}
 	
 	public boolean read_cnt(int food_seq) {

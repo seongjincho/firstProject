@@ -169,7 +169,7 @@ public class UploadController {
 	//	System.out.println("텍스트원본 = " + new File(uploadPath + Fdate + fileName.replace('/', File.separatorChar)));
 		
 		// 레코드 삭제
-		//foodService.deleteFile(fileName);
+		foodService.deleteAttach(fileName);
 				
 		// 데이터와 http 상태 코드 전송
 		return new ResponseEntity<String>("deleted", HttpStatus.OK);

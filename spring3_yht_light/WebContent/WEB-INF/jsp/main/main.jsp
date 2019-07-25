@@ -2,9 +2,28 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
+<style>
+.carousel-item {
+
+  height: 600px;
+
+}
+
+html {
+height: 100%;
+}
+body {
+margin: 0;
+height: 100%;
+}
+</style>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Food sharing</title>
+
+
 
 
 <%-- favicon --%>
@@ -18,7 +37,7 @@
 <body>
 
       <!-- carousel -->
-   <div class="bd-example" style="width: 100%; height:1%; margin-bottom: 10%;" align="center">
+   <div class="bd-example" style="margin-bottom: 1%;" align="center">
       <div id="carouselExampleCaptions" class="carousel slide"
          data-ride="carousel" data-interval="3000">
          <ol class="carousel-indicators">
@@ -31,19 +50,19 @@
             <div class="carousel-item active">
                <img src="images/bgi1.jpg" class="d-block w-100" alt="...">
                <div class="carousel-caption d-none d-md-block">
-                  <h5 class="h5main" align="left">1</h5>
+                  <h5 class="h5main" align="left">모여서</h5>
                </div>
             </div>
             <div class="carousel-item">
                <img src="images/bgi2.png" class="d-block w-100" alt="...">
                <div class="carousel-caption d-none d-md-block">
-                  <h5  class="h5main" align="left">2</h5>
+                  <h5  class="h5main" align="left">음식을</h5>
                </div>
             </div>
             <div class="carousel-item">
                <img src="images/bgi3.jpg" class="d-block w-100" alt="...">
                <div class="carousel-caption d-none d-md-block">
-                  <h5 class="h5main" align="left">3</h5>
+                  <h5 class="h5main" align="left">먹자</h5>
                </div>
             </div>
          </div>
@@ -62,25 +81,11 @@
 
 <div class="clear"></div>
 <div class="space"></div>
-
-
-
-
-
-
-게시판 댓글 css
-메인 페이지 입니다   (like_cnt , read_cnt 로  게시물 띄우기 )
-<div align="center">
-
-<div>댓글</div>
-<div>댓글 1</div>
-<div>댓글2</div>
-
-
-</div>
+<hr>
 
 <%-- footer --%>
+<div>
 <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
-
+</div>
 </body>
 </html>

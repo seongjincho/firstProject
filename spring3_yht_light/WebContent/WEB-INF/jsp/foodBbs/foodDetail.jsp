@@ -114,7 +114,7 @@ ${foodList.fullname }
 		<tr>		
 			<td colspan="3" align="center">
 			<div class="map_wrap">
-			    <div id="map" style="width:90%;height:100%;position:relative;overflow:hidden;"></div>
+			    <div id="map" style="width:100%;height:80%;position:relative;overflow:hidden;"></div>
 			
 			    <div id="menu_wrap" class="bg_white">
 			        <div class="option">
@@ -134,7 +134,7 @@ ${foodList.fullname }
 			</td>
         </tr>      
 	
-		<tr style="margin-top: 15%;">
+		<tr style="margin-top: 15%; width: 80%;">
 		 <c:if test="${not empty attachList }">
 		  <c:forEach items="${attachList }" var="att" varStatus="vs">	
 			<c:if test="${vs.index%2==0 }">
@@ -156,7 +156,7 @@ ${foodList.fullname }
 		<td colspan="3">
 		<div align="center">
 		<hr>
-		<textarea rows="20" cols="150" readonly="readonly">${foodList.content }</textarea>
+		<textarea rows="20" cols="110" readonly="readonly">${foodList.content }</textarea>
 		
 		<hr>
 		</div>
@@ -462,9 +462,10 @@ function joinList() {
 
 	
 function goUpdate() {
-	
+	var food_seq = $("#food_seq").val();
+	var id = $("#id").val();
 	alert("수정!");
-	
+	location.href = "updateFood.do?food_seq=" + food_seq + "&id=" + id;
 }	
 
 function goDelete() {
@@ -734,6 +735,6 @@ function setZoomable(zoomable) {
     map.setZoomable(zoomable);    
 }
 
-/* map.setZoomable(false);
-map.setDraggable(false); */
+map.setZoomable(false);
+//map.setDraggable(false); 
  </script>
