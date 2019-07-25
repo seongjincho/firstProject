@@ -6,7 +6,7 @@
 <style>
 .carousel-item {
 
-    height: 600px; 
+    height: 700px; 
 
 }
 

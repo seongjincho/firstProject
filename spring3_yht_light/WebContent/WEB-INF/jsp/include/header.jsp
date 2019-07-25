@@ -33,11 +33,13 @@ nav{
 .loginButton{
   /* background-color: white;  */
   /* color: black;  */
-  /* border: 2px solid #ffd426; */
-  background-color: #f0001e;
+  /* border: 2px solid #ffd426; 
+  #e04040*/
+ /*  background-color: #f0001e; */
   color: white;
-  
-  border: 2px solid #f0001e;
+  /* border: 2px solid #f0001e; */
+  background-color: #e04040;
+  border: 2px solid #e04040;
   font-size: 15px;
   padding: 1px 5px;
   text-align: center;
@@ -50,7 +52,8 @@ nav{
 /*   background-color: #f0001e;
   color: white; */
     background-color: white;
-  	color: #f0001e;
+/*   	color: #f0001e; */
+  	color: #e04040;
 }
 
 
@@ -58,9 +61,12 @@ nav{
 /*   background-color: white; 
   color: black;  */
   /* border: 2px solid #ffd426; */
-  background-color: #f0001e;
+/*   background-color: #f0001e;
   color: white;
-  border: 2px solid #f0001e;
+  border: 2px solid #f0001e; */
+    background-color: #e04040;
+  color: white;
+  border: 2px solid #e04040;
   font-size: 18px;
   padding: 1px 5px;
   text-align: center;
@@ -74,12 +80,14 @@ nav{
 /*   background-color: #f0001e;
   color: white; */
     background-color: white;
-  	color: #f0001e;
+  	/* color: #f0001e; */
+  	color: #e04040;
 }
 
 .card{
 /* background-color: #2d2d2d; */
-   background-color: #f0001e;
+   /* background-color: #f0001e; */
+   background-color: #e04040;
 }
 .card-header{
 color: #f4cd30;
@@ -106,7 +114,7 @@ $(document).ready(function() {
 
 	
 <!-- 상단바  -->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f0001e; width: 100%;" >
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e04040; width: 100%;" >
   <!-- <a href="#"><img id="newicon" src="images/foodicon.png" width="70px" height="70px"></a> -->
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
