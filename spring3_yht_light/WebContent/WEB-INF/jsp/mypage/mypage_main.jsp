@@ -53,10 +53,10 @@
 <body id="page-top">
 
 
-	<br>
+<!-- 	<br>
 	
 	
-	<hr>   <!-- // * 구분 선 -->
+	<hr> -->   <!-- // * 구분 선 -->
 <%-- header --%>
 <jsp:include page="/WEB-INF/jsp/include/header.jsp" flush="false"/>
 
@@ -216,22 +216,15 @@
           
       </div>
     </div>
-	<br><br>
+	<br><br><br><br><br><br>
 </div>
 
 
-<!--  SNS Icons 
-<div class="row">
-		<div class="col one">
-			<a href="https://ko-kr.facebook.com/" class="btn btn-facebook icon-only"><i class="fa fa-facebook"></i></a>	
-			<a href="https://www.youtube.com/?gl=KR" class="btn btn-you-tube icon-only"><i class="fa fa-youtube"></i></a>	
-			<a href="https://www.instagram.com/?hl=ko" class="btn btn-instagram icon-only"><i class="fa fa-instagram"></i></a>	
-		</div>
-</div> -->
+
 
 	<!-- footer -->
-	<jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
-   
+<%-- 	<jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
+    --%>
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -6,8 +6,26 @@
 <style>
 .carousel-item {
 
-  height: 600px;
+    height: 600px; 
 
+}
+
+.noto1{
+	font-family: 'Noto Sans KR';
+	letter-spacing: -1px;
+	font-size: 100pt;
+	
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 html {
@@ -17,6 +35,9 @@ body {
 margin: 0;
 height: 100%;
 }
+
+
+
 </style>
 
 <head>
@@ -35,9 +56,9 @@ height: 100%;
 
 </head>
 <body>
-
+<!-- <hr> -->
       <!-- carousel -->
-   <div class="bd-example" style="margin-bottom: 1%;" align="center">
+   <div class="bd-example"  align="center">
       <div id="carouselExampleCaptions" class="carousel slide"
          data-ride="carousel" data-interval="3000">
          <ol class="carousel-indicators">
@@ -48,21 +69,21 @@ height: 100%;
          </ol>
          <div class="carousel-inner">
             <div class="carousel-item active">
-               <img src="images/bgi1.jpg" class="d-block w-100" alt="...">
+               <img width="100%" height="100%" src="images/bgi1.jpg" class="d-block w-100" alt="...">
                <div class="carousel-caption d-none d-md-block">
-                  <h5 class="h5main" align="left">모여서</h5>
+                  <h5 class="noto1" align="left">Food Sharing</h5>
                </div>
             </div>
             <div class="carousel-item">
-               <img src="images/bgi2.png" class="d-block w-100" alt="...">
+               <img width="100%" height="100%" src="images/bgi2.jpg" class="d-block w-100" alt="...">
                <div class="carousel-caption d-none d-md-block">
-                  <h5  class="h5main" align="left">음식을</h5>
+                  <h5 class="noto1" align="left">홀로  한끼를 <br>해결해야 할 때</h5>
                </div>
             </div>
             <div class="carousel-item">
-               <img src="images/bgi3.jpg" class="d-block w-100" alt="...">
+               <img width="100%" height="100%" src="images/bgi3.jpg" class="d-block w-100" alt="...">
                <div class="carousel-caption d-none d-md-block">
-                  <h5 class="h5main" align="left">먹자</h5>
+                  <h5 class="noto1" align="left">Food Sharing해서 먹자</h5>
                </div>
             </div>
          </div>
@@ -80,8 +101,8 @@ height: 100%;
 
 
 <div class="clear"></div>
-<div class="space"></div>
-<hr>
+<div class="space"></div> 
+<!-- <hr> -->
 
 <%-- footer --%>
 <div>

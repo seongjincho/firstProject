@@ -31,9 +31,13 @@ nav{
 
 /* 로그인 로그아웃버튼 */
 .loginButton{
-  background-color: white; 
-  color: black; 
-  border: 2px solid #ffd426;
+  /* background-color: white;  */
+  /* color: black;  */
+  /* border: 2px solid #ffd426; */
+  background-color: #f0001e;
+  color: white;
+  
+  border: 2px solid #f0001e;
   font-size: 15px;
   padding: 1px 5px;
   text-align: center;
@@ -42,29 +46,40 @@ nav{
 }
 
 .loginButton:hover {
-  background-color: #ffd426;
-  color: white;
+ /*  background-color: #ffd426; */
+/*   background-color: #f0001e;
+  color: white; */
+    background-color: white;
+  	color: #f0001e;
 }
 
 
 .logoutButton{
-  background-color: white; 
-  color: black; 
-  border: 2px solid #ffd426;
-  font-size: 15px;
+/*   background-color: white; 
+  color: black;  */
+  /* border: 2px solid #ffd426; */
+  background-color: #f0001e;
+  color: white;
+  border: 2px solid #f0001e;
+  font-size: 18px;
   padding: 1px 5px;
   text-align: center;
   text-decoration: none;
- font-family: 'Nanum Gothic', sans-serif;
+ /* font-family: 'Nanum Gothic', sans-serif; */
+ font-family: '맑은고딕', malgun gothic,'돋움',Dotum,'Apple SD Gothic Neo',Helvetica,sans-serif;
 }
 
 .logoutButton:hover {
-  background-color: #ffd426;
-  color: white;
+  /* background-color: #ffd426; */
+/*   background-color: #f0001e;
+  color: white; */
+    background-color: white;
+  	color: #f0001e;
 }
 
 .card{
-background-color: #2d2d2d;
+/* background-color: #2d2d2d; */
+   background-color: #f0001e;
 }
 .card-header{
 color: #f4cd30;
@@ -91,7 +106,7 @@ $(document).ready(function() {
 
 	
 <!-- 상단바  -->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffc107; width: 100%;" >
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f0001e; width: 100%;" >
   <!-- <a href="#"><img id="newicon" src="images/foodicon.png" width="70px" height="70px"></a> -->
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -154,5 +169,6 @@ $(document).ready(function() {
     
   </div>
 </nav>
+
 </body>
 </html>

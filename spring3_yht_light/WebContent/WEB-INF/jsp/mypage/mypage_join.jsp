@@ -32,7 +32,7 @@
 
 
 	
-<div class="f_content">
+<div class="f_content" > 
 <div class="f2_content">
 
 <div class="headtitle" align="center"><br><br>
@@ -43,7 +43,7 @@
 
 
 	 
-<div align="center">
+<div align="center" style="margin-bottom: 10%;">
 <table class="noti">
 <thead style="font-size: 16px;">
 	<tr class="noto">
@@ -115,17 +115,19 @@
 </table>
 </div>
 </div>
+<br><br>
 </div>
 
 
 
+<div style="margin-bottom: 5%;"><br><br></div>
 
 
 
-
+<div style="margin-top: 15%;">
 <%-- footer --%>
 <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
-
+</div>
 
 
 <script type="text/javascript">

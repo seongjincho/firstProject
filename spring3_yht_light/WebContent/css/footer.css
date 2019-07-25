@@ -4,7 +4,8 @@
 	width: 100%;
 	border-top: 1px solid #aaa;
 	border-bottom: 1px solid #aaa;
-	background-color:#f0f0f0;
+	/* background-color:#f0f0f0; */
+	background-color: white;
 	border:none;
 	height: 10%;
 	padding: 5px 0 10px 0;
@@ -14,7 +15,8 @@
 	width: 100%;
 	padding: 5px 0px 20px;
 	margin: 0px auto;
-	background-color:#f0f0f0;
+	/* background-color:#f0f0f0; */
+	background-color: white;
 	/* height: 300px; */
 	
 }
@@ -120,12 +122,12 @@ ul, li, dl, dt, dd {
 }
 
 .footer_inner_separator_line {
-    width: 1px;
+/*     width: 1px;
     height: 130px;
     background-color: #e0e0e0;
     position: absolute;
     top: -10px;
-    left: 840px;
+    left: 840px; */
 }
 
 

@@ -6,6 +6,7 @@
 <!-- <link href="css/footer.css" rel="stylesheet"> -->
 
 <div id="footer">
+<hr>
 <ul id="footer_inner">
 		<!-- 위 footer -->
 		<li>
@@ -15,7 +16,7 @@
 			
 				<li class="footer_inner_item">
 				     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<img width="200px" height="120px" src="images/foodicon.png" style="align-content: center;">
+					<!-- <img width="200px" height="120px" src="images/foodicon2.png" style="align-content: center;"> -->
 				</li>	
 				
 				<li class="footer_inner_item">
@@ -50,20 +51,20 @@
 			</ul>
 		</li> 
 		
-		<li style="margin: 30px 0px;">
+<!-- 		<li style="margin: 30px 0px;">
 			<hr style="background-color:#e0e0e0; border:1px solid #e0e0e0; border-bottom:none;">
 		</li>
-		
+		 -->
 		<!-- 아래 footer -->
-		<li id="second_footer">
+<!-- 		<li id="second_footer">
 			<ul class="footer_inner_box">
 				<li class="footer_inner_item">
 					<div style="margin-bottom: 10px;">
-						<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<a href="#"  style="text-decoration: none;">
 							<img width="200px" height="120px" src="images/qrcode.png">
 						</a>
-<!-- 					
+					
 						&nbsp;
 						<a href="#" target="_blank" style="text-decoration: none;">
 							<img src="image/footer_f.png">
@@ -71,7 +72,7 @@
 						&nbsp;
 						<a href="http://blog.naver.com/iloom_blog/" target="_blank" style="text-decoration: none;">
 							<img src="image/footer_b.png">
-						</a> -->
+						</a>
 					</div>
 				</li>
 		
@@ -84,7 +85,7 @@
 					</ul>
 				</li>
 			</ul>
-		</li>
+		</li> -->
 		
 	</ul>
 	

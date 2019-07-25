@@ -112,9 +112,10 @@
 
 
 
+<div style="margin-top: 15%;">
 <%-- footer --%>
 <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
-
+</div>
 
 
 <script type="text/javascript">
