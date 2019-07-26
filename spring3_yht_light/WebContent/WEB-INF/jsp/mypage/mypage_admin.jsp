@@ -123,7 +123,7 @@
 <script type="text/javascript">
 
 function goUpdate( id ) {
-	alert("수정 진입");
+	//alert("수정 진입");
 	//alert(id);
 	
 	//location.href = "memberUpdate.do?id=" + id;
@@ -139,7 +139,7 @@ function goUpdate( id ) {
 }
 
 function goDel( id ) {
-	alert("탈퇴 진입");
+	//alert("탈퇴 진입");
 	//alert(id);
 	
 	var id = id;

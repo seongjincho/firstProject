@@ -93,8 +93,8 @@
 </div>
 <br><br>
 
-<%-- footer --%>
-<jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
+<%-- 
+<jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/> --%>
 
 
 <script type="text/javascript">
