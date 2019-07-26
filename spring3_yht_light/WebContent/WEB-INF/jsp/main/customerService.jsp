@@ -11,31 +11,33 @@
 <%-- favicon --%>
 <link rel="icon" href="images/foodicon.png" sizes="48x48">
 
+<%-- header --%>
+<jsp:include page="/WEB-INF/jsp/include/header.jsp" flush="false"/>
 
 
 <title>Insert title here</title>
 </head>
 <body>
 
-<div align="center" style="margin-left:10%; margin-top:10%; margin-bottom:10%;">
-<h3 >Food Sharing</h3>
+<div align="center" style="margin-top:1%; margin-bottom:3%;">
+<h1>Food Sharing</h1>
 <hr>
 </div>	 	
 
-<div id="map" style="margin-left:20%; margin-top:10%; margin-bottom:10%; border:2px solid black;  width:750px;height:500px;"></div>
+<div id="map"  style="margin-left:25%; margin-top:3%; margin-bottom:3%; border:2px solid black;  width:750px;height:500px;"></div>
 
 
- <div align="center" style="margin-left:20%; margin-top:5%; margin-bottom:10%; border:2px solid black; width:750px;height:250px;">
+ <div align="center" style="margin-left:25%; margin-top:5%; margin-bottom:10%; border:2px solid black; width:750px;height:250px;">
 
 
-<img alt="" src="./image/bs.jpg"  align="left" style="width:350px; height:200px; margin-left: 3%; margin-top: 3%; margin-bottom: 3%">
+<img alt="" src="images/bs.jpg"  align="left" style="width:350px; height:200px; margin-left: 3%; margin-top: 3%; margin-bottom: 3%">
 
 <pre style="height:220px; margin-left: 3%; margin-top: 8%; margin-bottom: 3%; vertical-align: middle;">
-	본사
+본사
 
-서울 강서구 마곡동 367-6
+서울 강서구 마곡동 367-6 
 
-TEL02-2656-0905
+TEL 02-1577-****
 
 09 : 00 AM - 06 : 00 PM
 </pre>
@@ -43,6 +45,12 @@ TEL02-2656-0905
 
 </div> 
  
+
+
+<%-- footer --%>
+<div>
+<jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
+</div>
 
 
 
@@ -85,6 +93,22 @@ geocoder.addressSearch('서울 강서구 마곡동 367-6', function(result, stat
 } 
 });    
 </script>
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5d3a48a59b94cd38bbe95411/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
 
 </body>
 </html>

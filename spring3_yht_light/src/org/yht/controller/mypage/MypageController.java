@@ -67,13 +67,18 @@ public class MypageController {
 		}
 		
 		
+		
+		
 		return src;
 	}
 	
 	@RequestMapping(value="mypage_update.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mypage_update(Model model, HttpServletRequest req) {
 		
-		MemberVo mem = (MemberVo)req.getSession().getAttribute("login");
+		MemberVo data = (MemberVo)req.getSession().getAttribute("login");
+		System.out.println(data.toString() + " update.do");
+		
+		MemberVo mem = mypageService.getUpdateInfo(data.getId());
 		
 		model.addAttribute("mem", mem);
 		
@@ -113,7 +118,7 @@ public class MypageController {
 		System.out.println("정보 업데이트 등록!");
 		
 		//MemberVo mem = mypageService.myPhone(dto);
-		
+		System.out.println(dto.toString());
 		//String check = mypageService.phoneCheck(dto);
 		boolean isS = mypageService.mypage_update(dto);
 		
@@ -179,7 +184,7 @@ public class MypageController {
 		return src;
 	}
 	
-	@RequestMapping(value="mypage_like.do", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "mypage_like.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public String mypage_wish(Model model, HttpServletRequest req) {
 		
 		MemberVo mem = (MemberVo)req.getSession().getAttribute("login");
@@ -190,7 +195,7 @@ public class MypageController {
 		return "mypage/mypage_like";
 	}
 	
-	@RequestMapping(value="mypage_join.do", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "mypage_join.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public String mypage_join(Model model, HttpServletRequest req) {
 		
 		MemberVo mem = (MemberVo)req.getSession().getAttribute("login");
@@ -200,5 +205,42 @@ public class MypageController {
 		
 		return "mypage/mypage_join";
 	}
+	
+   @RequestMapping(value = "mypage_admin.do", method = {RequestMethod.GET, RequestMethod.POST})
+   public String mypage_admin(Model model) {
+	   
+	   
+	   List<MemberVo> memberList = mypageService.memberList();
+	   String ListSize = memberList.size() + "";
+	   
+	   
+	   model.addAttribute("memberList", memberList);
+	   model.addAttribute("ListSize", ListSize);
+	   
+	   return "mypage/mypage_admin";
+   }
+   
+   @ResponseBody
+   @RequestMapping(value = "memberDel.do", method = {RequestMethod.GET, RequestMethod.POST})
+   public String memberDel(String id) {
+	   	System.out.println("삭제할 아이디 : " + id);
+	   	String src = "";
+		boolean isS = mypageService.mypage_delete(id);
+		
+		if(isS) {
+			
+			System.out.println("탈퇴 성공");
+			src = "OK";
+			
+		}else {
+			
+			System.out.println("탈퇴 실패");
+			src = "NO";
+			
+		}
+		
+		return src;
+	   
+   }
 
 }

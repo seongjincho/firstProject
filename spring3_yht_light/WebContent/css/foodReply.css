@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
-body{ background: #fafafa;}
+body{ /* background: #fafafa; */
+background: white;}
 .widget-area.blank {
 background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
 -webkit-box-shadow: none;

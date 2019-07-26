@@ -144,9 +144,12 @@ $(document).ready(function() {
           <a class="dropdown-item" href="goUpdate.do">정보수정</a>
           <a class="dropdown-item" href="mypage_like.do">좋아요</a>
           <a class="dropdown-item" href="mypage_join.do">참여중인 모임</a>
-        <!--   <a class="dropdown-item" href="#">내가 쓴 글</a> -->
+     
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="mypage_delete.do">회원탈퇴</a>
+          <c:if test="${login.auth == 3 }">
+          <a class="dropdown-item" href="mypage_admin.do">회원관리</a>
+          </c:if>
           </c:if>
         </div>
       </li>
@@ -156,7 +159,7 @@ $(document).ready(function() {
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="brandStory.do" onclick="window.open(this.href, '', 'width=1300,height=600'); return false;">회사 소개</a>
-          <a class="dropdown-item" href="customerService.do" onclick="window.open(this.href, '', 'width=1300,height=600'); return false;">고객 센터</a>                        
+          <a class="dropdown-item" href="customerService.do">고객 센터</a>                        
         </div> 
       </li>
      

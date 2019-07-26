@@ -12,12 +12,7 @@ public class MainInfoController {
 		
 		return "main/brandStory";
 	}
-	
-	@RequestMapping(value = "storeInfo.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String storeInfo() {
-		
-		return "main/storeInfo";
-	}
+
 	
 	@RequestMapping(value = "customerService.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String customerService() {

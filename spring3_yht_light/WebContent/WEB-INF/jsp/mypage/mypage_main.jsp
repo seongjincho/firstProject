@@ -196,7 +196,7 @@
 		<!--  // 관리자 : 7.회원리스트 -->
         <div class="col-md-4 col-sm-6 portfolio-item">
         <!-- // 관리자 form -->
-          <form action="#" method="post" name="formname">
+          <form action="mypage_admin.do" method="post" name="formname">
           <a class="portfolio-link" href="javascript:formname.submit();" >
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">

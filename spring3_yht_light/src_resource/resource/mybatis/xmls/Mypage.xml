@@ -23,6 +23,13 @@
   		WHERE PHONE=#{phone}
   	</select>
   	
+  	<select id="getUpdateInfo" parameterType="java.lang.String" resultType="org.yht.domain.test01.MemberVo">
+  		SELECT *
+  		FROM TEST01_MEMBER
+  		WHERE ID=#{id}
+  	</select>
+  	
+  	
   	 <update id="mypage_update" parameterType="org.yht.domain.test01.MemberVo">
   		UPDATE TEST01_MEMBER SET
   		PWD=#{pwd}, ADDRESS1=#{address1}, ADDRESS2=#{address2}, PHONE=#{phone}
@@ -30,8 +37,8 @@
   	</update>
   	
   	<update id="mypage_delete" parameterType="java.lang.String">
-  		UPDATE TEST01_MEMBER SET
-  		DEL=1
+  		UPDATE TEST01_MEMBER 
+  		SET DEL=1
   		WHERE ID=#{id}
   	</update>
   	
@@ -49,6 +56,11 @@
                F.MEETINGDAY, F.CONTENT, F.WDATE, F.READ_CNT, F.LIKE_CNT, F.LOCAL, F.DEL
         FROM   TEST01_FOOD F, TEST01_JOIN J
         WHERE  F.FOOD_SEQ=J.FOOD_SEQ AND J.ID=#{id}
+  	</select>
+  	
+  	<select id="memberList" resultType="org.yht.domain.test01.MemberVo">
+  		SELECT ID, NAME, EMAIL, ADDRESS1, ADDRESS2, PHONE, AUTH, AUTHSTATUS, DEL
+  		FROM TEST01_MEMBER
   	</select>
 
 </mapper>

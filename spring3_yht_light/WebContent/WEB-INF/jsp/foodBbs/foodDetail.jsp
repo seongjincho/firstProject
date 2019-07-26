@@ -457,7 +457,15 @@ function joinList() {
 	alert("참여자 목록 보기");
 	var food_seq = $("#food_seq").val();
 
-	 window.open('food_joinlist.do?food_seq=' + food_seq, 'width=600,height=600', 'scrollbars=yes');
+	// window.open('food_joinlist.do?food_seq=' + food_seq, 'width=600,height=600', 'scrollbars=yes');
+	var popupX = (window.screen.width / 2) - (600 / 2);
+	// 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+	
+	var popupY= (window.screen.height / 2) - (600 / 2);
+	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
+	
+	//window.open('food_joinlist.do?food_seq=' + food_seq, 'scrollbars=yes', 'status=no, height=600, width=600, left='+ popupX + ', top='+ popupY);
+	location.href = "food_joinlist.do?food_seq=" + food_seq;
 }
 
 	

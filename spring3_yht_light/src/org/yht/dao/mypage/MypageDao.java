@@ -27,6 +27,10 @@ public class MypageDao {
 		return sqlSession.selectOne("Mypage.phoneCheck", vo);
 	}
 	
+	public MemberVo getUpdateInfo(String id) {
+		return sqlSession.selectOne("Mypage.getUpdateInfo", id);
+	}
+	
 	public boolean mypage_update(MemberVo vo) {
 		
 		int n = sqlSession.update("Mypage.mypage_update", vo);
@@ -46,5 +50,9 @@ public class MypageDao {
 	
 	public List<FoodVo> mypage_join(String id) {
 		return sqlSession.selectList("Mypage.mypage_join", id);
+	}
+	
+	public List<MemberVo> memberList(){
+		return sqlSession.selectList("Mypage.memberList");
 	}
 }

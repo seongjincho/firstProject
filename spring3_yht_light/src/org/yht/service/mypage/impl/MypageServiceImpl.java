@@ -33,6 +33,14 @@ public class MypageServiceImpl implements MypageService {
 		
 		return mypageDao.phoneCheck(vo);
 	}
+	
+	
+
+	@Override
+	public MemberVo getUpdateInfo(String id) {
+		
+		return mypageDao.getUpdateInfo(id);
+	}
 
 	@Override
 	public boolean mypage_update(MemberVo vo) {
@@ -57,6 +65,13 @@ public class MypageServiceImpl implements MypageService {
 		
 		return mypageDao.mypage_join(id);
 	}
+
+	@Override
+	public List<MemberVo> memberList() {
+		
+		return mypageDao.memberList();
+	}
+	
 	
 	
 	

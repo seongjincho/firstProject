@@ -118,6 +118,7 @@ $("#_btnInfo").click(function(){
 		
 		if(pwd == "") {
 			pwd = '${mem.pwd}';
+			
 		}
 		$('#_pwd').val(pwd);
 		$('#_frmForm').submit();
@@ -187,9 +188,9 @@ function checkPhone(){
 		return false;
 	}
 	
-	var id = '${login.id}';
+	var id = $("#_id").val();
 	$.ajax({
-		url:"mypage_phoneCheck.do",
+		url:"myInfoPhone.do",
 		type:"post",
 		data: {"phone" : $('#_phone').val().trim(), "id" : id},
 		success:function(data) {
