@@ -55,4 +55,10 @@ public class MypageDao {
 	public List<MemberVo> memberList(){
 		return sqlSession.selectList("Mypage.memberList");
 	}
+	
+	public boolean memberUpdate(MemberVo vo) {
+	
+		int n = sqlSession.update("Mypage.memberUpdate", vo);
+		return n>0? true:false;
+	}
 }

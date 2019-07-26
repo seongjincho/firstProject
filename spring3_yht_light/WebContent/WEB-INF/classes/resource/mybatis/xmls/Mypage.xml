@@ -62,5 +62,11 @@
   		SELECT ID, NAME, EMAIL, ADDRESS1, ADDRESS2, PHONE, AUTH, AUTHSTATUS, DEL
   		FROM TEST01_MEMBER
   	</select>
+  	
+  	<update id="memberUpdate" parameterType="org.yht.domain.test01.MemberVo">
+  		UPDATE TEST01_MEMBER
+  		SET PWD=#{pwd}, AUTH=#{auth}, AUTHSTATUS=#{authstatus}, DEL=#{del}
+  		WHERE ID=#{id}
+  	</update>
 
 </mapper>

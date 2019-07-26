@@ -49,9 +49,9 @@
 
 <thead>
 <tr style="border: 1px solid black; bor">
-<th>회원</th> <th>이름</th> <th>Email</th> 
+<th>회원아이디</th> <th>이름</th> <th>Email</th> 
 <th>주소</th> <th>전화번호</th> <th>회원권한</th> 
-<th>이메일인증</th> <th>탈퇴여부</th> <th>메뉴</th>
+<th>이메일인증</th> <th>회원 상태</th> <th>메뉴</th>
 </tr>
 </thead>
 
@@ -85,7 +85,7 @@
       <img width="30px" height="30px" alt="" src="images/settingIcon.jpg">
      </a>
      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-       <a class="dropdown-item" onclick="goUpdate()">수정</a>
+       <a class="dropdown-item" onclick="goUpdate('${mem.id }')">수정</a>
        <c:if test="${mem.del == 0}">
        <a class="dropdown-item" onclick="goDel('${mem.id }' )">탈퇴</a> 
        </c:if>                       
@@ -122,22 +122,35 @@
 
 <script type="text/javascript">
 
-function goUpdate() {
+function goUpdate( id ) {
 	alert("수정 진입");
+	//alert(id);
+	
+	//location.href = "memberUpdate.do?id=" + id;
+	
+	var popupX = (window.screen.width / 2) - (600 / 2);
+	// 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+	
+	var popupY= (window.screen.height / 2) - (600 / 2);
+	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
+	
+	window.open('memberUpdate.do?id=' + id, 'scrollbars=yes', 'status=no, height=600, width=600, left='+ popupX + ', top='+ popupY);
+	
 }
 
 function goDel( id ) {
-	alert("탈퇴 진입!");
-	alert(id);
+	alert("탈퇴 진입");
+	//alert(id);
 	
-	
+	var id = id;
 
 	
  	if(confirm(id + "님을 탈퇴 시키겠습니까?") == true){
 	    
 		$.ajax({
-	        type : 'post',
+			
 	        url : 'memberDel.do',
+	        type : 'post',
 	        data : {id:id},
 			success:function(data){
 				

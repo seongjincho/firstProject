@@ -60,8 +60,21 @@ public class MemberVo implements Serializable {
 		this.phone = phone;
 	}
 
+	
 
 
+	public MemberVo(String id, String pwd, String name, int auth, int del, String authkey, int authstatus) { //관리자페이지 업데이트용
+		super();
+		this.id = id;
+		this.pwd = pwd;
+		this.name = name;
+		this.auth = auth;
+		this.del = del;
+		this.authkey = authkey;
+		this.authstatus = authstatus;
+	}
+	
+	
 	public MemberVo(String id, String pwd, String name, String email, String address1, String address2, int auth,
 			String phone, int del, String authkey, int authstatus) {
 		super();

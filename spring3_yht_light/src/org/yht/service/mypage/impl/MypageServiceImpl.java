@@ -71,6 +71,12 @@ public class MypageServiceImpl implements MypageService {
 		
 		return mypageDao.memberList();
 	}
+
+	@Override
+	public boolean memberUpdate(MemberVo vo) {
+		
+		return mypageDao.memberUpdate(vo);
+	}
 	
 	
 	

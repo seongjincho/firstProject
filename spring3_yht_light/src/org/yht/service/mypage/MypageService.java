@@ -16,4 +16,5 @@ public interface MypageService {
 	public List<FoodVo> mypage_like(String id);
 	public List<FoodVo> mypage_join(String id);
 	public List<MemberVo> memberList();
+	public boolean memberUpdate(MemberVo vo);
 }

@@ -242,5 +242,41 @@ public class MypageController {
 		return src;
 	   
    }
+   
+	@RequestMapping(value="memberUpdate.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String memberUpdate(String id, Model model) {
+		
+		
+		MemberVo mem = mypageService.getUpdateInfo(id);
+		
+		System.out.println(mem.toString() + " memberUpdate.do");
+		
+		
+		model.addAttribute("mem", mem);
+		
+		return "mypage/admin_update";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="memberUpdateAf.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String memberUpdateAf(MemberVo vo, Model model) {
+		String src = "";
+		
+		System.out.println("멤버 업데이트 af 도착");
+		System.out.println(vo.toString());
+		
+	boolean isS = mypageService.memberUpdate(vo);
+		
+		if(isS) {
+			System.out.println("관리자 권한 멤버 수정 성공");
+			src = "OK";
+		}else {
+			System.out.println("관리자 권한 멤버 수정 실패");
+			src = "NO";
+		}
+		
+		
+		return src;
+	}
 
 }
