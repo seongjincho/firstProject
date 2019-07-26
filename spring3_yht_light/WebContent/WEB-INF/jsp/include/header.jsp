@@ -146,10 +146,10 @@ $(document).ready(function() {
           <a class="dropdown-item" href="mypage_join.do">참여중인 모임</a>
      
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="mypage_delete.do">회원탈퇴</a>
           <c:if test="${login.auth == 3 }">
           <a class="dropdown-item" href="mypage_admin.do">회원관리</a>
           </c:if>
+          <a class="dropdown-item" href="mypage_delete.do">회원탈퇴</a>
           </c:if>
         </div>
       </li>

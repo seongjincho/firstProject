@@ -37,7 +37,7 @@
 
 <div align="center" style="margin-top: 5%; margin-left: 5%; margin-right: 5%; margin-bottom: 5%;">
 
-<h1 style="margin-bottom: 5%;">회원 관리 페이지 <b style="color:#A7574A; ">${ListSize }</b></h1>
+<h1 style="margin-bottom: 5%;">회원 관리 페이지 (<b style="color:#A7574A; ">${ListSize }</b>)</h1>
 
 
 <table>

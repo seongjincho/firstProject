@@ -100,7 +100,7 @@
 <script type="text/javascript">
 
 function goUpdate() {
-	alert("회원관리 수정 진입");
+	//alert("회원관리 수정 진입");
 	
 	var auth = $("#auth").val(); 
 	var authstatus = $("#authstatus").val();
@@ -137,7 +137,7 @@ function goUpdate() {
 //	$("#updateFrm").submit();
 
 	  var updateData = $("form[name=updateFrm]").serialize();
-	    alert(updateData);
+	   // alert(updateData);
 	  
 	    $.ajax({
 	        type : 'post',
@@ -147,13 +147,13 @@ function goUpdate() {
 				
 				if(data.trim() == "OK"){
 					
-					alert("관리자 멤버  수정 성공!");
+					alert("관리자 멤버  수정 성공");
 					opener.parent.location.reload();
 					window.close();
 					
 				}else {
 					
-					alert("관리자 멤버  수정 실패!");
+					alert("관리자 멤버  수정 실패");
 					
 				}
 				
