@@ -47,7 +47,7 @@ $(document).ready(function () {
 </div>	 
 	
 <div class="f_content">
-<div class="f2_content">
+<div class="f2_content" style="margin-bottom: 10%;">
 
 
 
@@ -58,7 +58,7 @@ $(document).ready(function () {
 	<tr class="noto">
 		<th width="10%">순서</th>
 		<th width="50%">제목</th>
-		<th width="10%">작성자</th>
+		<!-- <th width="10%">작성자</th> -->
 		<!-- <th width="15%">조회수</th> -->
 		<th width="15%">등록일</th>
 	</tr>
@@ -80,7 +80,7 @@ $(document).ready(function () {
 				${bbs.title }
 			</a>
 		</td>
-		<td>${bbs.id }</td>
+		<%-- <td>${bbs.id }</td> --%>
 <%-- 		<td>
 			<font id="read${vs.index }">${bbs.readcount }</font>
 			<input type="hidden" id="seq${vs.index }" value="${bbs.notice_seq }">
@@ -181,8 +181,8 @@ $(document).ready(function () {
 </div>
 
 <%-- footer --%>
-<jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
-
+<%-- <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
+ --%>
 
 
 <script type="text/javascript">
