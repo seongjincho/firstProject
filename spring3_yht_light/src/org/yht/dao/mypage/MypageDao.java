@@ -52,6 +52,10 @@ public class MypageDao {
 		return sqlSession.selectList("Mypage.mypage_join", id);
 	}
 	
+/*	public int getMyJoinCount(String id) {
+		return sqlSession.selectOne("Mypage.getMyJoinCount", id);
+	}
+	*/
 	public List<MemberVo> memberList(){
 		return sqlSession.selectList("Mypage.memberList");
 	}

@@ -16,11 +16,16 @@
 <jsp:include page="/WEB-INF/jsp/include/header.jsp" flush="false"/>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e95843617e74d0c3683cc8d8a73f71af&libraries=services,clusterer,drawing"></script>
-<br><br><br><br><br><br>   
+<!-- <br><br><br><br><br><br>   --> 
 
-<div>
+<div class="mainImg" align="center">
+<h1 class="headtitle">제목:${foodList.title }</h1>
+</div>	 
+
+
+<%-- <div>
 <h1 align="center">제목:${foodList.title }</h1> 
-</div>
+</div> --%>
 <c:if test="${login.id == foodList.id || login.auth == 3 }">
 <div align="right" style="margin-right: 9%;">
 <button class="btn_s_blue btn_100" onclick="goUpdate()">수정</button>

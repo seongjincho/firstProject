@@ -170,11 +170,18 @@ $(document).ready(function(){
 });
 
 function replyInsert() {
-	alert("댓글 등록  진입");
+	//alert("댓글 등록  진입");
 	var id = $("#id").val();
 	var food_seq = $("#food_seq").val();
 	var content = $("#replyContent").val();
-	
+		
+	if(content == null || content == ""){
+		
+		alert("댓글을 입력해주세요");
+		$("#replyContent").focus();
+		
+	}else {
+		
 	$.ajax({
 		
 		url:"replyInsert.do",
@@ -200,6 +207,7 @@ function replyInsert() {
 			
 	});
 	
+	}
 }
 
 function showUpdate( count ) {

@@ -58,6 +58,22 @@
         WHERE  F.FOOD_SEQ=J.FOOD_SEQ AND J.ID=#{id}
   	</select>
   	
+<!--   	<select id="getMyJoinCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+      		SELECT  *
+		FROM
+			(SELECT ROW_NUMBER() OVER(ORDER BY J.JOIN_SEQ DESC)AS RNUM,
+				F.FOOD_SEQ, F.ID, F.TITLE, F.TOTAL_CNT, F.JOIN_CNT,
+	            F.MEETINGDAY, F.CONTENT, F.WDATE, F.READ_CNT, F.LIKE_CNT, F.LOCAL, F.DEL
+			 FROM TEST01_FOOD F, TEST01_JOIN J 
+	         WHERE  F.FOOD_SEQ=J.FOOD_SEQ AND J.ID=#{id} A
+		WHERE RNUM BETWEEN 1 AND 10 
+    
+    SELECT NVL(COUNT(*),0) AS CNT
+    FROM   TEST01_FOOD F, TEST01_JOIN J
+    WHERE  F.FOOD_SEQ=J.FOOD_SEQ AND J.ID=#{id}  
+  	</select> -->
+  	
+  	
   	<select id="memberList" resultType="org.yht.domain.test01.MemberVo">
   		SELECT ID, NAME, EMAIL, ADDRESS1, ADDRESS2, PHONE, AUTH, AUTHSTATUS, DEL
   		FROM TEST01_MEMBER

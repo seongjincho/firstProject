@@ -65,6 +65,13 @@ public class MypageServiceImpl implements MypageService {
 		
 		return mypageDao.mypage_join(id);
 	}
+	
+	
+/*	@Override
+	public int getMyJoinCount(String id) {
+		
+		return mypageDao.getMyJoinCount(id);
+	}*/
 
 	@Override
 	public List<MemberVo> memberList() {

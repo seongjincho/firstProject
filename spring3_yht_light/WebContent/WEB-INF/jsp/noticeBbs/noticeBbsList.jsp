@@ -94,9 +94,11 @@ $(document).ready(function () {
 			<div id="slide${vs.index }" class="slide" style="padding: 10% 10% 10% 10%; text-align:left; background-color: #f0f0f0;">
 				<pre><font size="3px">${bbs.content }</font></pre>
 				<c:if test="${login.auth == 3 }">
-					<div align="center">
-						<button id="updateBtn" class="btnsearch" onclick="location.href='noticeUpdate.do?notice_seq=${bbs.notice_seq }'">수정</button>
-						<button id="deleteBtn" class="btnsearch" onclick="location.href='noticeDelete.do?notice_seq=${bbs.notice_seq }'">삭제</button>
+					<div align="center" style="margin-top: 10%;">
+						
+						<button id="updateBtn" class="btn btn-outline-danger" onclick="location.href='noticeUpdate.do?notice_seq=${bbs.notice_seq }'">수정</button>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<button id="deleteBtn" class="btn btn-outline-dark" onclick="location.href='noticeDelete.do?notice_seq=${bbs.notice_seq }'">삭제</button>
 					</div>
 				</c:if>
 			</div>
@@ -108,7 +110,7 @@ $(document).ready(function () {
 			<td colspan="6" style="border: 1px solid #fff">
 				<div align="center">
 					<span>
-						<button type="button" id="_btnAdd" class="btnwrite" style="border-color: #0051ba;">글쓰기</button>
+						<button type="button" id="_btnAdd" class="btn btn-danger">글쓰기</button>
 					</span>
 				</div>
 			</td>
@@ -154,7 +156,7 @@ $(document).ready(function () {
 		</td>
 		<td style="padding-left: 5px;">
 			<span class="button blue">
-				<button type="button" id="_btnSearch" class="btnsearch">검색</button>
+				<button type="button" id="_btnSearch" class="btn btn-outline-dark">검색</button>
 			</span>
 		</td>
 	</tr>
