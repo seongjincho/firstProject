@@ -141,6 +141,9 @@ geocoder.addressSearch('서울 강서구 마곡동 367-6', function(result, stat
     map.setCenter(coords);
 } 
 });    
+
+map.setZoomable(false);
+//map.setDraggable(false); 
 </script>
 
 
