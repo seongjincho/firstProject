@@ -27,19 +27,14 @@
 </c:if>  
 
 
-
-
-
+<div class="mainImg" align="center">	
+	<h1 class="headtitle">Join List</h1>
+</div>
 
 	
 <div class="f_content" > 
 <div class="f2_content">
 
-<div class="headtitle" align="center"><br><br>
-	
-	<h2>Join List</h2>
-	<br><br>
-</div>
 
 
 	 

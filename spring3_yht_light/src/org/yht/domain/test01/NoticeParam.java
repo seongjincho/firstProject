@@ -20,7 +20,7 @@ public class NoticeParam implements Serializable {
 	public NoticeParam() {
 		
 	}
-
+	
 	public NoticeParam(String n_category, String n_keyword) {
 		super();
 		this.n_category = n_category;
@@ -31,7 +31,7 @@ public class NoticeParam implements Serializable {
 		return n_category;
 	}
 
-	public void setnN_category(String n_category) {
+	public void setN_category(String n_category) {
 		this.n_category = n_category;
 	}
 
@@ -77,11 +77,10 @@ public class NoticeParam implements Serializable {
 
 	@Override
 	public String toString() {
-		return "BbsParam [n_category=" + n_category + ", n_keyword=" + n_keyword + ", recordCountPerPage="
+		return "NoticeParam [n_category=" + n_category + ", n_keyword=" + n_keyword + ", recordCountPerPage="
 				+ recordCountPerPage + ", pageNumber=" + pageNumber + ", start=" + start + ", end=" + end + "]";
 	}
-	
-	
+
 	
 	
 }

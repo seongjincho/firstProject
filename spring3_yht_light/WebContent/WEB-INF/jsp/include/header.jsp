@@ -158,8 +158,10 @@ $(document).ready(function() {
           Company
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="brandStory.do" onclick="window.open(this.href, '', 'width=1300,height=600'); return false;">회사 소개</a>
-          <a class="dropdown-item" href="customerService.do">고객 센터</a>                        
+          <!-- <a class="dropdown-item" href="brandStory.do" onclick="window.open(this.href, '', 'width=1300,height=600'); return false;">회사 소개</a> -->
+          <a class="dropdown-item" href="customerService.do">회사소개</a>
+          <a class="dropdown-item" href="customerService.do#customerService">고객센터</a>
+                                 
         </div> 
       </li>
      

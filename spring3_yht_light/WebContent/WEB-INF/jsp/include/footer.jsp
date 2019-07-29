@@ -22,7 +22,7 @@
 				<li class="footer_inner_item">
 					<ul>
 						<li class="item_title noto">ABOUT</li>
-						<li class="f12"><b><a class="noto" href="brandStory.do" onclick="window.open(this.href, '', 'width=1300,height=600'); return false;" style="color: gray;">회사소개</a></b></li>
+						<li class="f12"><b><a class="noto" href="customerService.do" style="color: gray;">회사소개</a></b></li>
 
                   		<li class="f12"><b><a class="noto" href="http://www.jobkorea.co.kr/Search/?stext=food+sharing"  onclick="window.open(this.href, '', 'width=1300,height=600'); return false;" style="color: gray;">인재채용</a></b></li>
 					</ul>
@@ -30,7 +30,8 @@
 				<li class="footer_inner_item">
 					<ul>
 						<li class="item_title noto">SUPPORT</li>
-						<li class="f12"><b><a class="noto" href="customerService.do" style="color: gray;">고객센터</a></b></li>               
+						
+						<li class="f12"><b><a class="noto" href="customerService.do#customerService" style="color: gray;">고객센터</a></b></li>               
 					</ul>
 				</li>
 				

@@ -39,15 +39,16 @@ $(document).ready(function () {
 });
 </script> 
 
+
+	
+
+<div class="mainImg" align="center">
+<h1 class="headtitle">Notice</h1>
+</div>	 
 	
 <div class="f_content">
 <div class="f2_content">
 
-<div class="headtitle" align="center"><br><br>
-	
-	<h2>Notice</h2>
-	<br>
-</div>
 
 
 	 
@@ -132,8 +133,7 @@ $(document).ready(function () {
 
 <div align="center" style="width: 100%;">
 
-<div align="center" style="margin-top: 20px; margin-bottom: 10px;
-	margin-left: 400px;">
+<div style="margin-top: 20px; margin-bottom: 10px; margin-left: 40%;">
 
 <form action="" name="frmForm1" id="_frmFormSearch" method="post">
 
@@ -141,7 +141,7 @@ $(document).ready(function () {
 		margin-top:	3px; margin-bottom: 3px; float: left;">
 	
 	<tr>
-		<td>검색:&nbsp;&nbsp;</td>
+		<!-- <td>검색:&nbsp;&nbsp;</td> -->
 		<td style="padding-left:5px;">
 			<select id="_n_category" name="n_category">
 				<option value="" selected="selected">선택&nbsp;&nbsp;</option>
@@ -241,8 +241,12 @@ $("#_btnAdd").click(function () {
 
 
 $("#_btnSearch").click(function(){
-//	alert("_btnSearch");
-	$("#_pageNumber").val("0");
+	//alert("_btnSearch");
+
+/* 	 var ndata =  $("form[name=frmForm1]").serialize();
+	alert(ndata); */
+
+	 $("#_pageNumber").val("0");
 	$("#_frmFormSearch").attr("action","noticeBbsList.do").submit();
 });
 

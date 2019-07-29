@@ -59,6 +59,8 @@ public class FoodController {
 		model.addAttribute("f_category", param.getF_category());
 		model.addAttribute("f_keyword", param.getF_keyword());
 		
+		System.out.println("카테고리: " + param.getF_category() + " 검색어: " + param.getF_keyword());
+		
 		return "foodBbs/foodBbsList";
 		
 

@@ -36,15 +36,13 @@ $(document).ready(function () {
 });
 </script>  
 
+<div class="mainImg" align="center">
+<h1 class="headtitle">Food Sharing</h1>
+</div>	 
 
 <div class="f_content">
 <div class="f2_content">
 
-<div class="headtitle" align="center"><br><br>
-	<h2>Food Sharing</h2>
-	<br>	
-
-</div>
 
 
 <%-- 
@@ -63,7 +61,7 @@ $(document).ready(function () {
 		<th width="10%">모임날짜</th>
 		<th width="10%">작성일</th>
 		<th width="5%">조회수</th>
-		<th width="5%"><img width="25px" height="25px" src="images/likeicon.png"></th>
+		<th width="5%"><img title="좋아요 수" width="25px" height="25px" src="images/likeicon.png"></th>
 	</tr>
 </thead>
  <tbody>
@@ -144,10 +142,11 @@ $(document).ready(function () {
 
 <form action="" name="frmForm1" id="_frmFormSearch" method="post">
 
-<table style="margin-left: auto; margin-right: auto; margin-top:	3px; margin-bottom: 3px; float: left;">
+<table style="margin-left: auto; margin-right: auto; 
+		margin-top:3px; margin-bottom: 3px; float: left;">
 	
 	<tr>
-		<td>검색:&nbsp;&nbsp;</td>
+		<!-- <td>검색:&nbsp;&nbsp;</td> -->
 		<td style="padding-left:5px;">
 			<select id="_f_category" name="f_category">
 				<option value="" selected="selected">선택&nbsp;&nbsp;</option>

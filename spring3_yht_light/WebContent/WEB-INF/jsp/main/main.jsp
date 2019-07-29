@@ -71,7 +71,7 @@ height: 100%;
             <div class="carousel-item active">
                <img width="100%" height="100%" src="images/bgi1.jpg" class="d-block w-100" alt="...">
                <div class="carousel-caption d-none d-md-block">
-                  <h5 class="noto1" align="left">Food Sharing</h5>
+                  <h5 class="noto1" align="left" style="padding-bottom: 25%;">Food Sharing</h5>
                </div>
             </div>
             <div class="carousel-item">
@@ -83,7 +83,7 @@ height: 100%;
             <div class="carousel-item">
                <img width="100%" height="100%" src="images/bgi3.jpg" class="d-block w-100" alt="...">
                <div class="carousel-caption d-none d-md-block">
-                  <h5 class="noto1" align="left">Food Sharing해서 먹자</h5>
+                  <h5 class="noto1" align="left" style="padding-bottom: 5%;">Food Sharing해서 먹자</h5>
                </div>
             </div>
          </div>

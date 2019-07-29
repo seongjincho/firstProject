@@ -47,6 +47,8 @@ public class NoticeController {
 				model.addAttribute("n_category", param.getN_category());
 				model.addAttribute("n_keyword", param.getN_keyword());
 				
+				System.out.println("카테고리: " + param.getN_category() + " 검색어: " + param.getN_keyword());
+				
 				return "noticeBbs/noticeBbsList";
 	}
 	

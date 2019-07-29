@@ -39,7 +39,9 @@
 
 <h1 style="margin-bottom: 5%;">회원 관리 페이지 (<b style="color:#A7574A; ">${ListSize }</b>)</h1>
 
-
+<!-- <div align="right">
+<button type="button" class="btn btn-outline-danger" onclick="addMember()">회원 추가</button>
+</div> -->
 <table>
 <colgroup>
 <col width="7.5%"><col width="7.5%"><col width="20%">
@@ -48,7 +50,7 @@
 </colgroup>
 
 <thead>
-<tr style="border: 1px solid black; bor">
+<tr style="border: 1px solid black;" class="bg-danger">
 <th>회원아이디</th> <th>이름</th> <th>Email</th> 
 <th>주소</th> <th>전화번호</th> <th>회원권한</th> 
 <th>이메일인증</th> <th>회원 상태</th> <th>메뉴</th>
@@ -66,16 +68,16 @@
 <td>${mem.address1}<br>${mem.address2 }</td>
 <td>${mem.phone }</td>
 <td>
-<c:if test="${mem.auth == 1 }">일반회원</c:if>
-<c:if test="${mem.auth == 3 }">관리자</c:if>
+<c:if test="${mem.auth == 1 }"><b>일반회원</b></c:if>
+<c:if test="${mem.auth == 3 }"><b style="color:#A7574A;">관리자</b></c:if>
 </td>
 <td>
-<c:if test="${mem.authstatus == 0 }">미인증</c:if>
+<c:if test="${mem.authstatus == 0 }"><b style="color:red;">미인증</b></c:if>
 <c:if test="${mem.authstatus == 1  }">인증</c:if>
 </td>
 <td>
 <c:if test="${mem.del == 0  }">정상</c:if>
-<c:if test="${mem.del == 1  }">탈퇴</c:if>
+<c:if test="${mem.del == 1  }"><b style="color:red;">탈퇴</b></c:if>
 </td>
 <td>
 
@@ -181,6 +183,9 @@ function goDel( id ) {
 
 }
 
+function addMember() {
+	alert("멤버 추가");
+}
 
 
 </script>

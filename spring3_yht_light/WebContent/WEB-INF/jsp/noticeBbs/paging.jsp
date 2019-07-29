@@ -9,7 +9,7 @@
 	
 	// [1] [2] [3] 4 [5]  5를 클릭하면 controller를 거친다음 다시 보내준다
 			
-	String st1 = request.getParameter("totalRecordCount"); // bbslist jsp:param에서 들어오는 값 		
+	String st1 = request.getParameter("totalRecordCount"); //  jsp:param에서 들어오는 값 		
 	if(st1 == null){		
 		totalRecordCount = 0;		
 	}else {		
@@ -100,7 +100,7 @@
 	for(int i = screenStartPageIndex; i < screenEndPageIndex; i++){
 		if(i == pageNumber){  // 현재 페이지   괄호없는 숫자
  			%>
- 			<span style="font-size: 9pt; color: #000000; font-weight: bold;">
+ 			<span style="font-size: 20pt; color: #000000; font-weight: bold;">
  				<%=i+1 %>
  			</span>&nbsp;
 			
@@ -108,7 +108,7 @@
 		}else {  // 그외 페이지  [숫자]
 			%>
 			<a href="#none" title="<%=i+1 %>페이지" onclick="goPage(<%=i %>)" 
-			style="font-size: 7.5pt; color: #000000; font-weight: normal;">
+			style="font-size: 15pt; color: #000000; font-weight: normal;">
 				[<%=i+1 %>]
 			</a>&nbsp;
 			
