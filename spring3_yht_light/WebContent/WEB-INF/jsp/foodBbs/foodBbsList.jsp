@@ -49,9 +49,10 @@ $(document).ready(function () {
 <thead style="font-size: 16px;">
 	<tr class="noto">
 		<th width="5%">순서</th>
-		<th width="30%">제목</th>
+		<th width="10%">상태</th>
+		<th width="25%">제목</th>
 		<th width="10%">작성자</th>
-		<th width="25%">참여인원/모집인원</th>
+		<th width="20%">참여인원/모집인원</th>
 		<th width="10%">모임날짜</th>
 		<th width="10%">작성일</th>
 		<th width="5%">조회수</th>
@@ -70,12 +71,33 @@ $(document).ready(function () {
 	
 	<tr class="_hover_tr">
 		<td><%-- ${vs.count } --%>${fn:length(foodBbsList)-vs.index} </td> 
+		<td>
+			<jsp:useBean id="now" class="java.util.Date"/>
+			<fmt:formatDate value="${now }" pattern="yyyy/MM/dd" var="nowDay" />
+			<fmt:formatDate value="${bbs.meetingDay }" pattern="yyyy/MM/dd" var="meetingDay"/>
+			
+			<c:choose>
+			    <c:when test="${nowDay le meetingDay}"> <button type="button" class="btn btn-outline-danger">모집중</button> </c:when>
+			    <c:when test="${nowDay gt meetingDay}"> <button type="button" class="btn btn-outline-warning">마감</button> </c:when>		
+			</c:choose>
+		</td>
+		
 		<td style="text-align: left; padding-left: 15px;" class="title_">		
 			<input type="hidden" id="id" name="id" value="${login.id }">	
 			<c:if test="${bbs.del == 0 }">
-			<a href="#none" onclick="titleclick(${bbs.food_seq})">
-				${bbs.title }  
-			</a>&nbsp;&nbsp;<font color="deepskyblue">(${bbs.reply_cnt })</font>
+			
+				<c:if test="${nowDay le meetingDay}">
+					<a href="#none" onclick="titleclick(${bbs.food_seq})">
+						${bbs.title }  
+					</a>&nbsp;&nbsp;<font color="deepskyblue">(${bbs.reply_cnt })</font>
+				</c:if>
+				
+				<c:if test="${nowDay gt meetingDay}">
+					<a href="#none" ><del>${bbs.title }</del></a>
+					&nbsp;&nbsp;<font color="deepskyblue">(${bbs.reply_cnt })</font> 
+				</c:if>
+			
+			
 			</c:if>
 			<c:if test="${bbs.del == 1 }">
 			  	<del>삭제된 글 입니다</del>
@@ -100,6 +122,7 @@ $(document).ready(function () {
       	</td>
 		<td>${bbs.read_cnt }</td>
 		<td>${bbs.like_cnt }</td>
+
 	</tr>
 
 	</c:forEach>
@@ -177,8 +200,7 @@ $(document).ready(function () {
 
 <br><br><br>
 
-
-
+	
 <%-- footer --%>
  <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
 
