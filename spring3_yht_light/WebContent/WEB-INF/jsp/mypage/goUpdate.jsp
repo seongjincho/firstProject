@@ -27,7 +27,6 @@
 	<div class="container_c">
 		<div class="head">
 			<p class="noto">비밀번호 확인</p>
-			<!-- <p style="font-size: 14px;">네이버 로그인시 비밀번호는 '0000' 으로 초기화됩니다.</p> -->
 		</div>
 		<hr><br><br>
 		<div class="body">

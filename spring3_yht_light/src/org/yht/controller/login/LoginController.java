@@ -56,39 +56,65 @@ public class LoginController {
 		System.out.println(vo.toString());
 		
 		String src = null;
-		MemberVo login = loginService.login(vo);
+		String id = loginService.idcheck(vo.getId());
 		
-		if(login != null && !login.getId().equals("")) {
-			if(login.getAuthstatus() == 0) {  //이메일 인증 안됨 
-/*				model.addAttribute("email_check", 0);
+		
+		if(id == "" || id == null) { // 아이디 오류 
+			
+			System.out.println("아이디가 존재하지 않습니다");
+			src = "login/errorId";
+			
+		}else {
+			
+			MemberVo login = loginService.login(vo);
+			System.out.println("로그인 db  " + login.toString());
+			String user_pwd = vo.getPwd();
+			String db_pwd = login.getPwd();
+			System.out.println("user_pwd:" + user_pwd + " db_pwd:" + db_pwd);
+			
+			if(user_pwd.equals(db_pwd)) { // 비밀번호 
 				
-				return "emailConfirm.tiles";*/
-				System.out.println("이메일 인증 안하셨음");
+				if(login.getAuthstatus() == 0) {  //이메일 인증 안됨 
+					
+					System.out.println("이메일 인증 안하셨음");
+					
+					
+					src = "login/emailConfirm";
+					
+					
+				} else if(login.getDel() == 1) {  // 탈퇴한 회원 
+					
+					System.out.println("탈퇴 회원");
+					
+					src = "login/leave";
+				}else {
+					
+					System.out.println("로그인 성공 ! ");
+					request.getSession().setAttribute("login", login);
+					src = "main/main";
+					
+				}
+							
+			}else {
 				
+				System.out.println("비밀번호가 틀립니다.");
+				src = "login/errorPwd";
 				
-				return "login/emailConfirm";
-				
-				
-			} else if(login.getDel() == 1) {  // 탈퇴한 회원 
-				
-				System.out.println("탈퇴 회원");
-				
-				return "login/leave";
 			}
 			
-			System.out.println("로그인성공");
-			request.getSession().setAttribute("login", login);
 			
-			return "main/main";
-		} else {
-			
-			System.out.println("에러");
-			return "login/error";
 			
 		}
+	
 		
-		//return src;
+		
 
+
+			
+
+		
+		return src;
+		
 	}
 	
 	@RequestMapping(value="logout.do")
@@ -147,6 +173,7 @@ public class LoginController {
 		sb.append("&authkey=");
 		sb.append(authkey);
 		sb.append("' target='_blank'>이메일 인증 확인</a>");
+		
 		
 		
 		System.out.println("------------" + sb.toString());

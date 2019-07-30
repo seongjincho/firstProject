@@ -16,17 +16,12 @@
 <jsp:include page="/WEB-INF/jsp/include/header.jsp" flush="false"/>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e95843617e74d0c3683cc8d8a73f71af&libraries=services,clusterer,drawing"></script>
-<!-- <br><br><br><br><br><br>   --> 
 
 <div class="mainImg" align="center">
 <h1 class="headtitle">제목:${foodList.title }</h1>
 </div>	 
 
-
-<%-- <div>
-<h1 align="center">제목:${foodList.title }</h1> 
-</div> --%>
-<c:if test="${login.id == foodList.id || login.auth == 3 }">
+<c:if test="${login.id == foodList.id || login.auth >= 3 }">
 <div align="right" style="margin-right: 9%;">
 <button class="btn_s_blue btn_100" onclick="goUpdate()">수정</button>
 <button class="btn_s_gray btn_100" onclick="goDelete()">삭제</button>
@@ -53,9 +48,6 @@
 <div style="margin-left: 10%" align="center" id="mainImgConatiner">
 ${foodList.fullname }
 </div>
-<%-- <h2 align="center">제목:${foodList.title }</h2> --%>
-
-
 
 <div id="main" align="center">
 <div id="main_container" style="width: 85%;">
@@ -214,7 +206,7 @@ ${foodList.fullname }
 
 function joinSharing() {
 	
-	alert("참가");
+	alert("참여");
 	var id = $("#id").val();
 	var food_seq = $("#food_seq").val();
 	var joinBtn = $("#joinBtn").val();
@@ -238,10 +230,7 @@ function joinSharing() {
 		
 	}else{
 		
-		
 			
-		
-		
 		alert("join ajax 진입");
 		
 		$.ajax({

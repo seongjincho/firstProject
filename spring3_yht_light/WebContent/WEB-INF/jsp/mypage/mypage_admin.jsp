@@ -70,6 +70,7 @@
 <td>
 <c:if test="${mem.auth == 1 }"><b>일반회원</b></c:if>
 <c:if test="${mem.auth == 3 }"><b style="color:#A7574A;">관리자</b></c:if>
+<c:if test="${mem.auth == 4 }"><b style="color:#A7574A;">수석관리자</b></c:if>
 </td>
 <td>
 <c:if test="${mem.authstatus == 0 }"><b style="color:red;">미인증</b></c:if>
@@ -87,10 +88,16 @@
       <img width="30px" height="30px" alt="" src="images/settingIcon.jpg">
      </a>
      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+     <c:if test="${3 >= mem.auth }">
        <a class="dropdown-item" onclick="goUpdate('${mem.id }')">수정</a>
        <c:if test="${mem.del == 0}">
        <a class="dropdown-item" onclick="goDel('${mem.id }' )">탈퇴</a> 
-       </c:if>                       
+       </c:if> 
+     </c:if>
+     <c:if test="${mem.auth == 4 }">
+     <a>접근불가</a>
+     </c:if>
+                             
      </div> 
    </li>
    </ul>

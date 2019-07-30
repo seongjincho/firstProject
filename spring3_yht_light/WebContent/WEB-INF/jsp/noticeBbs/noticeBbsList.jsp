@@ -74,17 +74,12 @@ $(document).ready(function () {
 
 	
 	<tr class="_hover_tr">
-		<td><%-- ${vs.count }  --%> ${fn:length(noticeBbsList)-vs.index}</td>
+		<td>${fn:length(noticeBbsList)-vs.index}</td>
 		<td style="text-align: left; padding-left: 15px;">	
 			<a href="#none" onclick="titleclick(${vs.index })">
 				${bbs.title }
 			</a>
 		</td>
-		<%-- <td>${bbs.id }</td> --%>
-<%-- 		<td>
-			<font id="read${vs.index }">${bbs.readcount }</font>
-			<input type="hidden" id="seq${vs.index }" value="${bbs.notice_seq }">
-		</td> --%>
 		<td><fmt:formatDate value="${bbs.rdate }" 
      			 pattern="yyyy/MM/dd"/>
       	</td>
@@ -93,7 +88,7 @@ $(document).ready(function () {
 		<td colspan="5">
 			<div id="slide${vs.index }" class="slide" style="padding: 10% 10% 10% 10%; text-align:left; background-color: #f0f0f0;">
 				<pre><font size="3px">${bbs.content }</font></pre>
-				<c:if test="${login.auth == 3 }">
+				<c:if test="${login.auth >= 3 }">
 					<div align="center" style="margin-top: 10%;">
 						
 						<button id="updateBtn" class="btn btn-outline-danger" onclick="location.href='noticeUpdate.do?notice_seq=${bbs.notice_seq }'">수정</button>
@@ -105,7 +100,7 @@ $(document).ready(function () {
 		</td>
 	</tr>
 	</c:forEach>
-	<c:if test="${login.auth == 3 }">
+	<c:if test="${login.auth >= 3 }">
 		<tr>
 			<td colspan="6" style="border: 1px solid #fff">
 				<div align="center">

@@ -93,18 +93,32 @@
 <script type="text/javascript">
 $(document).ready(function() {
 
-	$("#userdel").click(function() {
+	var auth = "${login.auth}";
+	
 
-		if ($('#bye').prop("checked") == true){
-			
-			location.href = "mypage_deleteAf.do";
-			alert("회원탈퇴가 완료되었습니다!");
-			
-		}else{
-	     	alert("탈퇴 안내를 확인하고 동의해 주세요.");
-		}
+		$("#userdel").click(function() {
+				
+	
+
+			if ($('#bye').prop("checked") == true){
+				
+				/* alert(auth); */
+				if(auth >= 3){
+					
+					alert("관리자 계정은 탈퇴가 불가능 합니다");
+					return;
+					
+				}
+				
+				location.href = "mypage_deleteAf.do";
+				alert("회원탈퇴가 완료되었습니다!");
+				
+			}else{
+		     	alert("탈퇴 안내를 확인하고 동의해 주세요.");
+			}
 		
-	});
+		});
+	  	
 	
 	$("#goback").click(function() {
 		location.href= "main.do";

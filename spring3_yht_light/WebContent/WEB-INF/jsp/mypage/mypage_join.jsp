@@ -87,25 +87,10 @@
 			</c:if>
 			<c:if test="${bbs.join_cnt == bbs.total_cnt}">
 				<font style="color: red;">${bbs.join_cnt }</font><b>/</b>${bbs.total_cnt } 명
-			</c:if>
-   
-      	</td>
-      	
-
+			</c:if> 
+      	</td>     	
 	</tr>
-	
 	</c:forEach>
-<%-- 	<c:if test="${login.auth == 3 }">
-		<tr>
-			<td colspan="6" style="border: 1px solid #fff">
-				<div align="center">
-					<span>
-						<button type="button" id="_btnAdd" class="btnwrite" style="border-color: #0051ba;">글쓰기</button>
-					</span>
-				</div>
-			</td>
-		</tr>
-	</c:if> --%>
 </tbody>
 </table>
 </div>

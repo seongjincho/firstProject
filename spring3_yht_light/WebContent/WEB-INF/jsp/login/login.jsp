@@ -56,6 +56,8 @@
 				<button class="joinButton btn_s_blue btn_240" id="_btnLogin">
 					로그인
 				</button>
+				
+				<button class="joinButton btn_s_gray btn_240" onclick="goHome()" >홈으로</button>
 
 			</div>
 		</div>
@@ -178,5 +180,9 @@ $('#_findId').click(function() {
 	location.href = "findIdAndPwd.do";
 });
 
+function goHome() {
+	//alert("홈으로");
+	location.href = "main.do";
+}
 
 </script>

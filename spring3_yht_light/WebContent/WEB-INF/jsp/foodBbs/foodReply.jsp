@@ -8,7 +8,6 @@
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<!-- <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css"> -->
 
 <link rel="stylesheet" type="text/css" href="css/foodReply.css">
 <head>
@@ -93,7 +92,7 @@
   ${reply.id }
 <input type="hidden" id="showReReply${vs.count }" name="showReReply${vs.count }" value="false"></a></b> 
 &nbsp; <fmt:formatDate value="${reply.wdate }" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;&nbsp;	
-<c:if test="${reply.id == login.id || login.auth == 3 }">
+<c:if test="${reply.id == login.id || login.auth >= 3 }">
 <a href="#none" onclick="showUpdate( ${vs.count } )">수정 <input type="hidden" id="showUpdate${vs.count }" name="showUpdate${vs.count }" value="false"></a>
 &nbsp;
 <a href="#none" onclick="replyDelete( ${vs.count } )">삭제 </a> 

@@ -52,18 +52,10 @@
 
 <body id="page-top">
 
-
-<!-- 	<br>
-	
-	
-	<hr> -->   <!-- // * 구분 선 -->
 <%-- header --%>
 <jsp:include page="/WEB-INF/jsp/include/header.jsp" flush="false"/>
 
 	
-
-
-
 <!-- Portfolio Grid -->
 <div id="portfolio" style="background-color: rgba(237,245,214, 0.6);">
      
@@ -190,7 +182,7 @@
 
  
 	<!--  관리자(admin) 로그인 -->
-	<c:if test="${login.auth == 3}">
+	<c:if test="${login.auth >= 3}">
 	
 	
 		<!--  // 관리자 : 7.회원리스트 -->

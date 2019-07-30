@@ -6,20 +6,18 @@
 	
 	<!-- 로그인 체크 -->
 	<select id="getUserInfo" parameterType="org.yht.domain.test01.MemberVo" resultType="org.yht.domain.test01.MemberVo">
-		SELECT ID,
-			   PWD, 
-			   NAME,
-			   EMAIL,
-			   ADDRESS1,
-			   ADDRESS2,
-			   AUTH,
-			   PHONE,
-			   DEL,
-			   AUTHKEY,
-			   AUTHSTATUS 
+		SELECT ID, PWD, NAME, EMAIL, ADDRESS1, ADDRESS2,
+			   AUTH, PHONE, DEL, AUTHKEY, AUTHSTATUS 
 		  FROM TEST01_MEMBER
 		 WHERE ID = #{id}
 	</select>
+	
+	<select id="checkPwd" parameterType="java.lang.Integer" resultType="org.yht.domain.test01.MemberVo">
+		SELECT *
+		FROM TEST01_MEMBER
+		WHERE PWD=#{pwd}
+	</select>
+	
 	
 	<!-- 회원가입 -->
 	<insert id="regiAf" parameterType="org.yht.domain.test01.MemberVo">

@@ -43,12 +43,6 @@ $(document).ready(function () {
 <div class="f_content">
 <div class="f2_content">
 
-
-
-<%-- 
-<!-- arrow생성  -->
-<jsp:useBean id="ubbs" class="yht.framework.util.BbsArrow"/>
-<jsp:setProperty property="depth" name="ubbs" value="${bbs.depth }"/>   --%>
 	 
 <div align="center" >
 <table class="noti">
@@ -109,7 +103,6 @@ $(document).ready(function () {
 	</tr>
 
 	</c:forEach>
-	<%-- <c:if test="${login.authstatus == 1 && login.del == 0}"> --%>
 		<tr>
 			<td colspan="6" style="border: 1px solid #fff">
 				<div align="right">
@@ -119,7 +112,6 @@ $(document).ready(function () {
 				</div>
 			</td>
 		</tr>
-	<%-- </c:if> --%>
 </tbody>
 </table>
 
@@ -146,7 +138,6 @@ $(document).ready(function () {
 		margin-top:3px; margin-bottom: 3px; float: left;">
 	
 	<tr>
-		<!-- <td>검색:&nbsp;&nbsp;</td> -->
 		<td style="padding-left:5px;">
 			<select id="_f_category" name="f_category">
 				<option value="" selected="selected">선택&nbsp;&nbsp;</option>

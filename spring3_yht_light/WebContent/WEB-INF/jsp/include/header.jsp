@@ -64,7 +64,7 @@ nav{
 /*   background-color: #f0001e;
   color: white;
   border: 2px solid #f0001e; */
-    background-color: #e04040;
+  background-color: #e04040;
   color: white;
   border: 2px solid #e04040;
   font-size: 18px;
@@ -115,7 +115,6 @@ $(document).ready(function() {
 	
 <!-- 상단바  -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e04040; width: 100%;" >
-  <!-- <a href="#"><img id="newicon" src="images/foodicon.png" width="70px" height="70px"></a> -->
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button> 
@@ -125,9 +124,6 @@ $(document).ready(function() {
       <li class="nav-item active">
         <a class="nav-link" href="main.do">Home <span class="sr-only">(current)</span></a>
       </li>
-<!--       <li class="nav-item">
-        <a class="nav-link" href="bbs_rec_list.do">Receipe</a>
-      </li> -->
       <li class="nav-item">
         <a class="nav-link" href="noticeBbsList.do" tabindex="-1" aria-disabled="true">Notice</a>
       </li> 
@@ -146,7 +142,7 @@ $(document).ready(function() {
           <a class="dropdown-item" href="mypage_join.do">참여중인 모임</a>
      
           <div class="dropdown-divider"></div>
-          <c:if test="${login.auth == 3 }">
+          <c:if test="${login.auth >= 3 }">
           <a class="dropdown-item" href="mypage_admin.do">회원관리</a>
           </c:if>
           <a class="dropdown-item" href="mypage_delete.do">회원탈퇴</a>
@@ -157,8 +153,7 @@ $(document).ready(function() {
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Company
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <!-- <a class="dropdown-item" href="brandStory.do" onclick="window.open(this.href, '', 'width=1300,height=600'); return false;">회사 소개</a> -->
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">         
           <a class="dropdown-item" href="customerService.do">회사소개</a>
           <a class="dropdown-item" href="customerService.do#customerService">고객센터</a>
                                  

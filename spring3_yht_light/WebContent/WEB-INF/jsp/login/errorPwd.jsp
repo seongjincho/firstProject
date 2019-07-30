@@ -2,6 +2,6 @@
     pageEncoding="UTF-8"%>
 
 <script>
-	alert("아이디/비밀번호가 틀립니다");
+	alert("비밀번호가 틀립니다");
 	location.href = "login.do";
 </script>

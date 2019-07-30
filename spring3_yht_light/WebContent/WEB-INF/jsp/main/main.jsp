@@ -56,7 +56,7 @@ height: 100%;
 
 </head>
 <body>
-<!-- <hr> -->
+
       <!-- carousel -->
    <div class="bd-example"  align="center">
       <div id="carouselExampleCaptions" class="carousel slide"
@@ -102,7 +102,7 @@ height: 100%;
 
 <div class="clear"></div>
 <div class="space"></div> 
-<!-- <hr> -->
+
 
 <%-- footer --%>
 <div>

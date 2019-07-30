@@ -5,7 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <fmt:requestEncoding value="utf-8"/>   
 
-<!-- noticeBbs.css -->
+<!-- mypage_like.css -->
 <link rel="stylesheet" type="text/css" href="css/mypage_like.css">
 
 <title>Food sharing</title>
@@ -82,22 +82,9 @@
       	</td>
       	<td>
       		<input type="button" id="wish_del" class="btnDel" value="삭제" onclick="goDel(${bbs.food_seq })">
-   
       	</td>
 	</tr>
-	
 	</c:forEach>
-<%-- 	<c:if test="${login.auth == 3 }">
-		<tr>
-			<td colspan="6" style="border: 1px solid #fff">
-				<div align="center">
-					<span>
-						<button type="button" id="_btnAdd" class="btnwrite" style="border-color: #0051ba;">글쓰기</button>
-					</span>
-				</div>
-			</td>
-		</tr>
-	</c:if> --%>
 </tbody>
 </table>
 </div>
