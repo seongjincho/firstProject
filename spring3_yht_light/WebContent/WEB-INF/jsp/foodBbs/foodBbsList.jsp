@@ -76,29 +76,38 @@ $(document).ready(function () {
 			<fmt:formatDate value="${now }" pattern="yyyy/MM/dd" var="nowDay" />
 			<fmt:formatDate value="${bbs.meetingDay }" pattern="yyyy/MM/dd" var="meetingDay"/>
 			
-			<c:choose>
-			    <c:when test="${nowDay le meetingDay}"> <button type="button" class="btn btn-outline-danger">모집중</button> </c:when>
-			    <c:when test="${nowDay gt meetingDay}"> <button type="button" class="btn btn-outline-warning">마감</button> </c:when>		
-			</c:choose>
+			<c:if test="${bbs.del == 0 }">
+			    <c:if test="${nowDay le meetingDay}"> <button type="button" class="btn btn-outline-danger">진행중</button> </c:if>
+			    <c:if test="${nowDay gt meetingDay}"> <button type="button" class="btn btn-outline-warning">종료</button> </c:if>			
+			</c:if>
+			
+			<c:if test="${bbs.del == 1 }">
+			  	<button type="button" class="btn btn-outline-secondary">삭제</button>
+			</c:if>
 		</td>
 		
 		<td style="text-align: left; padding-left: 15px;" class="title_">		
 			<input type="hidden" id="id" name="id" value="${login.id }">	
 			<c:if test="${bbs.del == 0 }">
-			
-				<c:if test="${nowDay le meetingDay}">
-					<a href="#none" onclick="titleclick(${bbs.food_seq})">
-						${bbs.title }  
-					</a>&nbsp;&nbsp;<font color="deepskyblue">(${bbs.reply_cnt })</font>
-				</c:if>
 				
-				<c:if test="${nowDay gt meetingDay}">
-					<a href="#none" ><del>${bbs.title }</del></a>
-					&nbsp;&nbsp;<font color="deepskyblue">(${bbs.reply_cnt })</font> 
-				</c:if>
+			<c:choose>
 			
-			
+			    <c:when test="${nowDay le meetingDay}">
+			    <a href="#none" onclick="titleclick(${bbs.food_seq}, 'true')">
+						${bbs.title }  
+					</a>&nbsp;&nbsp;<font color="deepskyblue">(${bbs.reply_cnt })</font>  
+				</c:when>
+				
+			    <c:when test="${nowDay gt meetingDay}">
+					<a href="#none" onclick="titleclick(${bbs.food_seq}, 'false')">
+						${bbs.title }  
+					</a>&nbsp;&nbsp;<font color="deepskyblue">(${bbs.reply_cnt })</font>  
+				</c:when>
+				
+			</c:choose>
+						
 			</c:if>
+			
 			<c:if test="${bbs.del == 1 }">
 			  	<del>삭제된 글 입니다</del>
 			</c:if>
@@ -228,10 +237,23 @@ $("#_btnSearch").click(function(){
 	$("#_frmFormSearch").attr("action","foodBbsList.do").submit();
 });
 
-function titleclick( food_seq) {
+function titleclick( food_seq, value) {
 	var id = $("#id").val();
-	// alert("food_seq:" + food_seq + " id: " + id);
-	location.href = "detailFood.do?food_seq=" + food_seq + "&id=" + id;
+	
+	var auth = "${login.auth}";
+	
+	 //alert("food_seq:" + food_seq + " id: " + id + " value: " + value  + " auth: " + auth);
+	
+	
+	if(value == "true" || auth >= 3){
+		
+		//alert("글을 볼수 있음 관리자");
+		location.href = "detailFood.do?food_seq=" + food_seq + "&id=" + id;
+	}else if(value == "false") {
+		
+		alert("모임 날짜가 만료된 글 입니다.");
+		
+	}
 }
 
 </script>
