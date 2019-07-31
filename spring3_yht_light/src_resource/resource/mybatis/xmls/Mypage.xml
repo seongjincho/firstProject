@@ -84,5 +84,15 @@
   		SET PWD=#{pwd}, AUTH=#{auth}, AUTHSTATUS=#{authstatus}, DEL=#{del}
   		WHERE ID=#{id}
   	</update>
+  	
+  	<select id="totalDonation"  resultType="java.lang.Integer">
+  		SELECT NVL(SUM(DONATION),0)
+		FROM TEST01_DONATION
+  	</select>
+  	
+  	<insert id="donating" parameterType="org.yht.domain.test01.DonationVo">
+  		INSERT INTO TEST01_DONATION(DONATION_SEQ, ID, NAME, PHONE, DONATION)
+  		VALUES( SEQ_DONATION.NEXTVAL, #{id}, #{name}, #{phone}, #{donation})
+  	</insert>
 
 </mapper>

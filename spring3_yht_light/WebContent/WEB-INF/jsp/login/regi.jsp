@@ -10,6 +10,12 @@
 <link rel="stylesheet" href="css/_common.css"/>
 <link rel="stylesheet" href="css/v1-front.css">
 
+<%--reCaptcha --%>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<%-- favicon --%>
+<link rel="icon" href="images/foodicon.png" sizes="48x48">
+
 <style>
 .btn_100_41{
 	width: 100px;
@@ -71,11 +77,12 @@
 						<input type="button" class="btn_s_gray btn_100_41" onclick="sample2_execDaumPostcode()" value="주소검색" size="10" style="padding-left: 0 !important;"> <br>
 						<input type="text" name="address1" id="sample2_address" placeholder="주소" size="50" data-msg="주소를" style="width: 295px; margin: 0 0 9px 0px;">
 						<input type="text" name="address2" id="sample2_detailAddress" placeholder="상세주소" size="25" data-msg="상세주소를">
-						<input type="text" id="sample2_extraAddress" placeholder="참고항목" size="20">
+					 	<input type="hidden" id="sample2_extraAddress" placeholder="참고항목" size="20">
 					</div>
 				</div>
+				
 			</form>
-			<div class="button_r">
+			<div class="button_r" style="margin-top: 10%;">
 				<button class="joinButton btn_s_gray btn_205" onclick="location.href='main.do'">
 					메인화면
 				</button>
@@ -84,6 +91,8 @@
 				</button>
 			</div>
 		</div>		
+		<%--reCaptcha --%>
+		<div class="g-recaptcha" data-sitekey="6LdGebAUAAAAADkG-bxUYUW5qEvdIcelr78sXTe6"></div>
 	</div>
 </div>
 
@@ -122,10 +131,50 @@ $('#_btnRegi').click(function() {
 	}  else if($('#sample2_address').val() == ""){
 		alert($('#sample2_address').attr("data-msg") + " 입력해주세요");
 		return false;
+	}else {
+		
+		var recaptcha = $("#g-recaptcha-response").val();
+		//alert(recaptcha);
+		
+	    $.ajax({
+	        url: "VerifyRecaptcha.do",
+	        type: "post",
+	        data: {recaptcha:recaptcha },
+	        success: function(data) {
+	        	
+		        //alert(data);
+		        
+		            switch (data) {
+		                case 0:
+		                    alert("자동 로그인 방지 봇 통과");
+		                    $('#_frmForm').attr("action", "regiAf.do").submit();
+		                	alert("이메일이 발송되었습니다.");
+		                    break;
+		
+		                case 1:
+		                    alert("자동 로그인 방지 봇을 확인 한뒤 진행 해 주세요.");
+		                    break;
+		
+		                default:
+		                    alert("자동 로그인 방지 봇을 실행 하던 중 오류가 발생 했습니다. [Error bot Code : " + Number(data) + "]");
+		                    break;
+		            }
+	        },
+			error:function(r, s, err){
+				
+				alert("error");
+				
+			}
+			
+		
+	    }); 
+		
 	}
+		
 	
-	$('#_frmForm').attr("action", "regiAf.do").submit();
-	alert("이메일이 발송되었습니다.");
+	
+/* 	$('#_frmForm').attr("action", "regiAf.do").submit();
+	alert("이메일이 발송되었습니다."); */
 	
 });
 
@@ -182,7 +231,7 @@ function checkId(){
 	var id = $('#_uid').val();
 	var str_space = /\s/;
 	
-	alert("아이디체크");
+	//alert("아이디체크");
 	
 	if(id.length < 1){
 		alert("아이디를 입력해 주세요.");
@@ -227,7 +276,7 @@ function checkId(){
 // 이메일 확인
 function checkEmail() {
 	
-	alert("이메일 체크!");
+	//alert("이메일 체크!");
 	
 	var email = $('#_email1').val().trim() + "@" + $('#_email2').val().trim();
 	$('#_email').val(email);
@@ -268,7 +317,7 @@ function checkEmail() {
 // 핸드폰 확인
 function checkPhone(){
 	
-	alert("핸드폰 확인");
+	//alert("핸드폰 확인");
 	
 	var phoneNo1 = $("#_phone").val();
 	if($.isNumeric(phoneNo1)){

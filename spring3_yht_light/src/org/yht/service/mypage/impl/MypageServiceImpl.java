@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 import org.yht.dao.mypage.MypageDao;
+import org.yht.domain.test01.DonationVo;
 import org.yht.domain.test01.FoodVo;
 import org.yht.domain.test01.MemberVo;
 import org.yht.service.mypage.MypageService;
@@ -84,6 +85,19 @@ public class MypageServiceImpl implements MypageService {
 		
 		return mypageDao.memberUpdate(vo);
 	}
+
+	@Override
+	public int totalDonation() {
+		
+		return mypageDao.totalDonation();
+	}
+
+	@Override
+	public boolean donating(DonationVo vo) {
+		
+		return mypageDao.donating(vo);
+	}
+	
 	
 	
 	

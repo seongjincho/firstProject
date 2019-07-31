@@ -2,6 +2,7 @@ package org.yht.service.mypage;
 
 import java.util.List;
 
+import org.yht.domain.test01.DonationVo;
 import org.yht.domain.test01.FoodVo;
 import org.yht.domain.test01.MemberVo;
 
@@ -18,4 +19,6 @@ public interface MypageService {
 	/*public int getMyJoinCount(String id);*/
 	public List<MemberVo> memberList();
 	public boolean memberUpdate(MemberVo vo);
+	public int totalDonation();
+	public boolean donating(DonationVo vo);
 }

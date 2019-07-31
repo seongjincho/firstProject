@@ -6,6 +6,9 @@
 <fmt:requestEncoding value="utf-8"/>
 
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<%--reCaptcha --%>
+<!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+
 
 <%-- favicon --%>
 <link rel="icon" href="images/foodicon.png" sizes="48x48">
@@ -61,6 +64,14 @@
 
 			</div>
 		</div>
+		
+		<%--reCaptcha --%>
+	    <!-- <div class="g-recaptcha" data-sitekey="6LdGebAUAAAAADkG-bxUYUW5qEvdIcelr78sXTe6"></div> -->
+    	<!-- <button type="button" class="btn_s_blue" onclick="goCaptcha()">제출</button> -->
+
+
+
+		
 	</div>
 </div>
 
@@ -150,13 +161,55 @@ function getCookie(cookieName){
 <script>
 $('#_btnLogin').click(function() {
 	if($('#_uid').val() == "") {
+		
 		alert($('#_uid').attr("data-msg") + " 입력해 주세요");
 		$('#_uid').focus();
+		
 	} else if($('#_pwd').val() == "") {
+		
 		alert($('#_pwd').attr("data-msg") + " 입력해 주세요");
 		$('#_pwd').focus();
+		
 	} else {
+		
+/* 		var recaptcha = $("#g-recaptcha-response").val();
+		//alert(recaptcha);
+		
+	    $.ajax({
+	        url: "VerifyRecaptcha.do",
+	        type: "post",
+	        data: {recaptcha:recaptcha },
+	        success: function(data) {
+	        	
+		        //alert(data);
+		        
+		            switch (data) {
+		                case 0:
+		                    alert("자동 로그인 방지 봇 통과");
+		                    $('#_frmForm').attr("target", "_self").submit();
+		                    break;
+		
+		                case 1:
+		                    alert("자동 로그인 방지 봇을 확인 한뒤 진행 해 주세요.");
+		                    break;
+		
+		                default:
+		                    alert("자동 로그인 방지 봇을 실행 하던 중 오류가 발생 했습니다. [Error bot Code : " + Number(data) + "]");
+		                    break;
+		            }
+	        },
+			error:function(r, s, err){
+				
+				alert("error");
+				
+			}
+			
+		
+	    }); */
+		
 		$('#_frmForm').attr("target", "_self").submit();
+		
+		
 	}
 });
 $('#_uid').keypress(function(event){
@@ -184,5 +237,7 @@ function goHome() {
 	//alert("홈으로");
 	location.href = "main.do";
 }
+
+
 
 </script>

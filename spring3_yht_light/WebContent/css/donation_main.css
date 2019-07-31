@@ -1,0 +1,169 @@
+@charset "UTF-8";
+#info{
+	/* min-width: 1500px; */
+ 	padding-top: 10px; 
+	padding-bottom: 50px; 
+}
+
+#info .container_c{
+	margin: 0 auto;
+	border: 1px #aaa solid;
+	width: 500px;
+	height: 750px;
+}
+
+#info .container_c .active{
+	height: 750px;
+}
+
+#info .head{
+	border-bottom: 1px solid #EEEEEE;
+	text-align: center;	
+}
+
+#info .head p{
+	font-size: 30px;
+	margin: 0 auto;
+	padding: 40px 0 0 0;
+}
+
+#info .body{
+	margin: 0 40px 0 40px;
+	height: 675px;
+	position: relative;
+}
+
+#info .body .active{
+	height: 750px;
+}
+
+#info .insert{
+	padding-top: 40px;
+} 
+
+#info .insert input{
+	height: 38px;
+	border: 1px solid #aaa;
+	font-size: 20pt;
+	padding-left: 15px;
+	border: none;
+}
+
+#info .insert input:-ms-input-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#info .insert input::-webkit-input-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#info .insert input::-moz-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+#info .insert input::-moz-placeholder{
+	color: #aaa;
+	font-size: 14px;
+}
+
+
+#info .insert .id{}
+#info .insert .id input{
+	/* width: 131px; */
+	width: 350px;
+}
+
+#info .insert .id p{
+	cursor: pointer;
+	font-size: 14px;
+	color: #c80a1e;
+	border-bottom: 1px solid #c80a1e;
+	padding: 10px 2px 6px 0;
+}
+
+#info .insert .donation{
+	margin-top: 50px;
+}
+
+#info .insert .donation div{
+	border: 1px solid #aaa;
+	margin-bottom: 10px;
+}
+
+#info .insert .donation input{
+	width: 200px; 
+	margin-bottom: 0px;
+	border: none;
+}
+
+
+#info .insert .name{
+	margin-top: 50px;
+}
+
+#info .insert .name input{
+	width: 350px;
+	margin-bottom: 10px;
+	border: none;
+}
+
+#info .insert .phone{
+	margin-top: 20px;
+}
+
+#info .insert .phone input{
+	width: 350px;
+	border: none;
+}
+
+
+#info .button_r{
+	bottom: 20px;
+	position: absolute;
+	margin-top: 10%;
+	
+}
+
+#info .button_r button_r:nth-child(1){
+	margin-right: 5px;
+}
+
+/* Button */
+
+.btn_s_blue{
+	border: none;
+	background-color: #0051ba;
+	color: #FFF;
+}
+.btn_s_blue:hover{
+	background-color: #0a3670
+}
+
+.btn_s_gray{
+	border: none;
+	background: #63666A;
+	color: #FFF;
+}
+
+.btn_s_gray:hover{
+	background-color: #4F5256;
+}
+
+.btn_150{
+	width: 150px; 
+	height: 50px;
+	font-size: 16px;
+}
+
+.headtitle{text-align:center; letter-spacing:1.2rem; color:white; font-size:60px;  font-weight:700;
+    font-family: "CorpidC1s-Regular"!important; margin-bottom: 3%; padding-top: 2%;}
+
+
+
+.mainImg{ 
+ 	 background: url(../images/donation.png) no-repeat top center; width: 100%;height: 180px; 
+}
+

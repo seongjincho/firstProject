@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+import org.yht.domain.test01.DonationVo;
 import org.yht.domain.test01.FoodVo;
 import org.yht.domain.test01.MemberVo;
 
@@ -64,5 +65,17 @@ public class MypageDao {
 	
 		int n = sqlSession.update("Mypage.memberUpdate", vo);
 		return n>0? true:false;
+	}
+	
+	public int totalDonation(){
+		
+		return sqlSession.selectOne("Mypage.totalDonation");
+		
+	}
+	
+	public boolean donating(DonationVo vo) {
+		
+		int n = sqlSession.insert("Mypage.donating", vo);
+		return n>0?true:false;
 	}
 }

@@ -1,8 +1,9 @@
 package org.yht.controller.login;
 
-import java.io.PrintWriter;
+import java.io.IOException;
+
 import java.util.Date;
-import java.util.List;
+
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +25,7 @@ import org.yht.service.login.LoginService;
 import org.yht.service.login.MailService;
 
 import yht.framework.util.TempKey;
+import yht.framework.util.VerifyRecaptcha;
 
 
 
@@ -255,6 +257,31 @@ public class LoginController {
 		
 		return "login/emailConfirm";
 	}
+	
+	  @ResponseBody
+	    @RequestMapping(value = "VerifyRecaptcha.do", method = RequestMethod.POST)
+	    public int VerifyRecaptcha(HttpServletRequest request, String recaptcha) {
+	        VerifyRecaptcha.setSecretKey("6LdGebAUAAAAAH8kLEGJNRwQCVWWlZPHQuJxYv82");
+	       // String gRecaptchaResponse = request.getParameter("recaptcha");
+	        String gRecaptchaResponse = recaptcha;
+	        System.out.println(gRecaptchaResponse);
+	        //0 = 성공, 1 = 실패, -1 = 오류
+	        
+	        try {
+	            if(VerifyRecaptcha.verify(gRecaptchaResponse)) {
+	            	
+	            	return 0;
+	            }else {
+	            	return 1;
+	            }
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	            return -1;
+	        }
+	    }
+
+
+	
 	
 	
 }

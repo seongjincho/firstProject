@@ -139,6 +139,9 @@ $(document).ready(function() {
       <li class="nav-item">
         <a class="nav-link" href="foodBbsList.do">Food Sharing</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="donation_main.do">Donation</a>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Mypage

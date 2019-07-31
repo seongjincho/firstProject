@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.yht.domain.test01.DonationVo;
 import org.yht.domain.test01.FoodVo;
 import org.yht.domain.test01.MemberVo;
 import org.yht.service.mypage.MypageService;
@@ -278,5 +279,39 @@ public class MypageController {
 		
 		return src;
 	}
+	
+	@RequestMapping(value = "donation_main.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String donation_main(Model model) {
+		
+		System.out.println("도네이션 진입");
+		
+		int totalDonation = mypageService.totalDonation();
+		System.out.println("totalDonation:" + totalDonation);
+		model.addAttribute("totalDonation", totalDonation);
+		
+		return "donation/donation_main";
+	}
+	
+	@RequestMapping(value = "donationAf.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String donationAf(DonationVo vo) {
+		
+		System.out.println(vo.toString());
+		System.out.println("도네이션 결제후 데이터 입력");
+		
+		boolean isS = mypageService.donating(vo);
+		
+		if(isS) {
+			
+			System.out.println("도네이션 등록 성공");
+			
+		}else {
+			
+			System.out.println("도네이션 등록 실패");
+			
+		}
+		
+		return "redirect:/donation_main.do";
+	}
+	
 
 }
