@@ -139,9 +139,17 @@ $(document).ready(function() {
       <li class="nav-item">
         <a class="nav-link" href="foodBbsList.do">Food Sharing</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="donation_main.do">Donation</a>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Donation
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">         
+          <a class="dropdown-item" href="donation_main.do">기부하기</a>
+          <a class="dropdown-item" href="#">기부현황</a>                  
+        </div> 
       </li>
+      
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Mypage
@@ -167,8 +175,7 @@ $(document).ready(function() {
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">         
           <a class="dropdown-item" href="customerService.do">회사소개</a>
-          <a class="dropdown-item" href="customerService.do#customerService">고객센터</a>
-                                 
+          <a class="dropdown-item" href="customerService.do#customerService">고객센터</a>                  
         </div> 
       </li>
      

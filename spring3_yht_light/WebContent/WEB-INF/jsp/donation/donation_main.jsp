@@ -12,7 +12,7 @@
 <%-- header --%>
 <jsp:include page="/WEB-INF/jsp/include/header.jsp" flush="false"/>
 <link rel="stylesheet" href="css/donation_main.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script> -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -40,8 +40,8 @@ $(document).ready(function(){
 
 <div class="mainImg" align="center">
 <h1 class="headtitle">Donation 현재 기부액:
-<c:if test="${not empty totalDonation }">\&nbsp; ${totalDonation }&nbsp;원</c:if>
-<c:if test="${empty totalDonation }">\&nbsp; 0&nbsp;원</c:if>
+<c:if test="${not empty totalDonation }">\ ${totalDonation }&nbsp;원</c:if>
+<c:if test="${empty totalDonation }">\0&nbsp;원</c:if>
 </h1>
 </div>	
 
@@ -75,7 +75,7 @@ $(document).ready(function(){
 					</div>
 					<div class="donation">						
 						
-						<b>\&nbsp;&nbsp;&nbsp;<input type="text" maxlength="5" id="donation2" placeholder="10만원 미만 기부가능" >원</b>
+						<b>\&nbsp;&nbsp;&nbsp;<input type="text" maxlength="5" id="donation2" placeholder="10만원 미만 기부 가능" >원</b>
 						<hr>
 					</div>
 				</div>
@@ -115,36 +115,44 @@ function payment() {
 		
 	}else {
 		
-	 IMP.request_pay({
-	    pg : 'kakao', // version 1.1.0부터 지원.
-	    pay_method : 'card',
-	    merchant_uid : id + new Date().getTime(),
-	    name : 'Food Sharing 도네이션',
-	    amount : donation,
-	   // buyer_email : 'iamport@siot.do',
-	    buyer_name : name,
-	    buyer_tel : phone,
-	    //buyer_addr : '서울특별시 강남구 삼성동',
-	    //buyer_postcode : '123-456',
-	  //m_redirect_url : 'https://www.yourdomain.com/payments/complete'
-	}, function(rsp) {
-	    if ( rsp.success ) {
-	    	
-	        var msg = '결제가 완료되었습니다.';
-	        msg += ' 고유ID : ' + rsp.imp_uid;
-	        msg += ' 상점 거래ID : ' + rsp.merchant_uid;
-	        msg += ' 결제 금액 : ' + rsp.paid_amount;
-	        msg += ' 카드 승인번호 : ' + rsp.apply_num;
-	        $("#doFrm").submit();
-	        
-	    } else {
-	    	
-	        var msg = '결제에 실패하였습니다.';
-	        msg += ' 에러내용 : ' + rsp.error_msg;
-	        
-	    }
-	    alert(msg);
-	}); 
+	if(confirm(donation + "원을 기부하시겠습니까?") == true){  
+		
+			 IMP.request_pay({
+			    pg : 'kakao', // version 1.1.0부터 지원.
+			    pay_method : 'card',
+			    merchant_uid : id + new Date().getTime(),
+			    name : 'Food Sharing 도네이션',
+			    amount : donation,
+			   // buyer_email : 'iamport@siot.do',
+			    buyer_name : name,
+			    buyer_tel : phone,
+			    //buyer_addr : '서울특별시 강남구 삼성동',
+			    //buyer_postcode : '123-456',
+			  //m_redirect_url : 'https://www.yourdomain.com/payments/complete'
+				}, function(rsp) {
+				    if ( rsp.success ) {
+				    	
+				        var msg = '결제가 완료되었습니다.';
+				        msg += ' 고유ID : ' + rsp.imp_uid;
+				        msg += ' 상점 거래ID : ' + rsp.merchant_uid;
+				        msg += ' 결제 금액 : ' + rsp.paid_amount;
+				        msg += ' 카드 승인번호 : ' + rsp.apply_num;
+				        $("#doFrm").submit();
+				        
+				    } else {
+				    	
+				        var msg = '결제에 실패하였습니다.';
+				        msg += ' 에러내용 : ' + rsp.error_msg;
+				        
+				    }
+				    alert(msg);
+				}); 
+		}else {
+			
+			return false;
+			
+		}	 
+	
 	}
 }
 
