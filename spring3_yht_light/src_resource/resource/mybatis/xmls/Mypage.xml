@@ -91,8 +91,20 @@
   	</select>
   	
   	<insert id="donating" parameterType="org.yht.domain.test01.DonationVo">
-  		INSERT INTO TEST01_DONATION(DONATION_SEQ, ID, NAME, PHONE, DONATION)
-  		VALUES( SEQ_DONATION.NEXTVAL, #{id}, #{name}, #{phone}, #{donation})
+  		INSERT INTO TEST01_DONATION(DONATION_SEQ, ID, NAME, PHONE, DONATION, RDATE)
+  		VALUES( SEQ_DONATION.NEXTVAL, #{id}, #{name}, #{phone}, #{donation}, SYSDATE)
   	</insert>
+  	
+  	<select id="donationList" parameterType="java.lang.String" resultType="org.yht.domain.test01.DonationVo">
+  		SELECT DONATION_SEQ, ID, NAME, PHONE, DONATION, RDATE
+  		FROM TEST01_DONATION
+  		WHERE ID = #{id}
+  	</select>
+  	
+  	<select id="myTotalDonation" parameterType="java.lang.String" resultType="java.lang.Integer">
+  		SELECT NVL(SUM(DONATION),0)
+  		FROM TEST01_DONATION
+  		WHERE ID = #{id}
+  	</select>
 
 </mapper>

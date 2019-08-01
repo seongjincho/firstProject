@@ -1,10 +1,11 @@
 package org.yht.domain.test01;
 
 import java.io.Serializable;
+import java.util.Date;
 
 
 /*
- --DONATION table  
+--DONATION table  
 
 DROP TABLE TEST01_DONATION
 CASCADE CONSTRAINTS;
@@ -16,7 +17,8 @@ DONATION_SEQ NUMBER(8) PRIMARY KEY,
 ID VARCHAR2(50) NOT NULL,
 NAME VARCHAR2(50) NOT NULL, 
 PHONE VARCHAR2(50) NOT NULL,
-DONATION NUMBER(10) NOT NULL
+DONATION NUMBER(10) NOT NULL,
+RDATE DATE NOT NULL
 );
 
 CREATE SEQUENCE SEQ_DONATION
@@ -26,6 +28,7 @@ INCREMENT BY 1;
 ALTER TABLE TEST01_DONATION
 ADD CONSTRAINT FK_DONATION_ID FOREIGN KEY(ID)
 REFERENCES TEST01_MEMBER(ID);
+
  */
 
 
@@ -36,6 +39,7 @@ public class DonationVo implements Serializable {
 	private String name;
 	private String phone;
 	private int donation;
+	private Date rdate;
 	
 	public DonationVo() {
 		
@@ -48,6 +52,16 @@ public class DonationVo implements Serializable {
 		this.name = name;
 		this.phone = phone;
 		this.donation = donation;
+	}
+
+	public DonationVo(int donation_seq, String id, String name, String phone, int donation, Date rdate) {
+		super();
+		this.donation_seq = donation_seq;
+		this.id = id;
+		this.name = name;
+		this.phone = phone;
+		this.donation = donation;
+		this.rdate = rdate;
 	}
 
 	public int getDonation_seq() {
@@ -90,13 +104,20 @@ public class DonationVo implements Serializable {
 		this.donation = donation;
 	}
 
+	public Date getRdate() {
+		return rdate;
+	}
+
+	public void setRdate(Date rdate) {
+		this.rdate = rdate;
+	}
+
 	@Override
 	public String toString() {
 		return "DonationVo [donation_seq=" + donation_seq + ", id=" + id + ", name=" + name + ", phone=" + phone
-				+ ", donation=" + donation + "]";
+				+ ", donation=" + donation + ", rdate=" + rdate + "]";
 	}
 	
 	
-	
-	
+
 }

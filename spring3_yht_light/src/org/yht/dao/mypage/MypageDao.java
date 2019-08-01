@@ -78,4 +78,15 @@ public class MypageDao {
 		int n = sqlSession.insert("Mypage.donating", vo);
 		return n>0?true:false;
 	}
+	
+	public List<DonationVo> donationList(String id){
+	
+		return sqlSession.selectList("Mypage.donationList", id);
+		
+	}
+	
+	public int myTotalDonation(String id) {
+		
+		return sqlSession.selectOne("Mypage.myTotalDonation", id);
+	}
 }

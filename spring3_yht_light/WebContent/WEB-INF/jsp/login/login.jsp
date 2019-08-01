@@ -8,7 +8,14 @@
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <%--reCaptcha --%>
 <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
-
+  <script src="https://www.google.com/recaptcha/api.js?render=6Lcpe7AUAAAAAHYQ_Cf5MP9MR7aFt6feDnTgfKav"></script>
+  <script>
+  grecaptcha.ready(function() {
+      grecaptcha.execute('6Lcpe7AUAAAAAHYQ_Cf5MP9MR7aFt6feDnTgfKav', {action: 'login.do'} ).then(function(token) {
+         
+      });
+  });
+  </script>
 
 <%-- favicon --%>
 <link rel="icon" href="images/foodicon.png" sizes="48x48">
@@ -68,7 +75,7 @@
 		<%--reCaptcha --%>
 	    <!-- <div class="g-recaptcha" data-sitekey="6LdGebAUAAAAADkG-bxUYUW5qEvdIcelr78sXTe6"></div> -->
     	<!-- <button type="button" class="btn_s_blue" onclick="goCaptcha()">제출</button> -->
-
+		<div class="g-recaptcha" data-sitekey="6Lcpe7AUAAAAAHYQ_Cf5MP9MR7aFt6feDnTgfKav"></div>
 
 
 		
@@ -206,6 +213,10 @@ $('#_btnLogin').click(function() {
 			
 		
 	    }); */
+	    grecaptcha.ready(function() {
+	        grecaptcha.execute('6Lcpe7AUAAAAAHYQ_Cf5MP9MR7aFt6feDnTgfKav', {action: 'homepage'});
+	        alert(token);
+	    });
 		
 		$('#_frmForm').attr("target", "_self").submit();
 		
@@ -237,6 +248,10 @@ function goHome() {
 	//alert("홈으로");
 	location.href = "main.do";
 }
+
+
+
+
 
 
 

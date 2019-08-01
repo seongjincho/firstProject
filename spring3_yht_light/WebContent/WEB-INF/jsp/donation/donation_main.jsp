@@ -39,7 +39,7 @@ $(document).ready(function(){
 <body>
 
 <div class="mainImg" align="center">
-<h1 class="headtitle">Donation 현재 기부액:
+<h1 class="headtitle">Donation 총 기부액:
 <c:if test="${not empty totalDonation }">\ ${totalDonation }&nbsp;원</c:if>
 <c:if test="${empty totalDonation }">\0&nbsp;원</c:if>
 </h1>
@@ -62,7 +62,7 @@ $(document).ready(function(){
 						<hr>
 					</div>
 					<div class="name">
-						<b>이름&nbsp;&nbsp;&nbsp;<input type="text" name="name" id="name" size="15"  value="${login.name }" readonly="readonly"></b>
+						<b>이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" id="name" size="15"  value="${login.name }" readonly="readonly"></b>
 						<hr>
 					</div>
 					<div class="phone">
@@ -101,12 +101,12 @@ $(document).ready(function(){
 
 function payment() {
 	
-	alert("결제진입");
+	//alert("결제진입");
 	var id = $("#id").val();
 	var donation = $("#donation").val();
 	var name = $("#name").val();
 	var phone = $("#phone").val();
-	alert("id: " + id + " 기부금액: " + donation + " 연락처: " + phone );
+	//alert("id: " + id + " 기부금액: " + donation + " 연락처: " + phone );
 	
 	if(donation == ""){
 		

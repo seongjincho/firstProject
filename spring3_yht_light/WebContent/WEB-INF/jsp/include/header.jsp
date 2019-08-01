@@ -145,8 +145,9 @@ $(document).ready(function() {
           Donation
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">         
-          <a class="dropdown-item" href="donation_main.do">기부하기</a>
-          <a class="dropdown-item" href="#">기부현황</a>                  
+          <a class="dropdown-item" href="donation_main.do">후원하기</a>
+          <a class="dropdown-item" href="donationList.do">후원현황</a>                  
+          <a class="dropdown-item" href="donationList.do#myDona">나의 후원</a>
         </div> 
       </li>
       

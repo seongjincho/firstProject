@@ -283,14 +283,15 @@ public class MypageController {
 	@RequestMapping(value = "donation_main.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String donation_main(Model model) {
 		
-		System.out.println("도네이션 진입");
-		
+		System.out.println("도네이션 하기 진입");
 		int totalDonation = mypageService.totalDonation();
 		System.out.println("totalDonation:" + totalDonation);
 		model.addAttribute("totalDonation", totalDonation);
+	
 		
 		return "donation/donation_main";
 	}
+	
 	
 	@RequestMapping(value = "donationAf.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String donationAf(DonationVo vo) {
@@ -311,6 +312,28 @@ public class MypageController {
 		}
 		
 		return "redirect:/donation_main.do";
+	}
+	
+	@RequestMapping(value = "donationList.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String donationList(Model model, HttpServletRequest req) {
+		
+		System.out.println("도네이션 리스트 진입");
+		
+		int totalDonation = mypageService.totalDonation();
+		System.out.println("totalDonation:" + totalDonation);
+		model.addAttribute("totalDonation", totalDonation);
+		
+		MemberVo vo = (MemberVo)req.getSession().getAttribute("login");
+		List<DonationVo> donationList = mypageService.donationList(vo.getId());
+		int donationListSize = donationList.size();
+		int myTotalDonation = mypageService.myTotalDonation(vo.getId());
+		
+		System.out.println("donationListSize: " + donationListSize);
+		model.addAttribute("donationList", donationList);
+		model.addAttribute("donationListSize", donationListSize);
+		model.addAttribute("myTotalDonation", myTotalDonation);
+				
+				return "donation/donation_list";
 	}
 	
 

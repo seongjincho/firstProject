@@ -97,6 +97,20 @@ public class MypageServiceImpl implements MypageService {
 		
 		return mypageDao.donating(vo);
 	}
+
+	@Override
+	public List<DonationVo> donationList(String id) {
+		
+		return mypageDao.donationList(id);
+	}
+
+	@Override
+	public int myTotalDonation(String id) {
+		
+		return mypageDao.myTotalDonation(id);
+	}
+	
+	
 	
 	
 	

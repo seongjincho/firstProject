@@ -175,6 +175,7 @@ $(document).ready(function () {
 <br><br>
 </div>
 
+
 <%-- footer --%>
 <%-- <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
  --%>
