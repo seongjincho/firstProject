@@ -110,12 +110,12 @@ function payment() {
 	
 	if(donation == ""){
 		
-		alert("기부액을 입력해주세요.");
+		alert("후원 금액을 입력해주세요.");
 		$("#donation").focus();
 		
 	}else {
 		
-	if(confirm(donation + "원을 기부하시겠습니까?") == true){  
+	if(confirm(donation + "원을 후원하시겠습니까?") == true){  
 		
 			 IMP.request_pay({
 			    pg : 'kakao', // version 1.1.0부터 지원.
@@ -135,7 +135,7 @@ function payment() {
 				        var msg = '결제가 완료되었습니다.';
 				        msg += ' 고유ID : ' + rsp.imp_uid;
 				        msg += ' 상점 거래ID : ' + rsp.merchant_uid;
-				        msg += ' 결제 금액 : ' + rsp.paid_amount;
+				        msg += ' 후원 금액 : ' + rsp.paid_amount;
 				        msg += ' 카드 승인번호 : ' + rsp.apply_num;
 				        $("#doFrm").submit();
 				        

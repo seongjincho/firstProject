@@ -18,15 +18,25 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
+
 </head>
 <body>
+
+<%-- 
+<c:if test="${login.id == null }">
+	<script type="text/javascript">
+		 alert("로그인 해 주십시오");
+		 location.href='login.do';
+	 </script> 
+</c:if>  --%>
+
 
 <div class="mainImg" align="center">
 <h1 class="headtitle">
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyy/MM/dd" var="nowDay" />
-${nowDay }<br><br> 현재  총 후원 금액:
-<c:if test="${not empty totalDonation }">\ ${totalDonation }&nbsp;원</c:if>
+${nowDay }<br><br> 현재  누적 금액:
+<c:if test="${not empty totalDonation }">\ ${totalDonation }원</c:if>
 <c:if test="${empty totalDonation }">\0&nbsp;원</c:if> <br><br>
 감사합니다
 </h1>
@@ -39,7 +49,11 @@ ${nowDay }<br><br> 현재  총 후원 금액:
 <br>
 <div align="center" style="margin-top:6%; margin-left: 5%; margin-right: 5%; margin-bottom: 5%;">
 
-<h1 style="margin-bottom: 5%;"><b style="color:#A7574A;">${login.id }</b>님의 후원 내역</h1> 
+<h1 style="margin-bottom: 5%;"><b style="color:#A7574A;">
+<c:if test="${not empty login}">${login.id }</b>님의 후원 내역</c:if>
+<c:if test="${empty login}">GUEST</b>로 접속중 입니다.</c:if>
+
+</h1> 
 
 
 
@@ -67,7 +81,7 @@ ${nowDay }<br><br> 현재  총 후원 금액:
 	<c:forEach items="${donationList }" var="dl">
 	<tr>	
 		<td><hr>&nbsp;&nbsp;&nbsp;${dl.id }( ${dl.name } ) <hr></td> 
-		<td><hr>&nbsp;${dl.donation} 원  <input type="hidden" id="myDonation" value="${dl.donation}"> >  <hr></td>
+		<td><hr>&nbsp;${dl.donation} 원 <hr></td>
 		<td><hr>&nbsp;<fmt:formatDate value="${dl.rdate }" pattern="yyyy . MM . dd"/><hr> </td> 	
 	</tr>	
 	</c:forEach>
@@ -143,12 +157,7 @@ Highcharts.chart('container', {
 	  series: [{
 	    name: '총 후원금',
 	    data: [${totalDonation }]
-	  }/* ,
-	  {
-	    name: '${login.id}',
-	    data: [myDonation]
-	  } */
-	  ]
+	  }]
 	  
 	});
 
