@@ -39,9 +39,9 @@ $(document).ready(function(){
 <body>
 
 <div class="mainImg" align="center">
-<h1 class="headtitle">Donation 총 기부액:
+<h1 class="headtitle">Donation <%-- 총 기부액:
 <c:if test="${not empty totalDonation }">\ ${totalDonation }&nbsp;원</c:if>
-<c:if test="${empty totalDonation }">\0&nbsp;원</c:if>
+<c:if test="${empty totalDonation }">\0&nbsp;원</c:if> --%>
 </h1>
 </div>	
 

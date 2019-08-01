@@ -332,9 +332,17 @@ public class MypageController {
 		model.addAttribute("donationList", donationList);
 		model.addAttribute("donationListSize", donationListSize);
 		model.addAttribute("myTotalDonation", myTotalDonation);
-				
+		
 				return "donation/donation_list";
 	}
 	
+	@RequestMapping(value = "donation_graph.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String donation_graph() {
+		
+		System.out.println("차트 진입");
+		
+		return "donation/donation_graph";
+		
+	}
 
 }

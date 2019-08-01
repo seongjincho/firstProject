@@ -13,6 +13,11 @@
 <jsp:include page="/WEB-INF/jsp/include/header.jsp" flush="false"/>
 <link rel="stylesheet" type="text/css" href="css/donation_list.css">
 
+<%--차트 --%>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
 </head>
 <body>
 
@@ -27,8 +32,12 @@ ${nowDay }<br><br> 현재  총 후원 금액:
 </h1>
 </div>	
 
-
-<div align="center" style="margin-left: 5%; margin-right: 5%; margin-bottom: 5%;" id="myDona">
+<%--차트 --%>
+<div id="container" style="min-width: 310px; max-width: 100%; height: 250px; margin: 0 auto"></div>
+<br>
+<hr>
+<br>
+<div align="center" style="margin-top:6%; margin-left: 5%; margin-right: 5%; margin-bottom: 5%;">
 
 <h1 style="margin-bottom: 5%;"><b style="color:#A7574A;">${login.id }</b>님의 후원 내역</h1> 
 
@@ -39,7 +48,7 @@ ${nowDay }<br><br> 현재  총 후원 금액:
 <col width="40%"><col width="30%"><col width="30%">
 </colgroup>
 
-<thead>
+<thead  id="myDona">
 <tr style="border: 1px solid black;">
 <th>&nbsp;&nbsp;&nbsp;ID(이름)</th>  <th>&nbsp;후원금액</th>   <th>&nbsp;후원일자</th>
 </tr>
@@ -58,7 +67,7 @@ ${nowDay }<br><br> 현재  총 후원 금액:
 	<c:forEach items="${donationList }" var="dl">
 	<tr>	
 		<td><hr>&nbsp;&nbsp;&nbsp;${dl.id }( ${dl.name } ) <hr></td> 
-		<td><hr>&nbsp;${dl.donation} 원  <hr></td>
+		<td><hr>&nbsp;${dl.donation} 원  <input type="hidden" id="myDonation" value="${dl.donation}"> >  <hr></td>
 		<td><hr>&nbsp;<fmt:formatDate value="${dl.rdate }" pattern="yyyy . MM . dd"/><hr> </td> 	
 	</tr>	
 	</c:forEach>
@@ -100,6 +109,48 @@ function goDona() {
 	//alert("도네 하기 ! ");
 	location.href = "donation_main.do";
 }
+
+</script>
+
+<%--차트 --%>
+<script type="text/javascript">
+Highcharts.chart('container', {
+	/* var myDonation = $("#myDonation").val(); */
+	  chart: {
+	    type: 'bar'
+	  },
+	  title: {
+	    text: '${nowDay }까지의 후원금 현황'
+	  },
+	  xAxis: {
+	    categories: ['']
+	  },
+	  yAxis: {
+	    min: 0,
+	    title: {
+	      text: ''
+	    }
+	  },
+	  legend: {
+	    reversed: true
+	  },
+	  plotOptions: {
+	    series: {
+	      stacking: 'normal'
+	    }
+	  },
+	  
+	  series: [{
+	    name: '총 후원금',
+	    data: [${totalDonation }]
+	  }/* ,
+	  {
+	    name: '${login.id}',
+	    data: [myDonation]
+	  } */
+	  ]
+	  
+	});
 
 </script>
 

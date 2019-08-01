@@ -148,6 +148,8 @@ $(document).ready(function() {
           <a class="dropdown-item" href="donation_main.do">후원하기</a>
           <a class="dropdown-item" href="donationList.do">후원현황</a>                  
           <a class="dropdown-item" href="donationList.do#myDona">나의 후원</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="donation_graph.do">후원 리스트</a>
         </div> 
       </li>
       
