@@ -113,7 +113,7 @@ ${nowDay }<br><br> 현재  누적 금액:
 
 
 
-<div style="clear:both:"><br><br></div>
+<div style="clear:both"><br><br><br><br><br></div>
 	<%-- footer --%>
 	
  <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>

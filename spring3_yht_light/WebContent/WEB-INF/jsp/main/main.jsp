@@ -100,7 +100,7 @@ height: 100%;
    </div>
 
 
-<div class="clear"></div>
+<div style="clear:both"></div>
 <div class="space"></div> 
 
 

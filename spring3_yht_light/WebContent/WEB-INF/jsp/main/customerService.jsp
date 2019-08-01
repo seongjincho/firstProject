@@ -95,7 +95,7 @@
   </div>
 </div> 
 
-
+<div style="clear:both"></div>
 <%-- footer --%>
 <div>
 <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>

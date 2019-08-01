@@ -175,10 +175,11 @@ $(document).ready(function () {
 <br><br>
 </div>
 
+<div style="clear:both"><br><br><br><br><br></div>
 
 <%-- footer --%>
-<%-- <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
- --%>
+<jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
+
 
 
 <script type="text/javascript">

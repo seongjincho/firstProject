@@ -128,7 +128,7 @@
 </div>
 </div>
 
-
+<div style="clear:both"></div>
 <script type="text/javascript">
 
 function goUpdate( id ) {

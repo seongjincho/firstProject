@@ -105,6 +105,7 @@
 
 
 <div style="margin-top: 15%;">
+<div style="clear:both"></div>
 <%-- footer --%>
 <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
 </div>
