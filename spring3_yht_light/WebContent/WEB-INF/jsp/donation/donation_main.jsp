@@ -93,6 +93,10 @@ $(document).ready(function(){
 	</div>
 </div>
 
+<div style="background-color: #F8D7DA; text-align: center; border: 2px solid #ECEDF0;">
+<p style="margin-top: 20px; color: #A7574A;" >* 후원금은 서버 관리비와 Food Sharing을 위해서만 사용 됩니다 .</p>
+</div>
+
 <%-- footer --%>
  <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
 

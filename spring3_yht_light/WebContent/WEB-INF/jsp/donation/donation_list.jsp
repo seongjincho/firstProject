@@ -49,14 +49,14 @@ ${nowDay }<br><br> 현재  누적 금액:
 
 
 
-<table style="width: 100%; border: 1px solid black;">
+<table style="width: 50%; border: 1px solid black;">
 <colgroup>
 <col width="40%"><col width="30%"><col width="30%">
 </colgroup>
 
 <thead>
 <tr style="border: 1px solid black;">
-<th>&nbsp;&nbsp;&nbsp;ID(이름)</th>  <th>&nbsp;후원금액</th>   <th>&nbsp;후원일자</th>
+<th>&nbsp;&nbsp;&nbsp;ID(후원자)</th>  <th>&nbsp;후원금액</th>   <th>&nbsp;후원일자</th>
 </tr>
 </thead>
 

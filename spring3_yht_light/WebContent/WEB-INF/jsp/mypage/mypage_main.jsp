@@ -132,8 +132,8 @@
             <img class="img-fluid" src="images/my_donation.gif" alt="" style="height: 210px; width: 400px;">
           </a>
           <div class="portfolio-caption">
-            <h4><b>나의 후원 내역</b></h4>
-            <p class="text-muted" style="font-size: 12px">My Donation List</p>
+            <h4><b>후원내역</b></h4>
+            <p class="text-muted" style="font-size: 12px">Donation List</p>
           </div>
         </div>  
         

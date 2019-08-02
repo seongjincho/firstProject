@@ -145,9 +145,9 @@ $(document).ready(function() {
           Donation
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">         
-          <a class="dropdown-item" href="donation_main.do">후원하기</a>
           <a class="dropdown-item" href="donationList.do">후원현황</a>                  
-          <a class="dropdown-item" href="my_donation.do">나의 후원</a>
+          <a class="dropdown-item" href="donation_main.do">후원하기</a>
+          
 <!--           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="donation_graph.do">후원 리스트</a> -->
         </div> 
@@ -163,7 +163,7 @@ $(document).ready(function() {
           <a class="dropdown-item" href="goUpdate.do">정보수정</a>
           <a class="dropdown-item" href="mypage_like.do">좋아요</a>
           <a class="dropdown-item" href="mypage_join.do">참여중인 모임</a>
-     
+     		<a class="dropdown-item" href="my_donation.do">후원내역</a>
           <div class="dropdown-divider"></div>
           <c:if test="${login.auth >= 3 }">
           <a class="dropdown-item" href="mypage_admin.do">회원관리</a>

@@ -42,7 +42,7 @@
 
 <thead  id="myDona">
 <tr style="border: 1px solid black;">
-<th>&nbsp;&nbsp;&nbsp;ID(이름)</th>  <th>&nbsp;후원금액</th>   <th>&nbsp;후원일자</th>
+<th>&nbsp;&nbsp;&nbsp;ID(후원자)</th>  <th>&nbsp;후원금액</th>   <th>&nbsp;후원일자</th>
 </tr>
 </thead>
 
