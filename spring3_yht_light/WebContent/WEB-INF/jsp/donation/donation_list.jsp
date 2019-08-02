@@ -41,28 +41,20 @@ ${nowDay }<br><br> 현재  누적 금액:
 감사합니다
 </h1>
 </div>	
-
-<%--차트 --%>
-<div id="container" style="min-width: 310px; max-width: 100%; height: 250px; margin: 0 auto"></div>
-<br>
 <hr>
-<br>
-<div align="center" style="margin-top:6%; margin-left: 5%; margin-right: 5%; margin-bottom: 5%;">
 
-<h1 style="margin-bottom: 5%;"><b style="color:#A7574A;">
-<c:if test="${not empty login}">${login.id }</b>님의 후원 내역</c:if>
-<c:if test="${empty login}">GUEST</b>로 접속중 입니다.</c:if>
+<div align="center" style="margin-top:3%; margin-left: 5%; margin-right: 5%; margin-bottom: 5%;">
 
-</h1> 
+<h1 style="margin-bottom: 5%;">후원 내역</h1> 
 
 
 
-<table style="width: 40%; border: 1px solid black; float: left; margin-right: 30%;">
+<table style="width: 100%; border: 1px solid black;">
 <colgroup>
 <col width="40%"><col width="30%"><col width="30%">
 </colgroup>
 
-<thead  id="myDona">
+<thead>
 <tr style="border: 1px solid black;">
 <th>&nbsp;&nbsp;&nbsp;ID(이름)</th>  <th>&nbsp;후원금액</th>   <th>&nbsp;후원일자</th>
 </tr>
@@ -90,25 +82,19 @@ ${nowDay }<br><br> 현재  누적 금액:
 
 </table>
 
+
+<br>
+
+<button type="button" class="btn btn-outline-danger" onclick="goDona()"><b>후원하기</b></button>
+
 </div>
 
 <br>
-<table style="" class="donationInfo">
-<tr>
-<td>후원횟수 <br><br><td><b>&nbsp;&nbsp;&nbsp;${donationListSize }회</b><br><br></td>
-</tr>
-<tr>
-<td>총 기부금<br><br> </td>
-<td><b>&nbsp;&nbsp;&nbsp;\
-<c:if test="${not empty myTotalDonation }">${myTotalDonation }</c:if>
-<c:if test="${empty myTotalDonation }">0</c:if>
-원</b><br><br></td>
-</tr>
-<tr>
-<td colspan="2"><button type="button" class="btn btn-outline-danger" onclick="goDona()"><b>후원하기</b></button></td>
-</tr>
+<hr>
+<br>
+<%--차트 --%>
+<div id="container" style="min-width: 310px; max-width: 100%; height: 250px; margin: 0 auto"></div>
 
-</table>
 
 
 
@@ -137,7 +123,7 @@ Highcharts.chart('container', {
 	    text: '${nowDay }까지의 후원금 현황'
 	  },
 	  xAxis: {
-	    categories: ['']
+	    categories: ['총 후원금']
 	  },
 	  yAxis: {
 	    min: 0,
@@ -155,7 +141,7 @@ Highcharts.chart('container', {
 	  },
 	  
 	  series: [{
-	    name: '총 후원금',
+	    name: '\\ ${totalDonation } 원',
 	    data: [${totalDonation }]
 	  }]
 	  

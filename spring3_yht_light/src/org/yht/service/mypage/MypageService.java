@@ -21,6 +21,7 @@ public interface MypageService {
 	public boolean memberUpdate(MemberVo vo);
 	public int totalDonation();
 	public boolean donating(DonationVo vo);
-	public List<DonationVo> donationList(String id);
+	public List<DonationVo> my_donation(String id);
 	public int myTotalDonation(String id);
+	public List<DonationVo> donationList();
 }

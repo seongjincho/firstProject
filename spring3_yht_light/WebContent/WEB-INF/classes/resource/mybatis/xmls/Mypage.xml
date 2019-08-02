@@ -95,16 +95,24 @@
   		VALUES( SEQ_DONATION.NEXTVAL, #{id}, #{name}, #{phone}, #{donation}, SYSDATE)
   	</insert>
   	
-  	<select id="donationList" parameterType="java.lang.String" resultType="org.yht.domain.test01.DonationVo">
+  	<select id="my_donation" parameterType="java.lang.String" resultType="org.yht.domain.test01.DonationVo">
   		SELECT DONATION_SEQ, ID, NAME, PHONE, DONATION, RDATE
   		FROM TEST01_DONATION
   		WHERE ID = #{id}
+  		ORDER BY DONATION_SEQ ASC
   	</select>
   	
   	<select id="myTotalDonation" parameterType="java.lang.String" resultType="java.lang.Integer">
   		SELECT NVL(SUM(DONATION),0)
   		FROM TEST01_DONATION
   		WHERE ID = #{id}
+  	</select>
+  	
+  	<select id="donationList" resultType="org.yht.domain.test01.DonationVo">
+  		SELECT DONATION_SEQ, ID,(SUBSTR(NAME,1,1)||LPAD('*', LENGTH(NAME)-2, '*')||SUBSTR(NAME, LENGTH(NAME),1))AS NAME, 
+  		(SUBSTR(PHONE,1,3)||LPAD('*', LENGTH(PHONE)-7, '*')||SUBSTR(PHONE, -4,4))AS PHONE, DONATION, RDATE
+  		FROM TEST01_DONATION
+  		ORDER BY DONATION_SEQ ASC
   	</select>
 
 </mapper>

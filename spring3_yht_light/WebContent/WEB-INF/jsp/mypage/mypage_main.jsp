@@ -121,26 +121,26 @@
         </div>    
  
         
-       <!--  4. 내가쓴글 -->
-<!--         <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" href="#">
+       <!--  4.나의 후원 내역 -->
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" href="my_donation.do">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="images/04-dfdf.jpg" alt="" style="height: 210px; width: 400px;">
+            <img class="img-fluid" src="images/my_donation.gif" alt="" style="height: 210px; width: 400px;">
           </a>
           <div class="portfolio-caption">
-            <h4><b>내가 쓴 글</b></h4>
-            <p class="text-muted" style="font-size: 12px">My Post List</p>
+            <h4><b>나의 후원 내역</b></h4>
+            <p class="text-muted" style="font-size: 12px">My Donation List</p>
           </div>
-        </div>  -->
-        <!-- 04-togather.png -->
+        </div>  
         
         
         
-        <!-- // 4. 회원탈퇴 -->
+        
+        <!-- // 5. 회원탈퇴 -->
         <div class="col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link" href="mypage_delete.do">
             <div class="portfolio-hover">

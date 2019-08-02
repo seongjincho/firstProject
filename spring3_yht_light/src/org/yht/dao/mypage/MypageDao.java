@@ -79,14 +79,18 @@ public class MypageDao {
 		return n>0?true:false;
 	}
 	
-	public List<DonationVo> donationList(String id){
+	public List<DonationVo> my_donation(String id){
 	
-		return sqlSession.selectList("Mypage.donationList", id);
+		return sqlSession.selectList("Mypage.my_donation", id);
 		
 	}
 	
 	public int myTotalDonation(String id) {
 		
 		return sqlSession.selectOne("Mypage.myTotalDonation", id);
+	}
+	
+	public List<DonationVo> donationList(){
+		return sqlSession.selectList("Mypage.donationList");
 	}
 }

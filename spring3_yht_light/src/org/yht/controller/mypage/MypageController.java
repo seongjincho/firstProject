@@ -311,40 +311,41 @@ public class MypageController {
 			
 		}
 		
-		return "redirect:/donation_main.do";
+		return "redirect:/donationList.do";
 	}
 	
 	@RequestMapping(value = "donationList.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String donationList(Model model, HttpServletRequest req, String id) {
+	public String donationList(Model model, HttpServletRequest req) {
 		
 		System.out.println("도네이션 리스트 진입");
 		
 		int totalDonation = mypageService.totalDonation();
 		System.out.println("totalDonation:" + totalDonation);
 		model.addAttribute("totalDonation", totalDonation);
-		System.out.println("id: " + id);
-		//MemberVo vo = (MemberVo)req.getSession().getAttribute("login");
-		if(id != null) {
-			
-		List<DonationVo> donationList = mypageService.donationList(id);
-		int donationListSize = donationList.size();
-		int myTotalDonation = mypageService.myTotalDonation(id);
-		System.out.println("donationListSize: " + donationListSize);
+		
+		List<DonationVo> donationList = mypageService.donationList();
 		model.addAttribute("donationList", donationList);
-		model.addAttribute("donationListSize", donationListSize);
-		model.addAttribute("myTotalDonation", myTotalDonation);
-		}
-		
-		
+
 				return "donation/donation_list";
 	}
 	
-	@RequestMapping(value = "donation_graph.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String donation_graph() {
+	@RequestMapping(value = "my_donation.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String my_donation(Model model, HttpServletRequest req) {
 		
-		System.out.println("차트 진입");
+		MemberVo mem = (MemberVo)req.getSession().getAttribute("login");
+		String id = mem.getId();
+		System.out.println("my_donation 진입");
+
+		List<DonationVo> my_donation = mypageService.my_donation(id);
+		int donationListSize = my_donation.size();
+		int myTotalDonation = mypageService.myTotalDonation(id);
+		System.out.println("donationListSize: " + donationListSize);
+		model.addAttribute("my_donation", my_donation);
+		model.addAttribute("donationListSize", donationListSize);
+		model.addAttribute("myTotalDonation", myTotalDonation);
 		
-		return "donation/donation_graph";
+		
+		return "donation/my_donation";
 		
 	}
 
