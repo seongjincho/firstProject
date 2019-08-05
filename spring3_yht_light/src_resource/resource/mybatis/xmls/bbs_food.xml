@@ -144,7 +144,12 @@
 	ORDER BY REF ASC, DEPTH ASC, STEP DESC	
 </select>
 
-
+<!-- 각 게시물의 좋아요 누른사람들 리스트 -->
+<select id="likeMemberList" parameterType="java.lang.Integer" resultType="org.yht.domain.test01.LikeVo">
+	SELECT ID
+	FROM TEST01_LIKE
+	WHERE FOOD_SEQ = #{food_seq}
+</select>
 
 
 

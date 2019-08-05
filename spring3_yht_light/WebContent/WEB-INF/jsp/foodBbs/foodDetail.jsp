@@ -102,12 +102,13 @@ ${foodList.fullname }
 		<colgroup>
 			<col width="30%"/> <col width="30%"/><col width="30%"/>
 		</colgroup>
-
+		
+		<c:if test="${login.auth >= 3 }">
 		<tr>	
 			<th class="left_th">글번호&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2" align="left">${foodList.food_seq } 
 			<input type="hidden" id="food_seq" name="food_seq" value="${foodList.food_seq } "> </td>
 		</tr>
-		
+		</c:if>
 		
 		<tr>	
 			<th class="left_th">작성자&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2">${foodList.id }</td>
@@ -139,7 +140,24 @@ ${foodList.fullname }
 			<th class="left_th">작성일&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2"><fmt:formatDate value="${foodList.wdate }" pattern="yyyy/MM/dd"/></td>
 		</tr>	
 		<tr>	
-			<th class="left_th">좋아요 수&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2">${foodList.like_cnt }개</td>
+			<th class="left_th">좋아요 수&nbsp;&nbsp;&nbsp;&nbsp;</th> 
+			<td colspan="2"><a href="#none" onclick="showList()">${foodList.like_cnt }</a>개
+			
+			<div class="likeMemberList" style="display: none; border: 1px black solid; width: 270; margin-top: 3%;" >
+			<p>이 게시물에  <span style="font-family:NanumSquareR; color:#d61f26; border-bottom:1px solid #d61f26;">좋아요</span> 누른 사용자</p>
+			<hr>
+			<input type="hidden" id="likeMemberList" value="false">
+			<c:if test="${empty likeMemberList }">현재 존재 하지 않습니다.</c:if>
+			<c:if test="${not empty likeMemberList }">
+			<c:forEach items="${likeMemberList }" var="lml" varStatus="vs">
+			<a href="#none">${lml.id }</a>&nbsp;
+			<c:if test="${vs.count%4 == 0 }">
+			<br>
+			</c:if>
+			</c:forEach>
+			</c:if>
+			</div>
+			</td>
 		</tr>
 		<tr>	
 			<th class="left_th">조회수&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2">${foodList.read_cnt }회</td>
@@ -549,6 +567,28 @@ function goDelete() {
 	
 	});
 	
+}
+
+
+function showList() {
+	//alert("show list");
+	
+	var visible = $("#likeMemberList").val();
+	//alert(visible);
+	
+	if(visible == "false"){
+		//alert("보이게");
+		$(".likeMemberList").css("display", "block");
+		$("#likeMemberList").val(true);
+		
+	}else {
+		//alert("안보이게");
+		$(".likeMemberList").css("display", "none");
+		$("#likeMemberList").val(false);
+		
+	}
+	
+
 }
 
 

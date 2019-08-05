@@ -206,10 +206,14 @@ public class FoodController {
 		//댓글 리스트	
 			List<ReplyVo> replyList = foodService.replyList(food_seq);
 		
+			// 좋아요 누른사람들 리스트
+			List<MemberVo> likeMemberList = foodService.likeMemberList(food_seq);
+		System.out.println("likeMemberList" + likeMemberList.toString());
 			//model.addAttribute("allFoodDetail", allFoodDetail);  // 글 전체  
 			model.addAttribute("foodList", foodList); // 첫번째 사진을 포함한 디테일 글 
 			model.addAttribute("attachList", attachList); // 전체사진
 			model.addAttribute("replyList", replyList); // 댓글 리스트
+			model.addAttribute("likeMemberList", likeMemberList); // 좋아요 누른사람들 리스트
 			
 	
 	

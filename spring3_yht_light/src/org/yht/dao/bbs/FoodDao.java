@@ -13,6 +13,7 @@ import org.yht.domain.test01.FoodParam;
 import org.yht.domain.test01.FoodVo;
 import org.yht.domain.test01.JoinVo;
 import org.yht.domain.test01.LikeVo;
+import org.yht.domain.test01.MemberVo;
 import org.yht.domain.test01.ReplyVo;
 
 @Repository("FoodDao")
@@ -119,6 +120,8 @@ public class FoodDao {
 		return sqlSession.selectList("Food.replyList", food_seq);
 	}
 	
-
+	public List<MemberVo> likeMemberList(int food_seq){
+		return sqlSession.selectList("Food.likeMemberList", food_seq);
+	}
 
 }

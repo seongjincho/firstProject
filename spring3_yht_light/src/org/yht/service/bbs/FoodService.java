@@ -7,6 +7,7 @@ import org.yht.domain.test01.FoodParam;
 import org.yht.domain.test01.FoodVo;
 import org.yht.domain.test01.JoinVo;
 import org.yht.domain.test01.LikeVo;
+import org.yht.domain.test01.MemberVo;
 import org.yht.domain.test01.ReplyVo;
 
 public interface FoodService {
@@ -26,6 +27,7 @@ public interface FoodService {
 	public List<ReplyVo> replyList(int food_seq);
 	public void updateFood(FoodVo vo) throws Exception;
 	public boolean deleteFood(int food_seq);
+	public List<MemberVo> likeMemberList(int food_seq);
 
 	
 }

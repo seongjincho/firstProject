@@ -12,6 +12,7 @@ import org.yht.domain.test01.FoodParam;
 import org.yht.domain.test01.FoodVo;
 import org.yht.domain.test01.JoinVo;
 import org.yht.domain.test01.LikeVo;
+import org.yht.domain.test01.MemberVo;
 import org.yht.domain.test01.ReplyVo;
 import org.yht.service.bbs.FoodService;
 
@@ -132,6 +133,13 @@ public class FoodServiceImpl implements FoodService {
 		return foodDao.deleteFood(food_seq);
 	}
 
+	@Override
+	public List<MemberVo> likeMemberList(int food_seq) {
+		
+		return foodDao.likeMemberList(food_seq);
+	}
+
+	
 	
 	
 
