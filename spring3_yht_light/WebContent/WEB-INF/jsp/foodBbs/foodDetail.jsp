@@ -270,7 +270,7 @@ insertIcon(${foodList.join_cnt },${foodList.total_cnt });
 
 function joinSharing() {
 	
-	alert("참여");
+	//alert("참여");
 	var id = $("#id").val();
 	var food_seq = $("#food_seq").val();
 	var joinBtn = $("#joinBtn").val();
@@ -281,21 +281,19 @@ function joinSharing() {
 	
 	if(id == ""){
 		
-	
-	if(confirm("로그인 후 이용해주세요 로그인 하시겠습니까 ?") == true){
-		
-		location.href="login.do";
-		
-		}else {
+		if(confirm("로그인 후 이용해주세요 로그인 하시겠습니까 ?") == true){
 			
-			return;
+			location.href="login.do";
 			
-		}
-		
+			}else {
+				
+				return;
+				
+			}
+			
 	}else{
 		
-			
-		alert("join ajax 진입");
+		//alert("join ajax 진입");
 		
 		$.ajax({
 			url:"getJoin.do",
@@ -481,7 +479,7 @@ $("#headLine .wish_icon").on("click", function(event) {
 									
 								}else{
 									
-								//	alert("좋아요삭제 ajax 실패");
+								alert("좋아요 삭제  실패");
 						
 									
 								}
@@ -512,17 +510,9 @@ $("#headLine .wish_icon").on("click", function(event) {
 
 
 function joinList() {
+	
 	alert("참여자 목록 보기");
 	var food_seq = $("#food_seq").val();
-
-	// window.open('food_joinlist.do?food_seq=' + food_seq, 'width=600,height=600', 'scrollbars=yes');
-	var popupX = (window.screen.width / 2) - (600 / 2);
-	// 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
-	
-	var popupY= (window.screen.height / 2) - (600 / 2);
-	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-	
-	//window.open('food_joinlist.do?food_seq=' + food_seq, 'scrollbars=yes', 'status=no, height=600, width=600, left='+ popupX + ', top='+ popupY);
 	location.href = "food_joinlist.do?food_seq=" + food_seq;
 }
 
@@ -530,8 +520,18 @@ function joinList() {
 function goUpdate() {
 	var food_seq = $("#food_seq").val();
 	var id = $("#id").val();
-	alert("수정!");
-	location.href = "updateFood.do?food_seq=" + food_seq + "&id=" + id;
+	//alert("수정!");
+	
+	if(confirm("수정 하시겠습니까 ?") == true){
+		
+		location.href = "updateFood.do?food_seq=" + food_seq + "&id=" + id;
+		
+	}else {
+		
+		return;
+		
+	}
+	
 }	
 
 function goDelete() {
@@ -539,33 +539,44 @@ function goDelete() {
 	//alert("삭제");
 	var food_seq = $("#food_seq").val();
 	
-	$.ajax({
+	if(confirm("정말 삭제 하시겠습니까?") == true) {
 		
-		url:"deleteFood.do",
-		type:"post",
-		data:{ food_seq:food_seq },
-		success:function(data){
-			//alert("성공");
+		$.ajax({
 			
-			if(data.trim() == "OK"){
+			url:"deleteFood.do",
+			type:"post",
+			data:{ food_seq:food_seq },
+			success:function(data){
+				//alert("성공");
 				
-				alert("게시물 삭제 성공!");
-				location.href = "foodBbsList.do";
+				if(data.trim() == "OK"){
+					
+					alert("게시물 삭제 성공!");
+					location.href = "foodBbsList.do";
+					
+				}else {
+					
+					alert("게시물 삭제 실패!");
+					
+				}
 				
-			}else {
+			},
+			error:function(r, s, err){
 				
-				alert("게시물 삭제 실패!");
+				alert("error");
 				
 			}
-			
-		},
-		error:function(r, s, err){
-			
-			alert("error");
-			
-		}
+		
+		});
 	
-	});
+	}else {
+		
+		return;
+		
+	}
+	
+	
+	
 	
 }
 

@@ -168,7 +168,7 @@ function goUpdate() {
 }
 
 function goBack() {
-	alert("목록으로 !");
+	//alert("목록으로 !");
 	location.href = "mypage_admin.do";
 }
 

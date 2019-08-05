@@ -108,17 +108,6 @@
 function titleclick( food_seq ) {
 	var id = $("#id").val();
 	
-	//screen.width : 현재 운영체제의 너비
-	//screen.height : 현재 운영체제의 높이
-	w = 1300; //팝업창의 너비
-	h = 600; //팝업창의 높이
-
-	//중앙위치 구해오기
-	var LeftPosition = (screen.width-1300)/2;
-	var TopPosition = (screen.height-600)/2;
-	 
-/* 	window.open('detailFood.do?food_seq=' + food_seq + '&id=' + id,'Food Sharing','width=1300,height=600',
-			'top=' + TopPosition,'left=' + LeftPosition , 'scrollbars=yes'); */
 	location.href = 'detailFood.do?food_seq=' + food_seq + '&id=' + id;
 }
 
@@ -160,12 +149,6 @@ function goDel( food_seq ) {
 		
 	}
 }	
-
-
-
-
-
-
 
 </script>
 

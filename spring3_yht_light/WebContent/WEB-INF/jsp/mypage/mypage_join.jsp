@@ -157,11 +157,5 @@ function goDel( food_seq ) {
 	}
 }	
 
-
-
-
-
-
-
 </script>
 
