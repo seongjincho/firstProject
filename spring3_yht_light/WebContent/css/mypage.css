@@ -666,3 +666,144 @@ ul.social-buttons li a {
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
   background-color: #fed136;
 }
+
+
+#footer {
+	clear: both;
+	margin: 0 auto;
+	padding: 30px 0 15px 0;
+	text-align: center
+}
+
+#footer * {
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	color: #333
+}
+
+#footer a {
+	text-decoration: none;
+	color: #333
+}
+
+#footer a:visited {
+	text-decoration: none;
+	color: #666
+}
+
+#footer a:hover {
+	text-decoration: underline
+}
+
+#footer ul {
+	margin: 0 0 9px 0
+}
+
+#footer ul li {
+	font-size: 12px;
+	position: relative;
+	display: inline;
+	padding: 0 3px 0 7px;
+	white-space: nowrap;
+	background:
+		url(https://static.nid.naver.com/images/join/pc/bu_bar_2x.gif) left
+		50% no-repeat;
+	-webkit-background-size: 1px 10px;
+	background-size: 1px 10px
+}
+
+#footer ul li:first-child {
+	background: 0 0
+}
+
+#footer ul li a:hover, #footer ul li a:hover strong {
+	color: #438a01
+}
+
+#footer ul li.first {
+	padding: 0 3px 0 0;
+	background: 0 0
+}
+
+#footer .info {
+	font-size: 11px;
+	line-height: 15px;
+	margin: 0 0 11px 0;
+	color: #7e7e7e
+}
+
+#footer .info2 {
+	font-size: 11px;
+	line-height: 18px;
+	margin: -3px 0 13px 0
+}
+
+#footer .info2 span {
+	font-size: 11px;
+	display: inline-block;
+	margin-left: 2px;
+	padding-left: 7px;
+	background:
+		url(https://static.nid.naver.com/images/join/pc/bu_bar_2x.gif) left
+		50% no-repeat;
+	-webkit-background-size: 1px 10px;
+	background-size: 1px 10px
+}
+
+#footer address {
+	font: 9px/14px Verdana
+}
+
+#footer address a {
+	font: 700 9px Verdana;
+	color: #333
+}
+
+#footer address a:hover {
+	color: #2db400
+}
+
+#footer address span {
+	font: 9px/14px Verdana;
+	padding-left: 2px
+}
+
+#footer address em {
+	font: 9px verdana;
+	padding-left: 4px
+}
+
+#footer address .logo {
+	position: relative;
+	display: inline-block;
+	width: 63px;
+	height: 11px;
+	background:
+		url(../images/foodicon.png)
+		no-repeat;
+	background-position: 0 0;
+	-webkit-background-size: 63px 11px;
+	background-size: 63px 11px;
+	*top: 1px
+}
+
+:root #footer address .logo {
+	top: 2px;
+	margin-left: 1px
+}
+
+#footer address .u_cri {
+	display: none;
+	margin: 0;
+	padding-left: 1px;
+	font-size: 12px
+}
+
+#footer address .bar, html[lang=en] #footer .footer_none, html[lang=zh-Hans] #footer .footer_none,
+	html[lang=zh-Hant] #footer .footer_none {
+	display: none
+}

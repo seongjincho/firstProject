@@ -229,7 +229,7 @@ div[tabindex='-1'] {
 	width: 63px;
 	height: 11px;
 	background:
-		url(https://static.nid.naver.com/images/join/pc/ci_naver.gif)
+		url(../images/foodicon.png)
 		no-repeat;
 	background-position: 0 0;
 	-webkit-background-size: 63px 11px;
@@ -399,7 +399,7 @@ select::-ms-expand {
 	height: 44px;
 	margin: 0 auto;
 	background:
-		url(https://static.nid.naver.com/images/ui/login/pc_sp_login_170424.png)
+		url(../images/foodicon.png)
 		no-repeat;
 	background-position: -1px -1px;
 	-webkit-background-size: 460px auto;

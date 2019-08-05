@@ -53,10 +53,10 @@
 <div class="article">
     <h3 class="article__title">다양한 Food Sharing 서비스를 즐겨보세요.</h3>
     <p class="article__text">
-        Food Sharing는 <a href="https://www.FoodSharing.com/" target="_blank">www.FoodSharing.com</a>을 비롯한 Food Sharing 도메인의 웹사이트 및 응용프로그램(어플리케이션, 앱)을 통해 정보 검색,
+        Food Sharing는 <a href="main.do" target="_blank">www.FoodSharing.com</a>을 비롯한 Food Sharing 도메인의 웹사이트 및 응용프로그램(어플리케이션, 앱)을 통해 정보 검색,
         다른 이용자와의 커뮤니케이션, 콘텐츠 제공, 상품 쇼핑 등 여러분의 생활에 편리함을 더할 수 있는 다양한 서비스를 제공하고 있습니다.<br>
         여러분은 PC, 휴대폰 등 인터넷 이용이 가능한 각종 단말기를 통해 각양각색의 Food Sharing 서비스를 자유롭게 이용하실 수 있으며,
-        개별 서비스들의 구체적인 내용은 각 서비스 상의 안내, 공지사항, <a href="https://help.FoodSharing.com/support/home.nhn" target="_blank">Food Sharing 웹고객센터(이하 ‘고객센터’)</a> 도움말 등에서 쉽게 확인하실 수 있습니다.
+        개별 서비스들의 구체적인 내용은 각 서비스 상의 안내, 공지사항, <a href="#none">Food Sharing 웹고객센터(이하 ‘고객센터’)</a> 도움말 등에서 쉽게 확인하실 수 있습니다.
     </p>
     <p class="article__text">
         Food Sharing는 기본적으로 여러분 모두에게 동일한 내용의 서비스를 제공합니다.
@@ -76,7 +76,7 @@
         Food Sharing는 이에 대한 승낙을 통해 회원 가입 절차를 완료하고 여러분께 Food Sharing 서비스 이용 계정(이하 ‘계정’)을 부여합니다.
         계정이란 회원이 Food Sharing 서비스에 로그인한 이후 이용하는 각종 서비스 이용 이력을 회원 별로 관리하기 위해 설정한 회원 식별 단위를 말합니다.
         회원은 자신의 계정을 통해 좀더 다양한 Food Sharing 서비스를 보다 편리하게 이용할 수 있습니다.
-        이와 관련한 상세한 내용은 <em>계정 운영정책</em> 및 고객센터 내 <a href="https://help.FoodSharing.com/support/contents/contents.nhn?serviceNo=532&categoryNo=1441" target="_blank">Food Sharing 회원가입 방법</a> 등에서 확인해 주세요.
+        이와 관련한 상세한 내용은 <em>계정 운영정책</em> 및 고객센터 내 <a href="#none">Food Sharing 회원가입 방법</a> 등에서 확인해 주세요.
     </p>
     <p class="article__text">
         Food Sharing는 단체에 속한 여러 구성원들이 공동의 계정으로 Food Sharing 서비스를 함께 이용할 수 있도록 단체회원 계정도 부여하고 있습니다.
@@ -88,7 +88,7 @@
     </p>
     <p class="article__text">
         단체회원 계정 사용에서의 관리자, 멤버 등의 권한 및 (공동)책임에 관한 사항 등은 <em>계정 운영정책</em> 및
-        고객센터 내 <a href="https://help.FoodSharing.com/support/contents/contents.nhn?serviceNo=532&categoryNo=16952" target="_blank">Food Sharing 단체회원(단체 아이디) 소개</a> 등에서 확인해 주시기 바랍니다.
+        고객센터 내 <a href="#none">Food Sharing 단체회원(단체 아이디) 소개</a> 등에서 확인해 주시기 바랍니다.
     </p>
 </div>
 <div class="article">
@@ -130,7 +130,7 @@
     <p class="article__text">
         Food Sharing는 서비스의 원활한 제공을 위하여 회원이 동의한 목적과 범위 내에서만 개인정보를 수집∙이용하며, 개인정보 보호 관련 법령에 따라 안전하게 관리합니다.
         Food Sharing가 이용자 및 회원에 대해 관련 개인정보를 안전하게 처리하기 위하여 기울이는 노력이나
-        기타 상세한 사항은 <a href="http://policy.FoodSharing.com/policy/privacy.html" target="_blank">개인정보 처리방침</a>에서 확인하실 수 있습니다.
+        기타 상세한 사항은 <a href="privacy.do" target="_blank">개인정보 처리방침</a>에서 확인하실 수 있습니다.
     </p>
     <p class="article__text">
         Food Sharing는 여러분이 서비스를 이용하기 위해 일정 기간 동안 로그인 혹은 접속한 기록이 없는 경우, 전자메일, 서비스 내 알림 또는 기타 적절한 전자적 수단을 통해 사전에 안내해 드린 후 여러분의 정보를 파기하거나 분리 보관할 수 있으며,
@@ -143,8 +143,8 @@
         여러분이 무심코 게재한 게시물로 인해 타인의 저작권이 침해되거나 명예훼손 등 권리 침해가 발생할 수 있습니다.
         Food Sharing는 이에 대한 문제 해결을 위해 ‘정보통신망 이용촉진 및 정보보호 등에 관한 법률’ 및 ‘저작권법’ 등을
         근거로 권리침해 주장자의 요청에 따른 게시물 게시중단, 원 게시자의 이의신청에 따른 해당 게시물 게시 재개 등을 내용으로 하는
-        <a href="https://inoti.FoodSharing.com/inoti/main.nhn" target="_blank">게시중단요청서비스</a>를 운영하고 있습니다.
-        보다 상세한 내용 및 절차는 고객센터 내 <a href="https://help.FoodSharing.com/support/contents/contents.nhn?serviceNo=958&categoryNo=3423" target="_blank">게시중단요청서비스 소개</a>를 참고해 주세요.
+        <a href="#none">게시중단요청서비스</a>를 운영하고 있습니다.
+        보다 상세한 내용 및 절차는 고객센터 내 <a href="#none" >게시중단요청서비스 소개</a>를 참고해 주세요.
     </p>
     <p class="article__text">
         한편, Food Sharing 서비스를 통해 타인의 콘텐츠를 이용한다고 하여 여러분이 해당 콘텐츠에 대한 지식재산권을 보유하게 되는 것은 아닙니다.
@@ -154,7 +154,7 @@
     <p class="article__text">
         Food Sharing는 여러분이 Food Sharing 서비스를 마음껏 이용할 수 있도록 여러분께 Food Sharing 서비스에 수반되는 관련 소프트웨어 사용에 관한 이용 권한을 부여합니다.
         이 경우 여러분의 자유로운 이용은 Food Sharing가 제시하는 이용 조건에 부합하는 범위 내에서만 허용되고, 이러한 권한은 양도가 불가능하며,
-        비독점적 조건 및 <a href="http://policy.FoodSharing.com/policy/disclaimer.html" target="_blank">법적고지</a>가 적용된다는 점을 유의해 주세요.
+        비독점적 조건 및 <a href="#none">법적고지</a>가 적용된다는 점을 유의해 주세요.
     </p>
 </div>
 <div class="article">
@@ -560,7 +560,7 @@
 								<ul class="sections">
 									<li class="sections__section">상호: Food Sharing 주식회사</li>
 									<li class="sections__section">주소: 경기도 성남시 분당구 불정로 1231 Food Sharing (****-***) </li>
-									<li class="sections__section">전화번호: 1588-3820</li>
+									<li class="sections__section">전화번호: 1588-****</li>
 									<li class="sections__section">이메일 주소: FoodSharingcc@FoodSharing.com</li>
 								</ul>
 							</div>
@@ -589,7 +589,7 @@
                     <!-- //약관동의 -->
 
                     <a name='agreeBottom'></a>
-                    <div class="btn_area double" style="width: 30%; margin-left: 30%; margin-right: 30%; margin-bottom: 10%;">
+                    <div class="btn_area double" style="width: 30%; margin-left: 35%; margin-right: 35%; margin-bottom: 10%;">
                         <span><a href="#" id="btnCancel" class="btn_type btn_default" role="button">취소</a></span>
                         <span><a href="#" id="btnAgree" class="btn_type btn_primary" role="button">확인</a></span>
                     </div>
@@ -685,6 +685,23 @@ function submitDisagree() {
 }
  
  </script>
+ 
+
+	<!-- footer -->
+	<div id="footer" role="contentinfo">
+		<ul>
+			<li><a href="privacy1.do">이용약관</a></li>
+			<li><strong><a href="privacy2.do">개인정보처리방침</a></strong></li>	
+		</ul>
+		<address>
+			<em><a href="main.do" target="_blank" class="logo"><span class="blind">FoodSharing</span></a></em>
+			<em class="copy">Copyright</em>
+			<em class="u_cri">&copy;</em>
+			<a href="#none" class="u_cra">Food Sharing Corp.</a>
+			<span class="all_r">All Rights Reserved.</span>
+		</address>
+	</div>
+	<!-- //footer --> 
     
 
 </body>

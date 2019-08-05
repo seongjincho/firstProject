@@ -156,10 +156,7 @@
           </div>
         </div>
                
- 		
- 		
-
-        
+     
 <%--                  
       <!--  //  -->
         <div class="col-md-4 col-sm-6 portfolio-item"> 
@@ -217,6 +214,23 @@
 	<!-- footer -->
 <%-- 	<jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
     --%>
+    
+    	<!-- footer -->
+	<div id="footer" role="contentinfo">
+		<ul>
+			<li><a href="privacy1.do">이용약관</a></li>
+			<li><strong><a href="privacy2.do">개인정보처리방침</a></strong></li>	
+		</ul>
+		<address>
+			<em><a href="main.do" target="_blank" class="logo"><span class="blind">FoodSharing</span></a></em>
+			<em class="copy">Copyright</em>
+			<em class="u_cri">&copy;</em>
+			<a href="#none" class="u_cra">Food Sharing Corp.</a>
+			<span class="all_r">All Rights Reserved.</span>
+		</address>
+	</div>
+	<!-- //footer --> 
+    
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
