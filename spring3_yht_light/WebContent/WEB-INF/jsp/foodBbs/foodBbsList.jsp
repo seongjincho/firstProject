@@ -56,7 +56,7 @@ $(document).ready(function () {
 		<th width="10%">모임날짜</th>
 		<th width="10%">작성일</th>
 		<th width="5%">조회수</th>
-		<th width="5%"><img title="좋아요 수" width="25px" height="25px" src="images/likeicon.png"></th>
+		<th width="5%"><img title="좋아요 수" width="25px" height="25px" src="images/likeicon2.png"></th>
 	</tr>
 </thead>
  <tbody>
