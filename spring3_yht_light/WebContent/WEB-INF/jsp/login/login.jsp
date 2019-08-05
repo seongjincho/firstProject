@@ -199,7 +199,7 @@ $('#_pwd').keypress(function(event){
 });
 
 $('#_btnRegi').click(function() {
-	location.href = "regi.do";
+	location.href = "regiBf.do";
 });
 
 $('#_findId').click(function() {

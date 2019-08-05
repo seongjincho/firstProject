@@ -192,7 +192,7 @@ $(document).ready(function() {
 	  
 	  <c:if test="${login.id==null}">
       	<input type="button" value="로그인"  class="logoutButton" onclick="location.href='login.do'">
- 	  	<input type="button" value="회원가입"  class="logoutButton" onclick="location.href='regi.do'">
+ 	  	<input type="button" value="회원가입"  class="logoutButton" onclick="location.href='regiBf.do'">
 	  
 	  </c:if>	
     </form>

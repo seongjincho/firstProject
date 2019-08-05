@@ -138,6 +138,15 @@ public class LoginController {
 		return mainPage;
 	}
 	
+	@RequestMapping(value="regiBf.do")
+	public String regiBf() throws Exception{
+		String regiPage = "login/regiBf";
+		
+		System.out.println("회원가입 창 ㄱㄱ");
+		
+		return regiPage;
+	}
+	
 	@RequestMapping(value="regi.do")
 	public String regi() throws Exception{
 		String regiPage = "login/regi";
@@ -146,6 +155,7 @@ public class LoginController {
 		
 		return regiPage;
 	}
+	
 	
 	@RequestMapping(value="regiAf.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String regiAf(MemberVo mem, Model model) throws Exception{
