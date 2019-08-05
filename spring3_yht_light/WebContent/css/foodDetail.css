@@ -182,11 +182,12 @@
 
 .btn_s_blue{
 	border: none;
-	background-color: #0051ba;
+	/* background-color: #0051ba; */
+	background-color: #C9302C;
 	color: #FFF;
 }
 .btn_s_blue:hover{
-	background-color: #0a3670
+	background-color: #c9302cde;
 }
 
 .btn_s_gray{
@@ -304,3 +305,40 @@
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
 	
+	
+.infor{  border-collapse:collapse; } 
+	
+.infor td, .infor th{
+	border-bottom :1px solid #EEEEEE;
+	height: 100px;
+	table-layout: fixed;
+	width: 100px;
+	vertical-align: middle;
+	font-size: 20px;
+	
+	
+}	
+
+.left_th{
+	text-align: right;
+}
+
+.bf{
+
+}
+
+.bf:hover{
+	
+	background: url(../images/joinIconAf2.png);
+}
+
+.af{
+	
+}
+
+.af:hover{
+	
+	background: url(../images/joinIconBf2.png); 
+}
+
+

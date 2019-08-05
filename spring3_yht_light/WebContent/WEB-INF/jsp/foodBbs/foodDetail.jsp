@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <fmt:requestEncoding value="utf-8"/>   
 <title>Food sharing</title>
 
@@ -16,6 +17,40 @@
 <jsp:include page="/WEB-INF/jsp/include/header.jsp" flush="false"/>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e95843617e74d0c3683cc8d8a73f71af&libraries=services,clusterer,drawing"></script>
+<script>
+function insertIcon(join_cnt, total_cnt ) {
+		
+		
+		var bf = "<img class='bf' src='images/joinIconBf2.png' />&nbsp;";
+		var af = "<img class='af' src='images/joinIconAf2.png' />&nbsp;";
+		var icon = "";
+		//alert("join_cnt: " + join_cnt + " total_cnt: " + total_cnt + " " + af + " " + bf);
+ 		var remain_cnt = total_cnt - join_cnt;
+		//alert(remain_cnt);
+			
+		for(var j=0; j < join_cnt; j++) {
+			
+			icon += af;
+
+		}
+		
+		
+/* 		icon += "/";  */
+		
+		for(i=0; i < remain_cnt; i++) {
+			
+			icon += bf;
+			
+		} 
+
+		
+		
+		//alert(icon);
+		 $("#insertIcon").append(icon);
+	
+}
+</script>
+
 
 <div class="mainImg" align="center">
 <h1 class="headtitle">제목:${foodList.title }</h1>
@@ -56,7 +91,7 @@ ${foodList.fullname }
 <div>
 
 
-<table>
+<table class="infor">
 <colgroup>
 	<col width="50%"/><col width="50%"/>
 </colgroup>
@@ -69,44 +104,49 @@ ${foodList.fullname }
 		</colgroup>
 
 		<tr>	
-			<th>글번호<hr><br></th> <td colspan="2" align="left">${foodList.food_seq } 
-			<input type="hidden" id="food_seq" name="food_seq" value="${foodList.food_seq } "><hr><br> </td>
+			<th class="left_th">글번호&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2" align="left">${foodList.food_seq } 
+			<input type="hidden" id="food_seq" name="food_seq" value="${foodList.food_seq } "> </td>
 		</tr>
 		
 		
 		<tr>	
-			<th>작성자<hr><br></th> <td colspan="2">${foodList.id }<hr><br></td>
+			<th class="left_th">작성자&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2">${foodList.id }</td>
 		</tr>
 			
 		<tr>	
-			<th>참가인원<hr><br></th> <td colspan="2">
+			<th class="left_th">참가인원&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2">
+			
+			<div id="insertIcon"></div>	
+			
 			<c:if test="${foodList.join_cnt < foodList.total_cnt}">
 				<font style="color: deepskyblue;">${foodList.join_cnt }</font><b>/</b>${foodList.total_cnt }명
+			
 			</c:if>
 			<c:if test="${foodList.join_cnt == foodList.total_cnt}">
 				<font style="color: red;">${foodList.join_cnt }</font><b>/</b>${foodList.total_cnt }명
 			</c:if>
 			<input type="hidden" id="join_cnt" name="join_cnt" value="${foodList.join_cnt } ">
 			<input type="hidden" id="total_cnt" name="total_cnt" value="${foodList.total_cnt } ">
-			<hr><br>
+			
+			
 			</td>
 		</tr>	
 		
 		<tr>	
-			<th>모임날짜<hr><br></th> <td colspan="2"><fmt:formatDate value="${foodList.meetingDay }" pattern="yyyy/MM/dd"/><hr><br></td>
+			<th class="left_th">모임날짜&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2"><fmt:formatDate value="${foodList.meetingDay }" pattern="yyyy/MM/dd"/></td>
 		</tr>
 		<tr>	
-			<th>작성일<hr><br></th> <td colspan="2"><fmt:formatDate value="${foodList.wdate }" pattern="yyyy/MM/dd"/><hr><br></td>
+			<th class="left_th">작성일&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2"><fmt:formatDate value="${foodList.wdate }" pattern="yyyy/MM/dd"/></td>
 		</tr>	
 		<tr>	
-			<th>좋아요 수<hr><br></th> <td colspan="2">${foodList.like_cnt }개<hr><br></td>
+			<th class="left_th">좋아요 수&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2">${foodList.like_cnt }개</td>
 		</tr>
 		<tr>	
-			<th>조회수<hr><br></th> <td colspan="2">${foodList.read_cnt }회<hr><br></td>
+			<th class="left_th">조회수&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2">${foodList.read_cnt }회</td>
 		</tr>	
 
 		<tr>	
-			<th>모임장소<hr><br></th> <td colspan="2">${foodList.local }<hr><br></td>
+			<th class="left_th">모임장소&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2">${foodList.local }</td>
 		</tr>		
 		<tr>		
 			<td colspan="3" align="center">
@@ -175,10 +215,7 @@ ${foodList.fullname }
 	&nbsp;&nbsp;&nbsp;
 	<button type="button" class="joinButton btn_s_gray btn_205" onclick="joinList()">참여자 보기</button>
 </c:if>
-
-
-							
-
+						
 </div>
 </div>
 </div>
@@ -192,6 +229,15 @@ ${foodList.fullname }
  
  <br><br>
 <div style="clear:both"></div>
+
+<script type="text/javascript">
+insertIcon(${foodList.join_cnt },${foodList.total_cnt });
+</script>
+			
+
+
+
+
 <%-- footer --%>
 <div>
  <jsp:include page="/WEB-INF/jsp/include/footer.jsp" flush="false"/>
@@ -739,4 +785,6 @@ function setZoomable(zoomable) {
 
 map.setZoomable(false);
 //map.setDraggable(false); 
+
+
  </script>

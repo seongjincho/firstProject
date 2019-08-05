@@ -48,17 +48,15 @@
 						<p onclick="checkAll(this)">
 							아이디 저장
 						</p>
-						<ul>
+						<ul style="margin-right: 5%;">
 							<li>
 								<a href="#none" id="_btnRegi" title="회원가입">회원가입</a>
-								&nbsp; | &nbsp;
+								<!-- &nbsp; | &nbsp; -->
 							</li>
-							<li>
+						<!-- 	<li>
 								<a href="#none" id="_findId">아이디 , 비밀번호 찾기</a>
-							</li>
-							<!-- <li>
-								<a href="#none" id="_findPwd" title="비밀번호찾기">비밀번호 찾기</a>
 							</li> -->
+
 						</ul>
 					</div>
 				</form>
@@ -73,8 +71,6 @@
 		</div>
 		
 		<%--reCaptcha --%>
-	    <!-- <div class="g-recaptcha" data-sitekey="6LdGebAUAAAAADkG-bxUYUW5qEvdIcelr78sXTe6"></div> -->
-    	<!-- <button type="button" class="btn_s_blue" onclick="goCaptcha()">제출</button> -->
 		<div class="g-recaptcha" data-sitekey="6Lcpe7AUAAAAAHYQ_Cf5MP9MR7aFt6feDnTgfKav"></div>
 
 
@@ -178,41 +174,7 @@ $('#_btnLogin').click(function() {
 		$('#_pwd').focus();
 		
 	} else {
-		
-/* 		var recaptcha = $("#g-recaptcha-response").val();
-		//alert(recaptcha);
-		
-	    $.ajax({
-	        url: "VerifyRecaptcha.do",
-	        type: "post",
-	        data: {recaptcha:recaptcha },
-	        success: function(data) {
-	        	
-		        //alert(data);
-		        
-		            switch (data) {
-		                case 0:
-		                    alert("자동 로그인 방지 봇 통과");
-		                    $('#_frmForm').attr("target", "_self").submit();
-		                    break;
-		
-		                case 1:
-		                    alert("자동 로그인 방지 봇을 확인 한뒤 진행 해 주세요.");
-		                    break;
-		
-		                default:
-		                    alert("자동 로그인 방지 봇을 실행 하던 중 오류가 발생 했습니다. [Error bot Code : " + Number(data) + "]");
-		                    break;
-		            }
-	        },
-			error:function(r, s, err){
-				
-				alert("error");
-				
-			}
-			
-		
-	    }); */
+		//version 3 goole recaptcha
 	    grecaptcha.ready(function() {
 	        grecaptcha.execute('6Lcpe7AUAAAAAHYQ_Cf5MP9MR7aFt6feDnTgfKav', {action: 'homepage'});
 	        alert(token);

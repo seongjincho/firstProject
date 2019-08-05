@@ -42,10 +42,10 @@
 											<li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
 										</ul>
 										<c:if test="${not empty joinList }">
-										<button type="button" class="btn btn-success green" onclick="replyInsert()"><i class="fa fa-share"></i>등록</button>
+										<button type="button" class="btn btn-danger" onclick="replyInsert()"><i class="fa fa-share"></i>등록</button>
 										</c:if>
 										<c:if test="${empty joinList }">
-										<button type="submit" class="btn btn-success green" disabled="disabled"><i class="fa fa-share"></i>등록</button>
+										<button type="submit" class="btn btn-danger" disabled="disabled"><i class="fa fa-share"></i>등록</button>
 										</c:if>
 									</form>
 								</div><!-- Status Upload  -->
