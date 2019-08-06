@@ -314,7 +314,7 @@ function joinSharing() {
 								
 								if(data.trim() == "OK"){
 							 
-									alert("참여완료!");
+									alert("참여완료! 댓글을 작성하여 게시자에게 모임참여를 알려주세요. ");
 									location.reload();
 									
 								}else {
