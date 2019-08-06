@@ -76,7 +76,7 @@
 <td>후원횟수 <br><br><td><b>&nbsp;&nbsp;&nbsp;${donationListSize }회</b><br><br></td>
 </tr>
 <tr>
-<td>총 기부금<br><br> </td>
+<td>총 후원금<br><br> </td>
 <td><b>&nbsp;&nbsp;&nbsp;\
 <c:if test="${not empty myTotalDonation }">${myTotalDonation }</c:if>
 <c:if test="${empty myTotalDonation }">0</c:if>

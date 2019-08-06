@@ -39,7 +39,7 @@ $(document).ready(function(){
 <body>
 
 <div class="mainImg" align="center">
-<h1 class="headtitle">Donation <%-- 총 기부액:
+<h1 class="headtitle">Donation <%-- 총 후원액:
 <c:if test="${not empty totalDonation }">\ ${totalDonation }&nbsp;원</c:if>
 <c:if test="${empty totalDonation }">\0&nbsp;원</c:if> --%>
 </h1>
@@ -70,18 +70,18 @@ $(document).ready(function(){
 						<hr>		
 					</div>
 					<div class="donation">
-						&nbsp;&nbsp;&nbsp;<input type="text" maxlength="5" name="donation" id="donation"  placeholder="기부금액을  입력해주세요">
+						&nbsp;&nbsp;&nbsp;<input type="text" maxlength="5" name="donation" id="donation"  placeholder="후원금액을  입력해주세요">
 						<hr>
 					</div>
 					<div class="donation">						
 						
-						<b>\&nbsp;&nbsp;&nbsp;<input type="text" maxlength="5" id="donation2" placeholder="10만원 미만 기부 가능" >원</b>
+						<b>\&nbsp;&nbsp;&nbsp;<input type="text" maxlength="5" id="donation2" placeholder="10만원 미만 후원 가능" >원</b>
 						<hr>
 					</div>
 				</div>
 				<div align="center">
 					<button type="button" class="btn_s_blue btn_150" onclick="payment()">
-						기부하기
+						후원하기
 					</button>
 					&nbsp;&nbsp;
 					<button type="button" class="btn_s_gray btn_150" onclick="location.href='main.do'">
@@ -110,7 +110,7 @@ function payment() {
 	var donation = $("#donation").val();
 	var name = $("#name").val();
 	var phone = $("#phone").val();
-	//alert("id: " + id + " 기부금액: " + donation + " 연락처: " + phone );
+	//alert("id: " + id + " 후원금액: " + donation + " 연락처: " + phone );
 	
 	if(donation == ""){
 		
@@ -160,7 +160,7 @@ function payment() {
 	}
 }
 
-/* 기부액 second로 전달   */
+/* 후원액 second로 전달   */
 $("#donation").keyup(function(){
 	//alert("도네이션!");
 	var donation = $(this).val();
@@ -177,7 +177,7 @@ $("#donation").keyup(function(){
 		
 	} else{
 		
-		//alert("기부금액은 숫자를 입력해주세요");
+		//alert("후원금액은 숫자를 입력해주세요");
 		$('#donation').val("");
 		return false;
 		
