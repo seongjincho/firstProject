@@ -4,15 +4,15 @@
  	left: 25%;
  	
    }
-  
+
  /* 첨부파일을 드래그할 영역의 스타일 */
    
 .fileDrop {
   position: relative;
   width: 600px; 
   height: 132.79px;
-  background-color: #eceeef;
-  border : 2px dashed #343a409c;
+  background-color: #F8D7DA;
+  border : 2px solid #343a409c;
   margin: 66.40px 0;
   box-shadow: 0 0 0px rgba(0,0,0,0.7);
 }
@@ -31,7 +31,7 @@
 }
 
 .dragment{
-	font-family: 'aritadm' !important;
+	/* font-family: 'aritadm' !important; */
 	left: 15%;
 	top: 40%;
 	position: absolute;
