@@ -132,7 +132,7 @@ function goUpdate() {
 		
 	}
 	
-	alert(pwd);
+	//alert(pwd);
 	
 //	$("#updateFrm").submit();
 
@@ -169,7 +169,8 @@ function goUpdate() {
 
 function goBack() {
 	//alert("목록으로 !");
-	location.href = "mypage_admin.do";
+	opener.parent.location.reload();
+	window.close();
 }
 
 </script>

@@ -88,7 +88,7 @@
                   //	 str = "<div><a href='displayFile.do?fileName="+getImageLink(data)+"'>";        
                   //	str += "<img src='displayFile.do?fileName="+data+"'></a>";  
                   	//str = "<div><a href='displayFile.do?fileName="+getImageLink(data)+"' target='_blank'>"; 
-                  	str = "<div><img src='displayFile.do?fileName="+data+"'>  <br>";  
+                  	str = "<div><img src='displayFile.do?fileName="+data+"'>";  
                    // str += "<div><img src='displayFile.do?fileName="+data+"'>";  
                      
                      // hidden 태그 추가
@@ -97,7 +97,7 @@
                      
                   // 일반파일이면 다운로드링크
                   }else {
-                     str = "<div><a href='displayFile.do?fileName="+data+"'>"+getOriginalName(data)+"</a> <br>";
+                     str = "<div><a href='displayFile.do?fileName="+data+"'>"+getOriginalName(data)+"</a>";
                 //     str += "<input type='hidden' name='files' value='"+fileInfo.fullName+"'>";
                   }
                   // 삭제 버튼

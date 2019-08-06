@@ -103,13 +103,12 @@ ${foodList.fullname }
 			<col width="30%"/> <col width="30%"/><col width="30%"/>
 		</colgroup>
 		
-		<c:if test="${login.auth >= 3 }">
+		<c:if test="${login.id == foodList.id || login.auth > 3 }">	
 		<tr>	
 			<th class="left_th">글번호&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2" align="left">${foodList.food_seq } 
 			<input type="hidden" id="food_seq" name="food_seq" value="${foodList.food_seq } "> </td>
 		</tr>
 		</c:if>
-		
 		<tr>	
 			<th class="left_th">작성자&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2">${foodList.id }</td>
 		</tr>
@@ -305,7 +304,7 @@ function joinSharing() {
 					
 					if(join_cnt < total_cnt){ // 이때만 가능 
 					
-					if(confirm("모임에 참여 하시겠습니까 ?") == true){
+					if(confirm("참여를 하시면 참여자 정보에 이름,이메일,전화 번호등 개인정보가 작성자에게 노출 됩니다. 그래도 모임에 참여 하시겠습니까 ?") == true){
 						
 			 			$.ajax({
 							url:"joinInsert.do",
@@ -521,7 +520,7 @@ function goUpdate() {
 	var food_seq = $("#food_seq").val();
 	var id = $("#id").val();
 	//alert("수정!");
-	
+	alert("food_seq: " + food_seq + " id:" + id);
 	if(confirm("수정 하시겠습니까 ?") == true){
 		
 		location.href = "updateFood.do?food_seq=" + food_seq + "&id=" + id;

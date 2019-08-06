@@ -89,7 +89,7 @@
  <c:if test="${reply.depth == 0 }">
   댓글번호 : <b>${vs.count }</b>&nbsp; / &nbsp; <b><a href="#none" onclick="showReReply( ${vs.count } )">
   </c:if>
-  ${reply.id }
+  ${reply.id }(<b style="color: deepskyblue;"><c:if test="${reply.id == foodList.id }">작성자</c:if><c:if test="${reply.id != foodList.id }">참여자</c:if></b>)
 <input type="hidden" id="showReReply${vs.count }" name="showReReply${vs.count }" value="false"></a></b> 
 &nbsp; <fmt:formatDate value="${reply.wdate }" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;&nbsp;	
 <c:if test="${reply.id == login.id || login.auth >= 3 }">
@@ -333,7 +333,7 @@ function reReply( count ) {
 	alert("답글 등록시도!");
 	
     var reReplyData = $("form[name=reReplyFrm" + count + "]").serialize() ;
-	alert(reReplyData);
+	//alert(reReplyData);
 	
 	   $.ajax({
 	        type : 'post',

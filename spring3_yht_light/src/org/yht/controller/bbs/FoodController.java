@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -98,10 +99,13 @@ public class FoodController {
 	}
 	
 	@RequestMapping(value = "updateFood.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String updateFood(FoodVo vo, Model model) {
+	public String updateFood(FoodVo vo, BindingResult error, Model model) {
 		System.out.println("업데이트 뷰로 이동");
 		
-		int food_seq = vo.getFood_seq();
+		//int food_seq = vo.getFood_seq();
+		Integer food_seq = new Integer( vo.getFood_seq() );
+	
+		
 		List<FoodVo> allFoodDetail = foodService.detailFood(food_seq);
 		
 		System.out.println(allFoodDetail.toString());
