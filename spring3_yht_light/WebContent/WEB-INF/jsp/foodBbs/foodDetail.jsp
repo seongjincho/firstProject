@@ -103,12 +103,12 @@ ${foodList.fullname }
 			<col width="30%"/> <col width="30%"/><col width="30%"/>
 		</colgroup>
 		
-		<c:if test="${login.id == foodList.id || login.auth > 3 }">	
+			
 		<tr>	
 			<th class="left_th">글번호&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2" align="left">${foodList.food_seq } 
 			<input type="hidden" id="food_seq" name="food_seq" value="${foodList.food_seq } "> </td>
 		</tr>
-		</c:if>
+		
 		<tr>	
 			<th class="left_th">작성자&nbsp;&nbsp;&nbsp;&nbsp;</th> <td colspan="2">${foodList.id }</td>
 		</tr>
@@ -227,10 +227,12 @@ ${foodList.fullname }
 <c:if test="${empty joinList }">
 	<button type="button" value="false" id="joinBtn" class="joinButton btn_s_gray btn_205" onclick="joinSharing()">참여</button>	
 </c:if>
-<c:if test="${not empty joinList }">
+<c:if test="${not empty joinList}">
 	<button type="button" value="false"  class="joinButton btn_s_blue btn_205" onclick="joinSharing()">참여중/참여취소</button>	
 	&nbsp;&nbsp;&nbsp;
+	<c:if test="${(login.id == foodList.id || login.auth >= 3 )  }">
 	<button type="button" class="joinButton btn_s_gray btn_205" onclick="joinList()">참여자 보기</button>
+	</c:if>
 </c:if>
 						
 </div>
