@@ -522,7 +522,7 @@ function goUpdate() {
 	var food_seq = $("#food_seq").val();
 	var id = $("#id").val();
 	//alert("수정!");
-	alert("food_seq: " + food_seq + " id:" + id);
+	//alert("food_seq: " + food_seq + " id:" + id);
 	if(confirm("수정 하시겠습니까 ?") == true){
 		
 		location.href = "updateFood.do?food_seq=" + food_seq + "&id=" + id;

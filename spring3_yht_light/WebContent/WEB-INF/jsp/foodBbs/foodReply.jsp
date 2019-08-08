@@ -330,7 +330,7 @@ function showReReply( count ){
 }
 
 function reReply( count ) {
-	alert("답글 등록시도!");
+	//alert("답글 등록시도!");
 	
     var reReplyData = $("form[name=reReplyFrm" + count + "]").serialize() ;
 	//alert(reReplyData);
